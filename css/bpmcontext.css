@@ -1,0 +1,616 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.f-dropdown{
+    max-height:15em;
+    overflow:auto;
+    overflow-x:hidden;
+}
+
+.bpm_context_list{
+    max-height:30em;
+}
+
+.bpm_tree_row{
+    padding-top:2px;
+    padding-bottom: 2px;
+}
+
+.bpm_side_nav_item{
+    font-size: .9em;
+    white-space: nowrap;
+}
+
+.button{
+    color:white !important;
+}
+.bpm_ul_li {
+    list-style-type: none;
+    margin:0 !important;
+}
+
+body .ui-autocomplete {
+    /* font-family to all */
+    background-color: white;
+    border: solid 1px black;
+}
+
+.tabs dd.active, .tabs li.active {
+    border-top: 3px solid #2ba6cb;
+    margin-top: -3px;
+}
+
+.side-nav dd.active, .side-nav li.active {
+    border-left: 3px solid #2ba6cb;
+    margin-left: 3px;
+}
+
+input[type="text"] {
+    padding: 0 !important;
+    padding-left: .25em !important;
+}
+
+.ui-autocomplete {
+    max-height: 19em;
+    max-width: 15em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.bpm_dropzone {
+    border: dashed 1px #008cba;
+    height: 310px;
+    width: 100%;
+}
+
+.bpm_strikethrough {
+    text-decoration: line-through;
+}
+
+.bpm_new_account_field {
+    width: 400px;
+}
+
+ul.tabs {
+    text-align: center;
+}
+
+ul.tabs li {
+    float: left !important;
+    display: inline-block;
+}
+
+.tree,
+.tree ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #008cba !important;
+}
+
+.tree ul {
+    margin-left: 1em; /* indentation */
+    position: relative;
+}
+
+.tree ul ul {
+    margin-left: .5em
+}
+
+/* (indentation/2) */
+
+.tree a {
+    color: #008cba !important;
+    font-size: .75em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tree ul:before {
+    content: "";
+    display: block;
+    width: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid;
+}
+
+.tree li {
+    margin: 0;
+    padding: 0 1.5em; /* indentation + .5em */
+    line-height: 2em; /* default list item's `line-height` */
+    color: #008cba !important;
+    position: relative;
+}
+
+.tree ul li:before {
+    content: "";
+    display: block;
+    width: 10px; /* same with indentation */
+    height: 0;
+    border-top: 1px solid;
+    margin-top: -1px; /* border top width */
+    position: absolute;
+    top: 1em; /* (line-height/2) */
+    left: 0;
+    color: #008cba !important;
+}
+
+.tree ul li:last-child:before {
+    background: white; /* same with body background */
+    height: auto;
+    top: 1em; /* (line-height/2) */
+    bottom: 0;
+    color: #008cba !important;
+}
+
+.bpm_left_modal {
+    max-height: 25em;
+    min-height: 25em;
+    overflow-y: auto;
+}
+
+.bpm_text_medium {
+    font-size: .8em;
+}
+
+.bpm_tutorial_text {
+    font-size: .9em;
+}
+
+.bpm_editable {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.bpm_talat_message {
+    width: 100%;
+    font-size: .75em;
+}
+
+.bpm-green {
+    color: green;
+}
+
+.bpm_editing {
+    line-height: .75em;
+}
+
+.bpm_content_area {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.row.full-width {
+    max-width: 100%;
+}
+
+.bpm_content {
+    position: relative;
+    top: 40;
+    left: 100;
+    clear: none;
+}
+
+.bpm_talat_user {
+    border: solid 1px lightgray;
+    margin-right: .5em;
+    padding-left: .2em;
+    padding-right: .2em;
+}
+
+.bpm_bold {
+    font-weight: bold;
+}
+
+.bpm_infobox_setup {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.bpm_infobox_all {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.bpm_links {
+    color: #008cba !important;
+}
+
+.bpm_blue {
+    background: #008cba !important;
+}
+
+.bpm_links_section {
+    min-height: 250px;
+}
+
+.bpm_main_content {
+    margin-bottom: 30px;
+}
+
+.bpm_width_half {
+    width: 50 !important;
+}
+
+.bpm_file_bottom_border {
+    border-bottom: solid 1px lightgray;
+}
+
+.bpm_file_tree {
+    height: 250px;
+    border: solid 1px lightgray;
+    width: 18%;
+    float: left;
+    clear: none;
+    margin-top: 3px;
+    overflow: auto;
+}
+
+.bpm_versions_button {
+    font-size: .9em;
+    color: #008cba !important;
+
+}
+
+.bpm_sub_line{
+    color:gray;
+}
+
+.bpm_context_change{
+    margin-left:.5em;
+}
+
+.bpm_no_wrap{
+    white-space: nowrap;
+}
+
+.bpm_file_text {
+    white-space: nowrap;
+    overflow: hidden;
+}
+.bpm_file_attrib_text {
+    font-size: .9em;
+    color:gray;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.bpm_left_menu {
+    white-space: nowrap;
+}
+
+.bpm_file_text_header {
+    margin-top: .3em;
+}
+
+.bpm_file_list {
+    height: 213px;
+    width: 82%;
+    border: solid 1px lightgray;
+    float: left;
+    clear: none;
+    overflow: auto;
+}
+
+.bpm_talat_message {
+    width: 90%;
+    margin-left: 1em;
+    margin-top: 10px;
+}
+
+.span_text {
+    font-size: .75em;
+    overflow: hidden;
+}
+
+.grid_links {
+    font-size: 1em;
+    overflow: hidden;
+}
+
+.bpm_grid_section_links {
+    font-size: .8em;
+    overflow: hidden;
+}
+
+.bpm_tab-title {
+    font-size: 75%;
+    text-decoration: none;
+
+}
+
+.bpm_file_list_header {
+    height: 37px;
+    width: 82%;
+    border: solid 1px lightgray;
+    float: left;
+    clear: none;
+    margin-top: 3px;
+}
+
+.bpm_pageBarLeft {
+    margin-top: 10px;
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+
+.bpm_this_disc {
+    width: 100%;
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+    border-bottom: 1px solid gray;
+    min-height: 60px;
+    overflow: hidden;
+}
+
+.bpm_file_icon {
+    font-size: 1.2em;
+}
+
+.bpm_disc_left {
+    width: 25%;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+}
+
+.bpm_hidden {
+    display: none;
+}
+
+.bpm_disc_page_title {
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+}
+
+.bpm_disc_right {
+    float: left;
+    width: 70%;
+    margin-top: 5px;
+    margin-left: 2%;
+}
+
+.bpm_line {
+    border-style: solid;
+    border-bottom: 1px solid gray;
+    margin-left: -20px;
+    width: 90%;
+}
+
+.bpm_outdent_20 {
+    margin-left: -20px;
+}
+
+.bpm_all_caps {
+    text-transform: uppercase;
+}
+
+.bpm-infobox-border {
+    border: solid 1px lightgray;
+}
+
+.bpm_border-gray {
+    border: solid 1px lightgray;
+}
+
+.bpm_nodecoration {
+    text-decoration: none !important;
+}
+
+.joyride-next-tip {
+    text-decoration: none !important;
+}
+
+.bpm_pageBarRightsection {
+    width: 100%
+}
+
+.accordion {
+    float: left;
+    width: 100%;
+    padding-bottom:10px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.bpm_breadcrumbs {
+    margin-top: 3px;
+    clear: none;
+    margin-bottom: 3px;
+    height: 35px;
+    width: 100%;
+    border: solid 1px black;
+    float: left;
+}
+
+.bpm_pageContent {
+    float: left;
+    clear: none;
+    height: 100%;
+    margin-top: 10px;
+    width: 88%;
+}
+
+.breadcrumb_item {
+    font-size: 150%;
+    margin-left: 5px;
+}
+
+.bpm_btn {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 18px;
+    background: #286ea8;
+    padding: 5px 20px 5px 20px;
+    text-decoration: none;
+    font-weight: lighter;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.bpm_btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+
+.bpm_button {
+    min-width: 80px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.bpm_lost_password_button {
+    min-width: 80px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.bpm_button_div {
+    margin-top: 10px;
+    display: inline-block;
+    float: right;
+    padding-left: 5px;
+}
+
+.bpm_login_button_div {
+    margin-top: 0px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.bpm_lost_password_button_div {
+    font-size: 75%;
+    cursor: pointer;
+    cursor: hand;
+    display: inline-block;
+}
+
+.bpm_email_forgot {
+    min-width: 200px;
+    margin-top: 10px;
+    display: inline-block;
+    float: right;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.bpm_error_message {
+    float: right;
+    height: 60px;
+    display: none;
+    padding-top: 15px;
+    padding-right: 10px;
+}
+
+.bpm_header_div {
+    float: right;
+    height: 80px;
+    max-width: 600px;
+}
+
+.bpm_div_header_holder {
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+
+}
+
+.bpm_div_tall_header_holder {
+    width: 100%;
+    height: 300px;
+}
+
+.bpm_div_wide_header_holder {
+    width: 100%;
+    height: 62px;
+}
+
+.bpm_hover_window {
+    z-index: 100;
+    width: 600px;
+    padding: 10px;
+    min-height: 80px;
+    background: white;
+    border: solid 1px black;
+    position: absolute;
+}
+
+.bpm_login_tall {
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+.bpm_login_wide {
+    height: 62px;
+    margin-bottom: 10px;
+}
+
+.bpm_small_div {
+    float: right;
+    height: 60px;
+}
+
+.bpm_td_login {
+    vertical-align: top;
+    float: right;
+}
+
+.bpm_reset_password {
+    min-width: 300px;
+    float: right;
+    height: 60px;
+    margin-right: 15px;
+    display: none;
+}
+
+.bpm_return_link {
+    font-size: 75%;
+    cursor: pointer;
+    cursor: hand;
+    white-space: nowrap;
+}
+
+.bpm_text_div {
+    margin-top: 10px;
+    display: inline-block;
+    float: right;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.bpm_text_width_email {
+    width: 200px;
+}
+
+.bpm_text_width_password {
+    width: 200px;
+}
+
+.bpm_login_button_td {
+    vertical-align: top;
+}
+
+table, th, td {
+    vertical-align: top;
+}
+
+.top-bar ul li a:hover {
+    background-color: #008cba !important;
+}
+

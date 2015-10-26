@@ -1,0 +1,121 @@
+<br><br>
+<div class="row full-width">
+    <div class="large-4 columns">
+        <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+                <a >Setup Instructions</a>
+                <div id="panel1a1" class="content active">
+                    <p id="bpm_has_full_width" style="display:none;">The BPMContext Intranet plugin is a single page application.  When you activated this plugin we looked to see if your theme has a full-width template and when we found it we applied that template to the BPMContext Dashboard page.</p>
+                    <p id="bpm_has_no_full_width" style="display:none;">The BPMContext Intranet plugin is a single page application.  When you activated this plugin we looked to see if your theme has a full-width template and we did <strong>not</strong> find one so you might need to do a little work to get our plugin displayed on your site.<br><br>You can take a look at what the plugin should look like at <a target="_blank" href="https://app.bpmcontext.com">BPMContext Wordpress Site</a>.  You can create an account here, on the settings page, and then use your login information to access that site, or you can also just create a new account on our site to take a test drive.</p>
+                    <p>Most display issues have to do with the width display area for the plugin.  Often these issues can be fixed with a little CSS magic by targeting three CSS additions to the Custom CSS box on the right side of this page.</p>
+                    <p><strong>Side Bar:</strong> If you have a side bar you can either remove it by editing the <a href="BPMEDITPOST">Page in Wordpress</a> to remove the sidebar or, you can look at the page HTML and find the class identifier for the div container for the sidebar.  Usually the class identifier is named something catchy like 'sidebar'.  Once you find it, simply add CSS in the Custom CSS box to hide it. </p>
+                    <p><strong>Page Title:</strong> If you have a page title above the plug in you can find the CSS class and add the code to hide it to the Custom CSS box.  Once again, it is often something catchy like banner-title or page-title.</p>
+                    <p><strong>Plugin Width:</strong> If your plug in does not appear wide enough, you can find the CSS class for the div containing it, or in some cases the parent div containing it, and add the code to make it wider to the Custom CSS box.  Typical classes for ths tend to be .content, .entry or .entry-content.  you might have to try a few to get it right.</p>
+                    <p>To find your class identifiers, simply right-click on the element that you want to change and use the Inspect Element option to find the class for the object.  Then enter the CSS in the Custom CSS box on this page.  For example:</p>
+
+                    <p>.sidebar{ display: none !important;  }<br>
+                    .banner-title{ display: none !important;  }<br>
+                    .content{ width: 100% !important;  }
+                    </pre>
+                    </p>
+                    <p>If you need help getting the plugin setup in your site, please feel free to connect with us using the support contacts on this page.</p>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="large-4 columns">
+        <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+                <a >Create Account</a>
+                <div id="bpm_admin_create_account" class="content active">
+                    <form autocomplete="off">
+                        <div class="row">
+                            <div class="large-12 small-12 columns ">The BPMContext Intranet plugin works in coordination with the BPMContext Intranet, Extranet and Workflow service.  To use this plugin you need to have an account on BPMContext.  The Intranet Lite version is free and includes 1GB of data storage.<br><br></div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 small-12 columns ">Your Name:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_real_name"  placeholder="e.g: Bob Smith"></div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 small-12 columns ">Your Company Name:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_company_name"  placeholder="e.g: My Really Cool Company"></div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 small-12 columns ">Your Email Address:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_email"  placeholder="e.g: Bob.Smith@mycoolcompany.com"></div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 small-12 columns ">Password:&nbsp;<br><div id="bpm_new_acct_password_html"><input id="bpm_password_field" class="bpm_new_account_field" type="password" /></div></div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 small-12 columns "><br></div>
+                        </div>
+                        <div class="row" id="bpm_page_loading_new_acct_button" >
+                            <div class="large-12 small-12 columns text-right"><input id="submit" class="button button-primary" value="Create Free Account" name="submit" onclick="bpm_create_account_process('admin');"></div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 small-12 columns">
+                                <div data-alert class="alert-box alert radius" id="bpm_new_acct_error_alert" style="display:none;">Your Name cannot match the Company Name.  Please re-enter.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 small-12 columns">
+                                <div data-alert class="alert-box success radius" id="bpm_page_loading_new_acct_alert" style="display:none;">Creating account...</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="large-4 columns">
+
+        <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+                <a >Support</a>
+                <div id="bpm_admin_support" class="content active">
+
+                    <div class="row">
+                        <div class="large-12 small-12 columns">
+                            If you need help getting the BPMContext Intranet plugin working in your site, please feel free to contact us and we will get back to you quickly, usually within a day.<br><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 small-12 columns">Web: <a href="https://bpmcontext.com" target="_blank">BPMContext Web Site</a> </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 small-12 columns">Customer Service: <a href="mailto:customer.service@bpmcontext.com" target="_top">customer.service@bpmcontext.com</a></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+                <a >Custom CSS</a>
+                <div id="bpm_admin_custom_css" class="content active">
+                    <div class="row">
+                        <div class="large-12 small-12 columns">
+                            <p>Sometimes you might need to add a CSS code snippet to get the BPMContext Intranet plugin to look good in your particular theme.  You can enter the CSS information here to be included only when the BPMContext plugin is displayed.</p>
+                            <p>Note that this entry is THEME SPECIFIC so if you change themes you might need to add new Custom CSS to make the plugin play nice with your new theme. </p>
+                            <br>
+                        </div>
+                    </div>
+                    <form method="post" action="options.php">
+                        <div id="bpm_options_fields"></div>
+                        <div class="row">
+                            <div class="large-12 small-12 columns">
+                                <textarea name="CUSTOMCSSNAME" id="bpm_admin_custom_css_text" style="height:20em;">CUSTOMCSSVALUE</textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 small-12 columns text-right"><input id="bpm_admin_submit_css" class="button button-primary" value="Update CSS" name="submit" type="submit"></div>
+                        </div>
+                    </form>
+
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
