@@ -262,7 +262,7 @@ function bpm_register_styles($screen_type = 'intranet') {
 
 	wp_register_style('normalize', plugins_url()."/bpmcontext/css/normalize.css",array(),'5.1.1','screen');
 	wp_register_style('foundation', plugins_url()."/bpmcontext/css/foundation.min.css",array(),'5.1.1','screen');
-	wp_register_style('icons', plugins_url()."/bpmcontext/icons/foundation-icons.css",array(),'3.0.0','screen');
+	wp_register_style('icons', plugins_url()."/bpmcontext/css/foundation-icons.css",array(),'3.0.0','screen');
     wp_register_style('tree_table', plugins_url()."/bpmcontext/css/treetable/jquery.treetable.css",array(),'3.2.1','screen');
     wp_register_style('tree_table_theme', plugins_url()."/bpmcontext/css/treetable/jquery.treetable.theme.default.css",array(),'3.2.1','screen');
     wp_register_style('font-awesome', plugins_url() . '/bpmcontext/css/font-awesome.min.css', array(),'1.0.1','screen');
