@@ -3,7 +3,7 @@
   Plugin Name: BPMContext
   Plugin URI: https://bpmcontext.com
   Description: BPMContext provides Intranet / Extranet team collaboration software to help teams work better together, as well as, with Customers and Suppliers.  This plug in enables you to add a login header for the BPMContext site at the top of your website or anywhere you specify within your website.
-  Version: 1.0.1
+  Version: 2.0
   Author: BPMContext
   Author URI: https://bpmcontext.com
   License: GPLv2+
