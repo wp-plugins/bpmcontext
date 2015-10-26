@@ -120,10 +120,10 @@ Please contact us at customer.service@bpmcontext.com. Please feel free to send a
 == Changelog ==
 
 = 1.0 =
-* Current version
 = 1.0.1 =
 * Fix bugs
 = 2.0 =
+* Current version
 * Released on October 25, 2015
 * Improvements to theme compatibility CSS
 * Add home link to navigation menu
