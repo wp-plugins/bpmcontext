@@ -399,12 +399,12 @@ function bpm_build_page(result){
             if(i==1){
                 bpm_is_root = 1;
                 //first breadcrumb
-                bpm_breadcrumb_string = '<li class="bpm_ul_li"><a style="color:#333;font-weight:bold;font-size:1.5em;" class="url_links fi-home" href="?pageid=' + value['id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" data-dropdown="bpm_context_change" data-options="is_hover:true; hover_timeout:100"></a></li>';
-                bpm_breadcrumb_string = bpm_breadcrumb_string.concat('<li class="bpm_ul_li"><a style="color:#333;font-weight:bold" class="url_links" href="?pageid=' + value['id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext">' + value['name'] + '</a></li>');
+                bpm_breadcrumb_string = '<li class="bpm_ul_li"><a style="color:#333;font-weight:bold;font-size:1.5em;" class="url_links fi-home bpm-home" href="?pageid=' + value['id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" data-dropdown="bpm_context_change" data-options="is_hover:true; hover_timeout:100"></a></li>';
+                bpm_breadcrumb_string = bpm_breadcrumb_string.concat('<li class="bpm_ul_li"><a style="color:#333;font-weight:bold;font-size: 1.1em" class="url_links" href="?pageid=' + value['id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext">' + value['name'] + '</a></li>');
 
             }else {
                 bpm_is_root = 0;
-                bpm_breadcrumb_string = bpm_breadcrumb_string.concat('<li class="bpm_ul_li"><a style="color:#333;font-weight:bold"  class="url_links" href="?pageid='+value['id']+'&domain=' + bpm_current_domain + '&action=bpmcontext">'+ value['name'] +'</a></li>');
+                bpm_breadcrumb_string = bpm_breadcrumb_string.concat('<li class="bpm_ul_li"><a style="color:#333;font-weight:bold;font-size: 1.1em"  class="url_links" href="?pageid='+value['id']+'&domain=' + bpm_current_domain + '&action=bpmcontext">'+ value['name'] +'</a></li>');
             }
             bpm_current_page_name = value['name'];
             i++;
@@ -667,7 +667,7 @@ function bpm_build_page(result){
                 jQuery('#bpm_reset_password_window').foundation('reveal', 'open');
             }
 
-            jQuery( "li" ).each(function( index ) {
+            jQuery( "#bpm_content_area li" ).each(function( index ) {
                 jQuery( this ).addClass('bpm_ul_li');
             });
 
@@ -683,6 +683,7 @@ function bpm_build_page(result){
 
 
             jQuery( ".title-header" ).hide();
+            jQuery('.bpm_hide_button').hide();
 
             bpm_set_url_links();
   //          console.log("Total page load took " + (Date.now() - bpm_start) + " milliseconds");
@@ -770,6 +771,7 @@ function bpm_set_url_links(){
 
         if(bpm_is_processing==0) {
             bpm_is_processing = 1;
+
             var this_id = jQuery(this).prop('id').substr(12);
             var open_status = jQuery("#bpm_section_top_bar_bpm_acc_" + this_id).css('display');
             jQuery('.bpm_section_top_bar_bpm_acc_all').hide();
@@ -852,6 +854,9 @@ function bpm_validateEmail(mail)
 function bpm_create_account_process(screen_name){
     //create account...on success, show homepage
     //validate form fields
+
+    jQuery('#bpm_new_acct_setup_alert').hide();
+
     var bpm_email = jQuery('#bpm_new_account_email').val();
     var bpm_name = jQuery('#bpm_new_account_real_name').val();
     var bpm_company = jQuery('#bpm_new_account_company_name').val();
@@ -905,31 +910,44 @@ function bpm_create_account_process(screen_name){
 
     jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', query_string, function (result) {
         bpm_login_status = Number(result.LOGGEDIN);
+
         if(bpm_login_status==1){
             //no errors
             if(screen_name=='admin'){
                 //change html to go to intranet page
                 jQuery('#bpm_admin_create_account').html('<a target="_blank" href="' + bpm_params.login_url + '">Go to your intranet</a>');
             }
+            if(screen_name!='admin'){
+                if (bpm_current_screen == 2) {
+                    jQuery('#bpm_content_area').html(bpm_mobile_template);
+                } else if (bpm_current_screen == 3) {
+                    jQuery('#bpm_content_area').html(bpm_medium_template);
+                } else {
+                    jQuery('#bpm_content_area').html(bpm_template);
+                }
+                jQuery('#bpm_page_loading_alert').hide();
+                bpm_build_page(result);
+                bpm_update_dashboard();
+            }
         }else{
             //some error occurred
             if(screen_name=='admin'){
                 jQuery('#bpm_admin_create_account').html('An error occurred when trying to create your account');
+            }else{
+                jQuery('#bpm_page_loading_new_acct_button').show();
+                var error_message = result.MESSAGE;
+                error_message = error_message.replace(/ /g,'_');
+                if(bpm_trans_array['bpm_lng_'+error_message]) {
+                    jQuery('#bpm_new_acct_setup_alert').show().text(bpm_trans_array['bpm_lng_' + error_message]);
+                }else{
+                    jQuery('#bpm_new_acct_setup_alert').show().text(result.MESSAGE);
+                }
+                jQuery('#bpm_page_loading_new_acct_alert').hide();
+
             }
         }
 
-        if(screen_name!='admin'){
-            if (bpm_current_screen == 2) {
-                jQuery('#bpm_content_area').html(bpm_mobile_template);
-            } else if (bpm_current_screen == 3) {
-                jQuery('#bpm_content_area').html(bpm_medium_template);
-            } else {
-                jQuery('#bpm_content_area').html(bpm_template);
-            }
-            jQuery('#bpm_page_loading_alert').hide();
-            bpm_build_page(result);
-            bpm_update_dashboard();
-        }
+
     });
 
 

@@ -2,8 +2,8 @@
 /*
   Plugin Name: BPMContext
   Plugin URI: https://bpmcontext.com
-  Description: BPMContext provides Intranet / Extranet team collaboration software to help teams work better together, as well as, with Customers and Suppliers.  This plug in enables you to add a login header for the BPMContext site at the top of your website or anywhere you specify within your website.
-  Version: 2.0
+  Description: This plugin adds BPMContext intranet into a single page in your WordPress site. Create workspaces for sharing department policies, announcements, IT support requests and more. To get started: Click the Activate link then go to BPMContext settings page to sign up for your account.
+  Version: 2.0.1
   Author: BPMContext
   Author URI: https://bpmcontext.com
   License: GPLv2+
@@ -213,11 +213,11 @@ function bpm_register_scripts($screen_type){
     wp_register_script('dropzone', plugins_url() . '/bpmcontext/js/dropzone.js',array(),'4.2.4', false);
     wp_register_script('tinymce_text', plugins_url() . '/bpmcontext/js/tinymce/tinymce.min.js',array(),'4.2.4', true);
 
-	wp_register_script('js_bpmcontext', plugins_url() . '/bpmcontext/js/bpmcontext.js',array(),'2.0.0',true);
-    wp_register_script('js_bpmcontext_left_menu', plugins_url() . '/bpmcontext/js/bpmcontext_left_menu.js',array(),'2.0.0',true);
-    wp_register_script('js_bpmcontext_content_page', plugins_url() . '/bpmcontext/js/bpmcontext_content_page.js',array(),'2.0.0',true);
-    wp_register_script('js_bpmcontext_toolbar', plugins_url() . '/bpmcontext/js/bpmcontext_toolbar.js',array(),'2.0.0',true);
-    wp_register_script('js_bpmcontext_right_content', plugins_url() . '/bpmcontext/js/bpmcontext_right_content.js',array(),'2.0.0',true);
+	wp_register_script('js_bpmcontext', plugins_url() . '/bpmcontext/js/bpmcontext.js',array(),'2.0.1',true);
+    wp_register_script('js_bpmcontext_left_menu', plugins_url() . '/bpmcontext/js/bpmcontext_left_menu.js',array(),'2.0.1',true);
+    wp_register_script('js_bpmcontext_content_page', plugins_url() . '/bpmcontext/js/bpmcontext_content_page.js',array(),'2.0.1',true);
+    wp_register_script('js_bpmcontext_toolbar', plugins_url() . '/bpmcontext/js/bpmcontext_toolbar.js',array(),'2.0.1',true);
+    wp_register_script('js_bpmcontext_right_content', plugins_url() . '/bpmcontext/js/bpmcontext_right_content.js',array(),'2.0.1',true);
 
 //    wp_register_script( 'braintree', 'https://js.braintreegateway.com/v2/braintree.js');
 
@@ -261,14 +261,14 @@ function bpm_register_scripts($screen_type){
 function bpm_register_styles($screen_type = 'intranet') {
 
 	wp_register_style('normalize', plugins_url()."/bpmcontext/css/normalize.css",array(),'5.1.1','screen');
-	wp_register_style('foundation', plugins_url()."/bpmcontext/css/foundation.min.css",array(),'5.1.1','screen');
+	wp_register_style('foundation', plugins_url()."/bpmcontext/css/foundation.css",array(),'5.1.1','screen');
 	wp_register_style('icons', plugins_url()."/bpmcontext/css/foundation-icons.css",array(),'3.0.0','screen');
     wp_register_style('tree_table', plugins_url()."/bpmcontext/css/treetable/jquery.treetable.css",array(),'3.2.1','screen');
     wp_register_style('tree_table_theme', plugins_url()."/bpmcontext/css/treetable/jquery.treetable.theme.default.css",array(),'3.2.1','screen');
     wp_register_style('font-awesome', plugins_url() . '/bpmcontext/css/font-awesome.min.css', array(),'1.0.1','screen');
     wp_register_style('jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css', array(),'1.0.1','screen');
     wp_register_style('dropzone', plugins_url()."/bpmcontext/css/dropzone.css",array(),'1.0.0','screen');
-    wp_register_style('css_bpmcontext', plugins_url() . '/bpmcontext/css/bpmcontext.css', array(),'1.0.1','screen');
+    wp_register_style('css_bpmcontext', plugins_url() . '/bpmcontext/css/bpmcontext.css', array(),'2.0.1','screen');
 
     if($screen_type == 'admin') {
         wp_enqueue_style(array( 'foundation', 'icons', 'css_bpmcontext'));

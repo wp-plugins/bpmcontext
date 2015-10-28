@@ -34,18 +34,18 @@ function bpm_get_discussion_list(this_content, this_id){
             var  page_title = '';
 
             if(this_id == 'none'){
-                discussion_list = discussion_list.concat('<div class="bpm_this_disc" id="bpm_this_widget_disc_' + value['disc_index'] + '" >');
+                discussion_list = discussion_list.concat('<div class="bpm_this_disc  text-left" id="bpm_this_widget_disc_' + value['disc_index'] + '" >');
                 var bpm_link_string = '<a class="url_links bpm_links" href="?pageid=' + value['t3_page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext"  title="' + value['page_title3'] + '">' + value['page_title3'] + '</a>';
                 discussion_list = discussion_list.concat('<div class="bpm_disc_page_title">' + bpm_link_string + '</div>');
             }else {
-                discussion_list = discussion_list.concat('<div class="bpm_this_disc" id="bpm_this_disc_' + value['disc_index'] + '" onclick="bpm_highlight_disc(' + value['disc_index'] + ', ' + this_id + ')">');
+                discussion_list = discussion_list.concat('<div class="bpm_this_disc  text-left" id="bpm_this_disc_' + value['disc_index'] + '" onclick="bpm_highlight_disc(' + value['disc_index'] + ', ' + this_id + ')">');
             }
-            discussion_list = discussion_list.concat('<div class="bpm_disc_left">' + value['real_name'] + '<br><span style="color:gray;font-size: 75%">' + disc_date + '</span></div>');
+            discussion_list = discussion_list.concat('<div class="bpm_disc_left text-left">' + value['real_name'] + '<br><span style="color:gray;font-size: 75%">' + disc_date + '</span></div>');
 
             if (discText.length > 250) {
                 discussion_list = discussion_list.concat("<div id='moreText_" + value['disc_index'] + "' class='bpm_disc_right'>" + discText.substring(0, 250) + "&nbsp;<a onclick='bpm_disc_show_more_less(" + value['disc_index'] + ", 2);return false;' style='text-decoration:none;color:grey;'>&nbsp;(more...)</a></div><div class='bpm_disc_right' style='display:none;' id='allText_" + value['disc_index'] + "'>" + discText + "&nbsp;<a onclick='bpm_disc_show_more_less(" + value['disc_index'] + ",1);return false;' style='text-decoration:none;color:grey;'>&nbsp;(less...)</a></div></div>");
             } else {
-                discussion_list = discussion_list.concat('<div class="bpm_disc_right">' + value['disc_text'] + '</div>');
+                discussion_list = discussion_list.concat('<div class="bpm_disc_right text-left">' + value['disc_text'] + '</div>');
             }
             discussion_list = discussion_list.concat('</div>');
         }
@@ -91,6 +91,8 @@ function bpm_confirm_delete_discussion(selected_object, choice){
         jQuery('#bpm_disc_delete_confirm_button_'+selected_object).hide();
         jQuery('#bpm_disc_delete_cancel_button_'+selected_object).hide();
         bpm_reset_disc_toolbar(selected_object);
+        bpm_clear_disc_highlight();
+
     }else{
 
         var querystring = 'domain=' + bpm_current_domain + "&action=update_disc&act=delete&pageid=" + bpm_pageid + "&sectionid=" + selected_object + '&disc_index=' + bpm_current_disc;
@@ -111,6 +113,11 @@ function bpm_confirm_delete_discussion(selected_object, choice){
         });
     }
 
+}
+
+function bpm_clear_disc_highlight(){
+    bpm_current_disc = 0;
+    jQuery('.bpm_this_disc').css('border','solid 1px transparent');
 }
 
 function bpm_highlight_disc(selected_id, this_id){
@@ -544,8 +551,8 @@ function bpm_create_file_list(this_content, this_id){
     var file_count = 0;
 
     if(this_content.length > 0){
-        file_list = file_list.concat('<div class="row" id="bpm_file_header_'+ this_id+'">');
-        file_list = file_list.concat('<div class="small-12 large-12 columns text-left"><input type="checkbox" name="bpm_files" onclick="bpm_file_button('+this_id+', 12)" id="bpm_check_all_'+this_id+'"></div>');
+        file_list = file_list.concat('<div class="bpm-row" id="bpm_file_header_'+ this_id+'">');
+        file_list = file_list.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><input type="checkbox" name="bpm_files" onclick="bpm_file_button('+this_id+', 12)" id="bpm_check_all_'+this_id+'"></div>');
 
         file_list = file_list.concat('</div>');
     }
@@ -555,38 +562,38 @@ function bpm_create_file_list(this_content, this_id){
         if (value['file_name']) {
             file_count++;
             if(value['folder_id']!='0'){
-                file_list = file_list.concat('<div class="row bpm_folder bpm_file_bottom_border bpm_folder_'+this_id+'_'+ value['folder_id'] +' bpm_file_'+this_id+'" style="display:none;">');
+                file_list = file_list.concat('<div class="bpm-row bpm_folder text-left bpm_folder_'+this_id+'_'+ value['folder_id'] +' bpm_file_'+this_id+'" style="display:none;">');
             }else{
-                file_list = file_list.concat('<div class="row bpm_folder bpm_file_bottom_border bpm_folder_'+this_id+'_0'+ ' bpm_file_'+this_id+'">');
+                file_list = file_list.concat('<div class="bpm-row bpm_folder text-left  bpm_folder_'+this_id+'_0'+ ' bpm_file_'+this_id+'">');
             }
-            file_list = file_list.concat('<div class="small-12 large-12 columns">');
+            file_list = file_list.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns">');
             var file_class = 'fa fa-save';
 
             if(value['file_icon']){
                 file_class = bpm_get_file_icon(value['file_icon']);
             }
             //file name row
-            file_list = file_list.concat('<div class="row">');
-            file_list = file_list.concat('<div class="small-1 large-1 columns text-left"><input onclick="bpm_file_button('+this_id+', 11)" type="checkbox" name="bpm_file_select_'+this_id+'" value="bpm_file_'+value['file_index']+'"></div>');
-            file_list = file_list.concat('<div class="small-8 large-8 columns bpm_file_text"><span class="'+file_class+' bpm_file_icon bpm_file_text_header">&nbsp;&nbsp;</span><a href="' + value['file_href'] + '" target="_blank" class="bpm_links">' + value['file_name'] + '</a></div>');
+            file_list = file_list.concat('<div class="bpm-row">');
+            file_list = file_list.concat('<div class="bpm-small-1 bpm-large-1 bpm-columns text-left"><input onclick="bpm_file_button('+this_id+', 11)" type="checkbox" name="bpm_file_select_'+this_id+'" value="bpm_file_'+value['file_index']+'"></div>');
+            file_list = file_list.concat('<div class="bpm-small-8 bpm-large-8 bpm-columns bpm_grid_section_links bpm_file_text text-left"><span class="'+file_class+' bpm_file_icon bpm_file_text_header">&nbsp;&nbsp;</span><a href="' + value['file_href'] + '" target="_blank" class="bpm_links bpm_file_list_link">' + value['file_name'] + '</a></div>');
             if(value['children'] ) {
                 bpm_version_files[value['file_index']] = value;
-                file_list = file_list.concat('<div class="small-3 columns bpm_file_text text-right"><a onclick="bpm_file_show_versions('+value['file_index']+','+this_id+');" class="bpm_versions_button bpm_nodecoration">'+bpm_trans_array['bpm_lng_versions']+'</a></div>');
+                file_list = file_list.concat('<div class="bpm-small-3 bpm-columns bpm_grid_section_links text-right"><a onclick="bpm_file_show_versions('+value['file_index']+','+this_id+');" class="bpm_versions_button bpm_nodecoration">'+bpm_trans_array['bpm_lng_versions']+'</a></div>');
             }else {
-                file_list = file_list.concat('<div class="small-3 columns bpm_file_text">&nbsp;</div>');
+                file_list = file_list.concat('<div class="bpm-small-3 bpm-columns bpm_file_text">&nbsp;</div>');
             }
             file_list = file_list.concat('</div>');
             //file attributes row
             var file_date = value['file_date'].substring(0,6) + value['file_date'].substring(8);
-            file_list = file_list.concat('<div class="row">');
-            file_list = file_list.concat('<div class="small-1 columns bpm_file_text">&nbsp;</div>');
-            file_list = file_list.concat('<div class="small-8 columns bpm_file_text bpm_grid_section_links bpm_sub_line">' + bpm_trans_array['bpm_lng_uploaded_by'] + ' ' + value['real_name'] + ' ' + bpm_trans_array['bpm_lng_on'] + ' ' + file_date + '</div>');
-            file_list = file_list.concat('<div class="small-3 columns bpm_file_text bpm_grid_section_links text-right bpm_sub_line">' + value['file_size'] + '</div>');
+            file_list = file_list.concat('<div class="bpm-row">');
+            file_list = file_list.concat('<div class="bpm-small-1 bpm-columns bpm_file_text">&nbsp;</div>');
+            file_list = file_list.concat('<div class="bpm-small-8 bpm-columns bpm_file_text bpm_grid_section_links bpm_sub_line">' + bpm_trans_array['bpm_lng_cap_by'] + ' ' + value['real_name'] + ' ' + bpm_trans_array['bpm_lng_on'] + ' ' + file_date + '</div>');
+            file_list = file_list.concat('<div class="bpm-small-3 bpm-columns bpm_file_text bpm_grid_section_links text-right bpm_sub_line">' + value['file_size'] + '</div>');
 
             file_list = file_list.concat('</div>');
 
             file_list = file_list.concat('</div>');
-
+            file_list = file_list.concat('<hr class="bpm_hr_gray">');
             file_list = file_list.concat('</div>');
 
         }
@@ -602,21 +609,21 @@ function bpm_file_show_versions(file_id, this_id){
     var value = bpm_version_files[file_id];
     var file_class = bpm_get_file_icon(value['file_icon']);
 
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="small-2 large-2 columns">'+bpm_trans_array['bpm_lng_current_version']+'</div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns">'+bpm_trans_array['bpm_lng_current_version']+'</div>');
 
-    html_line = html_line.concat('<div class="small-10 large-10 columns">');
+    html_line = html_line.concat('<div class="bpm-small-10 bpm-large-10 bpm-columns">');
 
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="small-1 large-1 columns text-left"><input onclick="bpm_file_button('+this_id+', 15)" type="checkbox" name="bpm_file_version_select" value="bpm_file_'+value['file_index']+'"></div>');
-    html_line = html_line.concat('<div class="small-11 large-11 columns bpm_file_text"><span class="'+file_class+' bpm_file_icon bpm_file_text_header">&nbsp;&nbsp;</span><a href="' + value['file_href'] + '" target="_blank" class="bpm_links">' + value['file_name'] + '</a></div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-1 bpm-large-1 bpm-columns text-left"><input onclick="bpm_file_button('+this_id+', 15)" type="checkbox" name="bpm_file_version_select" value="bpm_file_'+value['file_index']+'"></div>');
+    html_line = html_line.concat('<div class="bpm-small-11 bpm-large-11 bpm-columns bpm_file_text"><span class="'+file_class+' bpm_file_icon bpm_file_text_header">&nbsp;&nbsp;</span><a href="' + value['file_href'] + '" target="_blank" class="bpm_links">' + value['file_name'] + '</a></div>');
     html_line = html_line.concat('</div>');
     //file attributes row
     var file_date = value['file_date'].substring(0,6) + value['file_date'].substring(8);
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="small-1 columns bpm_file_text">&nbsp;</div>');
-    html_line = html_line.concat('<div class="small-8 columns bpm_file_text bpm_grid_section_links bpm_sub_line">' + bpm_trans_array['bpm_lng_uploaded_by'] + ' ' + value['real_name'] + ' ' + bpm_trans_array['bpm_lng_on'] + ' ' + file_date + '</div>');
-    html_line = html_line.concat('<div class="small-3 columns bpm_file_text bpm_grid_section_links text-right bpm_sub_line">' + value['file_size'] + '</div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-1 bpm-columns bpm_file_text">&nbsp;</div>');
+    html_line = html_line.concat('<div class="bpm-small-8 bpm-columns bpm_file_text bpm_grid_section_links bpm_sub_line">' + bpm_trans_array['bpm_lng_cap_by'] + ' ' + value['real_name'] + ' ' + bpm_trans_array['bpm_lng_on'] + ' ' + file_date + '</div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-columns bpm_file_text bpm_grid_section_links text-right bpm_sub_line">' + value['file_size'] + '</div>');
     html_line = html_line.concat('</div>');
 
     html_line = html_line.concat('</div>');
@@ -630,20 +637,20 @@ function bpm_file_show_versions(file_id, this_id){
             child_count++;
         }
 
-        html_line = html_line.concat('<div class="row">');
-        html_line = html_line.concat('<div class="small-2 large-2 columns">'+header_display+'</div>');
-        html_line = html_line.concat('<div class="small-10 large-10 columns">');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns">'+header_display+'</div>');
+        html_line = html_line.concat('<div class="bpm-small-10 bpm-large-10 bpm-columns">');
 
-        html_line = html_line.concat('<div class="row">');
-        html_line = html_line.concat('<div class="small-1 large-1 columns text-left"><input onclick="bpm_file_button('+this_id+', 15)" type="checkbox" name="bpm_file_version_select" value="bpm_file_'+value['file_index']+'"></div>');
-        html_line = html_line.concat('<div class="small-11 large-11 columns bpm_file_text"><span class="'+file_class+' bpm_file_icon bpm_file_text_header">&nbsp;&nbsp;</span><a href="' + value['file_href'] + '" target="_blank" class="bpm_links">' + value['file_name'] + '</a></div>');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-1 bpm-large-1 bpm-columns text-left"><input onclick="bpm_file_button('+this_id+', 15)" type="checkbox" name="bpm_file_version_select" value="bpm_file_'+value['file_index']+'"></div>');
+        html_line = html_line.concat('<div class="bpm-small-11 bpm-large-11 bpm-columns bpm_file_text"><span class="'+file_class+' bpm_file_icon bpm_file_text_header">&nbsp;&nbsp;</span><a href="' + value['file_href'] + '" target="_blank" class="bpm_links">' + value['file_name'] + '</a></div>');
         html_line = html_line.concat('</div>');
         //file attributes row
         var file_date = value['file_date'].substring(0,6) + value['file_date'].substring(8);
-        html_line = html_line.concat('<div class="row">');
-        html_line = html_line.concat('<div class="small-1 columns bpm_file_text">&nbsp;</div>');
-        html_line = html_line.concat('<div class="small-8 columns bpm_file_text bpm_grid_section_links bpm_sub_line">' + bpm_trans_array['bpm_lng_uploaded_by'] + ' ' + value['real_name'] + ' ' + bpm_trans_array['bpm_lng_on'] + ' ' + file_date + '</div>');
-        html_line = html_line.concat('<div class="small-3 columns bpm_file_text bpm_grid_section_links text-right bpm_sub_line">' + value['file_size'] + '</div>');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-1 bpm-columns bpm_file_text">&nbsp;</div>');
+        html_line = html_line.concat('<div class="bpm-small-8 bpm-columns bpm_file_text bpm_grid_section_links bpm_sub_line">' + bpm_trans_array['bpm_lng_cap_by'] + ' ' + value['real_name'] + ' ' + bpm_trans_array['bpm_lng_on'] + ' ' + file_date + '</div>');
+        html_line = html_line.concat('<div class="bpm-small-3 bpm-columns bpm_file_text bpm_grid_section_links text-right bpm_sub_line">' + value['file_size'] + '</div>');
         html_line = html_line.concat('</div>');
 
         html_line = html_line.concat('</div>');
@@ -1382,7 +1389,7 @@ function bpm_create_child_links(this_id, this_content, this_sections, link_count
                                 break;
                         }
                         if(display ==1) {
-                            bpm_link_string = '<a class="url_links bpm_links side-nav-item bpm_side_nav_item" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext"  title="' + value['page_title'] + '">' + value['page_title'] + '</a>';
+                            bpm_link_string = '<a class="url_links bpm_links " href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext"  title="' + value['page_title'] + '">' + value['page_title'] + '</a>';
                             links_array.push({
                                 col_1: bpm_link_string,
                                 col_2: value['page_touched'].substr(0, 10),
@@ -1426,19 +1433,19 @@ function bpm_create_child_links(this_id, this_content, this_sections, link_count
 
     html_info = html_info.concat('<div id="bpm_child_links_top" style="overflow-y: auto;overflow-x: hidden">');
 
-    html_info = html_info.concat('<div class="row">');
-    html_info = html_info.concat('<div class="small-12 large-12 columns">');
+    html_info = html_info.concat('<div class="bpm-row">');
+    html_info = html_info.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns">');
     html_info = html_info.concat('<div id="bpm_child_links_target">'+main_content+'</div>'); //content
     html_info = html_info.concat('</div>'); //end of child links
-    html_info = html_info.concat('</div>'); //end of row
-    html_info = html_info.concat('<div class="row">');
-    html_info = html_info.concat('<div class="small-12 large-12 columns hide" id="bpm_child_links_search_target">');
+    html_info = html_info.concat('</div>'); //end of bpm-row
+    html_info = html_info.concat('<div class="bpm-row">');
+    html_info = html_info.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns hide" id="bpm_child_links_search_target">');
     html_info = html_info.concat('<div ></div>'); //content
     html_info = html_info.concat('</div>'); //end of child links
-    html_info = html_info.concat('</div>'); //end of row
+    html_info = html_info.concat('</div>'); //end of bpm-row
     html_info = html_info.concat('</div>'); //end of section
 
-    html_info = html_info.concat('<ul id="bpm_page_type_list" class="f-dropdown" data-dropdown-content ">');
+    html_info = html_info.concat('<ul id="bpm_page_type_list" data-options="align:right" class="f-dropdown" data-dropdown-content ">');
     html_info = html_info.concat(tab_list);
     html_info = html_info.concat('</ul>');
 
@@ -1477,32 +1484,32 @@ function bpm_make_links_grid(this_content, cols, row_count){
 
     if(this_content){
         jQuery.each(this_content, function (index, value) {
-            bpm_grid_data = bpm_grid_data.concat('<div class="row">');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-row">');
             switch(column_count){
                 case 1:
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-12 large-12 columns grid_links">' + value['col_1'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns grid_links text-left">' + value['col_1'] + '</div>');
                     break;
                 case 2:
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-9 large-9 columns grid_links">' + value['col_1'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-3 large-3 columns grid_links">' + value['col_2'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns grid_links text-left">' + value['col_1'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns grid_links text-left">' + value['col_2'] + '</div>');
                     break;
                 case 3:
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-8 large-6 columns bpm_grid_section_links">' + value['col_1'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-1 large-3 columns bpm_grid_section_links">' + value['col_2'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-3 large-3 columns bpm_grid_section_links">' + value['col_3'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-8 bpm-large-6 bpm-columns bpm_grid_section_links text-left">' + value['col_1'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-1 bpm-large-3 bpm-columns bpm_grid_section_links text-left">' + value['col_2'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns bpm_grid_section_links text-left">' + value['col_3'] + '</div>');
                     break;
                 case 4:
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-3 large-3 columns bpm_grid_section_links">' + value['col_1'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-4 large-4 columns bpm_grid_section_links">' + value['col_2'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-3 large-3 columns bpm_grid_section_links">' + value['col_3'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-2 large-2 columns bpm_grid_section_links">' + value['col_4'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns bpm_grid_section_links text-left">' + value['col_1'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns bpm_grid_section_links text-left">' + value['col_2'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns bpm_grid_section_links text-left">' + value['col_3'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns bpm_grid_section_links text-left">' + value['col_4'] + '</div>');
                     break;
                 case 5:
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-4 large-4 columns grid_links">' + value['col_1'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-3 large-3 columns grid_links">' + value['col_2'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-2 large-2 columns grid_links">' + value['col_3'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-2 large-2 columns grid_links">' + value['col_4'] + '</div>');
-                    bpm_grid_data = bpm_grid_data.concat('<div class="small-1 large-1 columns grid_links">' + value['col_5'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns grid_links text-left">' + value['col_1'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns grid_links text-left">' + value['col_2'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns grid_links text-left">' + value['col_3'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns grid_links text-left">' + value['col_4'] + '</div>');
+                    bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-1 bpm-large-1 bpm-columns grid_links text-left">' + value['col_5'] + '</div>');
                     break;
             }
             bpm_grid_data = bpm_grid_data.concat('</div>');
@@ -1511,8 +1518,8 @@ function bpm_make_links_grid(this_content, cols, row_count){
         });
         if(grid_count < row_count && row_count){
             for(grid_count = grid_count; grid_count < row_count; grid_count++){
-                bpm_grid_data = bpm_grid_data.concat('<div class="row">');
-                bpm_grid_data = bpm_grid_data.concat('<div class="small-12 large-12 columns bpm_grid_section_links">&nbsp;</div>');
+                bpm_grid_data = bpm_grid_data.concat('<div class="bpm-row">');
+                bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns bpm_grid_section_links">&nbsp;</div>');
                 bpm_grid_data = bpm_grid_data.concat('</div>');
             }
         }
@@ -1532,17 +1539,18 @@ function bpm_make_section_links_grid(this_content){
         jQuery.each(this_content, function (index, value) {
             var real_name = ' ';
             if(value['col_4']) real_name = bpm_trans_array['bpm_lng_updated_by'] + ' ' +  value['col_4'];
-            bpm_grid_data = bpm_grid_data.concat('<div class="row full-width bpm_file_bottom_border">');
-            bpm_grid_data = bpm_grid_data.concat('<div class="small-12 large-12 columns">');
-            bpm_grid_data = bpm_grid_data.concat('<div class="row">');
-            bpm_grid_data = bpm_grid_data.concat('<div class="small-12 large-12 columns bpm_grid_section_links">' + value['col_1'] + '</div>');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-row full-width ">');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-row">');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns bpm_grid_section_links  text-left">' + value['col_1'] + '</div>');
             bpm_grid_data = bpm_grid_data.concat('</div>'); //end of first row
-            bpm_grid_data = bpm_grid_data.concat('<div class="row">');
-            bpm_grid_data = bpm_grid_data.concat('<div class="small-7 large-7 columns bpm_grid_section_links bpm_sub_line">' +  bpm_trans_array['bpm_lng_last_updated'] + ' ' + value['col_2'] + '</div>');
-            bpm_grid_data = bpm_grid_data.concat('<div class="small-5 large-5 columns bpm_grid_section_links bpm_sub_line">'+bpm_trans_array['bpm_lng_status']+ ': ' + value['col_3'] + '</div>');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-row">');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-7 bpm-large-7 bpm-columns bpm_grid_section_links bpm_sub_line  text-left">' +  bpm_trans_array['bpm_lng_last_updated'] + ' ' + value['col_2'] + '</div>');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-5 bpm-large-5 bpm-columns bpm_grid_section_links bpm_sub_line  text-left">'+bpm_trans_array['bpm_lng_status']+ ': ' + value['col_3'] + '</div>');
             bpm_grid_data = bpm_grid_data.concat('</div>'); //end of second row
             bpm_grid_data = bpm_grid_data.concat('</div>');  //end of column wrapper
             bpm_grid_data = bpm_grid_data.concat('</div>');  //end of rwo wrapper
+            bpm_grid_data = bpm_grid_data.concat('<hr class="bpm_hr_gray">');
         });
     }
 

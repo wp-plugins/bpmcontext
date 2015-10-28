@@ -1,82 +1,82 @@
-<div id="bpm_content_area" style="width:100%;" class="bpm_content_area bpm_content_area_top">
+<div id="bpm_content_area" style="width:100%;" class="bpm_content_area bpm_content_area_top foundation">
 
-    <div class="row full-width"  id="bpm_page_loading_alert">
+    <div class="bpm-row full-width"  id="bpm_page_loading_alert">
         <div data-alert class="alert-box success radius bpm_lng_tag_page_loading">Page loading...
             <a href="#" class="close">&times;</a>
         </div>
     </div>
 
-    <div id="bpm_login_area" class="hide">
-        <div class="row full-width">
-            <div class="small-12 large-12 columns" style="height:50px">&nbsp;</div>
+    <div id="bpm_login_area" class="bpm-hide">
+        <div class="bpm-row full-width">
+            <div class="bpm-small-12 bpm-large-12 bpm-columns" style="height:50px">&nbsp;</div>
         </div>
-        <div class="row full-width">
-            <div class="small-2 large-2 columns">&nbsp;</div>
-            <div class="small-6 large-6 columns" id="bpm_header_main_4">
-                <div class="row">
-                    <div class="small-6 large-6 columns text-right bpm_left_menu">Email Address</div>
-                    <div class="small-6 large-6 columns text-right"><input class="bpm_email_login" type="text" placeholder="Email address" name="BPM_Email" id="bpm_email_3" tabindex="3" value="" /></div>
+        <div class="bpm-row full-width">
+            <div class="bpm-small-2 bpm-large-2 bpm-columns">&nbsp;</div>
+            <div class="bpm-small-6 bpm-large-6 bpm-columns" id="bpm_header_main_4">
+                <div class="bpm-row">
+                    <div class="bpm-small-6 bpm-large-6 bpm-columns text-right bpm_left_menu">Email Address</div>
+                    <div class="bpm-small-6 bpm-large-6 bpm-columns text-right"><input class="bpm_email_login" type="text" placeholder="Email address" name="BPM_Email" id="bpm_email_3" tabindex="3" value="" /></div>
                 </div>
-                <div class="row">
-                    <div class="small-6 large-6 columns text-right">Password</div>
-                    <div class="small-6 large-6 columns text-right"><input class="bpm_password_login" type="password" placeholder="Password" name="BPM_Password" id="bpm_password1_4" tabindex="4" value="" /></div>
+                <div class="bpm-row">
+                    <div class="bpm-small-6 bpm-large-6 bpm-columns text-right">Password</div>
+                    <div class="bpm-small-6 bpm-large-6 bpm-columns text-right"><input class="bpm_password_login" type="password" placeholder="Password" name="BPM_Password" id="bpm_password1_4" tabindex="4" value="" /></div>
                 </div>
-                <div class="row">
-                    <div class="small-10 large-10 columns text-right">
+                <div class="bpm-row">
+                    <div class="bpm-small-10 bpm-large-10 bpm-columns text-right">&nbsp;
                         <div data-alert class="alert-box alert radius text-left" id="bpm_error_message_4" style="display:none;"></div>
                     </div>
-                    <div class="small-2 large-2 columns text-right"><input id="bpm_login_button_2" type="button" onClick="bpm_submitLogIn();" value="Login" tabindex="2" class="bpm_button"></div>
+                    <div class="bpm-small-2 bpm-large-2 bpm-columns text-right"><input id="bpm_login_button_2" type="button" onClick="bpm_submitLogIn();" value="Login" tabindex="2" class="bpm_button"></div>
                     </div>
-                <div class="row">
-                    <div class="small-12 large-12 columns text-right"><div id="bpm_lost_password_4" class="bpm_return_link" onClick="bpm_showGetPassword();"><a>Lost Password</a></div></div>
+                <div class="bpm-row">
+                    <div class="bpm-small-12 bpm-large-12 bpm-columns text-right"><div id="bpm_lost_password_4" class="bpm_return_link" onClick="bpm_showGetPassword();"><a>Lost Password</a></div></div>
                 </div>
-                <div class="row">
-                        <div class="small-12 large-12 columns text-right"><input id="bpm_create_account_button" type="button" onClick="bpm_show_new_account();" value="Create a BPMContext Account" class="bpm_button" style="width:100%"></div>
+                <div class="bpm-row">
+                        <div class="bpm-small-12 bpm-large-12 bpm-columns text-right"><input id="bpm_create_account_button" type="button" onClick="bpm_show_new_account();" value="Create a BPMContext Account" class="bpm_button" style="width:100%"></div>
                 </div>
 
             </div>
-            <div class="small-6 large-6 columns hide" id="bpm_reset_password_4">
-                <div class="row">
-                    <div class="small-6 large-6 columns text-right">Email Address</div>
-                    <div class="small-6 large-6 columns text-right"><input type="text" placeholder="Email address"  name="bpm_email_forgot" id="bpm_email_forgot_4" tabindex="1" value="" /></div>
+            <div class="bpm-small-6 bpm-large-6 bpm-columns bpm-hide" id="bpm_reset_password_4">
+                <div class="bpm-row">
+                    <div class="bpm-small-6 bpm-large-6 bpm-columns text-right">Email Address</div>
+                    <div class="bpm-small-6 bpm-large-6 bpm-columns text-right"><input type="text" placeholder="Email address"  name="bpm_email_forgot" id="bpm_email_forgot_4" tabindex="1" value="" /></div>
                 </div>
-                <div class="row">
-                    <div class="small-9 large-9 columns text-right">
+                <div class="bpm-row">
+                    <div class="bpm-small-9 bpm-large-9 bpm-columns text-right">
                         <div data-alert class="alert-box alert radius text-left" id="bpm_error_message_5" style="display:none;">The Email address entered doesn't seem to have an account on our site.  Please check for spelling errors and retry. </div>
                         <div data-alert class="alert-box success radius text-left" id="bpm_error_message_6" style="display:none;">We sent you an email with a link to change your password quickly and easily. </div>
                         <div id="bpm_lost_password_message" >We will help you get your password by emailing a link to create a new one.</div>
                     </div>
-                    <div class="small-3 large-3 columns text-right"><input id="bpm_lost_password_button_4" type="button" onClick="bpm_set_email();" value="Get Password" class="bpm_lost_password_button"></div>
+                    <div class="bpm-small-3 bpm-large-3 bpm-columns text-right"><input id="bpm_lost_password_button_4" type="button" onClick="bpm_set_email();" value="Get Password" class="bpm_lost_password_button"></div>
                 </div>
-                <div class="row">
-                    <div class="small-12 large-12 columns text-right">
+                <div class="bpm-row">
+                    <div class="bpm-small-12 bpm-large-12 bpm-columns text-right">
                         <div id="bpm_return_link_4" class="bpm_return_link" onClick="currentScreen=1;bpm_reshow_login();"><a>Back to Login</a></div>
                     </div>
                 </div>
             </div>
         <br>
         </div>
-            <div class="small-4 large-4 columns"></div>
+            <div class="bpm-small-4 bpm-large-4 bpm-columns"></div>
             <br><br>
         </div>
 
 
-    <div id="bpm_page_area" class="hide" style="background-color:white;">
+    <div id="bpm_page_area" style="background-color:white;display:none;" >
 
-        <div class="row full-width hide" id="bpm_admin_bar_header">
-            <div class="small-12 large-12 columns" style="height:50px;">&nbsp;</div>
+        <div class="bpm-row full-width bpm-hide" id="bpm_admin_bar_header">
+            <div class="bpm-small-12 bpm-large-12 bpm-columns" style="height:50px;">&nbsp;</div>
          </div>
 
-        <div class="row full-width">
-            <div class="small-12 large-12 columns">
-                <ul class="breadcrumbs " id="bpm_breadcrumbs"></ul>
-                <ul id="bpm_context_change" class="f-dropdown bpm_context_list" data-dropdown-content></ul>
+        <div class="bpm-row full-width">
+            <div class="bpm-small-12 bpm-large-12 bpm-columns">
+                <ul class="breadcrumbs bpm-breadcrumbs" id="bpm_breadcrumbs"></ul>
+                <ul id="bpm_context_change" data-options="align:bottom" class="f-dropdown bpm_context_list" data-dropdown-content></ul>
             </div>
         </div>
 
-        <div class="row full-width">
+        <div class="bpm-row full-width">
 
-            <div class="small-12 large-12 columns">
+            <div class="bpm-small-12 bpm-large-12 bpm-columns">
 
             <div data-alert class="alert-box success radius bpm_lng_tag_page_loading" id="bpm_main_loading_alert" style="display:none;position: absolute;  z-index:99999; top: 50; width:98.5%; ">Page loading...
                 <a href="#" class="close">&times;</a>
@@ -109,14 +109,14 @@
                         <!-- Right Nav Section -->
                         <ul class="right">
                             <li class="bpm_ul_li"><label  style="color:white;margin-right:10px;margin-top:10px;text-decoration: none" id="bpm_toolbar_owner" data-tooltip aria-haspopup="true" class="has-tip" title="Published documents and closed workflows can still be edited.  Documents in Draft mode can only be edited and viewed by the owner."></label></li>
-                            <li class="active hide bpm_ul_li" id="bpm_toolbar_action_button_holder"><a id="bpm_toolbar_action_button" style="text-decoration: none;" onClick="bpm_action_button();">Publish</a></li>
+                            <li class="active bpm-hide bpm_ul_li" id="bpm_toolbar_action_button_holder"><a id="bpm_toolbar_action_button" style="text-decoration: none;" onClick="bpm_action_button();">Publish</a></li>
                         </ul>
 
                         <!-- Left Nav Section -->
                         <ul class="left">
 
                             <li class="has-dropdown bpm_ul_li" id="bpm_add_pages_dd">
-                                <a style="text-decoration: none;" class="fi-plus">&nbsp;<span class="bpm_lng_tag_add_new">Add Page</span></a>
+                                <a style="text-decoration: none;" class="fi-plus bpm_lng_tag_add_new">&nbsp;Add Page</a>
                                 <ul class="dropdown" id="bpm_toolbar_add_page">
 
                                 </ul>
@@ -127,17 +127,17 @@
                             <li class="has-dropdown bpm_ul_li" id="bpm_workflow_menu">
                                 <a style="text-decoration: none;" class="fi-page-export">&nbsp;Workflow</a>
                                 <ul class="dropdown">
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_can_route_to" onClick="bpm_action(this);">Route To...</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_can_subroute_back" onClick="bpm_action(this);">Route To {name}</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_can_route_next" onClick="bpm_action(this);">Route To {name}</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_can_route_owner" onClick="bpm_action(this);">Route To {name}</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_can_route_back" onClick="bpm_action(this);">Route Back To... </a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_can_subroute" onClick="bpm_action(this);">Sub-Route To...</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_recall" onClick="bpm_action(this);">Recall</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_terminate" onClick="bpm_action(this);">Terminate</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_publish" onClick="bpm_action(this);">Publish</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_close" onClick="bpm_action(this);">Close</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_toolbar_cancel_delete" onClick="bpm_action(this);">Cancel and Delete</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_can_route_to" onClick="bpm_action(this);">Route To...</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_can_subroute_back" onClick="bpm_action(this);">Route To {name}</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_can_route_next" onClick="bpm_action(this);">Route To {name}</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_can_route_owner" onClick="bpm_action(this);">Route To {name}</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_can_route_back" onClick="bpm_action(this);">Route Back To... </a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_can_subroute" onClick="bpm_action(this);">Sub-Route To...</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_recall" onClick="bpm_action(this);">Recall</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_terminate" onClick="bpm_action(this);">Terminate</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_publish" onClick="bpm_action(this);">Publish</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_close" onClick="bpm_action(this);">Close</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_toolbar_cancel_delete" onClick="bpm_action(this);">Cancel and Delete</a></li>
                                 </ul>
                             </li>
 
@@ -153,7 +153,7 @@
                                 <ul class="dropdown">
                                     <li class="bpm_ul_li"><a style="text-decoration: none;" id="bpm_toolbar_admin_rename" onClick="bpm_action(this);">Rename Page</a></li>
                                     <li class="bpm_ul_li"><a style="text-decoration: none;" id="bpm_toolbar_admin_delete" onClick="bpm_action(this);">Delete Page</a></li>
-                                    <li class="bpm_ul_li"><a style="text-decoration: none;" id="bpm_toolbar_admin_move" onClick="bpm_action(this);" class="hide">Move Page</a></li>
+                                    <li class="bpm_ul_li"><a style="text-decoration: none;" id="bpm_toolbar_admin_move" onClick="bpm_action(this);" class="bpm-hide">Move Page</a></li>
                                     <li class="bpm_ul_li"><a style="text-decoration: none;" id="bpm_toolbar_admin_close" onClick="bpm_action(this);">Close Page</a></li>
                                 </ul>
                             </li>
@@ -161,15 +161,15 @@
                             <li class="has-dropdown bpm_ul_li" id="bpm_toolbar_options">
                                 <a style="text-decoration: none;" class="fi-list-thumbnails">&nbsp;Options</a>
                                 <ul class="dropdown bpm_toolbar_options_dd">
-                                    <li class="bpm_toolbar_options_dd bpm_ul_li"><a onClick="bpm_action(this);" style="text-decoration: none;" class="fi-alert hide" id="bpm_stop_sharing">&nbsp;Stop Sharing</a></li>
-                                    <li class="bpm_toolbar_options_dd bpm_ul_li"><a onClick="bpm_action(this);" style="text-decoration: none;" class="fi-alert hide" id="bpm_restart_sharing">&nbsp;Restart Sharing</a></li>
+                                    <li class="bpm_toolbar_options_dd bpm_ul_li"><a onClick="bpm_action(this);" style="text-decoration: none;" class="fi-alert bpm-hide" id="bpm_stop_sharing">&nbsp;Stop Sharing</a></li>
+                                    <li class="bpm_toolbar_options_dd bpm_ul_li"><a onClick="bpm_action(this);" style="text-decoration: none;" class="fi-alert bpm-hide" id="bpm_restart_sharing">&nbsp;Restart Sharing</a></li>
                                     <li class="bpm_toolbar_options_dd bpm_ul_li"><a style="text-decoration: none;" onClick="bpm_action(this);" id="bpm_toolbar_bookmark">Bookmark Page</a></li>
                                     <li class="bpm_toolbar_options_dd bpm_ul_li"><a style="text-decoration: none; display:none;" onClick="bpm_action(this);" id="bpm_toolbar_unbookmark">Remove Bookmark</a></li>
                                     <li class="bpm_toolbar_options_dd bpm_ul_li"><a style="text-decoration: none;" onClick="bpm_action(this);" id="bpm_toolbar_subscribe_page">Subscribe</a></li>
                                     <li class="bpm_toolbar_options_dd bpm_ul_li"><a style="text-decoration: none; display:none;" onClick="bpm_action(this);" id="bpm_toolbar_unsubscribe_page">Un-Subscribe</a></li>
                                     <li class="bpm_toolbar_options_dd bpm_ul_li"><a style="text-decoration: none;" onClick="bpm_action(this);" id="bpm_toolbar_tag_page">Tag Page Type</a></li>
                                     <li class="bpm_toolbar_options_dd bpm_ul_li"><a style="text-decoration: none; display:none;" onClick="bpm_action(this);" id="bpm_toolbar_untag_page">Un-Tag Page Type</a></li>
-                                    <li class="bpm_toolbar_options_dd hide bpm_ul_li"><a style="text-decoration: none;" onClick="bpm_action(this);" id="bpm_toolbar_homepage">Make Homepage</a></li>
+                                    <li class="bpm_toolbar_options_dd bpm-hide bpm_ul_li"><a style="text-decoration: none;" onClick="bpm_action(this);" id="bpm_toolbar_homepage">Make Homepage</a></li>
                                 </ul>
                             </li>
 
@@ -179,12 +179,12 @@
             </div>
         </div>
 
-        <div class="row full-width">
-            <div class="small-9 large-9 columns">
-                <div class="row">
-                    <div class="small-5 medium-4 large-3 columns" id="bpm_left_menu">
+        <div class="bpm-row full-width">
+            <div class="bpm-small-9 bpm-large-9 bpm-columns">
+                <div class="bpm-row">
+                    <div class="bpm-small-5 medium-4 bpm-large-3 bpm-columns" id="bpm_left_menu">
                         <ul class="side-nav bpm_ul_li">
-                            <div class="hide">My Stuff</div>
+                            <div class="bpm-hide">My Stuff</div>
                             <li class="bpm_ul_li">
                                 <a class="bpm_nodecoration bpm_left_menu" id="left_notifications" onclick="bpm_open_modal(this);"><span class="fa fa-bell-o"></span>&nbsp;<span class="bpm_lng_tag_notifications">Notifications</span>&nbsp;<span id="bpm_notification_count"></span></a>
                             </li>
@@ -200,7 +200,7 @@
                             <li class="bpm_ul_li">
                                 <a class="fi-bookmark bpm_nodecoration bpm_left_menu"  id="left_bookmarks" onclick="bpm_open_modal(this);">&nbsp;Bookmarks</a>
                             </li>
-                            <div class="hide">My Pages</div>
+                            <div class="bpm-hide">My Pages</div>
                             <li class="bpm_ul_li">
                                 <a class="fi-clock bpm_nodecoration bpm_left_menu" id="left_recent" onclick="bpm_open_modal(this);">&nbsp;Recent</a>
                             </li>
@@ -213,9 +213,9 @@
                             <li class="bpm_ul_li">
                                 <a class="fi-page-multiple bpm_nodecoration bpm_left_menu"  id="left_pagetypes" onclick="bpm_open_modal(this);">&nbsp;Page Types</a>
                             </li>
-                            <div class="hide">My Account</div>
+                            <div class="bpm-hide">My Account</div>
                             <li class="bpm_ul_li">
-                                <a class="fi-torsos bpm_nodecoration bpm_left_menu hide"  id="left_customers" onclick="bpm_open_modal(this);">&nbsp;Customers</a>
+                                <a class="fi-torsos bpm_nodecoration bpm_left_menu bpm-hide"  id="left_customers" onclick="bpm_open_modal(this);">&nbsp;Customers</a>
                             </li>
                             <li class="bpm_ul_li">
                                 <a class="fi-torsos bpm_nodecoration bpm_left_menu"  id="left_suppliers" onclick="bpm_open_modal(this);">&nbsp;Suppliers</a>
@@ -241,7 +241,7 @@
                          </ul>
                     </div>
 
-                    <div class="small-7 medium-8 large-9 columns bpm_main_content">
+                    <div class="bpm-small-7 medium-8 bpm-large-9 bpm-columns bpm_main_content">
 
                         <div data-alert class="alert-box success radius" id="bpm_main_success_alert" style="display:none;">
                             <a href="#" class="close">&times;</a>
@@ -256,12 +256,12 @@
                      </div>
                 </div>
             </div>
-            <div class="small-3 large-3 columns" id="bpm_right_menu">
+            <div class="bpm-small-3 bpm-large-3 bpm-columns" id="bpm_right_menu">
 
-                <ul class="accordion hide" id="bpm_right_talat" data-accordion>
+                <ul class="accordion bpm-hide" id="bpm_right_talat" data-accordion>
                     <li class="accordion-navigation bpm_ul_li">
                         <a class="bpm_nodecoration bpm_bold" onclick="bpm_expand_accord(0);">Messages</a>
-                        <nav id="bpm_talat_menu" class="top-bar hide" data-topbar role="navigation">
+                        <nav id="bpm_talat_menu" class="top-bar bpm-hide" data-topbar role="navigation">
                             <section class="top-bar-section">
                                 <ul class="left">
                                     <li class="bpm_ul_li"><a class="bpm_nodecoration" onclick="bpm_talat_dismiss()">Dismiss</a></li>
@@ -276,7 +276,7 @@
                     </li>
                 </ul>
 
-                <ul class="accordion hide" data-accordion id="bpm_right_tutorial">
+                <ul class="accordion bpm-hide" data-accordion id="bpm_right_tutorial">
                     <li class="accordion-navigation bpm_ul_li">
                         <a href="#right_acc_1" onclick="bpm_expand_accord(1);" id="right_acc_1_title" class="bpm_nodecoration bpm_bold">Tutorials</a>
                         <div id="right_acc_1" class="active bpm_infobox_all bpm_infobox_setup"></div>
@@ -285,7 +285,7 @@
 
 
 
-                <ul class="accordion hide" data-accordion id="bpm_show_cust_loc">
+                <ul class="accordion bpm-hide" data-accordion id="bpm_show_cust_loc">
                     <li class="accordion-navigation bpm_ul_li">
                         <a id="right_acc_2_title" ref="#right_acc_2" onclick="bpm_expand_accord(2);" class="bpm_nodecoration bpm_bold">Customer / Supplier Location Message</a>
                         <div id="right_acc_2" class="active bpm_infobox_all bpm_infobox_setup bpm_text_medium">
@@ -294,12 +294,12 @@
                     </li>
                 </ul>
 
-                <ul class="accordion hide" data-accordion id="bpm_right_infobox">
+                <ul class="accordion bpm-hide" data-accordion id="bpm_right_infobox">
                     <li class="accordion-navigation bpm_ul_li">
                         <a href="#right_acc_3" onclick="bpm_expand_accord(3);" data-tooltip aria-haspopup="true" class="has-tip tip-left bpm_nodecoration" title="The Infobox is a set of fields that are populated when the page is created and modified as needed by users.">Infobox<div style="float:right;display: inline;"><span class="fi-pencil" ></span></div></a>
                         <div id="right_acc_3" class="active">
-                            <div class="row hide right_accordion_menu" id="bpm_edit_infobox_menu">
-                                <div class="large-12 small-12 columns">
+                            <div class="bpm-row bpm-hide right_accordion_menu" id="bpm_edit_infobox_menu">
+                                <div class="bpm-large-12 bpm-small-12 bpm-columns">
                                     <nav class="top-bar " data-topbar role="navigation">
                                         <section class="top-bar-section">
                                             <ul class="left">
@@ -314,12 +314,12 @@
                     </li>
                 </ul>
 
-                <ul class="accordion hide" data-accordion id="bpm_show_user_info">
+                <ul class="accordion bpm-hide" data-accordion id="bpm_show_user_info">
                     <li class="accordion-navigation bpm_ul_li">
                         <a href="#right_acc_12"  onclick="bpm_expand_accord(12);" data-tooltip aria-haspopup="true" class="has-tip tip-left bpm_nodecoration" title="This section can only be viewed and edited by you and an admin on the site.">Settings<div style="float:right;display: inline;"><span class="fa fa-lock"></span></div></a>
                         <div id="right_acc_12" class="active">
-                            <div class="row hide right_accordion_menu" id="bpm_user_pref_bar">
-                                <div class="large-12 small-12 columns">
+                            <div class="bpm-row bpm-hide right_accordion_menu" id="bpm_user_pref_bar">
+                                <div class="bpm-large-12 bpm-small-12 bpm-columns">
                                     <nav class="top-bar " data-topbar role="navigation">
                                         <section class="top-bar-section">
                                             <ul class="left">
@@ -332,20 +332,20 @@
                                     </nav>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="large-12 small-12 columns text-right" id="bpm_user_real_name"></div>
+                            <div class="bpm-row">
+                                <div class="bpm-large-12 bpm-small-12 bpm-columns text-right" id="bpm_user_real_name"></div>
                              </div>
-                            <div class="row">
-                                <div class="large-12 small-12 columns text-right" id="bpm_user_email"></div>
+                            <div class="bpm-row">
+                                <div class="bpm-large-12 bpm-small-12 bpm-columns text-right" id="bpm_user_email"></div>
                             </div>
-                            <div class="row">
-                                <div class="large-12 small-12 columns text-right" id="bpm_user_type"></div>
+                            <div class="bpm-row">
+                                <div class="bpm-large-12 bpm-small-12 bpm-columns text-right" id="bpm_user_type"></div>
                             </div>
-                            <div class="row">
-                                <div class="large-12 small-12 columns text-right" id="bpm_user_journal"></div>
+                            <div class="bpm-row">
+                                <div class="bpm-large-12 bpm-small-12 bpm-columns text-right" id="bpm_user_journal"></div>
                             </div>
-                            <div class="row">
-                                <div class="large-12 small-12 columns text-right" id="bpm_user_time_zone"></div>
+                            <div class="bpm-row">
+                                <div class="bpm-large-12 bpm-small-12 bpm-columns text-right" id="bpm_user_time_zone"></div>
                             </div>
                         </div>
                     </li>
@@ -371,7 +371,7 @@
                 <ul class="accordion" data-accordion id="bpm_right_change_log" style="display:none">
                     <li class="accordion-navigation bpm_ul_li">
                         <a style="text-decoration: none;" onclick="bpm_expand_accord(6);" data-tooltip aria-haspopup="true" class="has-tip tip-left" title="A history of changes made to this page is displayed here.">Change Log<div style="float:right;display: inline;"><span class="fa fa-info" ></span></div></a>
-                        <div id="right_acc_6" class="active bpm_infobox_all bpm_infobox_setup">
+                        <div id="right_acc_6" class="bpm_infobox_all bpm_infobox_setup">
 
                         </div>
                     </li>
@@ -386,7 +386,7 @@
                     </li>
                 </ul>
 
-                <ul class="accordion" data-accordion id="bpm_right_subscribers" style="display:none;margin-bottom:2em;">
+                <ul class="accordion bpm-hide" data-accordion id="bpm_right_subscribers" style="margin-bottom:2em;">
                     <li class="accordion-navigation bpm_ul_li">
                         <a style="text-decoration: none;" onclick="bpm_expand_accord(8);"  data-tooltip aria-haspopup="true" class="has-tip tip-left" title="People who subscribe to this page or who have made changes will appear on this list. <br><br>Check means they are current.<br>Dash means they have not seen the most recent changes.">Subscribers<div style="float:right;display: inline;"><span class="fa fa-info" ></span></div></a>
                         <div id="right_acc_8" class="active bpm_infobox_all bpm_infobox_setup">
@@ -398,60 +398,60 @@
                 </div>
             </div>
         <div id="bpm_objects">
-            <div id="bpm_left_widget_window" class="reveal-modal large" data-reveal aria-labelledby="bpm_widget_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_widget_title">Recent Changes</h2>
+            <div id="bpm_left_widget_window" class="reveal-modal bpm-large" data-reveal aria-labelledby="bpm_widget_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_widget_title" class="bpm-header-2">Recent Changes</h2>
 
-                <div id="bpm_account_manager" class="hide">
-                    <div class="row full-width">
-                        <div class="large-3 small-3 columns">
+                <div id="bpm_account_manager" class="bpm-hide">
+                    <div class="bpm-row full-width">
+                        <div class="bpm-large-3 bpm-small-3 bpm-columns">
                             <ul id="bpm_acct_manager_menu" class="side-nav">
                                 <li class="active bpm_ul_li">
                                     <a id="bpm_acct_manager_users" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Users</a>
                                 </li>
-                                <li class="hide bpm_ul_li">
+                                <li class="bpm-hide bpm_ul_li">
                                     <a id="bpm_acct_manager_features" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Features</a>
                                 </li>
-                                <li class="hide bpm_ul_li">
+                                <li class="bpm-hide bpm_ul_li">
                                     <a id="bpm_acct_manager_storage" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Storage</a>
                                 </li>
-                                <li class="hide bpm_ul_li">
+                                <li class="bpm-hide bpm_ul_li">
                                     <a id="bpm_acct_manager_billing" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Payment</a>
                                 </li>
-                                <li class="hide bpm_ul_li">
+                                <li class="bpm-hide bpm_ul_li">
                                     <a id="bpm_acct_manager_invoices" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Invoices</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="large-9 small-9 columns">
+                        <div class="bpm-large-9 bpm-small-9 bpm-columns">
                             <div id="bpm_admin_users_topbar" class="">
                                 <nav class="top-bar" data-topbar role="navigation">
                                     <section class="top-bar-section">
                                         <ul class="left">
-                                            <li class="hide bpm_ul_li"><a onClick="bpm_admin_action(this);" style="text-decoration: none;" class="fi-plus hide" id="bpm_admin_add_business_user" >&nbsp;Add Business User</a></li>
-                                            <li class="bpm_ul_li"><a onClick="bpm_admin_action(this);" style="text-decoration: none;" class="fi-plus hide" id="bpm_admin_add_intranet_user" >&nbsp;Add Intranet User</a></li>
+                                            <li class="bpm-hide bpm_ul_li"><a onClick="bpm_admin_action(this);" style="text-decoration: none;" class="fi-plus bpm-hide" id="bpm_admin_add_business_user" >&nbsp;Add Business User</a></li>
+                                            <li class="bpm_ul_li"><a onClick="bpm_admin_action(this);" style="text-decoration: none;" class="fi-plus bpm-hide" id="bpm_admin_add_intranet_user" >&nbsp;Add Intranet User</a></li>
                                         </ul>
                                     </section>
                                 </nav><br>
                             </div>
-                            <div id="bpm_add_intranet_user_form" class="hide">
+                            <div id="bpm_add_intranet_user_form" class="bpm-hide">
                                 <form>
-                                    <div class="row">
-                                        <div class="large-6 small-6 columns text-right">Name: </div>
-                                        <div class="large-6 small-6 columns"><input type="text" placeholder="e.g. Bob Smith" id="bpm_new_intranet_user_name" tabindex="1"  /> </div>
+                                    <div class="bpm-row">
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns text-right">Name: </div>
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns"><input type="text" placeholder="e.g. Bob Smith" id="bpm_new_intranet_user_name" tabindex="1"  /> </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="large-6 small-6 columns text-right">Email: </div>
-                                        <div class="large-6 small-6 columns"><input type="text" placeholder="e.g. bob.smith@myreallycoolcompany.com" id="bpm_new_intranet_user_email" tabindex="2"  /> </div>
+                                    <div class="bpm-row">
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns text-right">Email: </div>
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns"><input type="text" placeholder="e.g. bob.smith@myreallycoolcompany.com" id="bpm_new_intranet_user_email" tabindex="2"  /> </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="large-6 small-6 columns text-right">Message: </div>
-                                        <div class="large-6 small-6 columns"><textarea maxlength="250" placeholder="Optional welcome message" id="bpm_email_new_intranet_message" rows="3" tabindex="3"></textarea><br></div>
+                                    <div class="bpm-row">
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns text-right">Message: </div>
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns"><textarea maxlength="250" placeholder="Optional welcome message" id="bpm_email_new_intranet_message" bpm-rows="3" tabindex="3"></textarea><br></div>
                                     </div>
-                                    <div class="row">
-                                        <div class="large-6 small-6 columns">
+                                    <div class="bpm-row">
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns">&nbsp;
                                             <div data-alert class="alert-box alert radius" id="bpm_add_intranet_user_alert" style="display:none;"></div>
                                         </div>
-                                        <div class="large-6 small-6 columns text-right"><a onclick="bpm_create_user(2);" class="button small" style="text-decoration: none;">Create User</a>&nbsp;<a onclick="bpm_cancel_create_user()" class="button small" style="text-decoration: none;">Cancel</a></div>
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns text-right"><a onclick="bpm_create_user(2);" class="button bpm-small" style="text-decoration: none;">Create User</a>&nbsp;<a onclick="bpm_cancel_create_user()" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                                     </div>
                                 </form>
                             </div>
@@ -461,18 +461,18 @@
                     </div>
                 </div>
 
-                <div class="hide" id="bpm_page_type_tabs">
+                <div class="bpm-hide" id="bpm_page_type_tabs">
                     <ul class="tabs" data-tab>
                         <li id="bpm_tab_tagged" class="tab-title bpm_ul_li" ><a style="text-decoration: none;" href="#bpm_page_types_fav">Tagged</a></li>
                         <li id="bpm_tab_all" class="tab-title active bpm_ul_li" ><a style="text-decoration: none;" href="#bpm_page_types_all">All Types</a></li>
-                        <li id="bpm_tab_list" class="tab-title hide bpm_ul_li" ><a style="text-decoration: none;" href="#bpm_page_types_res">List</a></li>
+                        <li id="bpm_tab_list" class="tab-title bpm-hide bpm_ul_li" ><a style="text-decoration: none;" href="#bpm_page_types_res">List</a></li>
                     </ul>
                     <div class="tabs-content bpm_left_modal" id="bpm_page_type_tabs_content" ></div>
                 </div>
 
-                <div class="hide" id="bpm_left_customers_content">
-                    <div class="row">
-                        <div class="small-12 large-12 columns text-left">
+                <div class="bpm-hide" id="bpm_left_customers_content">
+                    <div class="bpm-row">
+                        <div class="bpm-small-12 bpm-large-12 bpm-columns text-left">
                             <ul class="tabs" data-tab>
                                 <li class="tab-title active bpm_ul_li" ><a style="text-decoration: none;" href="#bpm_left_customers_loc">Customers</a></li>
                                 <li class="tab-title bpm_ul_li" ><a style="text-decoration: none;" href="#bpm_left_customers_contact">Contacts</a></li>
@@ -482,7 +482,7 @@
                     <div class="tabs-content bpm_left_modal" id="bpm_left_customers_tab_content" style="overflow-x: hidden"></div>
                 </div>
 
-                <div class="hide" id="bpm_left_suppliers_content">
+                <div class="bpm-hide" id="bpm_left_suppliers_content">
                     <ul class="tabs" data-tab>
                         <li class="tab-title active" ><a style="text-decoration: none;" href="#bpm_left_customers_loc">Suppliers</a></li>
                         <li class="tab-title " ><a style="text-decoration: none;" href="#bpm_left_customers_contact">Contacts</a></li>
@@ -490,103 +490,103 @@
                     <div class="tabs-content bpm_left_modal" id="bpm_left_suppliers_tab_content" style="overflow-x: hidden"></div>
                 </div>
 
-                <div id="bpm_left_widget_content" class="bpm_left_modal">  </div>
+                <div id="bpm_left_widget_content" class="bpm_left_modal text-left">  </div>
 
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
-            <div id="bpm_edit_text_window" class="reveal-modal large" data-reveal aria-labelledby="bpm_edit_text_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="bpm_edit_text_title">Edit Text</h2>
+            <div id="bpm_edit_text_window" class="reveal-modal bpm-large" data-reveal aria-labelledby="bpm_edit_text_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 id="bpm_edit_text_title" class="bpm-header-2">Edit Text</h2>
                 <div id="bpm_edit_text_content" style="height:25em;">
                     <form autocomplete="off">
-                        <div class="row">
-                            <div class="small-12 large-12 columns">
-                                <textarea maxlength="3800" placeholder="Edit text..." id="bpm_edit_text_reveal_text" rows="10" cols="120"></textarea><br>
+                        <div class="bpm-row">
+                            <div class="bpm-small-12 bpm-large-12 bpm-columns">
+                                <textarea maxlength="3800" placeholder="Edit text..." id="bpm_edit_text_reveal_text" bpm-rows="10" cols="120"></textarea><br>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="small-3 large-6 columns"><div data-alert class="alert-box success radius" id="bpm_saving_text_alert" style="display:none;">Saving...</div>
+                        <div class="bpm-row">
+                            <div class="bpm-small-3 bpm-large-6 bpm-columns">&nbsp;<div data-alert class="alert-box success radius" id="bpm_saving_text_alert" style="display:none;">Saving...</div>
                             </div>
-                            <div class="small-9 large-6 columns text-right"><a onclick="bpm_save_text(0);" class="button small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_close_text()" class="button small" style="text-decoration: none;">Cancel</a></div>
+                            <div class="bpm-small-9 bpm-large-6 bpm-columns text-right"><a onclick="bpm_save_text(0);" class="button bpm-small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_close_text()" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div id="bpm_text_history_window" class="reveal-modal large" data-reveal aria-labelledby="bpm_text_history_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_text_history_title">View History</h2>
+            <div id="bpm_text_history_window" class="reveal-modal bpm-large" data-reveal aria-labelledby="bpm_text_history_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_text_history_title" class="bpm-header-2">View History</h2>
                 <div id="bpm_text_history_content" style="height:25em;"></div>
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
-            <div id="bpm_reset_password_window" class="reveal-modal small" data-reveal aria-labelledby="bpm_reset_password_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="bpm_reset_password_title">Update Password</h2>
+            <div id="bpm_reset_password_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_reset_password_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 id="bpm_reset_password_title" class="bpm-header-2">Update Password</h2>
                 <div id="bpm_reset_password_content">
                     <form autocomplete="off">
-                    <div class="row">
-                        <div class="small-6 large-6 columns text-right">Password:&nbsp;</div>
-                        <div class="small-6 large-6 columns text-left" id="bpm_password_html"></div>
+                    <div class="bpm-row">
+                        <div class="bpm-small-6 bpm-large-6 bpm-columns text-right">Password:&nbsp;</div>
+                        <div class="bpm-small-6 bpm-large-6 bpm-columns text-left" id="bpm_password_html"></div>
                     </div>
-                    <div class="row">
-                        <div class="small-6 large-6 columns text-right">Re-Enter Password:&nbsp;</div>
-                        <div class="small-6 large-6 columns text-left" id="bpm_confirm_password_html"></div>
+                    <div class="bpm-row">
+                        <div class="bpm-small-6 bpm-large-6 bpm-columns text-right">Re-Enter Password:&nbsp;</div>
+                        <div class="bpm-small-6 bpm-large-6 bpm-columns text-left" id="bpm_confirm_password_html"></div>
                     </div>
-                    <div class="row">
-                        <div class="small-12 large-12 columns text-right"><a onclick="bpm_save_password();" class="button small" style="text-decoration: none;">Save Password</a>&nbsp;<a id="bpm_cancel_password" onclick="bpm_cancel_password();" class="button small" style="text-decoration: none;display:none;">Cancel</a></div>
+                    <div class="bpm-row">
+                        <div class="bpm-small-12 bpm-large-12 bpm-columns text-right"><a onclick="bpm_save_password();" class="button bpm-small" style="text-decoration: none;">Save Password</a>&nbsp;<a id="bpm_cancel_password" onclick="bpm_cancel_password();" class="button bpm-small" style="text-decoration: none;display:none;">Cancel</a></div>
                     </div>
                     </form>
                 </div>
             </div>
 
             <div id="bpm_talat_window" class="reveal-modal medium" data-reveal aria-labelledby="bpm_talat_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="bpm_talat_title">Take a Look at This</h2>
+                <h2 id="bpm_talat_title" class="bpm-header-2">Take a Look at This</h2>
                 <div id="bpm_talat_content" style="max-height:25em;height:25em;">
                     <form id="bpm_form_talat" autocomplete="off">
-                        <div class="row">
-                            <div class="small-12 large-12 columns"><div style="width:3%;float:left;margin-top:.25em;display:inline;"><a onclick="bpm_add_talat_users()" class="bpm_links fi-plus bpm_nodecoration"></a></div><div style="width:300px;float:left;display:inline;"><input type="text" id="bpm_talat_to" placeholder="Add recipients..." /></div></div>
+                        <div class="bpm-row">
+                            <div class="bpm-small-12 bpm-large-12 bpm-columns"><div style="width:3%;float:left;margin-top:.25em;display:inline;"><a onclick="bpm_add_talat_users()" class="bpm_links fi-plus bpm_nodecoration"></a></div><div style="width:300px;float:left;display:inline;"><input type="text" id="bpm_talat_to" placeholder="Add recipients..." /></div></div>
                         </div>
-                        <div class="row">
-                            <div class="small-12 large-12 columns">
+                        <div class="bpm-row">
+                            <div class="bpm-small-12 bpm-large-12 bpm-columns">
                                 <div id="bpm_talat_list" style="margin-left:3%"></div>
                             </div>
                          </div>
-                         <div class="row">
-                            <div class="small-12 large-12 columns">
-                                <br><textarea  style="z-index: 100;" maxlength="2500" placeholder="Take a look at this message..." id="bpm_edit_TALAT_text" rows="8" cols="120"></textarea><br>
+                         <div class="bpm-row">
+                            <div class="bpm-small-12 bpm-large-12 bpm-columns">
+                                <br><textarea  style="z-index: 100;" maxlength="2500" placeholder="Take a look at this message..." id="bpm_edit_TALAT_text" bpm-rows="8" cols="120"></textarea><br>
                             </div>
                         </div>
-                        <div class="row" id="bpm_talat_send_group">
-                            <div class="small-4 large-6 columns text-left">
+                        <div class="bpm-row" id="bpm_talat_send_group">
+                            <div class="bpm-small-4 bpm-large-6 bpm-columns text-left " >&nbsp;
                                 <div data-alert class="alert-box alert radius" id="bpm_talat_alert" style="display:none;">
                                     <a href="#" class="close">&times;</a>
                                 </div>
                             </div>
-                            <div class="small-8 large-6 columns text-right"><a onclick="bpm_save_talat();" class="button small" style="text-decoration: none;">Send</a>&nbsp;<a onclick="bpm_close_talat()" class="button small" style="text-decoration: none;">Cancel</a></div>
+                            <div class="bpm-small-8 bpm-large-6 bpm-columns text-right"><a onclick="bpm_save_talat();" class="button bpm-small" style="text-decoration: none;">Send</a>&nbsp;<a onclick="bpm_close_talat()" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div id="bpm_add_page_window" class="reveal-modal small" data-reveal aria-labelledby="bpm_add_page_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_add_page_title">Add Page</h2>
+            <div id="bpm_add_page_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_add_page_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_add_page_title" class="bpm-header-2">Add Page</h2>
                 <div id="bpm_add_page_content" style="margin-top:5px;height:100px;min-height:100px;"></div>
-                <div class="row full-width">
-                    <div class="large-12 small-12 columns text-right"><a onclick="bpm_create_new_page(1,0);" class="button small" style="text-decoration: none;" id="bpm_add_page_button">Create Draft</a></div>
+                <div class="bpm-row full-width">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_create_new_page(1,0);" class="button bpm-small" style="text-decoration: none;" id="bpm_add_page_button">Create Draft</a></div>
                 </div>
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
-            <div id="bpm_stop_sharing_window" class="reveal-modal small" data-reveal aria-labelledby="bpm_stop_sharing_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_stop_sharing_title">Stop Sharing</h2>
+            <div id="bpm_stop_sharing_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_stop_sharing_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_stop_sharing_title" class="bpm-header-2">Stop Sharing</h2>
                 <form autocomplete="off">
-                    <div class="row">
-                        <div class="small-12 large-12 columns">
-                            <textarea maxlength="2500" placeholder="Stop sharing message..." id="bpm_edit_stop_sharing_text" rows="8" cols="120"></textarea><br>
+                    <div class="bpm-row">
+                        <div class="bpm-small-12 bpm-large-12 bpm-columns">
+                            <textarea maxlength="2500" placeholder="Stop sharing message..." id="bpm_edit_stop_sharing_text" bpm-rows="8" cols="120"></textarea><br>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="small-9 large-9 columns"> </div>
-                        <div class="small-3 large-3 columns text-right"> <a onclick="bpm_send_stop_sharing();" class="button small" style="text-decoration: none;">Send</a></div>
+                    <div class="bpm-row">
+                        <div class="bpm-small-9 bpm-large-9 bpm-columns"> </div>
+                        <div class="bpm-small-3 bpm-large-3 bpm-columns text-right"> <a onclick="bpm_send_stop_sharing();" class="button bpm-small" style="text-decoration: none;">Send</a></div>
                      </div>
                 </form>
 
@@ -594,50 +594,50 @@
             </div>
 
             <div id="bpm_context_map_window" class="reveal-modal medium" data-reveal aria-labelledby="bpm_context_map_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_context_map_title">Context Map</h2>
+                <h2 id="bpm_context_map_title" class="bpm-header-2">Context Map</h2>
                 <div id="bpm_context_map_content" style="margin-top:5px;height:25em;min-height:6.25em;overflow-x: hidden;"></div>
 
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
-            <div id="bpm_delegate_window" class="reveal-modal small" data-reveal aria-labelledby="bpm_delegate_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_delegate_title">Delegate Options</h2>
+            <div id="bpm_delegate_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_delegate_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_delegate_title" class="bpm-header-2">Delegate Options</h2>
                 <div id="bpm_delegate_content" style="margin-top:5px;height:25em;min-height:6.25em;overflow-x: hidden;"></div>
 
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
-            <div id="bpm_invite_external_window" class="reveal-modal small" data-reveal aria-labelledby="bpm_invite_external_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_invite_external_title">Invite External User</h2>
+            <div id="bpm_invite_external_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_invite_external_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_invite_external_title" class="bpm-header-2">Invite External User</h2>
                 <div id="bpm_invite_external_content" style="margin-top:5px;height:300px;min-height:300px;overflow: hidden;">
-                    <div class="hide" id="bpm_invite_user_id"></div>
-                    <div class="row full-width">
-                        <div class="large-12 small-12 columns" style="margin-bottom:1em">Invite <span id="bpm_invite_user_name"></span></div>
+                    <div class="bpm-hide" id="bpm_invite_user_id"></div>
+                    <div class="bpm-row full-width">
+                        <div class="bpm-large-12 bpm-small-12 bpm-columns" style="margin-bottom:1em">Invite <span id="bpm_invite_user_name"></span></div>
                     </div>
-                    <div class="row full-width">
-                        <div class="large-12 small-12 columns" style="margin-bottom:1em"><textarea maxlength="2500" placeholder="Add to the discussion..." id="bpm_invite_external_text" rows="7" cols="120"></textarea></div>
+                    <div class="bpm-row full-width">
+                        <div class="bpm-large-12 bpm-small-12 bpm-columns" style="margin-bottom:1em"><textarea maxlength="2500" placeholder="Optional invitation message..." id="bpm_invite_external_text" bpm-rows="7" cols="120"></textarea></div>
                     </div>
-                    <div class="row full-width">
-                        <div class="large-8 small-8 columns"><div data-alert class="alert-box success radius" id="bpm_send_invite_alert" style="display:none;">Inviting...</div></div>
-                        <div class="large-4 small-4 columns text-right"><a onclick="bpm_send_invite();" class="button small" style="text-decoration: none;">Send Invitation</a></div>
+                    <div class="bpm-row full-width">
+                        <div class="bpm-large-8 bpm-small-8 bpm-columns"><div data-alert class="alert-box success radius" id="bpm_send_invite_alert" style="display:none;">Inviting...</div></div>
+                        <div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><a onclick="bpm_send_invite();" class="button bpm-small" style="text-decoration: none;">Send Invitation</a></div>
                     </div>
                 </div>
 
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
-            <div id="bpm_infobox_history_window" class="reveal-modal small" data-reveal aria-labelledby="bpm_infobox_history_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_infobox_history_title">Infobox History</h2>
+            <div id="bpm_infobox_history_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_infobox_history_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_infobox_history_title" class="bpm-header-2">Infobox History</h2>
                 <div id="bpm_infobox_history_content" style="margin-top:5px;height:100px;min-height:100px;"></div>
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
-            <div id="bpm_rename_window" class="reveal-modal small" data-reveal aria-labelledby="bpm_rename_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_rename_title">Rename Page</h2>
+            <div id="bpm_rename_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_rename_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_rename_title" class="bpm-header-2">Rename Page</h2>
                 <div id="bpm_rename_content" style="margin-top:5px;height:100px;min-height:100px;">
-                    <div class="row">
-                        <div class="large-10 small-10 columns"><input id="bpm_admin_rename_field" type="text" /></div>
-                        <div class="large-2 small-2 columns"><a onclick="bpm_change_name()" class="button bpm_nodecoration tiny">Update</a></div>
+                    <div class="bpm-row">
+                        <div class="bpm-large-10 bpm-small-10 bpm-columns"><input id="bpm_admin_rename_field" type="text" /></div>
+                        <div class="bpm-large-2 bpm-small-2 bpm-columns"><a onclick="bpm_change_name()" class="button bpm_nodecoration tiny">Update</a></div>
                     </div>
                     <div data-alert class="alert-box alert radius" id="bpm_rename_error_alert" style="display:none;">
                         This page name already exists.  Please try again.
@@ -647,29 +647,29 @@
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
-            <div id="bpm_attachment_window" class="reveal-modal large" data-reveal aria-labelledby="bpm_attachment_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_attachment_title">Upload Documents</h2>
+            <div id="bpm_attachment_window" class="reveal-modal bpm-large" data-reveal aria-labelledby="bpm_attachment_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_attachment_title" class="bpm-header-2">Upload Documents</h2>
                 <div id="bpm_attachment_content" style="margin-top:5px;height:25em">
-                    <div class="row">
-                        <div class="large-6 small-6 columns"><div id="bpm_upload_form" style="height:100%;"></div></div>
-                        <div class="large-6 small-6 columns">
+                    <div class="bpm-row">
+                        <div class="bpm-large-6 bpm-small-6 bpm-columns"><div id="bpm_upload_form" style="height:100%;"></div></div>
+                        <div class="bpm-large-6 bpm-small-6 bpm-columns">
                             <form id="bpm_upload_form_talat" autocomplete="off">
-                                <div class="row">
-                                    <div class="small-12 large-12 columns"><div style="display:inline-block;width:6%;float:left;margin-top:.25em;"><a id="bpm_add_talat_user_button" onclick="bpm_add_talat_users(2)" class="bpm_links fi-plus bpm_nodecoration"></a></div><div style="width:300px;float:left;display:inline;"><input type="text" id="bpm_upload_talat_to" placeholder="Add recipients..." /></div></div>
+                                <div class="bpm-row">
+                                    <div class="bpm-small-12 bpm-large-12 bpm-columns"><div style="display:inline-block;width:6%;float:left;margin-top:.25em;"><a id="bpm_add_talat_user_button" onclick="bpm_add_talat_users(2)" class="bpm_links fi-plus bpm_nodecoration"></a></div><div style="width:300px;float:left;display:inline;"><input type="text" id="bpm_upload_talat_to" placeholder="Add recipients..." /></div></div>
                                 </div>
-                                <div class="row">
-                                    <div class="small-12 large-12 columns">
+                                <div class="bpm-row">
+                                    <div class="bpm-small-12 bpm-large-12 bpm-columns">
                                         <div id="bpm_upload_talat_list" style="margin-left:3%"></div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="small-12 large-12 columns">
-                                        <br><textarea maxlength="2500" placeholder="(Optional) Take a look at this message..." id="bpm_edit_upload_text" rows="8" cols="120"></textarea><br>
+                                <div class="bpm-row">
+                                    <div class="bpm-small-12 bpm-large-12 bpm-columns">
+                                        <br><textarea maxlength="2500" placeholder="(Optional) Take a look at this message..." id="bpm_edit_upload_text" bpm-rows="8" cols="120"></textarea><br>
                                     </div>
                                 </div>
                             </form>
-                            <div class="row">
-                                <div class="small-12 large-12 columns">
+                            <div class="bpm-row">
+                                <div class="bpm-small-12 bpm-large-12 bpm-columns">
                                     <div data-alert class="alert-box alert radius" id="bpm_upload_talat_alert" style="display:none;">
                                         <a href="#" class="close">&times;</a>
                                     </div>
@@ -678,10 +678,10 @@
 
                         </div>
                     </div><br>
-                    <div class="row">
-                        <div class="large-6 small-6 columns">Select Folder:<br><div id="bpm_upload_folders"></div></div>
-                        <div class="large-6 small-6 columns text-right">
-                            <a id="bpm_upload_files" class="button small" style="text-decoration: none;display:none;">Upload</a>
+                    <div class="bpm-row">
+                        <div class="bpm-large-6 bpm-small-6 bpm-columns text-left">Select Folder:<br><div id="bpm_upload_folders"></div></div>
+                        <div class="bpm-large-6 bpm-small-6 bpm-columns text-right">
+                            <a id="bpm_upload_files" class="button bpm-small" style="text-decoration: none;display:none;">Upload</a>
                             <div data-alert class="alert-box success radius" id="bpm_file_uploading_alert" style="display:none;margin-left:1em;margin-right:1em;">Files uploading...</div>
                             <div data-alert class="alert-box alert radius" id="bpm_file_uploading_no_talat_alert" style="display:none;margin-left:1em;">No recipient selected.</div>
                         </div>
@@ -692,41 +692,41 @@
             </div>
 
             <div id="bpm_discussion_window" class="reveal-modal medium" data-reveal aria-labelledby="bpm_discussion_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="bpm_discussion_title">Add to the Discussion</h2>
+                <h2 id="bpm_discussion_title" class="bpm-header-2">Add to the Discussion</h2>
                 <div id="bpm_discussion_content" style="height:25em;">
                     <form autocomplete="off">
-                        <div class="row full-width">
-                            <div class="large-12 small-12 columns" style="margin-bottom:1em"><textarea maxlength="2500" placeholder="Add to the discussion..." id="bpm_disc_reveal_text" rows="10" cols="120"></textarea></div>
+                        <div class="bpm-row full-width">
+                            <div class="bpm-large-12 bpm-small-12 bpm-columns" style="margin-bottom:1em"><textarea maxlength="2500" placeholder="Add to the discussion..." id="bpm_disc_reveal_text" bpm-rows="10" cols="120"></textarea></div>
                         </div>
-                        <div class="row full-width">
-                            <div class="large-6 small-6 columns"><div data-alert class="alert-box success radius" id="bpm_saving_disc_alert" style="display:none;">Saving...</div></div>
-                            <div class="large-6 small-6 columns text-right"><a onclick="bpm_send_post(0);" class="button small" style="text-decoration: none;">Save</a>&nbsp;&nbsp;<a onclick="bpm_cancel_post();" class="button small" style="text-decoration: none;">Cancel</a></div>
+                        <div class="bpm-row full-width">
+                            <div class="bpm-large-6 bpm-small-6 bpm-columns">&nbsp;<div data-alert class="alert-box success radius" id="bpm_saving_disc_alert" style="display:none;">Saving...</div></div>
+                            <div class="bpm-large-6 bpm-small-6 bpm-columns text-right"><a onclick="bpm_send_post(0);" class="button bpm-small" style="text-decoration: none;">Save</a>&nbsp;&nbsp;<a onclick="bpm_cancel_post();" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                         </div>
                     </form>
                 </div>
             </div>
 
             <div id="bpm_new_account" class="reveal-modal medium" data-reveal aria-labelledby="bpm_new_account_title" aria-hidden="true" role="dialog">
-                <h2 id="bpm_new_account_title">Create a New BPMContext Account</h2>
+                <h2 id="bpm_new_account_title" class="bpm-header-2">Create a New BPMContext Account</h2>
                 <div id="bpm_new_account_content" style="height:25em;">
-                        <div class="row">
-                            <div class="large-6 small-6 columns">
-                                <div class="row">
-                                    <div class="large-12 small-12 columns" id="bpm_new_account_image"></div>
+                        <div class="bpm-row">
+                            <div class="bpm-large-6 bpm-small-6 bpm-columns">
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns" id="bpm_new_account_image"></div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns text-center">
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-center">
                                         <strong>The World’s First Intranet App Inside Your Existing WordPress Site Keeps Everyone in the Loop.</strong>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns text-center">
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-center">
                                         <br>
                                         Empower people to be more collaborative and productive inside the workplace.
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns">
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">
                                         <br>
                                             <div><span class="fi-check bpm-green"></span>&nbsp;Designed with a library of ready to use pages to simplify publishing content.</div>
                                             <div><span class="fi-check bpm-green"></span>&nbsp;Easy to use parent-child navigation.</div>
@@ -737,43 +737,46 @@
                                         </div>
                                 </div>
                                 <br>
-                                <div class="row">
-                                    <div class="large-6 small-6 columns text-center">
+                                <div class="bpm-row">
+                                    <div class="bpm-large-6 bpm-small-6 bpm-columns text-center">
                                         <a class="bpm_links bpm_text_medium" href="https://bpmcontext.com/terms-of-service" target="_blank">Terms of Service</a>
                                     </div>
-                                    <div class="large-6 small-6 columns text-center">
+                                    <div class="bpm-large-6 bpm-small-6 bpm-columns text-center">
                                         <a class="bpm_links bpm_text_medium" href="https://bpmcontext.com/privacy" target="_blank">Privacy Policy</a>
                                     </div>
                                 </div>
 
                             </div>
                             <form autocomplete="off">
-                            <div class="large-6 small-6 columns" style="margin-bottom:1em">
-                                <div class="row">
-                                    <div class="large-12 small-12 columns ">Your Name:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_real_name"  placeholder="e.g: Bob Smith"></div>
+                            <div class="bpm-large-6 bpm-small-6 bpm-columns" style="margin-bottom:1em">
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">Your Name:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_real_name"  placeholder="e.g: Bob Smith"></div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns ">Your Company Name:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_company_name"  placeholder="e.g: My Really Cool Company"></div>
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">Your Company Name:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_company_name"  placeholder="e.g: My Really Cool Company"></div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns ">Your Email Address:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_email"  placeholder="e.g: Bob.Smith@mycoolcompany.com"></div>
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">Your Email Address:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_email"  placeholder="e.g: Bob.Smith@mycoolcompany.com"></div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns ">Password:&nbsp;<br><div id="bpm_new_acct_password_html"></div></div>
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">Password:&nbsp;<br><div id="bpm_new_acct_password_html"></div></div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns "><br><br></div>
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns "><br><br></div>
                                 </div>
-                                <div class="row" id="bpm_page_loading_new_acct_button" >
-                                    <div class="large-12 small-12 columns text-right"><a onclick="bpm_create_account_process();" class="button small" style="text-decoration: none;">Create Free Account</a>&nbsp;&nbsp;</div>
+                                <div class="bpm-row" id="bpm_page_loading_new_acct_button" >
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_create_account_process();" class="button bpm-small" style="text-decoration: none;">Create Free Account</a>&nbsp;&nbsp;</div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns">
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns">
                                         <div data-alert class="alert-box alert radius" id="bpm_new_acct_error_alert" style="display:none;">Your Name cannot match the Company Name.  Please re-enter.</div>
                                     </div>
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns">
+                                        <div data-alert class="alert-box alert radius" id="bpm_new_acct_setup_alert" style="display:none;">An error occourred setting up your account.  Please re-enter.</div>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="large-12 small-12 columns">
+                                <div class="bpm-row">
+                                    <div class="bpm-large-12 bpm-small-12 bpm-columns">
                                         <div data-alert class="alert-box success radius" id="bpm_page_loading_new_acct_alert" style="display:none;">Creating account...</div>
                                     </div>
                                  </div>
@@ -800,9 +803,9 @@
                             <li class="active"><a style="text-decoration: none;" onClick="bpm_open_discussion('DISCINDEX');" class="fi-plus"></a></li>
                             <li class="divider"></li>
                             <li class="has-form">
-                                <div class="row ">
-                                    <div class="large-8 small-9 columns"><input class="bpm_quick_post_input" type="text" style="width:100%" id="bpm_disc_post_field_DISCINDEX"  placeholder="Add a comment..."></div>
-                                    <div class="large-4 small-3 columns"><a onclick="bpm_send_post('DISCINDEX')" class="button" style="text-decoration: none;">Post</a></div>
+                                <div class="bpm-row ">
+                                    <div class="bpm-large-8 bpm-small-9 bpm-columns"><input class="bpm_quick_post_input" type="text" style="width:100%" id="bpm_disc_post_field_DISCINDEX"  placeholder="Add a comment..."></div>
+                                    <div class="bpm-large-4 bpm-small-3 bpm-columns"><a onclick="bpm_send_post('DISCINDEX')" class="button" style="text-decoration: none;">Post</a></div>
                                 </div>
                             </li>
                         </ul>
@@ -841,16 +844,16 @@
                                 </li>
 
                                 <li class="has-form" style="display:none" id="bpm_file_add_folder_form_FILEINDEX">
-                                    <div class="row ">
-                                        <div class="large-8 small-9 columns"><input class="bpm_add_folder_input" maxlength="15" type="text" style="width:100%" id="bpm_add_folder_FILEINDEX"  placeholder="Folder name..."></div>
-                                        <div class="large-4 small-3 columns"><a onclick="bpm_file_button('FILEINDEX',4)" class="button" style="text-decoration: none;white-space: nowrap">Create</a></div>
+                                    <div class="bpm-row ">
+                                        <div class="bpm-large-8 bpm-small-9 bpm-columns"><input class="bpm_add_folder_input" maxlength="15" type="text" style="width:100%" id="bpm_add_folder_FILEINDEX"  placeholder="Folder name..."></div>
+                                        <div class="bpm-large-4 bpm-small-3 bpm-columns"><a onclick="bpm_file_button('FILEINDEX',4)" class="button" style="text-decoration: none;white-space: nowrap">Create</a></div>
                                     </div>
                                 </li>
 
-                                <li class="has-form hide" id="bpm_file_rename_folder_form_FILEINDEX">
-                                    <div class="row ">
-                                        <div class="large-8 small-9 columns"><input class="bpm_rename_folder_input" maxlength="15" type="text" style="width:100%" id="bpm_rename_folder_FILEINDEX"  placeholder="Rename folder..."></div>
-                                        <div class="large-4 small-3 columns"><a onclick="bpm_file_button('FILEINDEX',9)" class="button" style="text-decoration: none;white-space: nowrap">Rename</a></div>
+                                <li class="has-form bpm-hide" id="bpm_file_rename_folder_form_FILEINDEX">
+                                    <div class="bpm-row ">
+                                        <div class="bpm-large-8 bpm-small-9 bpm-columns"><input class="bpm_rename_folder_input" maxlength="15" type="text" style="width:100%" id="bpm_rename_folder_FILEINDEX"  placeholder="Rename folder..."></div>
+                                        <div class="bpm-large-4 bpm-small-3 bpm-columns"><a onclick="bpm_file_button('FILEINDEX',9)" class="button" style="text-decoration: none;white-space: nowrap">Rename</a></div>
                                     </div>
                                 </li>
 
@@ -858,11 +861,11 @@
                         </section>
                     </nav>
                 </div>
-                <div id="bpm_file_area_FILEINDEX" style="min-height:5em;max-height: 18em;overflow-x: hidden;">
-                <div class="row full-width">
-                    <div class="large-4 small-4 columns" id="tree_folder_div_FILEINDEX" style="max-height: 15.625em;overflow-x: hidden;"></div>
+                <div id="bpm_file_area_FILEINDEX" style="min-height:10em;max-height: 18em;overflow-x: hidden;">
+                <div class="bpm-row full-width">
+                    <div class="bpm-large-4 bpm-small-4 bpm-columns" id="tree_folder_div_FILEINDEX" style="max-height: 15.625em;overflow-x: hidden;"></div>
 
-                    <div class="large-8 small-8 columns">
+                    <div class="bpm-large-8 bpm-small-8 bpm-columns">
 
                     <div id="bpm_file_list_FILEINDEX">
                     FILEDATA
@@ -880,7 +883,7 @@
 
                             <ul class="left">
                                 <li class="bpm_ul_li"><a style="text-decoration: none;" onClick="bpm_edit_text(TEXTINDEX);" >Edit</a></li>
-                                <li class="bpm_ul_li"><a style="text-decoration: none;" class="hide" id="bpm_history_button_TEXTINDEX" onClick="bpm_view_text_history(TEXTINDEX);" >History</a></li>
+                                <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_history_button_TEXTINDEX" onClick="bpm_view_text_history(TEXTINDEX);" >History</a></li>
                             </ul>
                         </section>
                     </nav>
@@ -905,9 +908,9 @@
                                 <li class="active"><a style="text-decoration: none;" onClick="bpm_open_add_page('TAGGEDINDEX', 1, 'TAGGEDNAME');" class="fi-plus"></a></li>
                                 <li class="divider"></li>
                                 <li class="has-form">
-                                    <div class="row">
-                                        <div class="large-7 small-7 columns"><input class="bpm_search_pages_input" type="text" id="bpm_links_search_field_TAGGEDINDEX"  placeholder="Search page names..."></div>
-                                        <div class="large-5 small-5 columns"><a id="bpm_links_search_button_TAGGEDINDEX" onclick="bpm_search_grid('TAGGEDINDEX')" class="button" style="text-decoration: none;">Search</a><a id="bpm_links_search_clear_TAGGEDINDEX" onclick="bpm_clear_search_grid('TAGGEDINDEX')" class="button" style="text-decoration: none;display:none">Clear</a></div>
+                                    <div class="bpm-row">
+                                        <div class="bpm-large-7 bpm-small-7 bpm-columns"><input class="bpm_search_pages_input" type="text" id="bpm_links_search_field_TAGGEDINDEX"  placeholder="Search page names..."></div>
+                                        <div class="bpm-large-5 bpm-small-5 bpm-columns"><a id="bpm_links_search_button_TAGGEDINDEX" onclick="bpm_search_grid('TAGGEDINDEX')" class="button" style="text-decoration: none;">Search</a><div id="bpm_links_search_clear_TAGGEDINDEX" class="bpm_hide bpm_hide_button"><a  onclick="bpm_clear_search_grid('TAGGEDINDEX')" class="button bpm-hide " style="text-decoration: none;">Clear</a></div></div>
                                     </div>
                                 </li>
                             </ul>
@@ -931,9 +934,9 @@
                                 <li class="active" id="bpm_add_page_child_links"><a style="text-decoration: none;" onClick="bpm_open_add_page(bpm_child_link_create_id, 1, bpm_child_link_create_name);" class="fi-plus"></a></li>
                                 <li class="divider"></li>
                                 <li class="has-form">
-                                    <div class="row collapse">
-                                        <div class="large-7 small-7 columns"><input class="bpm_search_pages_input" type="text"  id="bpm_links_search_field_999999"  placeholder="Search page names..."></div>
-                                        <div class="large-5 small-5 columns"><a id="bpm_links_search_button_999999" onclick="bpm_search_grid('999999')" class="button" style="text-decoration: none;">Search</a><a id="bpm_links_search_clear_999999" onclick="bpm_clear_search_grid('999999')" class="button" style="text-decoration: none;display:none">Clear</a></div>
+                                    <div class="bpm-row">
+                                        <div class="bpm-large-7 bpm-small-7 bpm-columns"><input class="bpm_search_pages_input" type="text"  id="bpm_links_search_field_999999"  placeholder="Search page names..."></div>
+                                        <div class="bpm-large-5 bpm-small-5 bpm-columns"><div id="bpm_links_search_button_999999"><a onclick="bpm_search_grid('999999')" class="button" style="text-decoration: none;">Search</a></div><div id="bpm_links_search_clear_999999" class="bpm_hide bpm_hide_button"><a  onclick="bpm_clear_search_grid('999999')" class="button" style="text-decoration: none;">Clear</a></div></div>
                                     </div>
                                 </li>
                             </ul>
@@ -943,104 +946,104 @@
                 <div id="bpm_child_links_999999" style="min-height:100px;">LINKSDATA</div>
             </div>
 
-            <div id="bpm_confirm_cancel_delete" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="modalTitle">Delete this Page?</h2>
-                <div class="row">
-                    <div class="large-12 small-12 columns">Deleting this page is permanent...forever...cannot be undone.  This page and any child pages for this page will be deleted.  <br><br>Are you sure.</div><br>
+            <div id="bpm_confirm_cancel_delete" class="reveal-modal bpm-small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 id="modalTitle" class="bpm-header-2">Delete this Page?</h2>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">Deleting this page is permanent...forever...cannot be undone.  This page and any child pages for this page will be deleted.  <br><br>Are you sure?</div><br>
                     </div>
-                <div class="row">
-                    <div class="large-12 small-12 columns text-right"><a onclick="bpm_confirm_yes();" class="button small" style="text-decoration: none;">Yes</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_cancel_delete')" class="button small" style="text-decoration: none;">No</a></div>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_confirm_yes();" class="button bpm-small" style="text-decoration: none;">Yes</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_cancel_delete')" class="button bpm-small" style="text-decoration: none;">No</a></div>
                 </div>
             </div>
 
-            <div id="bpm_confirm_terminate" class="reveal-modal small" data-reveal aria-labelledby="modalTitleT" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="modalTitleT">Terminate this Workflow?</h2>
-                <div class="row">
-                    <div class="large-12 small-12 columns">Terminate will stop routing and the status will be closed.  Terminated pages can still be viewed and edited.<br><br>Click Yes to terminate or No to cancel.</div><br>
+            <div id="bpm_confirm_terminate" class="reveal-modal bpm-small" data-reveal aria-labelledby="modalTitleT" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 id="modalTitleT" class="bpm-header-2">Terminate this Workflow?</h2>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">Terminate will stop routing and the status will be closed.  Terminated pages can still be viewed and edited.<br><br>Click Yes to terminate or No to cancel.</div><br>
                 </div>
-                <div class="row">
-                    <div class="large-12 small-12 columns text-right"><a onclick="bpm_confirm_yes();" class="button small" style="text-decoration: none;">Yes</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_terminate')" class="button small" style="text-decoration: none;">No</a></div>
-                </div>
-            </div>
-
-            <div id="bpm_confirm_admin_close" class="reveal-modal small" data-reveal aria-labelledby="modalTitleC" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="modalTitleC">Close this Page?</h2>
-                <div class="row">
-                    <div class="large-12 small-12 columns">Closing this page will stop routing and the status will change to Closed.  This page will still be editable by users with access to this page.<br><br>Click Yes to continue or Cancel to exit</div><br>
-                </div>
-                <div class="row">
-                    <div class="large-12 small-12 columns text-right"><a onclick="bpm_confirm_yes();" class="button small" style="text-decoration: none;">Yes</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_admin_close')" class="button small" style="text-decoration: none;">Cancel</a></div>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_confirm_yes();" class="button bpm-small" style="text-decoration: none;">Yes</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_terminate')" class="button bpm-small" style="text-decoration: none;">No</a></div>
                 </div>
             </div>
 
-
-            <div id="bpm_confirm_admin_file_delete" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2>Delete Selected Files?</h2>
-                <div class="row">
-                    <div class="large-12 small-12 columns">Deleting the selected files is permanent...forever...cannot be undone.  <br><br>Are you sure?</div><br>
+            <div id="bpm_confirm_admin_close" class="reveal-modal bpm-small" data-reveal aria-labelledby="modalTitleC" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 id="modalTitleC" class="bpm-header-2">Close this Page?</h2>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">Closing this page will stop routing and the status will change to Closed.  This page will still be editable by users with access to this page.<br><br>Click Close to continue or Cancel to exit</div><br>
                 </div>
-                <div class="row">
-                    <div class="large-12 small-12 columns text-right"><a onclick="bpm_delete_files();" class="button small" style="text-decoration: none;">Yes</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_admin_file_delete')" class="button small" style="text-decoration: none;">No</a></div>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_confirm_yes();" class="button bpm-small" style="text-decoration: none;">Close</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_admin_close')" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
+                </div>
+            </div>
+
+
+            <div id="bpm_confirm_admin_file_delete" class="reveal-modal bpm-small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 class="bpm-header-2">Delete Selected Files?</h2>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns">Deleting the selected files is permanent...forever...cannot be undone.  <br><br>Are you sure?</div><br>
+                </div>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_delete_files();" class="button bpm-small" style="text-decoration: none;">Yes</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_admin_file_delete')" class="button bpm-small" style="text-decoration: none;">No</a></div>
                 </div>
             </div>
 
             <div id="bpm_attachments_view_versions" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" >
-                <h2>File Version History</h2>
-                <div class="row">
-                    <div class="large-12 small-12 columns" id="bpm_attachments_versions_content"></div><br>
+                <h2 class="bpm-header-2">File Version History</h2>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns" id="bpm_attachments_versions_content"></div><br>
                 </div>
-                <div class="row">
-                    <div class="large-12 small-12 columns text-right"><a id="bpm_confirm_version_delete" onclick="bpm_confirm_version_delete()" class="button small" style="text-decoration: none;display: none">Admin Delete...</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_attachments_view_versions')" class="button small" style="text-decoration: none;">Close</a></div>
-                </div>
-            </div>
-
-            <div id="bpm_attachment_no_storage_window" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-                <h2>Out of Storage</h2>
-                <div class="row">
-                    <div class="large-12 small-12 columns">Free accounts have 1 GB of free storage and you have used you available storage space.   You can delete files to create space or upgrade to get additional space.</div><br>
-                </div>
-                <div class="row">
-                    <div class="large-12 small-12 columns text-right"><a onclick="bpm_confirm_no('bpm_attachment_no_storage_window')" class="button small" style="text-decoration: none;">Close</a></div>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a id="bpm_confirm_version_delete" onclick="bpm_confirm_version_delete()" class="button bpm-small" style="text-decoration: none;display: none">Admin Delete...</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_attachments_view_versions')" class="button bpm-small" style="text-decoration: none;">Close</a></div>
                 </div>
             </div>
 
-            <div id="bpm_get_route_to_user" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="bpm_route_to_reveal_title">Route To</h2>
-                <div class="row full-width">
-                    <div class="large-12 small-12 columns text-center" id="bpm_route_to_reveal_list" style="margin-top:3px;margin-bottom:10px;max-height: 200px;overflow-x:hidden;"></div>
+            <div id="bpm_attachment_no_storage_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                <h2 class="bpm-header-2">Out of Storage</h2>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns">Free accounts have 1 GB of free storage and you have used you available storage space.   You can delete files to create space or upgrade to get additional space.</div><br>
                 </div>
-                <div class="row full-width">
-                    <div class="large-12 small-12 columns text-right"><a onclick="bpm_confirm_yes();" class="button small" style="text-decoration: none;">Send</a>&nbsp;<a onclick="bpm_confirm_no('bpm_get_route_to_user')" class="button small" style="text-decoration: none;">Cancel</a></div>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_confirm_no('bpm_attachment_no_storage_window')" class="button bpm-small" style="text-decoration: none;">Close</a></div>
                 </div>
             </div>
 
-            <div id="bpm_edit_infobox" class="reveal-modal small" data-reveal aria-labelledby="bpm_edit_infobox_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="bpm_edit_infobox_title">Edit Infobox</h2>
-                <div class="row full-width">
-                    <div class="large-12 small-12 columns text-center" id="bpm_infobox_content" style="margin-top:3px;margin-bottom:10px;max-height: 350px;overflow-x:hidden;"></div>
+            <div id="bpm_get_route_to_user" class="reveal-modal bpm-small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 class="bpm-header-2" id="bpm_route_to_reveal_title">Route To</h2>
+                <div class="bpm-row full-width">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-center" id="bpm_route_to_reveal_list" style="margin-top:3px;margin-bottom:10px;max-height: 200px;overflow-x:hidden;"></div>
                 </div>
-                <div class="row full-width">
-                    <div class="large-12 small-12 columns text-right"><a id="bpm_infobox_reveal_save" onclick="bpm_save_infobox();" class="button small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_confirm_no('bpm_edit_infobox')" class="button small" style="text-decoration: none;">Cancel</a></div>
+                <div class="bpm-row full-width">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_confirm_yes();" class="button bpm-small" style="text-decoration: none;">Send</a>&nbsp;<a onclick="bpm_confirm_no('bpm_get_route_to_user')" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
+                </div>
+            </div>
+
+            <div id="bpm_edit_infobox" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_edit_infobox_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 id="bpm_edit_infobox_title" class="bpm-header-2">Edit Infobox</h2>
+                <div class="bpm-row full-width">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left" id="bpm_infobox_content" style="margin-top:3px;margin-bottom:10px;max-height: 350px;overflow-x:hidden;"></div>
+                </div>
+                <div class="bpm-row full-width">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a id="bpm_infobox_reveal_save" onclick="bpm_save_infobox();" class="button bpm-small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_confirm_no('bpm_edit_infobox')" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                 </div>
             </div>
 
             <div id="bpm_edit_user_profile" class="reveal-modal" data-reveal aria-labelledby="bpm_edit_user_profile_title" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
-                <h2 id="bpm_edit_user_profile_title">Edit User Profile</h2>
-                <div class="row full-width">
-                    <div class="large-12 small-12 columns text-center" id="bpm_edit_user_profile_list" style="margin-top:3px;margin-bottom:10px;max-height: 350px;overflow-x:hidden;"></div>
+                <h2 id="bpm_edit_user_profile_title" class="bpm-header-2">Edit User Profile</h2>
+                <div class="bpm-row full-width">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-center" id="bpm_edit_user_profile_list" style="margin-top:3px;margin-bottom:10px;max-height: 350px;overflow-x:hidden;"></div>
                 </div>
-                <div class="row full-width">
-                    <div class="large-6 small-6 columns text-left">
+                <div class="bpm-row full-width">
+                    <div class="bpm-large-6 bpm-small-6 bpm-columns text-left">
                         <div data-alert class="alert-box success radius text-left" id="bpm_user_profile_save_message" style="display:none;">Saving profile settings.</div>
                     </div>
-                    <div class="large-6 small-6 columns text-right"><a id="bpm_save_user_prefs_button" onclick="bpm_save_user_pref();" class="button small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_confirm_no('bpm_edit_user_profile')" class="button small" style="text-decoration: none;">Cancel</a></div>
+                    <div class="bpm-large-6 bpm-small-6 bpm-columns text-right"><a id="bpm_save_user_prefs_button" onclick="bpm_save_user_pref();" class="button bpm-small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_confirm_no('bpm_edit_user_profile')" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                 </div>
             </div>
 
             <ol id="bpm_tutorial" class="joyride-list" data-joyride></ol>
 
-            <div id="bpm_tutorial_name_11" data-pagetype="25_25" data-shownow="1" data-tutorialid="11" data-adminonly="1" class="bpm_tutorials bpm_page_0 hide">Welcome Tour</div>
-            <ol id="bpm_tutorial_11" class="hide">
+            <div id="bpm_tutorial_name_11" data-pagetype="25_25" data-shownow="1" data-tutorialid="11" data-adminonly="1" class="bpm_tutorials bpm_page_0 bpm-hide">Welcome Tour</div>
+            <ol id="bpm_tutorial_11" class="bpm-hide">
                 <li data-id="" data-button="Organize your Intranet" data-prev-text="" data-options="tip_location:top;prev_button: false">
                     <h3>Welcome!</h3>
                     <p>With Intranet Lite you can share, collaborate and find the information you want right in your own website.</p>
@@ -1067,8 +1070,8 @@
                 </li>
             </ol>
 
-            <div id="bpm_tutorial_name_17" data-pagetype="25_25" data-shownow="1" data-tutorialid="17" data-adminonly="2" class="bpm_tutorials bpm_page_0 hide">Welcome Tour</div>
-            <ol id="bpm_tutorial_17" class="hide">
+            <div id="bpm_tutorial_name_17" data-pagetype="25_25" data-shownow="1" data-tutorialid="17" data-adminonly="2" class="bpm_tutorials bpm_page_0 bpm-hide">Welcome Tour</div>
+            <ol id="bpm_tutorial_17" class="bpm-hide">
                 <h3>Welcome!</h3>
                 <p>With Intranet Lite you can share, collaborate and find the information you want right in your own website.</p>
                 </li>
@@ -1090,8 +1093,8 @@
                 </li>
             </ol>
 
-            <div id="bpm_tutorial_name_12" data-pagetype="25_25" data-shownow="0" data-tutorialid="12" data-adminonly="0" class="bpm_tutorials hide">Creating Help Tickets</div>
-            <ol id="bpm_tutorial_12" class="hide">
+            <div id="bpm_tutorial_name_12" data-pagetype="25_25" data-shownow="0" data-tutorialid="12" data-adminonly="0" class="bpm_tutorials bpm-hide">Creating Help Tickets</div>
+            <ol id="bpm_tutorial_12" class="bpm-hide">
                 <li data-id="" data-button="Create a Help Ticket" data-prev-text="" data-options="tip_location:bottom;prev_button: false">
                     <h3>Help Tickets</h3>
                     <p>Help Tickets automate workflow for IT and Facility help requests and puts your intranet to work for you by creating a simple assignment between two people. Tasks are open until you close the workflow to show it is complete. </p>
@@ -1102,8 +1105,8 @@
                 </li>
             </ol>
 
-            <div id="bpm_tutorial_name_13" data-pagetype="129_130" data-shownow="1" data-tutorialid="13" data-adminonly="0" class="bpm_tutorials hide">Submitting Help Tickets</div>
-            <ol id="bpm_tutorial_13" class="hide">
+            <div id="bpm_tutorial_name_13" data-pagetype="129_130" data-shownow="1" data-tutorialid="13" data-adminonly="0" class="bpm_tutorials bpm-hide">Submitting Help Tickets</div>
+            <ol id="bpm_tutorial_13" class="bpm-hide">
                 <li data-id="" data-button="Assign the Help Ticket" data-prev-text="" data-options="tip_location:top;prev_button: false">
                     <h3>Edit the Ticket </h3>
                     <p>The help ticket includes three sections to capture text, discussions and upload files.   Once you enter the information for the help ticket you can route it to any user.</p>
@@ -1114,8 +1117,8 @@
                 </li>
             </ol>
 
-            <div id="bpm_tutorial_name_14" data-pagetype="25_25" data-shownow="0" data-tutorialid="14" data-adminonly="0" class="bpm_tutorials hide">Announcements</div>
-            <ol id="bpm_tutorial_14" class="hide">
+            <div id="bpm_tutorial_name_14" data-pagetype="25_25" data-shownow="0" data-tutorialid="14" data-adminonly="0" class="bpm_tutorials bpm-hide">Announcements</div>
+            <ol id="bpm_tutorial_14" class="bpm-hide">
                 <li data-id="" data-button="Create an Announcement" data-prev-text="" data-options="tip_location:bottom;prev_button: false">
                     <h3>Announcements</h3>
                     <p>Use the BPMContext intranet plugin for securely publishing team communications, announcements and news only to your team members.  </p>
@@ -1126,8 +1129,8 @@
                 </li>
             </ol>
 
-            <div id="bpm_tutorial_name_15" data-pagetype="128_128" data-shownow="1" data-tutorialid="15" data-adminonly="0" class="bpm_tutorials hide">Publishing Announcements</div>
-            <ol id="bpm_tutorial_15" class="hide">
+            <div id="bpm_tutorial_name_15" data-pagetype="128_128" data-shownow="1" data-tutorialid="15" data-adminonly="0" class="bpm_tutorials bpm-hide">Publishing Announcements</div>
+            <ol id="bpm_tutorial_15" class="bpm-hide">
                 <li data-id="" data-button="Next" data-prev-text="" data-options="tip_location:top;prev_button: false">
                     <h3>Edit Announcement </h3>
                     <p>The Announcement includes three sections to capture text, discussions and upload files. Once you enter the information for the Announcement you can publish it in your intranet.</p>
@@ -1138,8 +1141,8 @@
                 </li>
             </ol>
 
-            <div id="bpm_tutorial_name_16" data-pagetype="0_0" data-shownow="0" data-tutorialid="16" data-adminonly="1" class="bpm_tutorials hide">Adding Users</div>
-            <ol id="bpm_tutorial_16" class="hide">
+            <div id="bpm_tutorial_name_16" data-pagetype="0_0" data-shownow="0" data-tutorialid="16" data-adminonly="1" class="bpm_tutorials bpm-hide">Adding Users</div>
+            <ol id="bpm_tutorial_16" class="bpm-hide">
                 <li data-id="" data-button="Invite Team Members" data-prev-text="" data-options="tip_location:top;prev_button: false">
                     <h3>Intranet Users are Free </h3>
                     <p>As an admin you can add team members to the account using the Account Manager. The Account Manager is visible to Admins only.</p>
@@ -1154,378 +1157,379 @@
                 </li>
             </ol>
 
-            <div id="bpm_lng_message_up_to_date" class="hide bpm_lang">You are completely up-to-date.</div>
-            <div id="bpm_lng_pub_now" class="hide bpm_lang">Publish Immediately?</div>
-            <div id="bpm_lng_is_published" class="hide bpm_lang">This document is published</div>
-            <div id="bpm_lng_published" class="hide bpm_lang">Published</div>
-            <div id="bpm_lng_is_closed" class="hide bpm_lang">This workflow is complete</div>
-            <div id="bpm_lng_name" class="hide bpm_lang">Name</div>
-            <div id="bpm_lng_title" class="hide bpm_lang">Title</div>
-            <div id="bpm_lng_department" class="hide bpm_lang">Department</div>
-            <div id="bpm_lng_phone" class="hide bpm_lang">Phone</div>
-            <div id="bpm_lng_mobile" class="hide bpm_lang">Mobile</div>
-            <div id="bpm_lng_email" class="hide bpm_lang">Email</div>
-            <div id="bpm_lng_company" class="hide bpm_lang">Company</div>
-            <div id="bpm_lng_configure" class="hide bpm_lang">Configure</div>
-            <div id="bpm_lng_add_remove" class="hide bpm_lang">Add or Remove</div>
-            <div id="bpm_lng_clear_all" class="hide bpm_lang">Clear All</div>
-            <div id="bpm_lng_saved" class="hide bpm_lang">Saved</div>
-            <div id="bpm_lng_no_cust" class="hide bpm_lang">There are no Customers created yet.  Use Add Page from the Home Page to add Customers.</div>
-            <div id="bpm_lng_no_supp" class="hide bpm_lang">There are no Suppliers created yet.  Use Add Page from the Home Page to add Suppliers.</div>
-            <div id="bpm_lng_main" class="hide bpm_lang">Main</div>
-            <div id="bpm_lng_loading" class="hide bpm_lang">Loading</div>
-            <div id="bpm_lng_no_results" class="hide bpm_lang">No pages found</div>
-            <div id="bpm_lng_no_results_context_map" class="hide bpm_lang">No pages found. Pages are only displayed here if they are child-pages of the current page.</div>
-            <div id="bpm_lng_no_network" class="hide bpm_lang">A network error has occurred.  Please try again.</div>
-            <div id="bpm_lng_publish" class="hide bpm_lang">Publish</div>
-            <div id="bpm_lng_create_draft" class="hide bpm_lang">Create Draft</div>
-            <div id="bpm_lng_page_exists" class="hide bpm_lang">This page name already exists. Please try again. </div>
-            <div id="bpm_lng_enter_page_name" class="hide bpm_lang">Please enter a page name. </div>
-            <div id="bpm_quick_docs_message" class="hide bpm_lang">Use QuickDocs to manage the page types you publish most often. Create a new page for any page type available on your account. Use Add or Remove to configure your Quick Docs.</div>
-            <div id="bpm_bookmarks_message" class="hide bpm_lang">Bookmark a page you want to access quickly from the Bookmarks. Go to Page Actions -> Options to setup a new Bookmark from any page.</div>
-            <div id="bpm_lng_talat_placeholder_draft" class="hide bpm_lang">Take a Look at This messaging is not available on draft pages.</div>
-            <div id="bpm_lng_talat_placeholder_not_draft" class="hide bpm_lang">Take a look at this message...</div>
-            <div id="bpm_lng_create_account" class="hide bpm_lang">Create a BPMContext Account</div>
-            <div id="bpm_lng_pages_found" class="hide bpm_lang">Pages Found</div>
-            <div id="bpm_lng_show_list" class="hide bpm_lang">Show List</div>
-            <div id="bpm_lng_file_name" class="hide bpm_lang">File Name</div>
-            <div id="bpm_lng_date" class="hide bpm_lang">Date</div>
-            <div id="bpm_lng_size" class="hide bpm_lang">Size</div>
-            <div id="bpm_lng_versions" class="hide bpm_lang">Versions</div>
-            <div id="bpm_lng_current_version" class="hide bpm_lang">Current Version</div>
-            <div id="bpm_lng_previous_versions" class="hide bpm_lang">Previous Version</div>
-            <div id="bpm_lng_drafts" class="hide bpm_lang">Drafts</div>
-            <div id="bpm_lng_messages" class="hide bpm_lang">Messages</div>
-            <div id="bpm_lng_select_account" class="hide bpm_lang">Select your Account</div>
-            <div id="bpm_lng_Select" class="hide bpm_lang">Select</div>
-            <div id="bpm_lng_Customer" class="hide bpm_lang">Customer</div>
-            <div id="bpm_lng_Corp_Customer" class="hide bpm_lang">Corp Customer</div>
-            <div id="bpm_lng_Supplier" class="hide bpm_lang">Supplier</div>
-            <div id="bpm_lng_Corp_Supplier" class="hide bpm_lang">Corp Supplier</div>
-            <div id="bpm_lng_page_links" class="hide bpm_lang">Page Links</div>
-            <div id="bpm_lng_password_no_match" class="hide bpm_lang">Passwords do not match</div>
-            <div id="bpm_lng_view" class="hide bpm_lang">View</div>
-            <div id="bpm_lng_cust_loc_message" class="hide bpm_lang">Most processes happen at the Customer Location level.  Click on the Add Page button to create a new Customer Location.</div>
-            <div id="bpm_lng_supp_loc_message" class="hide bpm_lang">Most processes happen at the Supplier Location level.  Click on the Add Page button to create a new Supplier Location.</div>
-            <div id="bpm_lng_move_to_folder" class="hide bpm_lang">Move to Folder</div>
-            <div id="bpm_lng_add" class="hide bpm_lang">Add</div>
-            <div id="bpm_lng_page" class="hide bpm_lang">page</div>
-            <div id="bpm_lng_subscriptions" class="hide bpm_lang">Subscriptions</div>
-            <div id="bpm_lng_click_files" class="hide bpm_lang">Click here or drop files to upload</div>
-            <div id="bpm_lng_Administrator" class="hide bpm_lang">Administrator</div>
-            <div id="bpm_lng_Business_User" class="hide bpm_lang">Business User</div>
-            <div id="bpm_lng_Intranet_User" class="hide bpm_lang">Intranet User</div>
-            <div id="bpm_lng_no_discussions" class="hide bpm_lang">There are no discussions yet.</div>
-            <div id="bpm_lng_quick_doc_parents" class="hide bpm_lang">Items will be added to the left menu when they have a valid parent document available.</div>
-            <div id="bpm_lng_wrong_password" class="hide bpm_lang">Hmm.  That's not the right password. Please try again or request a new one.</div>
-            <div id="bpm_lng_wrong_email" class="hide bpm_lang">The Email address entered doesn't seem to have an account on our site.  Please check for spelling errors and retry.</div>
-            <div id="bpm_lng_account_disabled" class="hide bpm_lang">Your account has been disabled.  Please contact customer service at customer.service@bpmcontext.com for assistance.</div>
-            <div id="bpm_lng_cust_loc_message_title" class="hide bpm_lang">Customer Location Info</div>
-            <div id="bpm_lng_supp_loc_message_title" class="hide bpm_lang">Supplier Location Info</div>
-            <div id="bpm_lng_last_updated_on" class="hide bpm_lang">Updated on</div>
-            <div id="bpm_lng_updated_by" class="hide bpm_lang">Updated by</div>
-            <div id="bpm_lng_uploaded_by" class="hide bpm_lang">Uploaded by</div>
-            <div id="bpm_lng_by" class="hide bpm_lang">by</div>
-            <div id="bpm_lng_cap_by" class="hide bpm_lang">By</div>
-            <div id="bpm_lng_user_type" class="hide bpm_lang">User Type</div>
-            <div id="bpm_lng_status" class="hide bpm_lang">Status</div>
-            <div id="bpm_lng_open" class="hide bpm_lang">Open</div>
-            <div id="bpm_lng_closed" class="hide bpm_lang">Closed</div>
-            <div id="bpm_lng_draft" class="hide bpm_lang">Draft</div>
-            <div id="bpm_lng_on" class="hide bpm_lang">on</div>
-            <div id="bpm_lng_daily_journal" class="hide bpm_lang">Daily Journal</div>
-            <div id="bpm_lng_time_zone" class="hide bpm_lang">Time Zone</div>
-            <div id="bpm_lng_select_all" class="hide bpm_lang">Select all</div>
-            <div id="bpm_lng_last_updated" class="hide bpm_lang">Last updated on</div>
-            <div id="bpm_lng_edited" class="hide bpm_lang">Edited</div>
+            <div id="bpm_lng_message_up_to_date" class="bpm-hide bpm_lang">You are completely up-to-date.</div>
+            <div id="bpm_lng_pub_now" class="bpm-hide bpm_lang">Publish Immediately?</div>
+            <div id="bpm_lng_is_published" class="bpm-hide bpm_lang">This document is published</div>
+            <div id="bpm_lng_published" class="bpm-hide bpm_lang">Published</div>
+            <div id="bpm_lng_is_closed" class="bpm-hide bpm_lang">This workflow is complete</div>
+            <div id="bpm_lng_name" class="bpm-hide bpm_lang">Name</div>
+            <div id="bpm_lng_title" class="bpm-hide bpm_lang">Title</div>
+            <div id="bpm_lng_department" class="bpm-hide bpm_lang">Department</div>
+            <div id="bpm_lng_phone" class="bpm-hide bpm_lang">Phone</div>
+            <div id="bpm_lng_mobile" class="bpm-hide bpm_lang">Mobile</div>
+            <div id="bpm_lng_email" class="bpm-hide bpm_lang">Email</div>
+            <div id="bpm_lng_company" class="bpm-hide bpm_lang">Company</div>
+            <div id="bpm_lng_configure" class="bpm-hide bpm_lang">Configure</div>
+            <div id="bpm_lng_add_remove" class="bpm-hide bpm_lang">Add or Remove</div>
+            <div id="bpm_lng_clear_all" class="bpm-hide bpm_lang">Clear All</div>
+            <div id="bpm_lng_saved" class="bpm-hide bpm_lang">Saved</div>
+            <div id="bpm_lng_no_cust" class="bpm-hide bpm_lang">There are no Customers created yet.  Use Add Page from the Home Page to add Customers.</div>
+            <div id="bpm_lng_no_supp" class="bpm-hide bpm_lang">There are no Suppliers created yet.  Use Add Page from the Home Page to add Suppliers.</div>
+            <div id="bpm_lng_main" class="bpm-hide bpm_lang">Main</div>
+            <div id="bpm_lng_loading" class="bpm-hide bpm_lang">Loading</div>
+            <div id="bpm_lng_no_results" class="bpm-hide bpm_lang">No pages found</div>
+            <div id="bpm_lng_no_results_context_map" class="bpm-hide bpm_lang">No pages found. Pages are only displayed here if they are child-pages of the current page.</div>
+            <div id="bpm_lng_no_network" class="bpm-hide bpm_lang">A network error has occurred.  Please try again.</div>
+            <div id="bpm_lng_publish" class="bpm-hide bpm_lang">Publish</div>
+            <div id="bpm_lng_create_draft" class="bpm-hide bpm_lang">Create Draft</div>
+            <div id="bpm_lng_page_exists" class="bpm-hide bpm_lang">This page name already exists. Please try again. </div>
+            <div id="bpm_lng_enter_page_name" class="bpm-hide bpm_lang">Please enter a page name. </div>
+            <div id="bpm_quick_docs_message" class="bpm-hide bpm_lang">Use QuickDocs to manage the page types you publish most often. Create a new page for any page type available on your account. Use Add or Remove to configure your Quick Docs.</div>
+            <div id="bpm_bookmarks_message" class="bpm-hide bpm_lang">Bookmark a page you want to access quickly from the Bookmarks. Go to Page Actions -> Options to setup a new Bookmark from any page.</div>
+            <div id="bpm_lng_talat_placeholder_draft" class="bpm-hide bpm_lang">Take a Look at This messaging is not available on draft pages.</div>
+            <div id="bpm_lng_talat_placeholder_not_draft" class="bpm-hide bpm_lang">Take a look at this message...</div>
+            <div id="bpm_lng_create_account" class="bpm-hide bpm_lang">Create a BPMContext Account</div>
+            <div id="bpm_lng_pages_found" class="bpm-hide bpm_lang">Pages Found</div>
+            <div id="bpm_lng_show_list" class="bpm-hide bpm_lang">Show List</div>
+            <div id="bpm_lng_file_name" class="bpm-hide bpm_lang">File Name</div>
+            <div id="bpm_lng_date" class="bpm-hide bpm_lang">Date</div>
+            <div id="bpm_lng_size" class="bpm-hide bpm_lang">Size</div>
+            <div id="bpm_lng_versions" class="bpm-hide bpm_lang">Versions</div>
+            <div id="bpm_lng_current_version" class="bpm-hide bpm_lang">Current Version</div>
+            <div id="bpm_lng_previous_versions" class="bpm-hide bpm_lang">Previous Version</div>
+            <div id="bpm_lng_drafts" class="bpm-hide bpm_lang">Drafts</div>
+            <div id="bpm_lng_messages" class="bpm-hide bpm_lang">Messages</div>
+            <div id="bpm_lng_select_account" class="bpm-hide bpm_lang">Select your Account</div>
+            <div id="bpm_lng_Select" class="bpm-hide bpm_lang">Select</div>
+            <div id="bpm_lng_Customer" class="bpm-hide bpm_lang">Customer</div>
+            <div id="bpm_lng_Corp_Customer" class="bpm-hide bpm_lang">Corp Customer</div>
+            <div id="bpm_lng_Supplier" class="bpm-hide bpm_lang">Supplier</div>
+            <div id="bpm_lng_Corp_Supplier" class="bpm-hide bpm_lang">Corp Supplier</div>
+            <div id="bpm_lng_page_links" class="bpm-hide bpm_lang">Page Links</div>
+            <div id="bpm_lng_password_no_match" class="bpm-hide bpm_lang">Passwords do not match</div>
+            <div id="bpm_lng_view" class="bpm-hide bpm_lang">View</div>
+            <div id="bpm_lng_cust_loc_message" class="bpm-hide bpm_lang">Most processes happen at the Customer Location level.  Click on the Add Page button to create a new Customer Location.</div>
+            <div id="bpm_lng_supp_loc_message" class="bpm-hide bpm_lang">Most processes happen at the Supplier Location level.  Click on the Add Page button to create a new Supplier Location.</div>
+            <div id="bpm_lng_move_to_folder" class="bpm-hide bpm_lang">Move to Folder</div>
+            <div id="bpm_lng_add" class="bpm-hide bpm_lang">Add</div>
+            <div id="bpm_lng_page" class="bpm-hide bpm_lang">page</div>
+            <div id="bpm_lng_subscriptions" class="bpm-hide bpm_lang">Subscriptions</div>
+            <div id="bpm_lng_click_files" class="bpm-hide bpm_lang">Click here or drop files to upload</div>
+            <div id="bpm_lng_Administrator" class="bpm-hide bpm_lang">Administrator</div>
+            <div id="bpm_lng_Business_User" class="bpm-hide bpm_lang">Business User</div>
+            <div id="bpm_lng_Intranet_User" class="bpm-hide bpm_lang">Intranet User</div>
+            <div id="bpm_lng_no_discussions" class="bpm-hide bpm_lang">There are no discussions yet.</div>
+            <div id="bpm_lng_quick_doc_parents" class="bpm-hide bpm_lang">Items will be added to the left menu when they have a valid parent document available.</div>
+            <div id="bpm_lng_wrong_password" class="bpm-hide bpm_lang">Hmm.  That's not the right password. Please try again or request a new one.</div>
+            <div id="bpm_lng_wrong_email" class="bpm-hide bpm_lang">The Email address entered doesn't seem to have an account on our site.  Please check for spelling errors and retry.</div>
+            <div id="bpm_lng_account_disabled" class="bpm-hide bpm_lang">Your account has been disabled.  Please contact customer service at customer.service@bpmcontext.com for assistance.</div>
+            <div id="bpm_lng_cust_loc_message_title" class="bpm-hide bpm_lang">Customer Location Info</div>
+            <div id="bpm_lng_supp_loc_message_title" class="bpm-hide bpm_lang">Supplier Location Info</div>
+            <div id="bpm_lng_last_updated_on" class="bpm-hide bpm_lang">Updated on</div>
+            <div id="bpm_lng_updated_by" class="bpm-hide bpm_lang">Updated by</div>
+            <div id="bpm_lng_uploaded_by" class="bpm-hide bpm_lang">Uploaded by</div>
+            <div id="bpm_lng_by" class="bpm-hide bpm_lang">by</div>
+            <div id="bpm_lng_cap_by" class="bpm-hide bpm_lang">By</div>
+            <div id="bpm_lng_user_type" class="bpm-hide bpm_lang">User Type</div>
+            <div id="bpm_lng_status" class="bpm-hide bpm_lang">Status</div>
+            <div id="bpm_lng_open" class="bpm-hide bpm_lang">Open</div>
+            <div id="bpm_lng_closed" class="bpm-hide bpm_lang">Closed</div>
+            <div id="bpm_lng_draft" class="bpm-hide bpm_lang">Draft</div>
+            <div id="bpm_lng_on" class="bpm-hide bpm_lang">on</div>
+            <div id="bpm_lng_daily_journal" class="bpm-hide bpm_lang">Daily Journal</div>
+            <div id="bpm_lng_time_zone" class="bpm-hide bpm_lang">Time Zone</div>
+            <div id="bpm_lng_select_all" class="bpm-hide bpm_lang">Select all</div>
+            <div id="bpm_lng_last_updated" class="bpm-hide bpm_lang">Last updated on</div>
+            <div id="bpm_lng_edited" class="bpm-hide bpm_lang">Edited</div>
+            <div id="bpm_lng_Wrong_User_Email_or_Password" class="bpm-hide bpm_lang">You have entered an incorrect password for this email.</div>
 
 
 
-            <div id="bpm_lng_" class="hide bpm_lang"></div>
+            <div id="bpm_lng_" class="bpm-hide bpm_lang"></div>
 
-            <div id='bpm_lng_tz_GMT1100PacificMidwayIsland' class='hide bpm_lang'>Pacific/Midway Island </div>
-            <div id='bpm_lng_tz_GMT1100USSamoa' class='hide bpm_lang'>US/Samoa </div>
-            <div id='bpm_lng_tz_GMT1000USHawaii' class='hide bpm_lang'>US/Hawaii </div>
-            <div id='bpm_lng_tz_GMT0900USAlaska' class='hide bpm_lang'>US/Alaska </div>
-            <div id='bpm_lng_tz_GMT0800USPacificTimeUSandCanada' class='hide bpm_lang'>US/Pacific Time</div>
-            <div id='bpm_lng_tz_GMT0800AmericaTijuana' class='hide bpm_lang'>America/Tijuana </div>
-            <div id='bpm_lng_tz_GMT0700USArizona' class='hide bpm_lang'>US/Arizona </div>
-            <div id='bpm_lng_tz_GMT0700USMountainTimeUSandCanada' class='hide bpm_lang'>US/Mountain Time</div>
-            <div id='bpm_lng_tz_GMT0700AmericaChihuahua' class='hide bpm_lang'>America/Chihuahua </div>
-            <div id='bpm_lng_tz_GMT0700AmericaMazatlan' class='hide bpm_lang'>America/Mazatlan </div>
-            <div id='bpm_lng_tz_GMT0600AmericaMexicoCity' class='hide bpm_lang'>America/Mexico City </div>
-            <div id='bpm_lng_tz_GMT0600AmericaMonterrey' class='hide bpm_lang'>America/Monterrey </div>
-            <div id='bpm_lng_tz_GMT0600CanadaSaskatchewan' class='hide bpm_lang'>Canada/Saskatchewan </div>
-            <div id='bpm_lng_tz_GMT0600USCentralTimeUSandCanada' class='hide bpm_lang'>US/Central Time</div>
-            <div id='bpm_lng_tz_GMT0500USEasternTimeUSandCanada' class='hide bpm_lang'>US/Eastern Time</div>
-            <div id='bpm_lng_tz_GMT0500USIndianaEast' class='hide bpm_lang'>US/Indiana</div>
-            <div id='bpm_lng_tz_GMT0500AmericaBogota' class='hide bpm_lang'>America/Bogota </div>
-            <div id='bpm_lng_tz_GMT0500AmericaLima' class='hide bpm_lang'>America/Lima </div>
-            <div id='bpm_lng_tz_GMT0430AmericaCaracas' class='hide bpm_lang'>America/Caracas </div>
-            <div id='bpm_lng_tz_GMT0400CanadaAtlanticTimeCanada' class='hide bpm_lang'>Canada/Atlantic Time</div>
-            <div id='bpm_lng_tz_GMT0400AmericaLaPaz' class='hide bpm_lang'>America/La Paz </div>
-            <div id='bpm_lng_tz_GMT0400AmericaSantiago' class='hide bpm_lang'>America/Santiago </div>
-            <div id='bpm_lng_tz_GMT0330CanadaNewfoundland' class='hide bpm_lang'>Canada/Newfoundland </div>
-            <div id='bpm_lng_tz_GMT0300AmericaBuenosAires' class='hide bpm_lang'> (GMT-03:00) America/Buenos Aires </div>
-            <div id='bpm_lng_tz_GMT0300Greenland' class='hide bpm_lang'> (GMT-03:00) Greenland </div>
-            <div id='bpm_lng_tz_GMT0200AtlanticStanley' class='hide bpm_lang'> (GMT-02:00) Atlantic/Stanley </div>
-            <div id='bpm_lng_tz_GMT0100AtlanticAzores' class='hide bpm_lang'> (GMT-01:00) Atlantic/Azores </div>
-            <div id='bpm_lng_tz_GMT0100AtlanticCapeVerdeIs' class='hide bpm_lang'> (GMT-01:00) Atlantic/Cape Verde Is. </div>
-            <div id='bpm_lng_tz_GMTAfricaCasablanca' class='hide bpm_lang'> (GMT) Africa/Casablanca </div>
-            <div id='bpm_lng_tz_GMTEuropeDublin' class='hide bpm_lang'> (GMT) Europe/Dublin </div>
-            <div id='bpm_lng_tz_GMTEuropeLisbon' class='hide bpm_lang'> (GMT) Europe/Lisbon </div>
-            <div id='bpm_lng_tz_GMTEuropeLondon' class='hide bpm_lang'> (GMT) Europe/London </div>
-            <div id='bpm_lng_tz_GMTAfricaMonrovia' class='hide bpm_lang'> (GMT) Africa/Monrovia </div>
-            <div id='bpm_lng_tz_GMT0100EuropeAmsterdam' class='hide bpm_lang'> (GMT+01:00) Europe/Amsterdam </div>
-            <div id='bpm_lng_tz_GMT0100EuropeBelgrade' class='hide bpm_lang'> (GMT+01:00) Europe/Belgrade </div>
-            <div id='bpm_lng_tz_GMT0100EuropeBerlin' class='hide bpm_lang'> (GMT+01:00) Europe/Berlin </div>
-            <div id='bpm_lng_tz_GMT0100EuropeBratislava' class='hide bpm_lang'> (GMT+01:00) Europe/Bratislava </div>
-            <div id='bpm_lng_tz_GMT0100EuropeBrussels' class='hide bpm_lang'> (GMT+01:00) Europe/Brussels </div>
-            <div id='bpm_lng_tz_GMT0100EuropeBudapest' class='hide bpm_lang'> (GMT+01:00) Europe/Budapest </div>
-            <div id='bpm_lng_tz_GMT0100EuropeCopenhagen' class='hide bpm_lang'> (GMT+01:00) Europe/Copenhagen </div>
-            <div id='bpm_lng_tz_GMT0100EuropeLjubljana' class='hide bpm_lang'> (GMT+01:00) Europe/Ljubljana </div>
-            <div id='bpm_lng_tz_GMT0100EuropeMadrid' class='hide bpm_lang'> (GMT+01:00) Europe/Madrid </div>
-            <div id='bpm_lng_tz_GMT0100EuropeParis' class='hide bpm_lang'> (GMT+01:00) Europe/Paris </div>
-            <div id='bpm_lng_tz_GMT0100EuropePrague' class='hide bpm_lang'> (GMT+01:00) Europe/Prague </div>
-            <div id='bpm_lng_tz_GMT0100EuropeRome' class='hide bpm_lang'> (GMT+01:00) Europe/Rome </div>
-            <div id='bpm_lng_tz_GMT0100EuropeSarajevo' class='hide bpm_lang'> (GMT+01:00) Europe/Sarajevo </div>
-            <div id='bpm_lng_tz_GMT0100EuropeSkopje' class='hide bpm_lang'> (GMT+01:00) Europe/Skopje </div>
-            <div id='bpm_lng_tz_GMT0100EuropeStockholm' class='hide bpm_lang'> (GMT+01:00) Europe/Stockholm </div>
-            <div id='bpm_lng_tz_GMT0100EuropeVienna' class='hide bpm_lang'> (GMT+01:00) Europe/Vienna </div>
-            <div id='bpm_lng_tz_GMT0100EuropeWarsaw' class='hide bpm_lang'> (GMT+01:00) Europe/Warsaw </div>
-            <div id='bpm_lng_tz_GMT0100EuropeZagreb' class='hide bpm_lang'> (GMT+01:00) Europe/Zagreb </div>
-            <div id='bpm_lng_tz_GMT0200EuropeAthens' class='hide bpm_lang'> (GMT+02:00) Europe/Athens </div>
-            <div id='bpm_lng_tz_GMT0200EuropeBucharest' class='hide bpm_lang'> (GMT+02:00) Europe/Bucharest </div>
-            <div id='bpm_lng_tz_GMT0200AfricaCairo' class='hide bpm_lang'> (GMT+02:00) Africa/Cairo </div>
-            <div id='bpm_lng_tz_GMT0200AfricaHarare' class='hide bpm_lang'> (GMT+02:00) Africa/Harare </div>
-            <div id='bpm_lng_tz_GMT0200EuropeHelsinki' class='hide bpm_lang'> (GMT+02:00) Europe/Helsinki </div>
-            <div id='bpm_lng_tz_GMT0200EuropeIstanbul' class='hide bpm_lang'> (GMT+02:00) Europe/Istanbul </div>
-            <div id='bpm_lng_tz_GMT0200AsiaJerusalem' class='hide bpm_lang'> (GMT+02:00) Asia/Jerusalem </div>
-            <div id='bpm_lng_tz_GMT0200EuropeKyiv' class='hide bpm_lang'> (GMT+02:00) Europe/Kyiv </div>
-            <div id='bpm_lng_tz_GMT0200EuropeMinsk' class='hide bpm_lang'> (GMT+02:00) Europe/Minsk </div>
-            <div id='bpm_lng_tz_GMT0200EuropeRiga' class='hide bpm_lang'> (GMT+02:00) Europe/Riga </div>
-            <div id='bpm_lng_tz_GMT0200EuropeSofia' class='hide bpm_lang'> (GMT+02:00) Europe/Sofia </div>
-            <div id='bpm_lng_tz_GMT0200EuropeTallinn' class='hide bpm_lang'> (GMT+02:00) Europe/Tallinn </div>
-            <div id='bpm_lng_tz_GMT0200EuropeVilnius' class='hide bpm_lang'> (GMT+02:00) Europe/Vilnius </div>
-            <div id='bpm_lng_tz_GMT0300AsiaBaghdad' class='hide bpm_lang'> (GMT+03:00) Asia/Baghdad </div>
-            <div id='bpm_lng_tz_GMT0300AsiaKuwait' class='hide bpm_lang'> (GMT+03:00) Asia/Kuwait </div>
-            <div id='bpm_lng_tz_GMT0300EuropeKaliningrad' class='hide bpm_lang'> (GMT+03:00) Europe/Kaliningrad </div>
-            <div id='bpm_lng_tz_GMT0300AfricaNairobi' class='hide bpm_lang'> (GMT+03:00) Africa/Nairobi </div>
-            <div id='bpm_lng_tz_GMT0300AsiaRiyadh' class='hide bpm_lang'> (GMT+03:00) Asia/Riyadh </div>
-            <div id='bpm_lng_tz_GMT0330AsiaTehran' class='hide bpm_lang'> (GMT+03:30) Asia/Tehran </div>
-            <div id='bpm_lng_tz_GMT0400EuropeMoscow' class='hide bpm_lang'> (GMT+04:00) Europe/Moscow </div>
-            <div id='bpm_lng_tz_GMT0400AsiaBaku' class='hide bpm_lang'> (GMT+04:00) Asia/Baku </div>
-            <div id='bpm_lng_tz_GMT0400EuropeVolgograd' class='hide bpm_lang'> (GMT+04:00) Europe/Volgograd </div>
-            <div id='bpm_lng_tz_GMT0400AsiaMuscat' class='hide bpm_lang'> (GMT+04:00) Asia/Muscat </div>
-            <div id='bpm_lng_tz_GMT0400AsiaTbilisi' class='hide bpm_lang'> (GMT+04:00) Asia/Tbilisi </div>
-            <div id='bpm_lng_tz_GMT0400AsiaYerevan' class='hide bpm_lang'> (GMT+04:00) Asia/Yerevan </div>
-            <div id='bpm_lng_tz_GMT0430AsiaKabul' class='hide bpm_lang'> (GMT+04:30) Asia/Kabul </div>
-            <div id='bpm_lng_tz_GMT0500AsiaKarachi' class='hide bpm_lang'> (GMT+05:00) Asia/Karachi </div>
-            <div id='bpm_lng_tz_GMT0500AsiaTashkent' class='hide bpm_lang'> (GMT+05:00) Asia/Tashkent </div>
-            <div id='bpm_lng_tz_GMT0530AsiaKolkata' class='hide bpm_lang'> (GMT+05:30) Asia/Kolkata </div>
-            <div id='bpm_lng_tz_GMT0545AsiaKathmandu' class='hide bpm_lang'> (GMT+05:45) Asia/Kathmandu </div>
-            <div id='bpm_lng_tz_GMT0600AsiaEkaterinburg' class='hide bpm_lang'> (GMT+06:00) Asia/Ekaterinburg </div>
-            <div id='bpm_lng_tz_GMT0600AsiaAlmaty' class='hide bpm_lang'> (GMT+06:00) Asia/Almaty </div>
-            <div id='bpm_lng_tz_GMT0600AsiaDhaka' class='hide bpm_lang'> (GMT+06:00) Asia/Dhaka </div>
-            <div id='bpm_lng_tz_GMT0700AsiaNovosibirsk' class='hide bpm_lang'> (GMT+07:00) Asia/Novosibirsk </div>
-            <div id='bpm_lng_tz_GMT0700AsiaBangkok' class='hide bpm_lang'> (GMT+07:00) Asia/Bangkok </div>
-            <div id='bpm_lng_tz_GMT0700AsiaJakarta' class='hide bpm_lang'> (GMT+07:00) Asia/Jakarta </div>
-            <div id='bpm_lng_tz_GMT0800AsiaKrasnoyarsk' class='hide bpm_lang'> (GMT+08:00) Asia/Krasnoyarsk </div>
-            <div id='bpm_lng_tz_GMT0800AsiaChongqing' class='hide bpm_lang'> (GMT+08:00) Asia/Chongqing </div>
-            <div id='bpm_lng_tz_GMT0800AsiaHongKong' class='hide bpm_lang'> (GMT+08:00) Asia/Hong Kong </div>
-            <div id='bpm_lng_tz_GMT0800AsiaKualaLumpur' class='hide bpm_lang'> (GMT+08:00) Asia/Kuala Lumpur </div>
-            <div id='bpm_lng_tz_GMT0800AustraliaPerth' class='hide bpm_lang'> (GMT+08:00) Australia/Perth </div>
-            <div id='bpm_lng_tz_GMT0800AsiaSingapore' class='hide bpm_lang'> (GMT+08:00) Asia/Singapore </div>
-            <div id='bpm_lng_tz_GMT0800AsiaTaipei' class='hide bpm_lang'> (GMT+08:00) Asia/Taipei </div>
-            <div id='bpm_lng_tz_GMT0800AsiaUlaanBataar' class='hide bpm_lang'> (GMT+08:00) Asia/Ulaan Bataar </div>
-            <div id='bpm_lng_tz_GMT0800AsiaUrumqi' class='hide bpm_lang'> (GMT+08:00) Asia/Urumqi </div>
-            <div id='bpm_lng_tz_GMT0900AsiaIrkutsk' class='hide bpm_lang'> (GMT+09:00) Asia/Irkutsk </div>
-            <div id='bpm_lng_tz_GMT0900AsiaSeoul' class='hide bpm_lang'> (GMT+09:00) Asia/Seoul </div>
-            <div id='bpm_lng_tz_GMT0900AsiaTokyo' class='hide bpm_lang'> (GMT+09:00) Asia/Tokyo </div>
-            <div id='bpm_lng_tz_GMT0930AustraliaAdelaide' class='hide bpm_lang'> (GMT+09:30) Australia/Adelaide </div>
-            <div id='bpm_lng_tz_GMT0930AustraliaDarwin' class='hide bpm_lang'> (GMT+09:30) Australia/Darwin </div>
-            <div id='bpm_lng_tz_GMT1000AsiaYakutsk' class='hide bpm_lang'> (GMT+10:00) Asia/Yakutsk </div>
-            <div id='bpm_lng_tz_GMT1000AustraliaBrisbane' class='hide bpm_lang'> (GMT+10:00) Australia/Brisbane </div>
-            <div id='bpm_lng_tz_GMT1000AustraliaCanberra' class='hide bpm_lang'> (GMT+10:00) Australia/Canberra </div>
-            <div id='bpm_lng_tz_GMT1000PacificGuam' class='hide bpm_lang'> (GMT+10:00) Pacific/Guam </div>
-            <div id='bpm_lng_tz_GMT1000AustraliaHobart' class='hide bpm_lang'> (GMT+10:00) Australia/Hobart </div>
-            <div id='bpm_lng_tz_GMT1000AustraliaMelbourne' class='hide bpm_lang'> (GMT+10:00) Australia/Melbourne </div>
-            <div id='bpm_lng_tz_GMT1000PacificPortMoresby' class='hide bpm_lang'> (GMT+10:00) Pacific/Port Moresby </div>
-            <div id='bpm_lng_tz_GMT1000AustraliaSydney' class='hide bpm_lang'> (GMT+10:00) Australia/Sydney </div>
-            <div id='bpm_lng_tz_GMT1100AsiaVladivostok' class='hide bpm_lang'> (GMT+11:00) Asia/Vladivostok </div>
-            <div id='bpm_lng_tz_GMT1200AsiaMagadan' class='hide bpm_lang'> (GMT+12:00) Asia/Magadan </div>
-            <div id='bpm_lng_tz_GMT1200PacificAuckland' class='hide bpm_lang'> (GMT+12:00) Pacific/Auckland </div>
-            <div id='bpm_lng_tz_GMT1200PacificFiji' class='hide bpm_lang'> (GMT+12:00) Pacific/Fiji </div>
+            <div id='bpm_lng_tz_GMT1100PacificMidwayIsland' class='bpm-hide bpm_lang'>Pacific/Midway Island </div>
+            <div id='bpm_lng_tz_GMT1100USSamoa' class='bpm-hide bpm_lang'>US/Samoa </div>
+            <div id='bpm_lng_tz_GMT1000USHawaii' class='bpm-hide bpm_lang'>US/Hawaii </div>
+            <div id='bpm_lng_tz_GMT0900USAlaska' class='bpm-hide bpm_lang'>US/Alaska </div>
+            <div id='bpm_lng_tz_GMT0800USPacificTimeUSandCanada' class='bpm-hide bpm_lang'>US/Pacific Time</div>
+            <div id='bpm_lng_tz_GMT0800AmericaTijuana' class='bpm-hide bpm_lang'>America/Tijuana </div>
+            <div id='bpm_lng_tz_GMT0700USArizona' class='bpm-hide bpm_lang'>US/Arizona </div>
+            <div id='bpm_lng_tz_GMT0700USMountainTimeUSandCanada' class='bpm-hide bpm_lang'>US/Mountain Time</div>
+            <div id='bpm_lng_tz_GMT0700AmericaChihuahua' class='bpm-hide bpm_lang'>America/Chihuahua </div>
+            <div id='bpm_lng_tz_GMT0700AmericaMazatlan' class='bpm-hide bpm_lang'>America/Mazatlan </div>
+            <div id='bpm_lng_tz_GMT0600AmericaMexicoCity' class='bpm-hide bpm_lang'>America/Mexico City </div>
+            <div id='bpm_lng_tz_GMT0600AmericaMonterrey' class='bpm-hide bpm_lang'>America/Monterrey </div>
+            <div id='bpm_lng_tz_GMT0600CanadaSaskatchewan' class='bpm-hide bpm_lang'>Canada/Saskatchewan </div>
+            <div id='bpm_lng_tz_GMT0600USCentralTimeUSandCanada' class='bpm-hide bpm_lang'>US/Central Time</div>
+            <div id='bpm_lng_tz_GMT0500USEasternTimeUSandCanada' class='bpm-hide bpm_lang'>US/Eastern Time</div>
+            <div id='bpm_lng_tz_GMT0500USIndianaEast' class='bpm-hide bpm_lang'>US/Indiana</div>
+            <div id='bpm_lng_tz_GMT0500AmericaBogota' class='bpm-hide bpm_lang'>America/Bogota </div>
+            <div id='bpm_lng_tz_GMT0500AmericaLima' class='bpm-hide bpm_lang'>America/Lima </div>
+            <div id='bpm_lng_tz_GMT0430AmericaCaracas' class='bpm-hide bpm_lang'>America/Caracas </div>
+            <div id='bpm_lng_tz_GMT0400CanadaAtlanticTimeCanada' class='bpm-hide bpm_lang'>Canada/Atlantic Time</div>
+            <div id='bpm_lng_tz_GMT0400AmericaLaPaz' class='bpm-hide bpm_lang'>America/La Paz </div>
+            <div id='bpm_lng_tz_GMT0400AmericaSantiago' class='bpm-hide bpm_lang'>America/Santiago </div>
+            <div id='bpm_lng_tz_GMT0330CanadaNewfoundland' class='bpm-hide bpm_lang'>Canada/Newfoundland </div>
+            <div id='bpm_lng_tz_GMT0300AmericaBuenosAires' class='bpm-hide bpm_lang'> (GMT-03:00) America/Buenos Aires </div>
+            <div id='bpm_lng_tz_GMT0300Greenland' class='bpm-hide bpm_lang'> (GMT-03:00) Greenland </div>
+            <div id='bpm_lng_tz_GMT0200AtlanticStanley' class='bpm-hide bpm_lang'> (GMT-02:00) Atlantic/Stanley </div>
+            <div id='bpm_lng_tz_GMT0100AtlanticAzores' class='bpm-hide bpm_lang'> (GMT-01:00) Atlantic/Azores </div>
+            <div id='bpm_lng_tz_GMT0100AtlanticCapeVerdeIs' class='bpm-hide bpm_lang'> (GMT-01:00) Atlantic/Cape Verde Is. </div>
+            <div id='bpm_lng_tz_GMTAfricaCasablanca' class='bpm-hide bpm_lang'> (GMT) Africa/Casablanca </div>
+            <div id='bpm_lng_tz_GMTEuropeDublin' class='bpm-hide bpm_lang'> (GMT) Europe/Dublin </div>
+            <div id='bpm_lng_tz_GMTEuropeLisbon' class='bpm-hide bpm_lang'> (GMT) Europe/Lisbon </div>
+            <div id='bpm_lng_tz_GMTEuropeLondon' class='bpm-hide bpm_lang'> (GMT) Europe/London </div>
+            <div id='bpm_lng_tz_GMTAfricaMonrovia' class='bpm-hide bpm_lang'> (GMT) Africa/Monrovia </div>
+            <div id='bpm_lng_tz_GMT0100EuropeAmsterdam' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Amsterdam </div>
+            <div id='bpm_lng_tz_GMT0100EuropeBelgrade' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Belgrade </div>
+            <div id='bpm_lng_tz_GMT0100EuropeBerlin' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Berlin </div>
+            <div id='bpm_lng_tz_GMT0100EuropeBratislava' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Bratislava </div>
+            <div id='bpm_lng_tz_GMT0100EuropeBrussels' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Brussels </div>
+            <div id='bpm_lng_tz_GMT0100EuropeBudapest' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Budapest </div>
+            <div id='bpm_lng_tz_GMT0100EuropeCopenhagen' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Copenhagen </div>
+            <div id='bpm_lng_tz_GMT0100EuropeLjubljana' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Ljubljana </div>
+            <div id='bpm_lng_tz_GMT0100EuropeMadrid' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Madrid </div>
+            <div id='bpm_lng_tz_GMT0100EuropeParis' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Paris </div>
+            <div id='bpm_lng_tz_GMT0100EuropePrague' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Prague </div>
+            <div id='bpm_lng_tz_GMT0100EuropeRome' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Rome </div>
+            <div id='bpm_lng_tz_GMT0100EuropeSarajevo' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Sarajevo </div>
+            <div id='bpm_lng_tz_GMT0100EuropeSkopje' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Skopje </div>
+            <div id='bpm_lng_tz_GMT0100EuropeStockholm' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Stockholm </div>
+            <div id='bpm_lng_tz_GMT0100EuropeVienna' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Vienna </div>
+            <div id='bpm_lng_tz_GMT0100EuropeWarsaw' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Warsaw </div>
+            <div id='bpm_lng_tz_GMT0100EuropeZagreb' class='bpm-hide bpm_lang'> (GMT+01:00) Europe/Zagreb </div>
+            <div id='bpm_lng_tz_GMT0200EuropeAthens' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Athens </div>
+            <div id='bpm_lng_tz_GMT0200EuropeBucharest' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Bucharest </div>
+            <div id='bpm_lng_tz_GMT0200AfricaCairo' class='bpm-hide bpm_lang'> (GMT+02:00) Africa/Cairo </div>
+            <div id='bpm_lng_tz_GMT0200AfricaHarare' class='bpm-hide bpm_lang'> (GMT+02:00) Africa/Harare </div>
+            <div id='bpm_lng_tz_GMT0200EuropeHelsinki' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Helsinki </div>
+            <div id='bpm_lng_tz_GMT0200EuropeIstanbul' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Istanbul </div>
+            <div id='bpm_lng_tz_GMT0200AsiaJerusalem' class='bpm-hide bpm_lang'> (GMT+02:00) Asia/Jerusalem </div>
+            <div id='bpm_lng_tz_GMT0200EuropeKyiv' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Kyiv </div>
+            <div id='bpm_lng_tz_GMT0200EuropeMinsk' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Minsk </div>
+            <div id='bpm_lng_tz_GMT0200EuropeRiga' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Riga </div>
+            <div id='bpm_lng_tz_GMT0200EuropeSofia' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Sofia </div>
+            <div id='bpm_lng_tz_GMT0200EuropeTallinn' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Tallinn </div>
+            <div id='bpm_lng_tz_GMT0200EuropeVilnius' class='bpm-hide bpm_lang'> (GMT+02:00) Europe/Vilnius </div>
+            <div id='bpm_lng_tz_GMT0300AsiaBaghdad' class='bpm-hide bpm_lang'> (GMT+03:00) Asia/Baghdad </div>
+            <div id='bpm_lng_tz_GMT0300AsiaKuwait' class='bpm-hide bpm_lang'> (GMT+03:00) Asia/Kuwait </div>
+            <div id='bpm_lng_tz_GMT0300EuropeKaliningrad' class='bpm-hide bpm_lang'> (GMT+03:00) Europe/Kaliningrad </div>
+            <div id='bpm_lng_tz_GMT0300AfricaNairobi' class='bpm-hide bpm_lang'> (GMT+03:00) Africa/Nairobi </div>
+            <div id='bpm_lng_tz_GMT0300AsiaRiyadh' class='bpm-hide bpm_lang'> (GMT+03:00) Asia/Riyadh </div>
+            <div id='bpm_lng_tz_GMT0330AsiaTehran' class='bpm-hide bpm_lang'> (GMT+03:30) Asia/Tehran </div>
+            <div id='bpm_lng_tz_GMT0400EuropeMoscow' class='bpm-hide bpm_lang'> (GMT+04:00) Europe/Moscow </div>
+            <div id='bpm_lng_tz_GMT0400AsiaBaku' class='bpm-hide bpm_lang'> (GMT+04:00) Asia/Baku </div>
+            <div id='bpm_lng_tz_GMT0400EuropeVolgograd' class='bpm-hide bpm_lang'> (GMT+04:00) Europe/Volgograd </div>
+            <div id='bpm_lng_tz_GMT0400AsiaMuscat' class='bpm-hide bpm_lang'> (GMT+04:00) Asia/Muscat </div>
+            <div id='bpm_lng_tz_GMT0400AsiaTbilisi' class='bpm-hide bpm_lang'> (GMT+04:00) Asia/Tbilisi </div>
+            <div id='bpm_lng_tz_GMT0400AsiaYerevan' class='bpm-hide bpm_lang'> (GMT+04:00) Asia/Yerevan </div>
+            <div id='bpm_lng_tz_GMT0430AsiaKabul' class='bpm-hide bpm_lang'> (GMT+04:30) Asia/Kabul </div>
+            <div id='bpm_lng_tz_GMT0500AsiaKarachi' class='bpm-hide bpm_lang'> (GMT+05:00) Asia/Karachi </div>
+            <div id='bpm_lng_tz_GMT0500AsiaTashkent' class='bpm-hide bpm_lang'> (GMT+05:00) Asia/Tashkent </div>
+            <div id='bpm_lng_tz_GMT0530AsiaKolkata' class='bpm-hide bpm_lang'> (GMT+05:30) Asia/Kolkata </div>
+            <div id='bpm_lng_tz_GMT0545AsiaKathmandu' class='bpm-hide bpm_lang'> (GMT+05:45) Asia/Kathmandu </div>
+            <div id='bpm_lng_tz_GMT0600AsiaEkaterinburg' class='bpm-hide bpm_lang'> (GMT+06:00) Asia/Ekaterinburg </div>
+            <div id='bpm_lng_tz_GMT0600AsiaAlmaty' class='bpm-hide bpm_lang'> (GMT+06:00) Asia/Almaty </div>
+            <div id='bpm_lng_tz_GMT0600AsiaDhaka' class='bpm-hide bpm_lang'> (GMT+06:00) Asia/Dhaka </div>
+            <div id='bpm_lng_tz_GMT0700AsiaNovosibirsk' class='bpm-hide bpm_lang'> (GMT+07:00) Asia/Novosibirsk </div>
+            <div id='bpm_lng_tz_GMT0700AsiaBangkok' class='bpm-hide bpm_lang'> (GMT+07:00) Asia/Bangkok </div>
+            <div id='bpm_lng_tz_GMT0700AsiaJakarta' class='bpm-hide bpm_lang'> (GMT+07:00) Asia/Jakarta </div>
+            <div id='bpm_lng_tz_GMT0800AsiaKrasnoyarsk' class='bpm-hide bpm_lang'> (GMT+08:00) Asia/Krasnoyarsk </div>
+            <div id='bpm_lng_tz_GMT0800AsiaChongqing' class='bpm-hide bpm_lang'> (GMT+08:00) Asia/Chongqing </div>
+            <div id='bpm_lng_tz_GMT0800AsiaHongKong' class='bpm-hide bpm_lang'> (GMT+08:00) Asia/Hong Kong </div>
+            <div id='bpm_lng_tz_GMT0800AsiaKualaLumpur' class='bpm-hide bpm_lang'> (GMT+08:00) Asia/Kuala Lumpur </div>
+            <div id='bpm_lng_tz_GMT0800AustraliaPerth' class='bpm-hide bpm_lang'> (GMT+08:00) Australia/Perth </div>
+            <div id='bpm_lng_tz_GMT0800AsiaSingapore' class='bpm-hide bpm_lang'> (GMT+08:00) Asia/Singapore </div>
+            <div id='bpm_lng_tz_GMT0800AsiaTaipei' class='bpm-hide bpm_lang'> (GMT+08:00) Asia/Taipei </div>
+            <div id='bpm_lng_tz_GMT0800AsiaUlaanBataar' class='bpm-hide bpm_lang'> (GMT+08:00) Asia/Ulaan Bataar </div>
+            <div id='bpm_lng_tz_GMT0800AsiaUrumqi' class='bpm-hide bpm_lang'> (GMT+08:00) Asia/Urumqi </div>
+            <div id='bpm_lng_tz_GMT0900AsiaIrkutsk' class='bpm-hide bpm_lang'> (GMT+09:00) Asia/Irkutsk </div>
+            <div id='bpm_lng_tz_GMT0900AsiaSeoul' class='bpm-hide bpm_lang'> (GMT+09:00) Asia/Seoul </div>
+            <div id='bpm_lng_tz_GMT0900AsiaTokyo' class='bpm-hide bpm_lang'> (GMT+09:00) Asia/Tokyo </div>
+            <div id='bpm_lng_tz_GMT0930AustraliaAdelaide' class='bpm-hide bpm_lang'> (GMT+09:30) Australia/Adelaide </div>
+            <div id='bpm_lng_tz_GMT0930AustraliaDarwin' class='bpm-hide bpm_lang'> (GMT+09:30) Australia/Darwin </div>
+            <div id='bpm_lng_tz_GMT1000AsiaYakutsk' class='bpm-hide bpm_lang'> (GMT+10:00) Asia/Yakutsk </div>
+            <div id='bpm_lng_tz_GMT1000AustraliaBrisbane' class='bpm-hide bpm_lang'> (GMT+10:00) Australia/Brisbane </div>
+            <div id='bpm_lng_tz_GMT1000AustraliaCanberra' class='bpm-hide bpm_lang'> (GMT+10:00) Australia/Canberra </div>
+            <div id='bpm_lng_tz_GMT1000PacificGuam' class='bpm-hide bpm_lang'> (GMT+10:00) Pacific/Guam </div>
+            <div id='bpm_lng_tz_GMT1000AustraliaHobart' class='bpm-hide bpm_lang'> (GMT+10:00) Australia/Hobart </div>
+            <div id='bpm_lng_tz_GMT1000AustraliaMelbourne' class='bpm-hide bpm_lang'> (GMT+10:00) Australia/Melbourne </div>
+            <div id='bpm_lng_tz_GMT1000PacificPortMoresby' class='bpm-hide bpm_lang'> (GMT+10:00) Pacific/Port Moresby </div>
+            <div id='bpm_lng_tz_GMT1000AustraliaSydney' class='bpm-hide bpm_lang'> (GMT+10:00) Australia/Sydney </div>
+            <div id='bpm_lng_tz_GMT1100AsiaVladivostok' class='bpm-hide bpm_lang'> (GMT+11:00) Asia/Vladivostok </div>
+            <div id='bpm_lng_tz_GMT1200AsiaMagadan' class='bpm-hide bpm_lang'> (GMT+12:00) Asia/Magadan </div>
+            <div id='bpm_lng_tz_GMT1200PacificAuckland' class='bpm-hide bpm_lang'> (GMT+12:00) Pacific/Auckland </div>
+            <div id='bpm_lng_tz_GMT1200PacificFiji' class='bpm-hide bpm_lang'> (GMT+12:00) Pacific/Fiji </div>
 
-            <div id="bpm_section_name_Action_Required" class="hide bpm_lang">Action Required</div>
-            <div id="bpm_section_name_Announcement" class="hide bpm_lang">Announcement</div>
-            <div id="bpm_section_name_Approval__Rejection_Notes" class="hide bpm_lang">Approval - Rejection Notes</div>
-            <div id="bpm_section_name_Article" class="hide bpm_lang">Article</div>
-            <div id="bpm_section_name_Attachments" class="hide bpm_lang">Attachments</div>
-            <div id="bpm_section_name_Corrective_Action" class="hide bpm_lang">Corrective Action</div>
-            <div id="bpm_section_name_CUSTOMER_Attachments" class="hide bpm_lang">CUSTOMER Attachments</div>
-            <div id="bpm_section_name_Description_of_Change" class="hide bpm_lang">Description of Change</div>
-            <div id="bpm_section_name_Discussions" class="hide bpm_lang">Discussions</div>
-            <div id="bpm_section_name_Discussion" class="hide bpm_lang">Discussions</div>
-            <div id="bpm_section_name_Documents" class="hide bpm_lang">Documents</div>
-            <div id="bpm_section_name_General_Info" class="hide bpm_lang">General Info</div>
-            <div id="bpm_section_name_Issue" class="hide bpm_lang">Issue</div>
-            <div id="bpm_section_name_Key_Lessons_Learned" class="hide bpm_lang">Key Lessons Learned</div>
-            <div id="bpm_section_name_Meeting_Minutes" class="hide bpm_lang">Meeting Minutes</div>
-            <div id="bpm_section_name_Notes" class="hide bpm_lang">Notes</div>
-            <div id="bpm_section_name_Pricing_Required" class="hide bpm_lang">Pricing Required</div>
-            <div id="bpm_section_name_Problem_Description" class="hide bpm_lang">Problem Description</div>
-            <div id="bpm_section_name_Reason_for_Change" class="hide bpm_lang">Reason for Change</div>
-            <div id="bpm_section_name_Root_Cause_Analysis" class="hide bpm_lang">Root Cause Analysis</div>
+            <div id="bpm_section_name_Action_Required" class="bpm-hide bpm_lang">Action Required</div>
+            <div id="bpm_section_name_Announcement" class="bpm-hide bpm_lang">Announcement</div>
+            <div id="bpm_section_name_Approval__Rejection_Notes" class="bpm-hide bpm_lang">Approval - Rejection Notes</div>
+            <div id="bpm_section_name_Article" class="bpm-hide bpm_lang">Article</div>
+            <div id="bpm_section_name_Attachments" class="bpm-hide bpm_lang">Attachments</div>
+            <div id="bpm_section_name_Corrective_Action" class="bpm-hide bpm_lang">Corrective Action</div>
+            <div id="bpm_section_name_CUSTOMER_Attachments" class="bpm-hide bpm_lang">CUSTOMER Attachments</div>
+            <div id="bpm_section_name_Description_of_Change" class="bpm-hide bpm_lang">Description of Change</div>
+            <div id="bpm_section_name_Discussions" class="bpm-hide bpm_lang">Discussions</div>
+            <div id="bpm_section_name_Discussion" class="bpm-hide bpm_lang">Discussions</div>
+            <div id="bpm_section_name_Documents" class="bpm-hide bpm_lang">Documents</div>
+            <div id="bpm_section_name_General_Info" class="bpm-hide bpm_lang">General Info</div>
+            <div id="bpm_section_name_Issue" class="bpm-hide bpm_lang">Issue</div>
+            <div id="bpm_section_name_Key_Lessons_Learned" class="bpm-hide bpm_lang">Key Lessons Learned</div>
+            <div id="bpm_section_name_Meeting_Minutes" class="bpm-hide bpm_lang">Meeting Minutes</div>
+            <div id="bpm_section_name_Notes" class="bpm-hide bpm_lang">Notes</div>
+            <div id="bpm_section_name_Pricing_Required" class="bpm-hide bpm_lang">Pricing Required</div>
+            <div id="bpm_section_name_Problem_Description" class="bpm-hide bpm_lang">Problem Description</div>
+            <div id="bpm_section_name_Reason_for_Change" class="bpm-hide bpm_lang">Reason for Change</div>
+            <div id="bpm_section_name_Root_Cause_Analysis" class="bpm-hide bpm_lang">Root Cause Analysis</div>
 
-            <div id="bpm_infobox_name_Account_Level" class="hide bpm_lang">Account Level</div>
-            <div id="bpm_infobox_name_Actual_Cost" class="hide bpm_lang">Actual Cost</div>
-            <div id="bpm_infobox_name_Assigned_To" class="hide bpm_lang">Assigned To</div>
-            <div id="bpm_infobox_name_Budget_Variance" class="hide bpm_lang">Budget Variance</div>
-            <div id="bpm_infobox_name_Budgeted_Cost" class="hide bpm_lang">Budgeted Cost</div>
-            <div id="bpm_infobox_name_City" class="hide bpm_lang">City</div>
-            <div id="bpm_infobox_name_Contact" class="hide bpm_lang">Contact</div>
-            <div id="bpm_infobox_name_Country" class="hide bpm_lang">Country</div>
-            <div id="bpm_infobox_name_Created_By" class="hide bpm_lang">Created By</div>
-            <div id="bpm_infobox_name_Currency" class="hide bpm_lang">Currency</div>
-            <div id="bpm_infobox_name_Cust_Contact" class="hide bpm_lang">Cust Contact</div>
-            <div id="bpm_infobox_name_Customer" class="hide bpm_lang">Customer</div>
-            <div id="bpm_infobox_name_Customer_Number" class="hide bpm_lang">Customer Number</div>
-            <div id="bpm_infobox_name_Date" class="hide bpm_lang">Date</div>
-            <div id="bpm_infobox_name_Date_Assigned" class="hide bpm_lang">Date Assigned</div>
-            <div id="bpm_infobox_name_Date_Due" class="hide bpm_lang">Date Due</div>
-            <div id="bpm_infobox_name_Date_Required" class="hide bpm_lang">Date Required</div>
-            <div id="bpm_infobox_name_Department" class="hide bpm_lang">Department</div>
-            <div id="bpm_infobox_name_Description" class="hide bpm_lang">Description</div>
-            <div id="bpm_infobox_name_Due_Date" class="hide bpm_lang">Due Date</div>
-            <div id="bpm_infobox_name_e-mail" class="hide bpm_lang">e-mail</div>
-            <div id="bpm_infobox_name_Email_Address" class="hide bpm_lang">Email Address</div>
-            <div id="bpm_infobox_name_End_Date" class="hide bpm_lang">End Date</div>
-            <div id="bpm_infobox_name_Engr_Actual_Hours" class="hide bpm_lang">Engr Actual Hours</div>
-            <div id="bpm_infobox_name_Fax" class="hide bpm_lang">Fax</div>
-            <div id="bpm_infobox_name_First_Name" class="hide bpm_lang">First Name</div>
-            <div id="bpm_infobox_name_Issue" class="hide bpm_lang">Issue</div>
-            <div id="bpm_infobox_name_Job_Title" class="hide bpm_lang">Job Title</div>
-            <div id="bpm_infobox_name_Labor_Actual_Hours" class="hide bpm_lang">Labor Actual Hours</div>
-            <div id="bpm_infobox_name_Lead_Time" class="hide bpm_lang">Lead Time</div>
-            <div id="bpm_infobox_name_Lead_Time_Impact" class="hide bpm_lang">Lead Time Impact</div>
-            <div id="bpm_infobox_name_Main_Phone" class="hide bpm_lang">Main Phone</div>
-            <div id="bpm_infobox_name_Manager" class="hide bpm_lang">Manager</div>
-            <div id="bpm_infobox_name_Materials_Actual" class="hide bpm_lang">Materials Actual</div>
-            <div id="bpm_infobox_name_Mobile_Phone" class="hide bpm_lang">Mobile Phone</div>
-            <div id="bpm_infobox_name_Name" class="hide bpm_lang">Name</div>
-            <div id="bpm_infobox_name_Non-Chargable_Hours_NC" class="hide bpm_lang">Non-Chargable Hours (NC)</div>
-            <div id="bpm_infobox_name_Office_Phone" class="hide bpm_lang">Office Phone</div>
-            <div id="bpm_infobox_name_Over_Time_Hours_OT" class="hide bpm_lang">Over Time Hours (OT)</div>
-            <div id="bpm_infobox_name_Part_Number" class="hide bpm_lang">Part Number</div>
-            <div id="bpm_infobox_name_Payment_Terms" class="hide bpm_lang">Payment Terms</div>
-            <div id="bpm_infobox_name_Phone" class="hide bpm_lang">Phone</div>
-            <div id="bpm_infobox_name_Probability" class="hide bpm_lang">Probability</div>
-            <div id="bpm_infobox_name_Product_Line" class="hide bpm_lang">Product Line</div>
-            <div id="bpm_infobox_name_Project_Manager" class="hide bpm_lang">Project Manager</div>
-            <div id="bpm_infobox_name_Project_Name" class="hide bpm_lang">Project Name</div>
-            <div id="bpm_infobox_name_Project_Status" class="hide bpm_lang">Project Status</div>
-            <div id="bpm_infobox_name_Purpose" class="hide bpm_lang">Purpose</div>
-            <div id="bpm_infobox_name_Quantity" class="hide bpm_lang">Quantity</div>
-            <div id="bpm_infobox_name_Quote_Date" class="hide bpm_lang">Quote Date</div>
-            <div id="bpm_infobox_name_Quote_Number" class="hide bpm_lang">Quote Number</div>
-            <div id="bpm_infobox_name_Reference_Date" class="hide bpm_lang">Reference Date</div>
-            <div id="bpm_infobox_name_Reference_Name" class="hide bpm_lang">Reference Name</div>
-            <div id="bpm_infobox_name_Relationship" class="hide bpm_lang">Relationship</div>
-            <div id="bpm_infobox_name_Required_By" class="hide bpm_lang">Required By</div>
-            <div id="bpm_infobox_name_Responsibility" class="hide bpm_lang">Responsibility</div>
-            <div id="bpm_infobox_name_Revenue" class="hide bpm_lang">Revenue</div>
-            <div id="bpm_infobox_name_Risk_Factor" class="hide bpm_lang">Risk Factor</div>
-            <div id="bpm_infobox_name_RMA_Number" class="hide bpm_lang">RMA Number</div>
-            <div id="bpm_infobox_name_RMA_Status" class="hide bpm_lang">RMA Status</div>
-            <div id="bpm_infobox_name_Sales_Order" class="hide bpm_lang">Sales Order</div>
-            <div id="bpm_infobox_name_Sales_Order_Number" class="hide bpm_lang">Sales Order Number</div>
-            <div id="bpm_infobox_name_Sales_Region" class="hide bpm_lang">Sales Region</div>
-            <div id="bpm_infobox_name_Sales_Rep" class="hide bpm_lang">Sales Rep</div>
-            <div id="bpm_infobox_name_Sales_Stage" class="hide bpm_lang">Sales Stage</div>
-            <div id="bpm_infobox_name_Severity" class="hide bpm_lang">Severity</div>
-            <div id="bpm_infobox_name_Ship_Date" class="hide bpm_lang">Ship Date</div>
-            <div id="bpm_infobox_name_Start_Date" class="hide bpm_lang">Start Date</div>
-            <div id="bpm_infobox_name_State" class="hide bpm_lang">State</div>
-            <div id="bpm_infobox_name_Status" class="hide bpm_lang">Status</div>
-            <div id="bpm_infobox_name_Std_Hours_RT" class="hide bpm_lang">Std Hours (RT)</div>
-            <div id="bpm_infobox_name_Street" class="hide bpm_lang">Street</div>
-            <div id="bpm_infobox_name_Supplier_Number" class="hide bpm_lang">Supplier Number</div>
-            <div id="bpm_infobox_name_Target_Close" class="hide bpm_lang">Target Close</div>
-            <div id="bpm_infobox_name_Task_ID" class="hide bpm_lang">Task ID</div>
-            <div id="bpm_infobox_name_Task_Name" class="hide bpm_lang">Task Name</div>
-            <div id="bpm_infobox_name_Task_Number" class="hide bpm_lang">Task Number</div>
-            <div id="bpm_infobox_name_TaskID" class="hide bpm_lang">TaskID</div>
-            <div id="bpm_infobox_name_Time_Off_Reason" class="hide bpm_lang">Time Off Reason</div>
-            <div id="bpm_infobox_name_Title" class="hide bpm_lang">Title</div>
-            <div id="bpm_infobox_name_Total_Cost" class="hide bpm_lang">Total Cost</div>
-            <div id="bpm_infobox_name_Total_Dollars" class="hide bpm_lang">Total Dollars</div>
-            <div id="bpm_infobox_name_Total_Hours_TO" class="hide bpm_lang">Total Hours (TO)</div>
-            <div id="bpm_infobox_name_Travel-Layover_Hours_LT" class="hide bpm_lang">Travel-Layover Hours (LT)</div>
-            <div id="bpm_infobox_name_User_Status" class="hide bpm_lang">User Status</div>
-            <div id="bpm_infobox_name_Version" class="hide bpm_lang">Version</div>
-            <div id="bpm_infobox_name_Web_Site" class="hide bpm_lang">Web Site</div>
-            <div id="bpm_infobox_name_ZIP" class="hide bpm_lang">ZIP</div>
-            <div id="bpm_infobox_name_Zip_Code" class="hide bpm_lang">Zip Code</div>
+            <div id="bpm_infobox_name_Account_Level" class="bpm-hide bpm_lang">Account Level</div>
+            <div id="bpm_infobox_name_Actual_Cost" class="bpm-hide bpm_lang">Actual Cost</div>
+            <div id="bpm_infobox_name_Assigned_To" class="bpm-hide bpm_lang">Assigned To</div>
+            <div id="bpm_infobox_name_Budget_Variance" class="bpm-hide bpm_lang">Budget Variance</div>
+            <div id="bpm_infobox_name_Budgeted_Cost" class="bpm-hide bpm_lang">Budgeted Cost</div>
+            <div id="bpm_infobox_name_City" class="bpm-hide bpm_lang">City</div>
+            <div id="bpm_infobox_name_Contact" class="bpm-hide bpm_lang">Contact</div>
+            <div id="bpm_infobox_name_Country" class="bpm-hide bpm_lang">Country</div>
+            <div id="bpm_infobox_name_Created_By" class="bpm-hide bpm_lang">Created By</div>
+            <div id="bpm_infobox_name_Currency" class="bpm-hide bpm_lang">Currency</div>
+            <div id="bpm_infobox_name_Cust_Contact" class="bpm-hide bpm_lang">Cust Contact</div>
+            <div id="bpm_infobox_name_Customer" class="bpm-hide bpm_lang">Customer</div>
+            <div id="bpm_infobox_name_Customer_Number" class="bpm-hide bpm_lang">Customer Number</div>
+            <div id="bpm_infobox_name_Date" class="bpm-hide bpm_lang">Date</div>
+            <div id="bpm_infobox_name_Date_Assigned" class="bpm-hide bpm_lang">Date Assigned</div>
+            <div id="bpm_infobox_name_Date_Due" class="bpm-hide bpm_lang">Date Due</div>
+            <div id="bpm_infobox_name_Date_Required" class="bpm-hide bpm_lang">Date Required</div>
+            <div id="bpm_infobox_name_Department" class="bpm-hide bpm_lang">Department</div>
+            <div id="bpm_infobox_name_Description" class="bpm-hide bpm_lang">Description</div>
+            <div id="bpm_infobox_name_Due_Date" class="bpm-hide bpm_lang">Due Date</div>
+            <div id="bpm_infobox_name_e-mail" class="bpm-hide bpm_lang">e-mail</div>
+            <div id="bpm_infobox_name_Email_Address" class="bpm-hide bpm_lang">Email Address</div>
+            <div id="bpm_infobox_name_End_Date" class="bpm-hide bpm_lang">End Date</div>
+            <div id="bpm_infobox_name_Engr_Actual_Hours" class="bpm-hide bpm_lang">Engr Actual Hours</div>
+            <div id="bpm_infobox_name_Fax" class="bpm-hide bpm_lang">Fax</div>
+            <div id="bpm_infobox_name_First_Name" class="bpm-hide bpm_lang">First Name</div>
+            <div id="bpm_infobox_name_Issue" class="bpm-hide bpm_lang">Issue</div>
+            <div id="bpm_infobox_name_Job_Title" class="bpm-hide bpm_lang">Job Title</div>
+            <div id="bpm_infobox_name_Labor_Actual_Hours" class="bpm-hide bpm_lang">Labor Actual Hours</div>
+            <div id="bpm_infobox_name_Lead_Time" class="bpm-hide bpm_lang">Lead Time</div>
+            <div id="bpm_infobox_name_Lead_Time_Impact" class="bpm-hide bpm_lang">Lead Time Impact</div>
+            <div id="bpm_infobox_name_Main_Phone" class="bpm-hide bpm_lang">Main Phone</div>
+            <div id="bpm_infobox_name_Manager" class="bpm-hide bpm_lang">Manager</div>
+            <div id="bpm_infobox_name_Materials_Actual" class="bpm-hide bpm_lang">Materials Actual</div>
+            <div id="bpm_infobox_name_Mobile_Phone" class="bpm-hide bpm_lang">Mobile Phone</div>
+            <div id="bpm_infobox_name_Name" class="bpm-hide bpm_lang">Name</div>
+            <div id="bpm_infobox_name_Non-Chargable_Hours_NC" class="bpm-hide bpm_lang">Non-Chargable Hours (NC)</div>
+            <div id="bpm_infobox_name_Office_Phone" class="bpm-hide bpm_lang">Office Phone</div>
+            <div id="bpm_infobox_name_Over_Time_Hours_OT" class="bpm-hide bpm_lang">Over Time Hours (OT)</div>
+            <div id="bpm_infobox_name_Part_Number" class="bpm-hide bpm_lang">Part Number</div>
+            <div id="bpm_infobox_name_Payment_Terms" class="bpm-hide bpm_lang">Payment Terms</div>
+            <div id="bpm_infobox_name_Phone" class="bpm-hide bpm_lang">Phone</div>
+            <div id="bpm_infobox_name_Probability" class="bpm-hide bpm_lang">Probability</div>
+            <div id="bpm_infobox_name_Product_Line" class="bpm-hide bpm_lang">Product Line</div>
+            <div id="bpm_infobox_name_Project_Manager" class="bpm-hide bpm_lang">Project Manager</div>
+            <div id="bpm_infobox_name_Project_Name" class="bpm-hide bpm_lang">Project Name</div>
+            <div id="bpm_infobox_name_Project_Status" class="bpm-hide bpm_lang">Project Status</div>
+            <div id="bpm_infobox_name_Purpose" class="bpm-hide bpm_lang">Purpose</div>
+            <div id="bpm_infobox_name_Quantity" class="bpm-hide bpm_lang">Quantity</div>
+            <div id="bpm_infobox_name_Quote_Date" class="bpm-hide bpm_lang">Quote Date</div>
+            <div id="bpm_infobox_name_Quote_Number" class="bpm-hide bpm_lang">Quote Number</div>
+            <div id="bpm_infobox_name_Reference_Date" class="bpm-hide bpm_lang">Reference Date</div>
+            <div id="bpm_infobox_name_Reference_Name" class="bpm-hide bpm_lang">Reference Name</div>
+            <div id="bpm_infobox_name_Relationship" class="bpm-hide bpm_lang">Relationship</div>
+            <div id="bpm_infobox_name_Required_By" class="bpm-hide bpm_lang">Required By</div>
+            <div id="bpm_infobox_name_Responsibility" class="bpm-hide bpm_lang">Responsibility</div>
+            <div id="bpm_infobox_name_Revenue" class="bpm-hide bpm_lang">Revenue</div>
+            <div id="bpm_infobox_name_Risk_Factor" class="bpm-hide bpm_lang">Risk Factor</div>
+            <div id="bpm_infobox_name_RMA_Number" class="bpm-hide bpm_lang">RMA Number</div>
+            <div id="bpm_infobox_name_RMA_Status" class="bpm-hide bpm_lang">RMA Status</div>
+            <div id="bpm_infobox_name_Sales_Order" class="bpm-hide bpm_lang">Sales Order</div>
+            <div id="bpm_infobox_name_Sales_Order_Number" class="bpm-hide bpm_lang">Sales Order Number</div>
+            <div id="bpm_infobox_name_Sales_Region" class="bpm-hide bpm_lang">Sales Region</div>
+            <div id="bpm_infobox_name_Sales_Rep" class="bpm-hide bpm_lang">Sales Rep</div>
+            <div id="bpm_infobox_name_Sales_Stage" class="bpm-hide bpm_lang">Sales Stage</div>
+            <div id="bpm_infobox_name_Severity" class="bpm-hide bpm_lang">Severity</div>
+            <div id="bpm_infobox_name_Ship_Date" class="bpm-hide bpm_lang">Ship Date</div>
+            <div id="bpm_infobox_name_Start_Date" class="bpm-hide bpm_lang">Start Date</div>
+            <div id="bpm_infobox_name_State" class="bpm-hide bpm_lang">State</div>
+            <div id="bpm_infobox_name_Status" class="bpm-hide bpm_lang">Status</div>
+            <div id="bpm_infobox_name_Std_Hours_RT" class="bpm-hide bpm_lang">Std Hours (RT)</div>
+            <div id="bpm_infobox_name_Street" class="bpm-hide bpm_lang">Street</div>
+            <div id="bpm_infobox_name_Supplier_Number" class="bpm-hide bpm_lang">Supplier Number</div>
+            <div id="bpm_infobox_name_Target_Close" class="bpm-hide bpm_lang">Target Close</div>
+            <div id="bpm_infobox_name_Task_ID" class="bpm-hide bpm_lang">Task ID</div>
+            <div id="bpm_infobox_name_Task_Name" class="bpm-hide bpm_lang">Task Name</div>
+            <div id="bpm_infobox_name_Task_Number" class="bpm-hide bpm_lang">Task Number</div>
+            <div id="bpm_infobox_name_TaskID" class="bpm-hide bpm_lang">TaskID</div>
+            <div id="bpm_infobox_name_Time_Off_Reason" class="bpm-hide bpm_lang">Time Off Reason</div>
+            <div id="bpm_infobox_name_Title" class="bpm-hide bpm_lang">Title</div>
+            <div id="bpm_infobox_name_Total_Cost" class="bpm-hide bpm_lang">Total Cost</div>
+            <div id="bpm_infobox_name_Total_Dollars" class="bpm-hide bpm_lang">Total Dollars</div>
+            <div id="bpm_infobox_name_Total_Hours_TO" class="bpm-hide bpm_lang">Total Hours (TO)</div>
+            <div id="bpm_infobox_name_Travel-Layover_Hours_LT" class="bpm-hide bpm_lang">Travel-Layover Hours (LT)</div>
+            <div id="bpm_infobox_name_User_Status" class="bpm-hide bpm_lang">User Status</div>
+            <div id="bpm_infobox_name_Version" class="bpm-hide bpm_lang">Version</div>
+            <div id="bpm_infobox_name_Web_Site" class="bpm-hide bpm_lang">Web Site</div>
+            <div id="bpm_infobox_name_ZIP" class="bpm-hide bpm_lang">ZIP</div>
+            <div id="bpm_infobox_name_Zip_Code" class="bpm-hide bpm_lang">Zip Code</div>
 
-            <div id="bpm_template_name_Action_Item" class="hide bpm_lang">Action Item</div>
-            <div id="bpm_template_name_Announcement" class="hide bpm_lang">Announcement</div>
-            <div id="bpm_template_name_Approval_Drawing_Request" class="hide bpm_lang">Approval Drawing Request</div>
-            <div id="bpm_template_name_Company_News" class="hide bpm_lang">Company News</div>
-            <div id="bpm_template_name_Competitive_Intel_Report" class="hide bpm_lang">Competitive Intel Report</div>
-            <div id="bpm_template_name_Competitor" class="hide bpm_lang">Competitor</div>
-            <div id="bpm_template_name_Contact_Report" class="hide bpm_lang">Contact Report</div>
-            <div id="bpm_template_name_Corp_Customer_Contact" class="hide bpm_lang">Corp Customer Contact</div>
-            <div id="bpm_template_name_Corp_Supplier_Contact" class="hide bpm_lang">Corp Supplier Contact</div>
-            <div id="bpm_template_name_Customer" class="hide bpm_lang">Customer</div>
-            <div id="bpm_template_name_Customer_Contact" class="hide bpm_lang">Customer Contact</div>
-            <div id="bpm_template_name_Customer_Location" class="hide bpm_lang">Customer Location</div>
-            <div id="bpm_template_name_Customer_Meeting" class="hide bpm_lang">Customer Meeting</div>
-            <div id="bpm_template_name_Customer_Project" class="hide bpm_lang">Customer Project</div>
-            <div id="bpm_template_name_Department" class="hide bpm_lang">Department</div>
-            <div id="bpm_template_name_Employee" class="hide bpm_lang">Employee</div>
-            <div id="bpm_template_name_Facility_Help_Ticket" class="hide bpm_lang">Facility Help Ticket</div>
-            <div id="bpm_template_name_Internal_Meeting" class="hide bpm_lang">Internal Meeting</div>
-            <div id="bpm_template_name_Issues_List_Item" class="hide bpm_lang">Issues List Item</div>
-            <div id="bpm_template_name_IT_Help_Ticket" class="hide bpm_lang">IT Help Ticket</div>
-            <div id="bpm_template_name_Milestone" class="hide bpm_lang">Milestone</div>
-            <div id="bpm_template_name_Our_Company" class="hide bpm_lang">Our Company</div>
-            <div id="bpm_template_name_Parts_Costing" class="hide bpm_lang">Parts Costing</div>
-            <div id="bpm_template_name_Parts_Quote" class="hide bpm_lang">Parts Quote</div>
-            <div id="bpm_template_name_Policy" class="hide bpm_lang">Policy</div>
-            <div id="bpm_template_name_Post_Project_Review" class="hide bpm_lang">Post Project Review</div>
-            <div id="bpm_template_name_Project_Change_Request" class="hide bpm_lang">Project Change Request</div>
-            <div id="bpm_template_name_Project_Impact_Notice" class="hide bpm_lang">Project Impact Notice</div>
-            <div id="bpm_template_name_Project_Meeting" class="hide bpm_lang">Project Meeting</div>
-            <div id="bpm_template_name_QR_Pricing_Request" class="hide bpm_lang">QR Pricing Request</div>
-            <div id="bpm_template_name_Return_Approval" class="hide bpm_lang">Return Approval</div>
-            <div id="bpm_template_name_RMA" class="hide bpm_lang">RMA</div>
-            <div id="bpm_template_name_Sales_Quote" class="hide bpm_lang">Sales Quote</div>
-            <div id="bpm_template_name_Service_Engagement" class="hide bpm_lang">Service Engagement</div>
-            <div id="bpm_template_name_Service_Report" class="hide bpm_lang">Service Report</div>
-            <div id="bpm_template_name_Supplier" class="hide bpm_lang">Supplier</div>
-            <div id="bpm_template_name_Supplier_Contact" class="hide bpm_lang">Supplier Contact</div>
-            <div id="bpm_template_name_Supplier_Location" class="hide bpm_lang">Supplier Location</div>
-            <div id="bpm_template_name_Supplier_Meeting" class="hide bpm_lang">Supplier Meeting</div>
-            <div id="bpm_template_name_Time_Off_Request" class="hide bpm_lang">Time Off Request</div>
-            <div id="bpm_template_name_Warranty_Request" class="hide bpm_lang">Warranty Request</div>
+            <div id="bpm_template_name_Action_Item" class="bpm-hide bpm_lang">Action Item</div>
+            <div id="bpm_template_name_Announcement" class="bpm-hide bpm_lang">Announcement</div>
+            <div id="bpm_template_name_Approval_Drawing_Request" class="bpm-hide bpm_lang">Approval Drawing Request</div>
+            <div id="bpm_template_name_Company_News" class="bpm-hide bpm_lang">Company News</div>
+            <div id="bpm_template_name_Competitive_Intel_Report" class="bpm-hide bpm_lang">Competitive Intel Report</div>
+            <div id="bpm_template_name_Competitor" class="bpm-hide bpm_lang">Competitor</div>
+            <div id="bpm_template_name_Contact_Report" class="bpm-hide bpm_lang">Contact Report</div>
+            <div id="bpm_template_name_Corp_Customer_Contact" class="bpm-hide bpm_lang">Corp Customer Contact</div>
+            <div id="bpm_template_name_Corp_Supplier_Contact" class="bpm-hide bpm_lang">Corp Supplier Contact</div>
+            <div id="bpm_template_name_Customer" class="bpm-hide bpm_lang">Customer</div>
+            <div id="bpm_template_name_Customer_Contact" class="bpm-hide bpm_lang">Customer Contact</div>
+            <div id="bpm_template_name_Customer_Location" class="bpm-hide bpm_lang">Customer Location</div>
+            <div id="bpm_template_name_Customer_Meeting" class="bpm-hide bpm_lang">Customer Meeting</div>
+            <div id="bpm_template_name_Customer_Project" class="bpm-hide bpm_lang">Customer Project</div>
+            <div id="bpm_template_name_Department" class="bpm-hide bpm_lang">Department</div>
+            <div id="bpm_template_name_Employee" class="bpm-hide bpm_lang">Employee</div>
+            <div id="bpm_template_name_Facility_Help_Ticket" class="bpm-hide bpm_lang">Facility Help Ticket</div>
+            <div id="bpm_template_name_Internal_Meeting" class="bpm-hide bpm_lang">Internal Meeting</div>
+            <div id="bpm_template_name_Issues_List_Item" class="bpm-hide bpm_lang">Issues List Item</div>
+            <div id="bpm_template_name_IT_Help_Ticket" class="bpm-hide bpm_lang">IT Help Ticket</div>
+            <div id="bpm_template_name_Milestone" class="bpm-hide bpm_lang">Milestone</div>
+            <div id="bpm_template_name_Our_Company" class="bpm-hide bpm_lang">Our Company</div>
+            <div id="bpm_template_name_Parts_Costing" class="bpm-hide bpm_lang">Parts Costing</div>
+            <div id="bpm_template_name_Parts_Quote" class="bpm-hide bpm_lang">Parts Quote</div>
+            <div id="bpm_template_name_Policy" class="bpm-hide bpm_lang">Policy</div>
+            <div id="bpm_template_name_Post_Project_Review" class="bpm-hide bpm_lang">Post Project Review</div>
+            <div id="bpm_template_name_Project_Change_Request" class="bpm-hide bpm_lang">Project Change Request</div>
+            <div id="bpm_template_name_Project_Impact_Notice" class="bpm-hide bpm_lang">Project Impact Notice</div>
+            <div id="bpm_template_name_Project_Meeting" class="bpm-hide bpm_lang">Project Meeting</div>
+            <div id="bpm_template_name_QR_Pricing_Request" class="bpm-hide bpm_lang">QR Pricing Request</div>
+            <div id="bpm_template_name_Return_Approval" class="bpm-hide bpm_lang">Return Approval</div>
+            <div id="bpm_template_name_RMA" class="bpm-hide bpm_lang">RMA</div>
+            <div id="bpm_template_name_Sales_Quote" class="bpm-hide bpm_lang">Sales Quote</div>
+            <div id="bpm_template_name_Service_Engagement" class="bpm-hide bpm_lang">Service Engagement</div>
+            <div id="bpm_template_name_Service_Report" class="bpm-hide bpm_lang">Service Report</div>
+            <div id="bpm_template_name_Supplier" class="bpm-hide bpm_lang">Supplier</div>
+            <div id="bpm_template_name_Supplier_Contact" class="bpm-hide bpm_lang">Supplier Contact</div>
+            <div id="bpm_template_name_Supplier_Location" class="bpm-hide bpm_lang">Supplier Location</div>
+            <div id="bpm_template_name_Supplier_Meeting" class="bpm-hide bpm_lang">Supplier Meeting</div>
+            <div id="bpm_template_name_Time_Off_Request" class="bpm-hide bpm_lang">Time Off Request</div>
+            <div id="bpm_template_name_Warranty_Request" class="bpm-hide bpm_lang">Warranty Request</div>
 
-            <div id="bpm_lng_msg_This_User_Is_Found_In_This_Domain" class="hide bpm_lang">This user email already exists in your account.</div>
+            <div id="bpm_lng_msg_This_User_Is_Found_In_This_Domain" class="bpm-hide bpm_lang">This user email already exists in your account.</div>
 
-            <div id="bpm_lng_tag_page_loading" class="hide bpm_lang">Page loading...</div>
-            <div id="bpm_lng_tag_notifications" class="hide bpm_lang">Notifications</div>
-            <div id="bpm_lng_tag_add_new" class="hide bpm_lang">Add New</div>
+            <div id="bpm_lng_tag_page_loading" class="bpm-hide bpm_lang">Page loading...</div>
+            <div id="bpm_lng_tag_notifications" class="bpm-hide bpm_lang">Notifications</div>
+            <div id="bpm_lng_tag_add_new" class="bpm-hide bpm_lang"> Add New</div>
 
 
         </div>
     </div>
 </div> <!-- end of bpm_content_area div -->
 
-<div id="bpm_mobile_content_area" class="bpm_content_area_top hide">
+<div id="bpm_mobile_content_area" class="bpm_content_area_top bpm-hide">
     <div class="off-canvas-wrap" data-offcanvas>
         <div class="inner-wrap">
             <nav class="tab-bar">
-                <section class="left-small">
+                <section class="left-bpm-small">
                     <a class="left-off-canvas-toggle menu-icon"><span></span></a>
                 </section>
 
@@ -1533,7 +1537,7 @@
                     <h1 class="title">My Dashboard</h1>
                 </section>
 
-                <section class="right-small">
+                <section class="right-bpm-small">
                     <a class="right-off-canvas-toggle menu-icon"><span></span></a>
                 </section>
             </nav>
@@ -1566,11 +1570,11 @@
     <div id="bpm_mobile_objects"></div>
 </div>
 
-<div id="bpm_medium_content_area" class="bpm_content_area_top hide">
+<div id="bpm_medium_content_area" class="bpm_content_area_top bpm-hide">
     <div class="off-canvas-wrap" data-offcanvas>
         <div class="inner-wrap">
             <nav class="tab-bar">
-                <section class="left-small">
+                <section class="left-bpm-small">
                     <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
                 </section>
 
@@ -1589,9 +1593,9 @@
 
             <section class="main-section">
                 <!-- content goes here -->
-                <div class="row full-width">
-                    <div class="small-9 large-9 columns" id="bpm_main_content"> </div>
-                    <div class="small-3 large-3 columns" id="bpm_right_medium_menu"></div>
+                <div class="bpm-row full-width">
+                    <div class="bpm-small-9 bpm-large-9 bpm-columns" id="bpm_main_content"> </div>
+                    <div class="bpm-small-3 bpm-large-3 bpm-columns" id="bpm_right_medium_menu"></div>
                 </div>
             </section>
 

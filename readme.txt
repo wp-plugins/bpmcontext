@@ -4,7 +4,7 @@ Tags: intranet, workflow, file sharing, bpmcontext, task management, file sharin
 Donate link: 
 Requires at least: 3.0.1
 Tested up to: 4.3
-Stable tag: 2.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,8 @@ Go to https://app.bpmcontext.com, create your account on our hosted service and 
 This plugin provides Intranet Lite, the free version of the fully scalable intranet, extranet, workflow service from BPMContext.com.  User administration and set up is managed within BPMContext.com. 
 
 == Installation ==
+
+This plugin adds BPMContext intranet into a single page in your WordPress site. Create workspaces for sharing department policies, announcements, IT support requests and more. To get started: Activate the plugin then go to BPMContext settings page to sign up for your account.
 
 = From your WordPress dashboard =
 
@@ -123,7 +125,6 @@ Please contact us at customer.service@bpmcontext.com. Please feel free to send a
 = 1.0.1 =
 * Fix bugs
 = 2.0 =
-* Current version
 * Released on October 25, 2015
 * Improvements to theme compatibility CSS
 * Add home link to navigation menu
@@ -164,11 +165,15 @@ Please contact us at customer.service@bpmcontext.com. Please feel free to send a
 * Add page status loading
 * Redesigned settings page
 * Add user options for bookmark, subscribe and tag page
-
+= 2.0.1 =
+* Current version
+* Improved theme compatibility
 
 == Upgrade Notice ==
 
 = 1.0 =
 First version of the plugin. Signup for a BPMContext account to activate shared storage. 1 Admin signup per month minimum.
 = 2.0 =
-Full feature application. Create a BPMContext account to activate Intranet Lite plugin.  
+Full feature application. Create a BPMContext account to activate Intranet Lite plugin.
+= 2.0.1 =
+Updated to improve theme compatibility

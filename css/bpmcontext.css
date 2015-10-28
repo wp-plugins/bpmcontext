@@ -1,6 +1,75 @@
 @charset "UTF-8";
 /* CSS Document */
 
+.ui-menu-item{
+    text-align: left !important;
+    margin-left:.5em !important;
+}
+
+.bpm_hr_gray{
+    color:red;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+}
+
+. bpm-wide{
+    border: solid 1px red !important;
+}
+
+.bpm-column,
+.bpm-columns {
+    position: relative;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    float: left; }
+
+.bpm-large-1 {
+    width: 8.33333%; }
+
+.bpm-large-2 {
+    width: 16.66667%; }
+
+.bpm-large-3 {
+    width: 25%; }
+
+.bpm-large-4 {
+    width: 33.33333%; }
+
+.bpm-large-5 {
+    width: 41.66667%; }
+
+.bpm-large-6 {
+    width: 50%; }
+
+.bpm-large-7 {
+    width: 58.33333%; }
+
+.bpm-large-8 {
+    width: 66.66667%; }
+
+.bpm-large-9 {
+    width: 75%; }
+
+.bpm-large-10 {
+    width: 83.33333%; }
+
+.bpm-large-11 {
+    width: 91.66667%; }
+
+.bpm-large-12 {
+    width: 100%; }
+
+.bpm-home{
+    margin-left:.5em !important;
+}
+
+.bpm-header-2 {
+    text-align: left !important;
+}
+
+.bpm-hide {
+    display: none; }
+
 .f-dropdown{
     max-height:15em;
     overflow:auto;
@@ -184,9 +253,47 @@ ul.tabs li {
     overflow: hidden;
 }
 
-.row.full-width {
+.bpm-row.full-width {
     max-width: 100%;
 }
+div .bpm-hide{
+    display: none;
+}
+
+.bpm-row {
+    margin: 0 auto;
+    max-width: 62.5rem;
+    width: 100%; }
+.bpm-row:before, .bpm-row:after {
+    content: " ";
+    display: table; }
+.bpm-row:after {
+    clear: both; }
+.bpm-row.collapse > .bpm-column,
+.bpm-row.collapse > .bpm-columns {
+    padding-left: 0;
+    padding-right: 0; }
+.bpm-row.collapse .bpm-row {
+    margin-left: 0;
+    margin-right: 0; }
+.bpm-row .bpm-row {
+    margin: 0 -0.9375rem;
+    max-width: none;
+    width: auto; }
+.bpm-row .bpm-row:before, .bpm-row .bpm-row:after {
+    content: " ";
+    display: table; }
+.bpm-row .bpm-row:after {
+    clear: both; }
+.bpm-row .bpm-row.collapse {
+    margin: 0;
+    max-width: none;
+    width: auto; }
+.bpm-row .bpm-row.collapse:before, .bpm-row .bpm-row.collapse:after {
+    content: " ";
+    display: table; }
+.bpm-row .bpm-row.collapse:after {
+    clear: both; }
 
 .bpm_content {
     position: relative;
@@ -200,6 +307,7 @@ ul.tabs li {
     margin-right: .5em;
     padding-left: .2em;
     padding-right: .2em;
+    float: left;
 }
 
 .bpm_bold {
@@ -285,15 +393,12 @@ ul.tabs li {
 
 .bpm_file_text_header {
     margin-top: .3em;
+    font-size: 1em;
 }
 
-.bpm_file_list {
-    height: 213px;
-    width: 82%;
-    border: solid 1px lightgray;
-    float: left;
-    clear: none;
-    overflow: auto;
+
+.bpm_file_list_link {
+    font-size: 1em;
 }
 
 .bpm_talat_message {
@@ -314,7 +419,7 @@ ul.tabs li {
 
 .bpm_grid_section_links {
     font-size: .8em;
-    overflow: hidden;
+
 }
 
 .bpm_tab-title {

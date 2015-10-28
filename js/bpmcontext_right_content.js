@@ -75,13 +75,13 @@ function bpm_create_user_page_reveal(){
     var html_line = '';
     var dd_html = '';
 
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="large-4 small-4 columns text-left bpm">Name</div>');
-    html_line = html_line.concat('<div class="large-8 small-8 columns text-right"><div ><input style="margin-bottom:.3em;" class="bpm_profile_editing bpm_type_text" type="text" id="bpm_user_pref_edit_1" value="' + result.USERDETAILS['name'] + '" /></div></div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left bpm">Name</div>');
+    html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-right"><div ><input style="margin-bottom:.3em;" class="bpm_profile_editing bpm_type_text" type="text" id="bpm_user_pref_edit_1" value="' + result.USERDETAILS['name'] + '" /></div></div>');
     html_line = html_line.concat('</div>');
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="large-4 small-4 columns text-left">Email</div>');
-    html_line = html_line.concat('<div class="large-8 small-8 columns text-right"><div ><input style="margin-bottom:.3em" class="bpm_profile_editing bpm_type_user_email" type="text" id="bpm_user_pref_edit_2" value="' + result.USERDETAILS['email'] + '" /></div></div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left">Email</div>');
+    html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-right"><div ><input style="margin-bottom:.3em" class="bpm_profile_editing bpm_type_user_email" type="text" id="bpm_user_pref_edit_2" value="' + result.USERDETAILS['email'] + '" /></div></div>');
     html_line = html_line.concat('</div>');
 
     if(bpm_user_role == 'admin') {
@@ -104,9 +104,9 @@ function bpm_create_user_page_reveal(){
                 dd_html = dd_html.concat('<option value="intranet" ' + intranet_selected + '>'+bpm_trans_array['bpm_lng_Intranet_User']+'</option>');
                 dd_html = dd_html.concat('</select>');
 
-                html_line = html_line.concat('<div class="row">');
-                html_line = html_line.concat('<div class="large-4 small-4 columns text-left">' + bpm_trans_array['bpm_lng_user_type'] + '</div>');
-                html_line = html_line.concat('<div class="large-8 small-8 columns text-right" >' + dd_html + '</div>');
+                html_line = html_line.concat('<div class="bpm-row">');
+                html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left">' + bpm_trans_array['bpm_lng_user_type'] + '</div>');
+                html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-right" >' + dd_html + '</div>');
                 html_line = html_line.concat('</div>');
             }
         }
@@ -128,9 +128,9 @@ function bpm_create_user_page_reveal(){
     dd_html = dd_html.concat('</select>');
     dd_html = dd_html.concat('</div>');
 
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="large-4 small-4 columns  text-left">' + bpm_trans_array['bpm_lng_daily_journal'] + '</div>');
-    html_line = html_line.concat('<div class="large-8 small-8 columns text-right">'+dd_html+'</div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns  text-left">' + bpm_trans_array['bpm_lng_daily_journal'] + '</div>');
+    html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-right">'+dd_html+'</div>');
     html_line = html_line.concat('</div>');
 
     //time zone
@@ -148,9 +148,9 @@ function bpm_create_user_page_reveal(){
 
     dd_html = dd_html.concat('</select>');
 
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="large-4 small-4 columns text-left">Time Zone</div>');
-    html_line = html_line.concat('<div class="large-8 small-8 columns text-right">'+dd_html+'</div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left">Time Zone</div>');
+    html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-right">'+dd_html+'</div>');
     html_line = html_line.concat('</div>');
 
     jQuery('#bpm_edit_user_profile_list').html(html_line);
@@ -298,11 +298,11 @@ function bpm_create_tutorial(result){
 
         has_tutorials = 1;
         var tour_name = jQuery('#bpm_tutorial_name_' + this_tut_id).text();
-        html_line = html_line.concat('<div class="row">');
-        html_line = html_line.concat('<div class="small-9 large-9 columns">');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns text-left">');
         html_line = html_line.concat('&nbsp;<a onClick="bpm_run_tutorial(this);" class="bpm_links bpm_nodecoration bpm_tutorial_text" id="bpm_tutorial_link_' + this_tut_id + '" >' + tour_name + '</a>');
         html_line = html_line.concat('</div>');
-        html_line = html_line.concat('<div class="small-3 large-3 columns">');
+        html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right">');
         if(viewed==1){
             html_line = html_line.concat('<span class="fi-check bpm-green">&nbsp;</span>');
         }else {
@@ -433,8 +433,8 @@ function bpm_open_context_map(selected_template, is_root){
 
     var this_html = '';
 
-    this_html = this_html.concat('<div class="row full-width" style="margin-bottom:5px;max-height:400px;overflow-y:auto;">');
-    this_html = this_html.concat('<div class="small-3 large-3 columns">');
+    this_html = this_html.concat('<div class="bpm-row full-width" style="margin-bottom:5px;max-height:400px;overflow-y:auto;">');
+    this_html = this_html.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left">');
     this_html = this_html.concat('<ul class="side-nav" id="bpm_context_map_list">');
 
     this_html = this_html.concat(' <li class="active bpm_ul_li">');
@@ -464,7 +464,7 @@ function bpm_open_context_map(selected_template, is_root){
 
     this_html = this_html.concat('</div>'); //end of left column div
 
-    this_html = this_html.concat('<div class="small-9 large-9 columns bpm_gray_border" id="bpm_context_map_target">');
+    this_html = this_html.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns bpm_gray_border text-left" id="bpm_context_map_target">');
 
     this_html = this_html.concat('</div>'); //end of right column div
     this_html = this_html.concat('</div>');
@@ -563,18 +563,19 @@ function bpm_create_change_log(result){
             date_parts = date_parts[0].split('-');
             var updated_on = date_parts[1] + '/' + date_parts[2] + '/' + date_parts[0];
 
-            html_line = html_line.concat('<div class="row">');
+            html_line = html_line.concat('<div class="bpm-row">');
             if(area_changed==1) {
-                html_line = html_line.concat('<div class="small-12 large-12 columns text-left bpm_text_medium">' + item_changed + '</div>');
+                html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left bpm_text_medium text-left">' + item_changed + '</div>');
             }else if(area_changed==3){
-                html_line = html_line.concat('<div class="small-12 large-12 columns text-left bpm_text_medium">' + item_changed + '</div>');
+                html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left bpm_text_medium text-left">' + item_changed + '</div>');
             }else {
-                html_line = html_line.concat('<div class="small-12 large-12 columns text-left bpm_text_medium">' + item_changed + '-'+bpm_trans_array['bpm_lng_edited']+'</div>');
+                html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left bpm_text_medium text-left">' + item_changed + '-'+bpm_trans_array['bpm_lng_edited']+'</div>');
             }
             html_line = html_line.concat('</div>');
-            html_line = html_line.concat('<div class="row bpm_file_bottom_border">');
-            html_line = html_line.concat('<div class="small-12 large-12 columns bpm_text_medium" style="color:gray">' + bpm_trans_array['bpm_lng_cap_by'] + ' ' + value['real_name'] + ' ' + bpm_trans_array['bpm_lng_on'] + ' '+ updated_on + '</div>');
+            html_line = html_line.concat('<div class="bpm-row ">');
+            html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns bpm_text_medium text-left" style="color:gray">' + bpm_trans_array['bpm_lng_cap_by'] + ' ' + value['real_name'] + ' ' + bpm_trans_array['bpm_lng_on'] + ' '+ updated_on + '</div>');
             html_line = html_line.concat('</div>');
+            html_line = html_line.concat('<hr class="bpm_hr_gray">');
 
         });
 
@@ -619,9 +620,9 @@ function bpm_create_sharing(result){
                 }
             }
 
-            html_line = html_line.concat('<div class="row">');
-            html_line = html_line.concat('<div class="small-8 large-8 columns bpm_text_medium"><a href="?pageid=' + value['uad_user_page_id'] + '&action=bpmcontext" class="url_links bpm_links">' + value['real_name'] + '</a></div>');
-            html_line = html_line.concat('<div class="small-4 large-4 columns text-center bpm_text_medium">'+ this_status +'</div>');
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-small-8 bpm-large-8 bpm-columns bpm_text_medium"><a href="?pageid=' + value['uad_user_page_id'] + '&action=bpmcontext" class="url_links bpm_links">' + value['real_name'] + '</a></div>');
+            html_line = html_line.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns text-center bpm_text_medium">'+ this_status +'</div>');
             html_line = html_line.concat('</div>');
         });
 
@@ -665,9 +666,9 @@ function bpm_create_routing_history(result) {
 
         var html_line = '';
         jQuery.each(result.ROUTINGHISTORY,function(index, value) {
-            html_line = html_line.concat('<div class="row">');
-            html_line = html_line.concat('<div class="small-6 large-6 columns bpm_text_medium">' + value['real_name'] + '</div>');
-            html_line = html_line.concat('<div class="small-6 large-6 columns text-center bpm_text_medium">'+ value['date'] +'</div>');
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns bpm_text_medium">' + value['real_name'] + '</div>');
+            html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-center bpm_text_medium">'+ value['date'] +'</div>');
             html_line = html_line.concat('</div>');
         });
 
@@ -681,14 +682,14 @@ function bpm_create_routing_history(result) {
 function bpm_create_subscribers(result) {
 
     if(result['SUBSCRIBERS'].length > 0) {
-
         var html_line = '';
         jQuery.each(result.SUBSCRIBERS,function(index, value) {
-            var read_in = 'fi-check bpm-green';
-            if(value['viewed']==1) read_in = 'fi-minus';
-            html_line = html_line.concat('<div class="row">');
-            html_line = html_line.concat('<div class="small-9 large-9 columns bpm_text_medium">' + value['real_name'] + '</div>');
-            html_line = html_line.concat('<div class="small-3 large-3 columns text-center bpm_text_medium '+read_in+'"></div>');
+            var read_in = 'fi-minus';
+            if(value['viewed']==0 && bpm_page_status > 0) read_in = 'fi-check bpm-green';
+            if(value['user_index']==bpm_current_user_id) read_in = 'fi-check bpm-green';
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns bpm_text_medium">' + value['real_name'] + '</div>');
+            html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right bpm_text_medium '+read_in+'"></div>');
             html_line = html_line.concat('</div>');
 
         });
@@ -707,8 +708,8 @@ function bpm_create_infobox(this_content){
         bpm_infobox_data = this_content['INFOBOX'];
         bpm_infobox_data_users = this_content['INFOBOXUSERS'];
         var html_line = '';
-        html_line = html_line.concat('<div class="row">');
-        html_line = html_line.concat('<div class="small-12 large-12 columns" style="height:.25em;">&nbsp;</div>');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns" style="height:.25em;">&nbsp;</div>');
         html_line = html_line.concat('</div>');
 
         jQuery.each(this_content.INFOBOX,function(index, value) {
@@ -734,9 +735,9 @@ function bpm_create_infobox(this_content){
                     if(value['real_name']) this_value = value['real_name'];
                     break;
             }
-            html_line = html_line.concat('<div class="row">');
-            html_line = html_line.concat('<div class="small-4 large-4 columns bpm_text_medium">' + info_name + '</div>');
-            html_line = html_line.concat('<div class="small-8 large-8 columns text-left bpm_text_medium" id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</div>');
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns bpm_text_medium">' + info_name + '</div>');
+            html_line = html_line.concat('<div class="bpm-small-8 bpm-large-8 bpm-columns text-left bpm_text_medium" id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</div>');
             html_line = html_line.concat('</div>');
 
         });
@@ -797,8 +798,8 @@ function bpm_info_action(selected_object){
 
 function bpm_create_infobox_reveal(){
     var html_line = '';
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="small-12 large-12 columns" style="height:.25em;">&nbsp;</div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns" style="height:.25em;">&nbsp;</div>');
     html_line = html_line.concat('</div>');
     jQuery.each(bpm_infobox_data, function(index, value) {
 
@@ -811,23 +812,23 @@ function bpm_create_infobox_reveal(){
         var can_edit_class = 'bpm_read_only';
         if(value['editable']=='yes') can_edit_class = 'bpm_editable';
         if(value['info_value']) this_value = value['info_value'];
-        html_line = html_line.concat('<div class="row">');
-        html_line = html_line.concat('<div class="small-6 large-6 columns text-left">' + info_name + '</div>');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left">' + info_name + '</div>');
         switch(value['info_type']){
             case '1':
                 //text field
                 if(value['editable']=='yes'){
-                    html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + '" "><input style="margin-bottom:.25em;" class="bpm_editing bpm_type_text" type="text" id="bpm_infobox_' + value['info_index'] + '" value="' + this_value + '" /></div>');
+                    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + '" "><input style="margin-bottom:.25em;" class="bpm_editing bpm_type_text" type="text" id="bpm_infobox_' + value['info_index'] + '" value="' + this_value + '" /></div>');
                 }else {
-                    html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + '  text-left" id="bpm_infobox_' + value['info_index'] + '"><span id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</span></div>');
+                    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + '  text-left" id="bpm_infobox_' + value['info_index'] + '"><span id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</span></div>');
                 }
                 break;
             case '2':
                 //number field
                 if(value['editable']=='yes'){
-                    html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + '" "><input style="margin-bottom:.25em;" class="bpm_editing bpm_type_number" type="text" id="bpm_infobox_' + value['info_index'] + '" value="' + this_value + '" /></div>');
+                    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + '" "><input style="margin-bottom:.25em;" class="bpm_editing bpm_type_number" type="text" id="bpm_infobox_' + value['info_index'] + '" value="' + this_value + '" /></div>');
                 }else {
-                    html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + ' text-left" id="bpm_infobox_' + value['info_index'] + '"><span id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</span></div>');
+                    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + ' text-left" id="bpm_infobox_' + value['info_index'] + '"><span id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</span></div>');
                 }
                 break;
             case '3':
@@ -835,15 +836,15 @@ function bpm_create_infobox_reveal(){
                 this_value = this_value.substr(0,10);
                 can_edit_class = '';
                 if(value['editable']=='yes') {
-                    html_line = html_line.concat('<div class="small-6 large-6 columns bpm_editable" ><input readonly style="margin-bottom:.25em;" class="bpm_date_editable" type="text" id="bpm_infobox_' + value['info_index'] + '" value="' + this_value + '" /></div>');
+                    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns bpm_editable" ><input readonly style="margin-bottom:.25em;" class="bpm_date_editable" type="text" id="bpm_infobox_' + value['info_index'] + '" value="' + this_value + '" /></div>');
                 }else{
-                    html_line = html_line.concat('<div class="small-6 large-6 columns text-left" id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</div>');
+                    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left" id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</div>');
                 }
                 break;
             case '6':
                 //dropdown field
                 var cell_data = value['cell_data'];
-                html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + '" id="bpm_infobox_' + value['info_index'] + '">');
+                html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + '" id="bpm_infobox_' + value['info_index'] + '">');
                 if(value['editable']=='yes') {
                     html_line = html_line.concat('<select style="margin-bottom:.25em;" class="bpm_editing bpm_type_dropdown" type="text" id="bpm_current_edit_' + value['info_index'] + '">');
                     html_line = html_line.concat(cell_data);
@@ -855,13 +856,13 @@ function bpm_create_infobox_reveal(){
                 break;
             case '12':
                 //read only field - page ID
-                html_line = html_line.concat('<div class="small-6 large-6 columns text-left" id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</div>');
+                html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left" id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</div>');
                 break;
             case '17':
                 if(value['editable']=='yes'){
-                    html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + '" "><input style="margin-bottom:.25em;" class="bpm_editing bpm_type_email" type="text" id="bpm_infobox_' + value['info_index'] + '" value="' + this_value + '" /></div>');
+                    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + '" "><input style="margin-bottom:.25em;" class="bpm_editing bpm_type_email" type="text" id="bpm_infobox_' + value['info_index'] + '" value="' + this_value + '" /></div>');
                 }else {
-                    html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + '" id="bpm_infobox_' + value['info_index'] + '"><span id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</span></div>');
+                    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + '" id="bpm_infobox_' + value['info_index'] + '"><span id="bpm_field_value_' + value['info_index'] + '">' + this_value + '</span></div>');
                 }
                 break;
             case '16':
@@ -873,7 +874,7 @@ function bpm_create_infobox_reveal(){
                     cell_data = '<option value="0" selected>' + bpm_trans_array['bpm_lng_Select'] + ' ' + info_name + '</option>' + value['cell_data'];
                 }
 
-                html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + '" id="bpm_infobox_' + value['info_index'] + '">');
+                html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + '" id="bpm_infobox_' + value['info_index'] + '">');
                 if(value['editable']=='yes') {
                     html_line = html_line.concat('<select style="margin-bottom:.25em;" class="bpm_editing bpm_type_dropdown" type="text" id="bpm_current_edit_' + value['info_index'] + '">');
                     html_line = html_line.concat(cell_data);
@@ -887,7 +888,7 @@ function bpm_create_infobox_reveal(){
 
                 //user list
                 var cell_data = value['info_value'];
-                html_line = html_line.concat('<div class="small-6 large-6 columns ' + can_edit_class + ' text-left" id="bpm_infobox_' + value['info_index'] + '">');
+                html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns ' + can_edit_class + ' text-left" id="bpm_infobox_' + value['info_index'] + '">');
                 if(value['editable']=='yes') {
                     var dropdown_string = '';
                     var build_string = '';
@@ -917,7 +918,7 @@ function bpm_create_infobox_reveal(){
                 html_line = html_line.concat('</div>');
                 break;
             case '20':
-                html_line = html_line.concat('<div class="small-6 large-6 columns text-left" id="bpm_field_value_' + value['info_index'] + '">' + value['cell_data'] + '</div>');
+                html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left" id="bpm_field_value_' + value['info_index'] + '">' + value['cell_data'] + '</div>');
                 break;
             default:
                 //console.log(value);
@@ -1049,22 +1050,22 @@ function bpm_show_talat_messages(this_content) {
         }
 
         html_line = html_line.concat('<div id="bpm_talat_message_'+value['id']+'" class="bpm_talat_message_header" style="width:100%">');
-        html_line = html_line.concat('<div class="row">');
-        html_line = html_line.concat('<div class="small-12 large-12 columns"><span id="bpm_talat_message_text_'+value['id']+'" class="bpm_talat_message">' + value['message'] + '</span></div>');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns"><span id="bpm_talat_message_text_'+value['id']+'" class="bpm_talat_message">' + value['message'] + '</span></div>');
         html_line = html_line.concat('</div><br>');
 
         var send_date = '';
         if(value['send_date_2']) send_date = value['send_date_2'].substr(5,2) + '/' + value['send_date_2'].substr(8,2) + '/' + value['send_date_2'].substr(2,2);
-        html_line = html_line.concat('<div class="row full-width">');
-        html_line = html_line.concat('<div class="small-8 large-8 columns"><span style="padding-left:1em; font-size: .75em;">' + value['real_name'] + '</span></div>')
-        html_line = html_line.concat('<div class="small-4 large-4 columns text-right" style="font-size: .75em;">' + send_date + '</div>')
+        html_line = html_line.concat('<div class="bpm-row full-width">');
+        html_line = html_line.concat('<div class="bpm-small-8 bpm-large-8 bpm-columns"><span style="padding-left:1em; font-size: .75em;">' + value['real_name'] + '</span></div>')
+        html_line = html_line.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns text-right" style="font-size: .75em;">' + send_date + '</div>')
         html_line = html_line.concat();
         html_line = html_line.concat('</div>');
 
         if(value['recipients']){
 
-            html_line = html_line.concat('<div class="row full-width">');
-            html_line = html_line.concat('<div id="bpm_talat_recip_list" class="small-12 large-12 columns bpm_talat_message">' + recipients + '</div>')
+            html_line = html_line.concat('<div class="bpm-row full-width">');
+            html_line = html_line.concat('<div id="bpm_talat_recip_list" class="bpm-small-12 bpm-large-12 bpm-columns bpm_talat_message">' + recipients + '</div>')
             html_line = html_line.concat('<div class="hide" id="bpm_talat_reply_all_'+value['id']+'">'+reply_all+'</div>');
             html_line = html_line.concat('<div class="hide" id="bpm_talat_reply_to_'+value['id']+'">'+value['uad_user_id']+'</div>');
             html_line = html_line.concat('</div>');

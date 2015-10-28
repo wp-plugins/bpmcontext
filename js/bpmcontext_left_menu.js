@@ -110,7 +110,7 @@ function bpm_open_modal(selected_object) {
 
                     if(add_item==0) {
                         var friend = ui.item.value,
-                            span = jQuery("<span>").text(ui.item.label).prop('id', 'bpm_talat_user_' + ui.item.value).addClass("bpm_talat_user"),
+                            span = jQuery("<span>").text(' '+ ui.item.label).prop('id', 'bpm_talat_user_' + ui.item.value).addClass("bpm_talat_user"),
                             a = jQuery("<a>").addClass("remove").attr({
                                 onclick: "bpm_remove_talat_user(" + ui.item.value + ")",
                                 title: "Remove " + ui.item.label
@@ -148,7 +148,6 @@ function bpm_open_modal(selected_object) {
             break;
         case 'left_subscriptions':
             jQuery('#bpm_widget_title').html('<span class="fi-mail"></span>&nbsp;&nbsp;'+bpm_trans_array['bpm_lng_subscriptions']);
-//            var page_links = bpm_make_subscriptions_window();
             var page_links = bpm_make_left_report(bpm_dashboard[3]);
             jQuery('#bpm_left_widget_content').html(page_links);
             if(page_links){
@@ -296,21 +295,21 @@ function bpm_create_notifications_target(selected_object){
 
     if(selected_object == '999999') {
         jQuery.each(bpm_dashboard[12].WORKFLOW_MESSAGES, function (index, value) {
-            this_html = this_html.concat('<div class="row">');
-            this_html = this_html.concat('  <div class="small-12 large-12 columns"><a class="url_links grid_links bpm_links bpm_text_medium" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');
+            this_html = this_html.concat('<div class="bpm-row">');
+            this_html = this_html.concat('  <div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><a class="url_links grid_links bpm_links bpm_text_medium" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');
             this_html = this_html.concat('</div>');
         });
     }else if(selected_object == '999998'){
         jQuery.each(bpm_dashboard[12].DRAFTS, function (index, value) {
-            this_html = this_html.concat('<div class="row">');
-            this_html = this_html.concat('  <div class="small-12 large-12 columns"><a class="url_links grid_links bpm_links bpm_text_medium" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');
+            this_html = this_html.concat('<div class="bpm-row">');
+            this_html = this_html.concat('  <div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><a class="url_links grid_links bpm_links bpm_text_medium" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');
             this_html = this_html.concat('</div>');
         });
     }else {
         jQuery.each(bpm_dashboard[12].wfdocs, function (index, value) {
             if (value['template_index'] == selected_object && value['wfm_status'] > 0) {
-                this_html = this_html.concat('<div class="row">');
-                this_html = this_html.concat('  <div class="small-12 large-12 columns"><a class="url_links grid_links bpm_links bpm_text_medium" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');
+                this_html = this_html.concat('<div class="bpm-row">');
+                this_html = this_html.concat('  <div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><a class="url_links grid_links bpm_links bpm_text_medium" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');
                 this_html = this_html.concat('</div>');
             }
         });
@@ -328,7 +327,7 @@ function bpm_SortByName(a, b){
 
 function bpm_make_talat_window(){
 
-    var this_html = '<div class="row full-width" style="margin-bottom:5px;max-height:400px;overflow-x:hidden">';
+    var this_html = '<div class="bpm-row full-width" style="margin-bottom:5px;max-height:400px;overflow-x:hidden">';
     jQuery.each(bpm_dashboard[12].WORKFLOW_MESSAGES, function (index, value) {
 
 
@@ -347,54 +346,54 @@ function bpm_make_talat_window(){
             });
         }
 
-        this_html = this_html.concat('<div class="row bpm_file_bottom_border">');
-        this_html = this_html.concat('  <div id="bpm_talat_message_item_'+value['id']+'" class="small-12 large-12 columns">');
+        this_html = this_html.concat('<div class="bpm-row ">');
+        this_html = this_html.concat('  <div id="bpm_talat_message_item_'+value['id']+'" class="bpm-small-12 bpm-large-12 bpm-columns">');
 
-        this_html = this_html.concat('<div class="row">');
-        this_html = this_html.concat('  <div class="small-12 large-12 columns"><a class="url_links grid_links bpm_links bpm_text_medium" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');;
+        this_html = this_html.concat('<div class="bpm-row">');
+        this_html = this_html.concat('  <div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><a class="url_links grid_links bpm_links bpm_text_medium" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');;
         this_html = this_html.concat('</div>');
 
-        this_html = this_html.concat('<div class="row">');
-        this_html = this_html.concat('<div class="small-3 large-3 columns">');
+        this_html = this_html.concat('<div class="bpm-row">');
+        this_html = this_html.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left">');
 
-        this_html = this_html.concat('<div class="row">');
-        this_html = this_html.concat('<div class="small-12 large-12 columns">' + value['real_name'] + '</div>');
+        this_html = this_html.concat('<div class="bpm-row">');
+        this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">' + value['real_name'] + '</div>');
         this_html = this_html.concat('</div>');
 
-        this_html = this_html.concat('<div class="row">');
-        this_html = this_html.concat('<div class="small-12 large-12 columns">&nbsp;</div>');
+        this_html = this_html.concat('<div class="bpm-row">');
+        this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">&nbsp;</div>');
         this_html = this_html.concat('</div>');
 
-        this_html = this_html.concat('<div class="row">');
-        this_html = this_html.concat('<div class="small-12 large-12 columns">' + value['send_date'] + '</div>');
-        this_html = this_html.concat('</div>');
-
-        this_html = this_html.concat('</div>');
-
-        this_html = this_html.concat('<div class="small-7 large-7 columns">');
-        this_html = this_html.concat('<div class="row">');
-        this_html = this_html.concat('<div class="small-12 large-12 columns" id="bpm_talat_message_text_' + value['id'] + '">' + value['message'] + '</div>');
+        this_html = this_html.concat('<div class="bpm-row">');
+        this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">' + value['send_date'] + '</div>');
         this_html = this_html.concat('</div>');
 
         this_html = this_html.concat('</div>');
 
-        this_html = this_html.concat('<div class="small-2 large-2 columns">');
+        this_html = this_html.concat('<div class="bpm-small-7 bpm-large-7 bpm-columns text-left">');
+        this_html = this_html.concat('<div class="bpm-row">');
+        this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left" id="bpm_talat_message_text_' + value['id'] + '">' + value['message'] + '</div>');
+        this_html = this_html.concat('</div>');
 
-        this_html = this_html.concat('<div class="row">');
-        this_html = this_html.concat('<div class="small-12 large-12 columns"><a class="bpm_versions_button bpm_nodecoration" onclick="bpm_talat_reply(0, '+ value['id'] + ', ' + value['page_id'] +')">Reply</a></div>');
+        this_html = this_html.concat('</div>');
+
+        this_html = this_html.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns text-left">');
+
+        this_html = this_html.concat('<div class="bpm-row">');
+        this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><a class="bpm_versions_button bpm_nodecoration" onclick="bpm_talat_reply(0, '+ value['id'] + ', ' + value['page_id'] +')">Reply</a></div>');
         this_html = this_html.concat('</div>');
         this_html = this_html.concat('<div class="hide" id="bpm_talat_reply_to_'+value['id']+'">'+value['uad_user_id']+'</div>')
 
         if(reply_all) {
-            this_html = this_html.concat('<div class="row">');
-            this_html = this_html.concat('<div class="small-12 large-12 columns"><a class="bpm_versions_button bpm_nodecoration" onclick="bpm_talat_reply(1, '+ value['id']  + ', ' + value['page_id'] +')">Reply All</a></div>');
+            this_html = this_html.concat('<div class="bpm-row">');
+            this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><a class="bpm_versions_button bpm_nodecoration" onclick="bpm_talat_reply(1, '+ value['id']  + ', ' + value['page_id'] +')">Reply All</a></div>');
             this_html = this_html.concat('</div>');
             this_html = this_html.concat('<div class="hide" id="bpm_talat_reply_all_'+value['id']+'">'+reply_all+'</div>')
 
         }
 
-        this_html = this_html.concat('<div class="row">');
-        this_html = this_html.concat('<div class="small-12 large-12 columns"><a class="bpm_versions_button bpm_nodecoration" onclick="bpm_talat_dismiss('+ value['id']  + ', ' + value['page_id'] +')">Dismiss</a></div>');
+        this_html = this_html.concat('<div class="bpm-row">');
+        this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><a class="bpm_versions_button bpm_nodecoration" onclick="bpm_talat_dismiss('+ value['id']  + ', ' + value['page_id'] +')">Dismiss</a></div>');
         this_html = this_html.concat('</div>');
         this_html = this_html.concat('</div>');
 
@@ -402,12 +401,14 @@ function bpm_make_talat_window(){
 
         if(value['recipients'].length > 0) {
 
-            this_html = this_html.concat('<div class="row">');
-            this_html = this_html.concat('<div class="small-12 large-12 columns">' + recipients + '</div>');
+            this_html = this_html.concat('<div class="bpm-row">');
+            this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">' + recipients + '</div>');
             this_html = this_html.concat('</div>');
         }
         this_html = this_html.concat('</div>');
         this_html = this_html.concat('</div>');
+
+        this_html = this_html.concat('<hr class="bpm_hr_gray">');
     });
     this_html = this_html.concat('</div>');
 
@@ -419,8 +420,8 @@ function bpm_make_notifications_window(){
     var this_html = '';
     bpm_first_notification = '';
 
-    this_html = this_html.concat('<div class="row full-width" style="margin-bottom:5px;max-height:400px;">');
-    this_html = this_html.concat('<div class="small-3 large-3 columns">');
+    this_html = this_html.concat('<div class="bpm-row full-width" style="margin-bottom:5px;max-height:400px;">');
+    this_html = this_html.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left">');
     this_html = this_html.concat('<ul class="side-nav">');
 
     if(bpm_dashboard[12].DRAFTS) {
@@ -447,7 +448,7 @@ function bpm_make_notifications_window(){
 
     this_html = this_html.concat('</div>'); //end of left column div
 
-    this_html = this_html.concat('<div class="small-9 large-9 columns bpm_gray_border" id="bpm_notification_target">');
+    this_html = this_html.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns bpm_gray_border" id="bpm_notification_target">');
 
     this_html = this_html.concat('</div>'); //end of right column div
     this_html = this_html.concat('</div>');
@@ -460,8 +461,8 @@ function bpm_make_subscriptions_window(){
 
     var this_html = '';
 
-    this_html = this_html.concat('<div class="row full-width" style="margin-bottom:5px;max-height:400px;">');
-    this_html = this_html.concat('<div class="small-3 large-3 columns">');
+    this_html = this_html.concat('<div class="bpm-row full-width" style="margin-bottom:5px;max-height:400px;">');
+    this_html = this_html.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns">');
     this_html = this_html.concat('<ul class="side-nav">');
 
     jQuery.each(bpm_dashboard[3],function(index, value) {
@@ -475,7 +476,7 @@ function bpm_make_subscriptions_window(){
 
     this_html = this_html.concat('</div>'); //end of left column div
 
-    this_html = this_html.concat('<div class="small-9 large-9 columns bpm_gray_border" id="bpm_notification_target">');
+    this_html = this_html.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns bpm_gray_border" id="bpm_notification_target">');
 
     this_html = this_html.concat('</div>'); //end of right column div
     this_html = this_html.concat('</div>');
@@ -488,13 +489,13 @@ function bpm_create_quick_docs(){
 
     var this_html = '';
 
-    this_html = this_html.concat('<div class="row full-width" style="margin-bottom:5px;max-height:400px;">');
-    this_html = this_html.concat('<div class="small-3 large-3 columns">');
+    this_html = this_html.concat('<div class="bpm-row full-width" style="margin-bottom:5px;max-height:400px;">');
+    this_html = this_html.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left">');
     this_html = this_html.concat('<ul class="side-nav" id="bpm_quick_docs_list">');
 
     jQuery.each(bpm_quick_docs,function(index, value) {
         this_html = this_html.concat(' <li class="bpm_ul_li">');
-        this_html = this_html.concat('<a class="bpm_nodecoration side-nav-item" id="bpm_create_quick_doc_' + value['id'] + '" onclick="bpm_create_quick_doc_target(this);">' + value['name'] + '</a>');
+        this_html = this_html.concat('<a class="bpm_nodecoration side-nav-item " id="bpm_create_quick_doc_' + value['id'] + '" onclick="bpm_create_quick_doc_target(this);">' + value['name'] + '</a>');
         this_html = this_html.concat('</li>');
     });
 
@@ -502,16 +503,16 @@ function bpm_create_quick_docs(){
 
     this_html = this_html.concat('</div>'); //end of left column div
 
-    this_html = this_html.concat('<div class="small-9 large-9 columns bpm_gray_border" id="bpm_quick_doc_target" style="height:330px;overflow: auto;">');
+    this_html = this_html.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns bpm_gray_border" id="bpm_quick_doc_target" style="height:330px;overflow: auto;">');
 
-    this_html = this_html.concat('<div class="row">');
-    this_html = this_html.concat('<div class="large-1 small-1 columns">&nbsp;</div>');
-    this_html = this_html.concat('<div class="large-10 small-10 columns" style="height:100px;">' + jQuery('#bpm_quick_docs_message').text() + '</div>');
-    this_html = this_html.concat('<div class="large-1 small-1 columns">&nbsp;</div>');
+    this_html = this_html.concat('<div class="bpm-row">');
+    this_html = this_html.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns">&nbsp;</div>');
+    this_html = this_html.concat('<div class="bpm-large-10 bpm-small-10 bpm-columns text-left" style="height:100px;">' + jQuery('#bpm_quick_docs_message').text() + '</div>');
+    this_html = this_html.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns">&nbsp;</div>');
     this_html = this_html.concat('</div>');
 
     this_html = this_html.concat('</div>'); //end of right column div
-    this_html = this_html.concat('<div class="small-9 large-9 columns bpm_gray_border hide" id="bpm_quick_doc_target_message" ><br>' + bpm_trans_array['bpm_lng_quick_doc_parents'] + '</div>');
+    this_html = this_html.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns bpm_gray_border hide" id="bpm_quick_doc_target_message" ><br>' + bpm_trans_array['bpm_lng_quick_doc_parents'] + '</div>');
     this_html = this_html.concat('</div>');
 
     return this_html;
@@ -528,12 +529,12 @@ function bpm_create_quick_docs_config(){
 
             jQuery.each(result['QUICKDOCS'],function(index, value) {
 
-                html_string = html_string.concat('<div class="row full-width">');
-                html_string = html_string.concat('<div class="small-10 large-10 columns">' + value['template_name'] + '</div>');
+                html_string = html_string.concat('<div class="bpm-row full-width">');
+                html_string = html_string.concat('<div class="bpm-small-10 bpm-large-10 bpm-columns text-left">' + value['template_name'] + '</div>');
                 if(value['quick_doc_id']) {
-                    html_string = html_string.concat('<div class="small-2 large-2 columns text-right"><input onclick="bpm_add_to_quick_doc_list(' + value['template_index'] + ',' + value['section_index'] + ')" type="checkbox" id="bpm_quick_doc_select_' + value['template_index'] + '" value="bpm_quick_doc_select_' + value['template_index']+'" checked></div>');
+                    html_string = html_string.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns text-right"><input onclick="bpm_add_to_quick_doc_list(' + value['template_index'] + ',' + value['section_index'] + ')" type="checkbox" id="bpm_quick_doc_select_' + value['template_index'] + '" value="bpm_quick_doc_select_' + value['template_index']+'" checked></div>');
                 }else{
-                    html_string = html_string.concat('<div class="small-2 large-2 columns text-right"><input onclick="bpm_add_to_quick_doc_list(' + value['template_index'] + ',' + value['section_index'] + ')" type="checkbox" id="bpm_quick_doc_select_' + value['template_index'] + '" value="bpm_quick_doc_select_' + value['template_index']+'" ></div>');
+                    html_string = html_string.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns text-right"><input onclick="bpm_add_to_quick_doc_list(' + value['template_index'] + ',' + value['section_index'] + ')" type="checkbox" id="bpm_quick_doc_select_' + value['template_index'] + '" value="bpm_quick_doc_select_' + value['template_index']+'" ></div>');
                 }
                 html_string = html_string.concat('</div>');
 
@@ -605,15 +606,15 @@ function bpm_create_quick_doc_target(selected_object){
             bpm_page_naming[this_id] = result['PAGENAMING'];
 
             //setup template title
-            this_html = this_html.concat('<div class="row full-width" style="margin-bottom:15px;">');
-            this_html = this_html.concat('<div class="small-12 large-12 columns">');
+            this_html = this_html.concat('<div class="bpm-row full-width" style="margin-bottom:15px;">');
+            this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">');
             this_html = this_html.concat('<span class="bpm_bold">'+jQuery('#bpm_create_quick_doc_'+this_id).text()+'</span>');
             this_html = this_html.concat('</div>');
-            this_html = this_html.concat('</div>');
+            this_html = this_html.concat('</div><br><br>');
 
             //setup parent page selector
-            this_dropdown = this_dropdown.concat('<div class="row full-width">');
-            this_dropdown = this_dropdown.concat('<div class="small-12 large-12 columns">');
+            this_dropdown = this_dropdown.concat('<div class="bpm-row full-width">');
+            this_dropdown = this_dropdown.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">');
             this_dropdown = this_dropdown.concat('Select Parent Page');
             this_dropdown = this_dropdown.concat('<select id="bpm_quick_doc_page_id">');
 
@@ -636,18 +637,18 @@ function bpm_create_quick_doc_target(selected_object){
             }
 
             //setup fields selector
-            this_html = this_html.concat('<div class="row full-width">');
-            this_html = this_html.concat('<div class="small-12 large-12 columns">');
+            this_html = this_html.concat('<div class="bpm-row full-width" style="margin-bottom:2em">');
+            this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">');
             this_html = this_html.concat(bpm_create_add_page_name(bpm_page_naming[this_id], 1));
             this_html = this_html.concat('</div>');
-            this_html = this_html.concat('</div><br>');
+            this_html = this_html.concat('</div><br><br>');
 
             //setup send button
-            var bpm_quick_doc_buttons = '<div class="row full-width">';
-            bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<div class="small-12 large-12 columns">');
-            bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<div class="row" style="margin-bottom:5px;">');
-            bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<div class="small-6 large-6 columns">&nbsp;</div>');
-            bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<div class="small-6 large-6 columns text-right">');
+            var bpm_quick_doc_buttons = '<br><br><div class="bpm-row full-width">';
+            bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">');
+            bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<div class="bpm-row" style="margin-bottom:5px;">');
+            bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns">&nbsp;</div>');
+            bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-right">');
             bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('<a id="bpm_quick_docs_add_page_button" onclick="bpm_create_new_page(1,1);" class="button bpm_nodecoration small" >' + bpm_trans_array['bpm_lng_create_draft']+ '</a>');
             bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('</div>');
             bpm_quick_doc_buttons = bpm_quick_doc_buttons.concat('</div>');
@@ -669,8 +670,8 @@ function bpm_create_quick_doc_target(selected_object){
                 }
             });
         }else{
-            this_html = this_html.concat('<div class="row full-width">');
-            this_html = this_html.concat('<div class="small-12 large-12 columns">');
+            this_html = this_html.concat('<div class="bpm-row full-width">');
+            this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">');
             this_html = this_html.concat('<No parent pages for this template type.');
             this_html = this_html.concat('</div>');
             this_html = this_html.concat('</div>');
@@ -716,8 +717,8 @@ function bpm_make_cust_supplier_list(this_list, list_type, c_or_s){
         if(!this_list && c_or_s==2) return bpm_trans_array['bpm_lng_no_supp'];
         //make location list
         jQuery.each(this_list,function(index, value) {
-            tag_content = tag_content.concat('<div class="row full-width">');
-            tag_content = tag_content.concat('  <div class="small-12 large-12 columns"><a class="grid_links url_links bpm_links" href="?pageid=' + value['companyid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['company'] + '">' + value['company'] + '</a></div>');
+            tag_content = tag_content.concat('<div class="bpm-row full-width">');
+            tag_content = tag_content.concat('  <div class="bpm-small-12 bpm-large-12 bpm-columns"><a class="grid_links url_links bpm_links" href="?pageid=' + value['companyid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['company'] + '">' + value['company'] + '</a></div>');
             tag_content = tag_content.concat('</div>');
         });
     }else{
@@ -725,12 +726,12 @@ function bpm_make_cust_supplier_list(this_list, list_type, c_or_s){
         if(!this_list && c_or_s==2) return bpm_trans_array['bpm_lng_no_supp'];
         //make contact list
 
-        tag_content = tag_content.concat('<div class="row">');
-        tag_content = tag_content.concat('  <div class="small-3 large-3 columns bpm_bold">' + bpm_trans_array['bpm_lng_name'] + '</div>');
-        tag_content = tag_content.concat('  <div class="small-3 large-3 columns">' + bpm_trans_array['bpm_lng_company'] + '</div>');
-        tag_content = tag_content.concat('  <div class="small-2 large-2 columns" >' + bpm_trans_array['bpm_lng_title'] + '</div>');
-        tag_content = tag_content.concat('  <div class="small-2 large-2 columns" >' + bpm_trans_array['bpm_lng_phone'] + '</div>');
-        tag_content = tag_content.concat('  <div class="small-2 large-2 columns" >' + bpm_trans_array['bpm_lng_email'] + '</div>');
+        tag_content = tag_content.concat('<div class="bpm-row">');
+        tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns bpm_bold">' + bpm_trans_array['bpm_lng_name'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns">' + bpm_trans_array['bpm_lng_company'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + bpm_trans_array['bpm_lng_title'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + bpm_trans_array['bpm_lng_phone'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + bpm_trans_array['bpm_lng_email'] + '</div>');
         tag_content = tag_content.concat('</div>');
 
         jQuery.each(this_list,function(index, value) {
@@ -742,12 +743,12 @@ function bpm_make_cust_supplier_list(this_list, list_type, c_or_s){
             if(value['contactEmail']) email = '<a class="grid_links bpm_links" href="mailto:' + value['contactEmail'] + '">Email</a>';
 
             if(value['contactName']) {
-                tag_content = tag_content.concat('<div class="row">');
-                tag_content = tag_content.concat('  <div class="small-3 large-3 columns"><a class="url_links grid_links bpm_links" href="?pageid=' + value['contactid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['contactName'] + '">' + value['contactName'] + '</a></div>');
-                tag_content = tag_content.concat('  <div class="small-3 large-3 columns"><a class="url_links grid_links bpm_links" href="?pageid=' + value['parentid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['company'] + '">' + value['company'] + '</a></div>');
-                tag_content = tag_content.concat('  <div class="small-2 large-2 columns" >' + title + '</div>');
-                tag_content = tag_content.concat('  <div class="small-2 large-2 columns" >' + phone + '</div>');
-                tag_content = tag_content.concat('  <div class="small-2 large-2 columns" >' + email + '</div>');
+                tag_content = tag_content.concat('<div class="bpm-row">');
+                tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns"><a class="url_links grid_links bpm_links" href="?pageid=' + value['contactid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['contactName'] + '">' + value['contactName'] + '</a></div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns"><a class="url_links grid_links bpm_links" href="?pageid=' + value['parentid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['company'] + '">' + value['company'] + '</a></div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + title + '</div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + phone + '</div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + email + '</div>');
                 tag_content = tag_content.concat('</div>');
             }
         });
@@ -809,8 +810,8 @@ function bpm_load_page_type(this_id){
 
         if (result.PAGES) {
             jQuery.each(result.PAGES,function(index, value) {
-                this_html = this_html.concat('<div class="row">');
-                this_html = this_html.concat('<div class="small-10 large-10 columns"><a class="url_links bpm_links" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');
+                this_html = this_html.concat('<div class="bpm-row">');
+                this_html = this_html.concat('<div class="bpm-small-10 bpm-large-10 bpm-columns text-left"><a class="url_links bpm_links" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['page_title'] + '">' + value['page_title'] + '</a></div>');
                 this_html = this_html.concat('</div>');
             });
             jQuery('#bpm_page_types_res').html(this_html);
@@ -827,9 +828,9 @@ function bpm_make_page_type_list(this_list){
     var tag_content = '';
 
     jQuery.each(this_list,function(index, value) {
-        tag_content = tag_content.concat('<div class="row">');
-        tag_content = tag_content.concat('  <div class="small-10 large-10 columns bpm_border-gray"><a  class="bpm_links bpm_nodecoration" onclick="bpm_load_page_type(' + value['template_index'] + ')">' + value['template_name'] + '</a></div>');
-        tag_content = tag_content.concat('  <div class="small-2 large-2 columns bpm_border-gray"  style="text-align:right;">' + value['template_count'] + '</div>');
+        tag_content = tag_content.concat('<div class="bpm-row">');
+        tag_content = tag_content.concat('  <div class="bpm-small-10 bpm-large-10 bpm-columns bpm_border-gray  text-left"><a  class="bpm_links bpm_nodecoration" onclick="bpm_load_page_type(' + value['template_index'] + ')">' + value['template_name'] + '</a></div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns bpm_border-gray  text-left"  style="text-align:right;">' + value['template_count'] + '</div>');
         tag_content = tag_content.concat('</div>');
     });
 
@@ -864,12 +865,12 @@ function bpm_left_action(this_action){
 
                         jQuery.each(result['SUBPAGES'], function (index, value) {
 
-                            html_string = html_string.concat('<div class="row full-width">');
-                            html_string = html_string.concat('<div class="small-10 large-10 columns">' + value['template_name'] + '</div>');
+                            html_string = html_string.concat('<div class="bpm-row full-width">');
+                            html_string = html_string.concat('<div class="bpm-small-10 bpm-large-10 bpm-columns text-left">' + value['template_name'] + '</div>');
                             if (value['this_index']) {
-                                html_string = html_string.concat('<div class="small-2 large-2 columns text-left"><input onclick="bpm_add_to_sub_list(' + value['template_index'] + ')" type="checkbox" id="bpm_sub_select_' + value['template_index'] + '" value="bpm_sub_select_' + value['template_index'] + '" checked></div>');
+                                html_string = html_string.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns text-left"><input onclick="bpm_add_to_sub_list(' + value['template_index'] + ')" type="checkbox" id="bpm_sub_select_' + value['template_index'] + '" value="bpm_sub_select_' + value['template_index'] + '" checked></div>');
                             } else {
-                                html_string = html_string.concat('<div class="small-2 large-2 columns text-left"><input onclick="bpm_add_to_sub_list(' + value['template_index'] + ')" type="checkbox" id="bpm_sub_select_' + value['template_index'] + '" value="bpm_sub_select_' + value['template_index'] + '" ></div>');
+                                html_string = html_string.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns text-left"><input onclick="bpm_add_to_sub_list(' + value['template_index'] + ')" type="checkbox" id="bpm_sub_select_' + value['template_index'] + '" value="bpm_sub_select_' + value['template_index'] + '" ></div>');
                             }
                             html_string = html_string.concat('</div>');
                         });
@@ -919,13 +920,9 @@ function bpm_make_directory(this_content) {
 function bpm_make_directory_html(this_content){
     var links_list = '';
     if(this_content) {
-        var links_array = [];
-        var bpm_link_string = '';
-        var bpm_wfm_status = '';
 
-        links_array.push({
-            col_1: '<span class="bpm_bold">' + bpm_trans_array['bpm_lng_name'] + '</span>', col_2: '<span class="bpm_bold">' + bpm_trans_array['bpm_lng_title'] + '</span>', col_3: '<span class="bpm_bold">' + bpm_trans_array['bpm_lng_phone'] + '</span>', col_4: '<span class="bpm_bold">' + bpm_trans_array['bpm_lng_mobile'] + '</span>', col_5: '<span class="bpm_bold">' + bpm_trans_array['bpm_lng_email'] + '</span>'
-        });
+        var bpm_link_string = '';
+
         jQuery.each(this_content,function(index, value) {
             if (value['page_id']) {
                 var title = '&nbsp;';
@@ -942,31 +939,23 @@ function bpm_make_directory_html(this_content){
 
                 bpm_link_string = '<a class="url_links bpm_links" href="?pageid=' + value['page_id'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['name'] + '">' + value['name'] + '</a>';
 
-                links_list = links_list.concat('<div class="row full-width bpm_file_bottom_border">');
-                links_list = links_list.concat('<div class="small-12 large-12 columns">');
-
-                links_list = links_list.concat('<div class="row">');
-                links_list = links_list.concat('<div class="small-4 large-4 columns bpm_text_medium">'+bpm_link_string+'</div>');
-                links_list = links_list.concat('<div class="small-4 large-4 columns bpm_text_medium">'+phone+'</div>');
-                links_list = links_list.concat('<div class="small-4 large-4 columns bpm_text_medium text-right">'+mobile+'</div>');
+                links_list = links_list.concat('<div class="bpm-row">');
+                links_list = links_list.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns bpm_text_medium text-left">'+bpm_link_string+'</div>');
+                links_list = links_list.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns bpm_text_medium text-left">'+phone+'&nbsp;</div>');
+                links_list = links_list.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns bpm_text_medium text-right">'+mobile+'&nbsp;</div>');
                 links_list = links_list.concat('</div>');
 
-                links_list = links_list.concat('<div class="row">');
-                links_list = links_list.concat('<div class="small-4 large-4 columns bpm_text_medium">'+title+'</div>');
-                links_list = links_list.concat('<div class="small-8 large-8 columns bpm_text_medium text-right">'+email+'</div>');
+                links_list = links_list.concat('<div class="bpm-row">');
+                links_list = links_list.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns bpm_text_medium text-left">'+title+'</div>');
+                links_list = links_list.concat('<div class="bpm-small-8 bpm-large-8 bpm-columns bpm_text_medium text-right">'+email+'&nbsp;</div>');
                 links_list = links_list.concat('</div>');
 
-                links_list = links_list.concat('</div>');
-                links_list = links_list.concat('</div>');
+                links_list = links_list.concat('<hr class="bpm_hr_gray">');
 
-                links_array.push({
-                    col_1: bpm_link_string, col_2: title, col_3: phone, col_4: mobile, col_5: email
-                });
             }
 
         });
 
-//        links_list = bpm_make_links_grid(links_array, 5);
     }
 
     return links_list;
@@ -1020,8 +1009,8 @@ function bpm_make_left_report(this_content, report_type){
     }
 
     if(links_list.length == 0 && report_type == 'bookmarks'){
-        links_list = links_list.concat('<div class="row">');
-        links_list = links_list.concat('  <div class="small-12 large-12 columns text-left">' + bpm_trans_array['bpm_bookmarks_message'] + '</div>');
+        links_list = links_list.concat('<div class="bpm-row">');
+        links_list = links_list.concat('  <div class="bpm-small-12 bpm-large-12 bpm-columns text-left">' + bpm_trans_array['bpm_bookmarks_message'] + '</div>');
         links_list = links_list.concat('</div>');
     }
 

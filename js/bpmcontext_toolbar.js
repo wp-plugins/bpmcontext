@@ -60,9 +60,9 @@ function bpm_create_add_page_name(this_content, is_quick_doc){
             field_name = bpm_trans_array['bpm_infobox_name_'+value['field_name'].replace(' ','_')];
         }
 
-        this_html = this_html.concat('<div class="row" style="margin-bottom:5px;">');
-        this_html = this_html.concat('<div class="small-6 large-6 columns">' + field_name + '</div>');
-        this_html = this_html.concat('<div class="small-6 large-6 columns text-right"> <input class="bpm_add_page_field error" id="InfoField_' + value['field_index'] + '" type="text"></div>');
+        this_html = this_html.concat('<div class="bpm-row" style="margin-bottom:5px;">');
+        this_html = this_html.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left">' + field_name + '</div>');
+        this_html = this_html.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-right"> <input class="bpm_add_page_field error" id="InfoField_' + value['field_index'] + '" type="text"></div>');
         this_html = this_html.concat('</div>');
         if(is_first==0) bpm_first_field = 'InfoField_' + value['field_index'];
         is_first = 1;
@@ -70,15 +70,17 @@ function bpm_create_add_page_name(this_content, is_quick_doc){
     });
 
     if(pub_now == 1){
-        this_html = this_html.concat('<div class="row" style="margin-bottom:5px;">');
-        this_html = this_html.concat('<div class="small-6 large-6 columns">' + bpm_trans_array['bpm_lng_pub_now'] + '</div>');
+        this_html = this_html.concat('<div class="bpm-row" style="margin-bottom:5px;">');
+        this_html = this_html.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns">' + bpm_trans_array['bpm_lng_pub_now'] + '</div>');
         if(is_quick_doc==1) {
-            this_html = this_html.concat('<div class="small-6 large-6 columns text-right"> <input class="bpm_add_page_field error" id="quick_doc_publish_on_create" type="checkbox" value="0"/></div>');
+            this_html = this_html.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-right"> <input class="bpm_add_page_field error" id="quick_doc_publish_on_create" type="checkbox" value="0"/></div>');
         }else {
-            this_html = this_html.concat('<div class="small-6 large-6 columns text-right"> <input class="bpm_add_page_field error" id="publish_on_create" type="checkbox" value="0"/></div>');
+            this_html = this_html.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-right"> <input class="bpm_add_page_field error" id="publish_on_create" type="checkbox" value="0"/></div>');
         }
         this_html = this_html.concat('</div>');
     }
+
+
 
     return this_html;
 }
@@ -531,7 +533,7 @@ function bpm_confirm_no(selected_object){
 function bpm_add_to_talat_list(this_id){
 
     var this_item = '';
-    this_item = this_item.concat('<div class="row" id="bpm_talat_user_added_' + this_id + '">');
+    this_item = this_item.concat('<div class="bpm-row" id="bpm_talat_user_added_' + this_id + '">');
     this_item = this_item.concat(jQuery('#bpm_talat_user_all_'+ this_id).clone().html());
     this_item = this_item.replace(/bpm_add_to_talat_list/g,'bpm_remove_from_talat_list');
     this_item = this_item.concat('</div >');
@@ -556,27 +558,27 @@ function bpm_make_user_list(fav_content, all_content){
     var html_line = '';
 
     if(fav_content) {
-        html_line = html_line.concat('<div class="row">');
-        html_line = html_line.concat('<div class="small-12 large-12 columns">Favorites</div>');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns">Favorites</div>');
         html_line = html_line.concat('</div >');
     }
 
     jQuery.each(fav_content,function(index, value) {
-        html_line = html_line.concat('<div class="row" id="bpm_talat_user_fav_' +value['user_id']+'">');
-        html_line = html_line.concat('<div class="small-2 large-2 columns" ><input onclick="bpm_add_to_talat_list(' +value['user_id']+')" type="checkbox" name="bpm_talat_select" id="bpm_talat_select_fav_' +value['user_id']+'" value="bpm_talat_select_' + value['user_id']+'"></div >');
-        html_line = html_line.concat('<div class="small-10 large-10 columns" >' + value['real_name'] + '</div >');
+        html_line = html_line.concat('<div class="bpm-row" id="bpm_talat_user_fav_' +value['user_id']+'">');
+        html_line = html_line.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns" ><input onclick="bpm_add_to_talat_list(' +value['user_id']+')" type="checkbox" name="bpm_talat_select" id="bpm_talat_select_fav_' +value['user_id']+'" value="bpm_talat_select_' + value['user_id']+'"></div >');
+        html_line = html_line.concat('<div class="bpm-small-10 bpm-large-10 bpm-columns" >' + value['real_name'] + '</div >');
         html_line = html_line.concat('</div >');
     });
 
     if(html_line.length > 0) html_line = html_line.concat('<hr>');
-    html_line = html_line.concat('<div class="row">');
-    html_line = html_line.concat('<div class="small-12 large-12 columns">All Users</div>');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns">All Users</div>');
     html_line = html_line.concat('</div >');
 
     jQuery.each(all_content,function(index, value) {
-        html_line = html_line.concat('<div class="row" id="bpm_talat_user_all_' +value['user_id']+'">');
-        html_line = html_line.concat('<div class="small-2 large-2 columns" ><input onclick="bpm_add_to_talat_list(' +value['user_id']+')" type="checkbox"  name="bpm_talat_select" id="bpm_talat_select_all_' + value['user_id']+'" value="bpm_talat_select_'+ value['user_id']+'"></div >');
-        html_line = html_line.concat('<div class="small-10 large-10 columns" >' + value['real_name'] + '</div >');
+        html_line = html_line.concat('<div class="bpm-row" id="bpm_talat_user_all_' +value['user_id']+'">');
+        html_line = html_line.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns" ><input onclick="bpm_add_to_talat_list(' +value['user_id']+')" type="checkbox"  name="bpm_talat_select" id="bpm_talat_select_all_' + value['user_id']+'" value="bpm_talat_select_'+ value['user_id']+'"></div >');
+        html_line = html_line.concat('<div class="bpm-small-10 bpm-large-10 bpm-columns" >' + value['real_name'] + '</div >');
         html_line = html_line.concat('</div >');
     });
 
@@ -589,9 +591,9 @@ function bpm_make_route_list(user_list){
         var bpm_grid_data = '';
 
         jQuery.each(user_list['users'], function (index, value) {
-            bpm_grid_data = bpm_grid_data.concat('<div class="row">');
-            bpm_grid_data = bpm_grid_data.concat('<div class="small-2 large-2 columns " ><input type="radio" name="bpm_route_to_selection" value="' + value['user_id'] + '" id="bpm_selected_route_to_' + value['user_id'] + '"> </div>');
-            bpm_grid_data = bpm_grid_data.concat('<div class="small-10 large-10 columns text-left" >' + value['real_name'] + ' </div>');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-row">');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns text-left" ><input type="radio" name="bpm_route_to_selection" value="' + value['user_id'] + '" id="bpm_selected_route_to_' + value['user_id'] + '"> </div>');
+            bpm_grid_data = bpm_grid_data.concat('<div class="bpm-small-10 bpm-large-10 bpm-columns text-left" >' + value['real_name'] + ' </div>');
             bpm_grid_data = bpm_grid_data.concat('</div>');
         });
 
