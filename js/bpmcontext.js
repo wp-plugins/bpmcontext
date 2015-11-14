@@ -1,10 +1,11 @@
 var server = 'bpm.bpmcontext.com';
 var bpm_login_status = 0;
-var bpm_pageid, bpm_current_domain, bpm_current_user_id, bpm_template_lib;
+var bpm_pageid, bpm_current_domain;
 var bpm_get_string = '';
 var bpm_current_section = 0;
 var bpm_current_disc = 0;
 var bpm_text_history = [];
+var bpm_text_promote = [];
 var bpm_user_role = 0;
 var bpm_page_has_children = 0;
 var bpm_selected_folder = 0;
@@ -40,7 +41,6 @@ var bpm_start;
 var bpm_child_link_create_id = 0;
 var bpm_child_link_create_name = '';
 var bpm_is_processing = 0;
-var bpm_storage_avail = 0;
 var bpm_version_files = [];
 var bpm_delete_from_source = '';
 var bpm_trans_array = [];
@@ -52,6 +52,9 @@ var bpm_window_medium = 0;
 var bpm_page_links_title = '';
 var bpm_reply_talat_page_id = 0;
 var bpm_reply_talat_message_id = 0;
+var bpm_payment = '';
+
+var bpm_settings = [];
 
 jQuery.noConflict();
 jQuery(document).ready(bpm_open_bpmcontext);
@@ -214,7 +217,7 @@ function bpm_open_bpmcontext(){
                 bpm_update_dashboard()
             }else {
                 if(result.HASACCT == 1){
-                    jQuery('#bpm_create_account_button').hide();
+//                    jQuery('#bpm_create_account_button').hide();
                 }
                 bpm_show_login();
             }
@@ -269,6 +272,10 @@ function bpm_make_get_string(){
                 var bpm_viewas = bpm_getQueryVariable('viewas');
                 bpm_get_string = bpm_get_string.concat('&viewas='+bpm_viewas);
             }
+            if (bpm_params.language) {
+                bpm_get_string = bpm_get_string.concat('&lang='+bpm_params.language);
+            }
+
         }
     }
 }
@@ -351,15 +358,19 @@ function bpm_build_page(result){
         bpm_make_get_string();
 
         if(result.USERID) {
-            bpm_current_user_id = result.USERID;
+            bpm_settings['userid'] = result.USERID;
+        }
+
+        if(result.BPMADMIN) {
+            bpm_settings['BPMADMIN'] = result.BPMADMIN;
         }
 
         if(result.STORAGEDETAILS) {
-            bpm_storage_avail = result.STORAGEDETAILS['avail'];
+            bpm_settings['storagedetails'] = result.STORAGEDETAILS;
         }
 
         if(result.TEMPLATELIBID) {
-            bpm_template_lib = result.TEMPLATELIBID;
+            bpm_settings['templatelibid'] = result.TEMPLATELIBID;
         }
 
         if(result.USERTYPE){
@@ -500,9 +511,16 @@ function bpm_build_page(result){
 
         var bpm_folder_trees = [];
         var bpm_folder_trees_folders = [];
+        var bpm_sections = '';
+
+        if(bpm_settings['templatelibid'] == 25){
+            if(result.HOMEPAGEITEMS){
+                bpm_sections = '<ul class="accordion"  id="bpm_acc_home_page_items" data-accordion><li class="accordion-navigation"><a href="#acc_bpm_acc_home_page_items" id="bpm_top_bar_bpm_acc_home_page_items" class="bpm_top_bar bpm_nodecoration bpm_text_section"><span class="fa fa-paper-plane-o"></span> &nbsp;'+bpm_trans_array['bpm_lng_news']+'<div style="float:right;display: inline;" class=""></div></a> <div id="acc_bpm_acc_home_page_items" class="active bpm_text_section" style="max-height:40em;overflow:auto;overflow-x:hidden"> ' + bpm_create_home_page_items(result) +  '</div> </li>  </ul>';
+            }
+        }
 
         if(result.SECTIONINFO){
-            var bpm_sections = '';
+
             var bpm_sections_last  = '';
             var bpm_has_links = 0;
             var bpm_links_id = 0;
@@ -516,6 +534,12 @@ function bpm_build_page(result){
 
             jQuery.each(result.SECTIONINFO['sections'],function(index, value){
 
+                var is_shared = '';
+                var shared_message = '';
+                if(value['isShared']){
+                    is_shared = '<div style="float:right;display: inline;color:black;font-size:1.2em;margin-right:1em;" class="fi-torsos"></div>';
+                    shared_message = ' <span style="color:gray;font-size:.8em"> - ' + bpm_trans_array['bpm_lng_shared'] + '</span>';
+                }
                 var this_title = '';
                 if(bpm_trans_array['bpm_section_name_'+ value['title'].replace(' ','_')]){
                     this_title = bpm_trans_array['bpm_section_name_'+ value['title'].replace(' ','_')];
@@ -523,12 +547,15 @@ function bpm_build_page(result){
                     this_title = value['title'];
                 }
 
+                this_title = this_title.concat(shared_message);
+
                 switch(Number(value['SecType'])){
                     case 1:
                     case 14:
                         //text section
                         bpm_text_history[value['THISID']] = value['history'];
-                        bpm_sections = bpm_sections.concat('<ul class="accordion"  id="bpm_acc_'+value['THISID']+'" data-accordion><li class="accordion-navigation"><a href="#acc_'+value['THISID']+'" id="bpm_top_bar_' + value['THISID']+'" class="bpm_top_bar bpm_nodecoration fi-clipboard-pencil bpm_text_section">&nbsp;'+this_title+'<div style="float:right;display: inline;" class="fi-pencil"></div> </a> <div id="acc_'+value['THISID']+'" class="active bpm_text_section"> ' + bpm_create_text(value['THISID'], value['content']) +  '</div> </li>  </ul>');
+                        bpm_text_promote[value['THISID']] = value['content'].length;
+                        bpm_sections = bpm_sections.concat('<ul class="accordion"  id="bpm_acc_'+value['THISID']+'" data-accordion><li class="accordion-navigation"><a href="#acc_'+value['THISID']+'" id="bpm_top_bar_' + value['THISID']+'" class="bpm_top_bar bpm_nodecoration fi-clipboard-pencil bpm_text_section">&nbsp;'+this_title+'<div style="float:right;display: inline;" class="fi-pencil"></div> '+is_shared+'</a> <div id="acc_'+value['THISID']+'" class="active bpm_text_section"> ' + bpm_create_text(value['THISID'], value['content']) +  '</div> </li>  </ul>');
                         break;
                     case 6:
                         //discussion section
@@ -555,12 +582,12 @@ function bpm_build_page(result){
                             var bpm_content_array = [];
                             bpm_content_array.push(value['content']);
                             var this_count = value['linkCount'];
-                            bpm_sections_last = bpm_sections_last.concat('<ul class="accordion" id="bpm_acc_'+value['THISID']+'" data-accordion><li class="accordion-navigation"><a href="#acc_'+value['THISID']+'" id="bpm_top_bar_' + value['THISID']+'" class="bpm_nodecoration bpm_top_bar fi-list-thumbnails">&nbsp;'+this_title+'&nbsp;('+ this_count + ')<div style="float:right;display: inline;" class="fi-pencil"></div></a> <div id="acc_'+value['THISID']+'" class="active bpm_links_section"> ' + bpm_create_tagged_page_links(value['THISID'], bpm_content_array, this_title, this_count) +  ' </div></li> </ul>');
+                            bpm_sections_last = bpm_sections_last.concat('<ul class="accordion" id="bpm_acc_'+value['THISID']+'" data-accordion><li class="accordion-navigation"><a href="#acc_'+value['THISID']+'" id="bpm_top_bar_' + value['THISID']+'" class="bpm_nodecoration bpm_top_bar fi-list-thumbnails">&nbsp;'+this_title+'&nbsp;('+ this_count + ')<div style="float:right;display: inline;" class="fi-pencil"></div></a> <div id="acc_'+value['THISID']+'" class="active bpm_links_section"> ' + bpm_create_tagged_page_links(value['THISID'], bpm_content_array, this_title, this_count, value['add_button']) +  ' </div></li> </ul>');
                         }else{
                             bpm_links_id = value['THISID'];
                             bpm_links_title = this_title;
                             bpm_links_content.push(value['content']);
-                            bpm_has_links++;
+                            if(value['linkCount']>0)  bpm_has_links++;
                             bpm_links_sections.push(this_title);
                             bpm_links_ids.push(value['THISID']);
                             bpm_link_count.push(value['linkCount']);
@@ -573,22 +600,26 @@ function bpm_build_page(result){
 
                 }
             });
-
-            if(bpm_has_links == 1){
-                bpm_sections_last = bpm_sections_last.concat('<ul class="accordion" id="bpm_acc_'+bpm_links_id+'" data-accordion><li class="accordion-navigation"><a href="#acc_'+bpm_links_id+'" id="bpm_top_bar_' + bpm_links_id +'" class="bpm_nodecoration bpm_top_bar fi-list-thumbnails">&nbsp;'+bpm_links_title+'</a> <div id="acc_'+bpm_links_id+'" class="active bpm_links_section"> ' + bpm_create_tagged_page_links(bpm_links_id, bpm_links_content, bpm_links_title) +  ' </div> </li>  </ul>');
-            }else if(bpm_has_links > 1){
+//console.log(bpm_has_links);
+            if(bpm_has_links > 0){
+ //               bpm_sections_last = bpm_sections_last.concat('<ul class="accordion" id="bpm_acc_'+bpm_links_id+'" data-accordion><li class="accordion-navigation"><a href="#acc_'+bpm_links_id+'" id="bpm_top_bar_' + bpm_links_id +'" class="bpm_nodecoration bpm_top_bar fi-list-thumbnails">&nbsp;'+bpm_links_title+'</a> <div id="acc_'+bpm_links_id+'" class="active bpm_links_section"> ' + bpm_create_tagged_page_links(bpm_links_id, bpm_links_content, bpm_links_title) +  ' </div> </li>  </ul>');
+ //           }else if(bpm_has_links > 1){
                 bpm_page_links_title = '';
                 var bpm_sections_last_final = '<ul class="accordion" data-accordion><li class="accordion-navigation"><a data-dropdown="bpm_page_type_list" data-options="is_hover:true; hover_timeout:100" href="#acc_links"  id="bpm_top_bar_999999" class="bpm_top_bar bpm_nodecoration fi-list-thumbnails">&nbsp;'+bpm_trans_array['bpm_lng_page_links']+'<div style="float:right;display: inline;" class="fi-pencil"></div></a> <div id="acc_links" class="active bpm_links_section">  ' + bpm_create_child_links(bpm_links_id, bpm_links_content, bpm_links_sections, bpm_link_count, bpm_links_ids) +  ' </div> </li>  </ul>';
             }
 
             if(bpm_sections_last) bpm_sections = bpm_sections.concat(bpm_sections_last);
 
-            if(bpm_page_has_children > 0){
+            if(bpm_has_links > 0){
                 if(bpm_sections_last_final) bpm_sections = bpm_sections.concat(bpm_sections_last_final);
             }
 
             jQuery('#bpm_main_content').prepend(bpm_sections);
             jQuery('#bpm_top_bar_999999').html(bpm_page_links_title);
+
+            if(bpm_user_role == 'admin'){
+                jQuery('.bpm_admin_only').show();
+            }
 
             if(bpm_params.admin_bar == 1){
                 jQuery('#bpm_admin_bar_header').show();
@@ -639,10 +670,6 @@ function bpm_build_page(result){
             jQuery('#bpm_context_loading_alert').hide();
             jQuery('#bpm_main_publishing_alert').hide();
             jQuery('#bpm_main_routing_alert').hide();
-
-            if(bpm_user_role != 'admin'){
-                jQuery('.bpm_admin_only').hide();
-            }
 
             if(result.RESETPASSWORD == 1){
                 jQuery('#bpm_cancel_password').hide();
@@ -748,9 +775,13 @@ function bpm_build_page(result){
             }
         });
 
+        if (typeof bpm_admin_setup !== 'undefined' && jQuery.isFunction(bpm_admin_setup)) {
+            if(result.ISBPMADMIN) bpm_admin_setup();
+        }
+
     }else{
         if(result.HASACCT == 1){
-            jQuery('#bpm_create_account_button').hide();
+//            jQuery('#bpm_create_account_button').hide();
         }
         bpm_show_login();
     }
@@ -849,6 +880,18 @@ function bpm_validateEmail(mail)
         return (true)
     }
     return (false)
+}
+
+function bpm_create_account(){
+
+    var this_url = '';
+    if(jQuery('#bpm_new_account_email').val()){
+        this_url = '?newacct=' + jQuery('#bpm_new_account_email').val();
+    }
+    window.location = bpm_params.login_url + this_url;
+    return false;
+
+
 }
 
 function bpm_create_account_process(screen_name){
@@ -955,7 +998,7 @@ function bpm_create_account_process(screen_name){
 
 function bpm_refresh_page_loading(){
 
-    bpm_scroll_top()
+    //bpm_scroll_top()
 
     if (bpm_reload_type == 1) {
         jQuery('#bpm_main_publishing_alert').show();
@@ -976,7 +1019,52 @@ function bpm_update_dashboard(){
 
     jQuery.getJSON('https://'+server+'/api/bpmcontext_wordpress.php?callback=?', bpm_get_string + '&action=dashboard', function(dashboard){
         if(dashboard.LOGGEDIN==0) return;
- //       console.log('dashboard loaded');
+
+        if(dashboard.ISCUST) {
+            jQuery('#bpm_acct_manager_payment_item').show();
+        }else{
+            jQuery('#bpm_acct_manager_payment_item').hide();
+        }
+
+        if(dashboard.LOGINURL && bpm_user_role == 'admin'){
+            var this_url = window.location.href.split('?');
+            if(dashboard.LOGINURL != this_url[0]) {
+
+                jQuery('#left_acctmgr').text(' '+bpm_trans_array['bpm_lng_account_manager'] + ' (1)');
+                jQuery('#bpm_context_update_login_url_alert').show();
+                jQuery('#bpm_acct_manager_login_url_item').show();
+                bpm_settings['current_login_url'] = dashboard.LOGINURL;
+                bpm_settings['site_login_url'] = this_url[0];
+            }else{
+                jQuery('#left_acctmgr').text(' '+bpm_trans_array['bpm_lng_account_manager']);
+                jQuery('#bpm_context_update_login_url_alert').hide();
+                jQuery('#bpm_acct_manager_login_url_item').hide();
+            }
+        }
+
+        if(dashboard.ACCTMGR){
+            bpm_settings['BILLINGADDRESS'] = dashboard.BILLINGADDRESS;
+            bpm_settings['acctmgr'] = dashboard.ACCTMGR;
+
+            bpm_create_products();
+            var show_statment = false;
+            jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+                if(value['is_installed']){
+                    show_statment = true;
+                }
+            });
+            if(show_statment){
+                jQuery('#bpm_acct_manager_statement_item').show();
+            }else{
+                jQuery('#bpm_acct_manager_statement_item').hide();
+            }
+        }
+        jQuery('#bpm_acct_manager_invoices_item').hide();
+        if(dashboard.INVOICES) {
+            bpm_settings['invoices'] = dashboard.INVOICES;
+            if(bpm_settings['invoices'].length > 0) jQuery('#bpm_acct_manager_invoices_item').show();
+        }
+        bpm_payment = dashboard.PAYMENT;
         bpm_current_domain = dashboard.CURRENTCONTEXT;
         bpm_dashboard[0] = dashboard.BOOKMARKS;
         bpm_dashboard[1] = dashboard.MYHISTORY;
@@ -1021,6 +1109,14 @@ function bpm_update_history_button(){
             }
         }else{
             jQuery('#bpm_history_button_'+index).hide();
+        }
+    });
+    jQuery.each(bpm_text_promote,function(index, value) {
+
+        if(value > 0 && bpm_page_status > 0){
+            jQuery('#bpm_promote_button_' + index).show();
+        }else{
+            jQuery('#bpm_promote_button_'+index).hide();
         }
     });
 }
@@ -1128,7 +1224,7 @@ function bpm_logout_bpmcontext(){
         var state = {name: name, page: 'BPMContext_Page'};
         window.history.pushState(state, "BPMContext", '?' + name);
         if(result.HASACCT == 1){
-            jQuery('#bpm_create_account_button').hide();
+//            jQuery('#bpm_create_account_button').hide();
         }
         bpm_show_login();
     });

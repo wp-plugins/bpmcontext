@@ -3,7 +3,7 @@
   Plugin Name: BPMContext
   Plugin URI: https://bpmcontext.com
   Description: This plugin adds BPMContext intranet into a single page in your WordPress site. Create workspaces for sharing department policies, announcements, IT support requests and more. To get started: Click the Activate link then go to BPMContext settings page to sign up for your account.
-  Version: 2.0.1
+  Version: 2.1
   Author: BPMContext
   Author URI: https://bpmcontext.com
   License: GPLv2+
@@ -184,6 +184,14 @@ function addHeaderForBPMContext(){
 //        $admin_bar = 1;
     }
 
+    $curLang = substr(get_bloginfo( 'language' ), 0, 2);
+
+    if(!$curLang) $curLang = 'en';
+
+    if( !file_exists(plugin_dir_path(__FILE__) . 'html/desktop_admin_'.$curLang.'.html') ){
+        $curLang = 'en';
+    }
+
     $theme = wp_get_theme();
 
     $theme_name = str_replace(' ', '_', strtolower($theme->get( 'Name' )));
@@ -192,7 +200,8 @@ function addHeaderForBPMContext(){
         'html_dir' => plugins_url() . '/bpmcontext/html/',
         'css_dir' => plugins_url(). '/bpmcontext/css/',
         'admin_bar' => $admin_bar,
-        'current_theme' => $theme_name
+        'current_theme' => $theme_name,
+        'language' => $curLang
 	);
 
     bpm_register_scripts('intranet');
@@ -213,13 +222,13 @@ function bpm_register_scripts($screen_type){
     wp_register_script('dropzone', plugins_url() . '/bpmcontext/js/dropzone.js',array(),'4.2.4', false);
     wp_register_script('tinymce_text', plugins_url() . '/bpmcontext/js/tinymce/tinymce.min.js',array(),'4.2.4', true);
 
-	wp_register_script('js_bpmcontext', plugins_url() . '/bpmcontext/js/bpmcontext.js',array(),'2.0.1',true);
-    wp_register_script('js_bpmcontext_left_menu', plugins_url() . '/bpmcontext/js/bpmcontext_left_menu.js',array(),'2.0.1',true);
-    wp_register_script('js_bpmcontext_content_page', plugins_url() . '/bpmcontext/js/bpmcontext_content_page.js',array(),'2.0.1',true);
-    wp_register_script('js_bpmcontext_toolbar', plugins_url() . '/bpmcontext/js/bpmcontext_toolbar.js',array(),'2.0.1',true);
-    wp_register_script('js_bpmcontext_right_content', plugins_url() . '/bpmcontext/js/bpmcontext_right_content.js',array(),'2.0.1',true);
+	wp_register_script('js_bpmcontext', plugins_url() . '/bpmcontext/js/bpmcontext.js',array(),'2.1',true);
+    wp_register_script('js_bpmcontext_left_menu', plugins_url() . '/bpmcontext/js/bpmcontext_left_menu.js',array(),'2.1',true);
+    wp_register_script('js_bpmcontext_content_page', plugins_url() . '/bpmcontext/js/bpmcontext_content_page.js',array(),'2.1',true);
+    wp_register_script('js_bpmcontext_toolbar', plugins_url() . '/bpmcontext/js/bpmcontext_toolbar.js',array(),'2.1',true);
+    wp_register_script('js_bpmcontext_right_content', plugins_url() . '/bpmcontext/js/bpmcontext_right_content.js',array(),'2.1',true);
 
-//    wp_register_script( 'braintree', 'https://js.braintreegateway.com/v2/braintree.js');
+    wp_register_script( 'braintree', 'https://js.braintreegateway.com/v2/braintree.js');
 
     if($screen_type == 'admin') {
         wp_enqueue_script(array('jquery', 'modernizer', 'foundation', 'foundation-joyride','js_bpmcontext'));
@@ -248,7 +257,7 @@ function bpm_register_scripts($screen_type){
         wp_localize_script( 'js_bpmcontext', 'bpm_params', $params );
 
     }else {
-        wp_enqueue_script(array('jquery', 'modernizer', 'foundation', 'foundation-joyride','tree_table', 'tinymce_text', 'js_bpmcontext', 'js_bpmcontext_content_page', 'js_bpmcontext_toolbar', 'js_bpmcontext_left_menu', 'js_bpmcontext_right_content'));
+        wp_enqueue_script(array('jquery', 'modernizer', 'foundation', 'foundation-joyride','tree_table', 'tinymce_text', 'braintree', 'js_bpmcontext', 'js_bpmcontext_content_page', 'js_bpmcontext_toolbar', 'js_bpmcontext_left_menu', 'js_bpmcontext_right_content'));
 
         wp_enqueue_script('jquery-ui-datepicker');
         wp_enqueue_script('jquery-ui-autocomplete');
@@ -268,7 +277,7 @@ function bpm_register_styles($screen_type = 'intranet') {
     wp_register_style('font-awesome', plugins_url() . '/bpmcontext/css/font-awesome.min.css', array(),'1.0.1','screen');
     wp_register_style('jquery-ui', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css', array(),'1.0.1','screen');
     wp_register_style('dropzone', plugins_url()."/bpmcontext/css/dropzone.css",array(),'1.0.0','screen');
-    wp_register_style('css_bpmcontext', plugins_url() . '/bpmcontext/css/bpmcontext.css', array(),'2.0.1','screen');
+    wp_register_style('css_bpmcontext', plugins_url() . '/bpmcontext/css/bpmcontext.css', array(),'2.1','screen');
 
     if($screen_type == 'admin') {
         wp_enqueue_style(array( 'foundation', 'icons', 'css_bpmcontext'));

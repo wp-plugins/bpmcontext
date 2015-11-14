@@ -22,10 +22,10 @@
                     <div class="bpm-small-6 bpm-large-6 bpm-columns text-right"><input class="bpm_password_login" type="password" placeholder="Password" name="BPM_Password" id="bpm_password1_4" tabindex="4" value="" /></div>
                 </div>
                 <div class="bpm-row">
-                    <div class="bpm-small-10 bpm-large-10 bpm-columns text-right">&nbsp;
+                    <div class="bpm-small-9 bpm-large-9 bpm-columns text-right">&nbsp;
                         <div data-alert class="alert-box alert radius text-left" id="bpm_error_message_4" style="display:none;"></div>
                     </div>
-                    <div class="bpm-small-2 bpm-large-2 bpm-columns text-right"><input id="bpm_login_button_2" type="button" onClick="bpm_submitLogIn();" value="Login" tabindex="2" class="bpm_button"></div>
+                    <div class="bpm-small-3 bpm-large-3 bpm-columns text-right"><input id="bpm_login_button_2" type="button" onClick="bpm_submitLogIn();" value="Login" tabindex="2" class="bpm_button"></div>
                     </div>
                 <div class="bpm-row">
                     <div class="bpm-small-12 bpm-large-12 bpm-columns text-right"><div id="bpm_lost_password_4" class="bpm_return_link" onClick="bpm_showGetPassword();"><a>Lost Password</a></div></div>
@@ -148,7 +148,7 @@
                                 </ul>
                             </li>
 
-                            <li class="has-dropdown bpm_admin_only bpm_ul_li">
+                            <li class="has-dropdown bpm_admin_only bpm_ul_li bpm-hide">
                                 <a style="text-decoration: none;" class="fi-widget">&nbsp;Admin</a>
                                 <ul class="dropdown">
                                     <li class="bpm_ul_li"><a style="text-decoration: none;" id="bpm_toolbar_admin_rename" onClick="bpm_action(this);">Rename Page</a></li>
@@ -214,11 +214,11 @@
                                 <a class="fi-page-multiple bpm_nodecoration bpm_left_menu"  id="left_pagetypes" onclick="bpm_open_modal(this);">&nbsp;Page Types</a>
                             </li>
                             <div class="bpm-hide">My Account</div>
-                            <li class="bpm_ul_li">
+                            <li class="bpm_ul_li ">
                                 <a class="fi-torsos bpm_nodecoration bpm_left_menu bpm-hide"  id="left_customers" onclick="bpm_open_modal(this);">&nbsp;Customers</a>
                             </li>
                             <li class="bpm_ul_li">
-                                <a class="fi-torsos bpm_nodecoration bpm_left_menu"  id="left_suppliers" onclick="bpm_open_modal(this);">&nbsp;Suppliers</a>
+                                <a class="fi-torsos bpm_nodecoration bpm_left_menu bpm-hide"  id="left_suppliers" onclick="bpm_open_modal(this);">&nbsp;Suppliers</a>
                             </li>
                             <li class="bpm_ul_li">
                                 <a class="fi-checkbox bpm_nodecoration bpm_left_menu" style="display:none;"  id="left_teamtasks" onclick="bpm_open_modal(this);">&nbsp;Team Tasks</a>
@@ -229,9 +229,10 @@
                             <li class="bpm_ul_li">
                                 <a class="fi-torso bpm_nodecoration bpm_left_menu" id="left_prefmgr" onclick="bpm_open_modal(this);">&nbsp;My Page</a>
                             </li>
-                            <li class="bpm_ul_li">
+                            <li class="bpm_ul_li" id="left_acctmgr_item" >
                                 <a class="fi-lock bpm_nodecoration bpm_left_menu" id="left_acctmgr" onclick="bpm_open_modal(this);">&nbsp;Account Mgr</a>
                             </li>
+                            <br>
                         </ul>
                         <div style="height:50px">&nbsp;</div>
                         <ul class="side-nav">
@@ -248,6 +249,10 @@
                         </div>
 
                         <div data-alert class="alert-box alert radius" id="bpm_main_error_alert" style="display:none;">
+                            <a href="#" class="close">&times;</a>
+                        </div>
+
+                        <div data-alert class="alert-box info radius" id="bpm_context_update_login_url_alert" style="display:none;">The login URL associated with this account is not the same as the current url.  Go to the Account Manager to update if needed.
                             <a href="#" class="close">&times;</a>
                         </div>
 
@@ -405,21 +410,31 @@
                     <div class="bpm-row full-width">
                         <div class="bpm-large-3 bpm-small-3 bpm-columns">
                             <ul id="bpm_acct_manager_menu" class="side-nav">
-                                <li class="active bpm_ul_li">
+                                <li class="active bpm_ul_li text-left">
                                     <a id="bpm_acct_manager_users" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Users</a>
                                 </li>
-                                <li class="bpm-hide bpm_ul_li">
-                                    <a id="bpm_acct_manager_features" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Features</a>
+                                <li class=" bpm_ul_li text-left">
+                                    <a id="bpm_acct_manager_features" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Extensions</a>
                                 </li>
-                                <li class="bpm-hide bpm_ul_li">
+                                <li class=" bpm_ul_li text-left">
                                     <a id="bpm_acct_manager_storage" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Storage</a>
                                 </li>
-                                <li class="bpm-hide bpm_ul_li">
-                                    <a id="bpm_acct_manager_billing" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Payment</a>
+                                <li class=" bpm_ul_li text-left bpm-hide" id="bpm_acct_manager_cart_item">
+                                    <a id="bpm_acct_manager_cart" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Cart</a>
                                 </li>
-                                <li class="bpm-hide bpm_ul_li">
+                                <li class=" bpm_ul_li text-left bpm-hide" id="bpm_acct_manager_payment_item" >
+                                    <a id="bpm_acct_manager_payment" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Payment Info</a>
+                                </li>
+                                <li class=" bpm_ul_li text-left" id="bpm_acct_manager_statement_item">
+                                    <a id="bpm_acct_manager_statement" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Statement</a>
+                                </li>
+                                <li class=" bpm_ul_li text-left" id="bpm_acct_manager_invoices_item">
                                     <a id="bpm_acct_manager_invoices" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Invoices</a>
                                 </li>
+                                <li class=" bpm_ul_li text-left bpm-hide" id="bpm_acct_manager_login_url_item">
+                                    <a id="bpm_acct_manager_login_url" class="bpm_nodecoration side-nav-item" onclick="bpm_acct_mgr(this);">Login URL (1)</a>
+                                </li>
+
                             </ul>
                         </div>
                         <div class="bpm-large-9 bpm-small-9 bpm-columns">
@@ -427,8 +442,7 @@
                                 <nav class="top-bar" data-topbar role="navigation">
                                     <section class="top-bar-section">
                                         <ul class="left">
-                                            <li class="bpm-hide bpm_ul_li"><a onClick="bpm_admin_action(this);" style="text-decoration: none;" class="fi-plus bpm-hide" id="bpm_admin_add_business_user" >&nbsp;Add Business User</a></li>
-                                            <li class="bpm_ul_li"><a onClick="bpm_admin_action(this);" style="text-decoration: none;" class="fi-plus bpm-hide" id="bpm_admin_add_intranet_user" >&nbsp;Add Intranet User</a></li>
+                                            <li class="bpm_ul_li"><a onClick="bpm_admin_action(this);" style="text-decoration: none;" class="fi-plus bpm-hide" id="bpm_admin_add_intranet_user" >&nbsp;Add Business User</a></li>
                                         </ul>
                                     </section>
                                 </nav><br>
@@ -451,11 +465,11 @@
                                         <div class="bpm-large-6 bpm-small-6 bpm-columns">&nbsp;
                                             <div data-alert class="alert-box alert radius" id="bpm_add_intranet_user_alert" style="display:none;"></div>
                                         </div>
-                                        <div class="bpm-large-6 bpm-small-6 bpm-columns text-right"><a onclick="bpm_create_user(2);" class="button bpm-small" style="text-decoration: none;">Create User</a>&nbsp;<a onclick="bpm_cancel_create_user()" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
+                                        <div class="bpm-large-6 bpm-small-6 bpm-columns text-right"><a onclick="bpm_create_user(2);" class="button bpm-small" style="text-decoration: none;">Invite User</a>&nbsp;<a onclick="bpm_cancel_create_user()" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                                     </div>
                                 </form>
                             </div>
-                            <div id="bpm_account_manager_content" style="height:300px;overflow-x: hidden;">
+                            <div id="bpm_account_manager_content" style="height:30em;overflow-x: hidden;" class="text-left">
                             Loading...</div>
                         </div>
                     </div>
@@ -607,18 +621,25 @@
                 <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
             </div>
 
+            <div id="bpm_bpm_admin_window" class="reveal-modal medium" data-reveal aria-labelledby="bpm_bpm_admin_title" aria-hidden="true" role="dialog">
+                <h2 id="bpm_bpm_admin_title" class="bpm-header-2">BPM Admin</h2>
+                <div id="bpm_bpm_admin_content" style="margin-top:5px;height:25em;min-height:6.25em;overflow-x: hidden;"></div>
+
+                <a class="close-reveal-modal bpm_nodecoration" aria-label="Close">&#215;</a>
+            </div>
+
             <div id="bpm_invite_external_window" class="reveal-modal bpm-small" data-reveal aria-labelledby="bpm_invite_external_title" aria-hidden="true" role="dialog">
                 <h2 id="bpm_invite_external_title" class="bpm-header-2">Invite External User</h2>
                 <div id="bpm_invite_external_content" style="margin-top:5px;height:300px;min-height:300px;overflow: hidden;">
                     <div class="bpm-hide" id="bpm_invite_user_id"></div>
                     <div class="bpm-row full-width">
-                        <div class="bpm-large-12 bpm-small-12 bpm-columns" style="margin-bottom:1em">Invite <span id="bpm_invite_user_name"></span></div>
+                        <div class="bpm-large-12 bpm-small-12 bpm-columns text-left" style="margin-bottom:1em">Invite <span id="bpm_invite_user_name"></span></div>
                     </div>
                     <div class="bpm-row full-width">
-                        <div class="bpm-large-12 bpm-small-12 bpm-columns" style="margin-bottom:1em"><textarea maxlength="2500" placeholder="Optional invitation message..." id="bpm_invite_external_text" bpm-rows="7" cols="120"></textarea></div>
+                        <div class="bpm-large-12 bpm-small-12 bpm-columns text-left" style="margin-bottom:1em"><textarea maxlength="2500" placeholder="Optional invitation message..." id="bpm_invite_external_text" bpm-rows="7" cols="120"></textarea></div>
                     </div>
                     <div class="bpm-row full-width">
-                        <div class="bpm-large-8 bpm-small-8 bpm-columns"><div data-alert class="alert-box success radius" id="bpm_send_invite_alert" style="display:none;">Inviting...</div></div>
+                        <div class="bpm-large-8 bpm-small-8 bpm-columns  text-left">&nbsp;<div data-alert class="alert-box success radius" id="bpm_send_invite_alert" style="display:none;">Inviting...</div></div>
                         <div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><a onclick="bpm_send_invite();" class="button bpm-small" style="text-decoration: none;">Send Invitation</a></div>
                     </div>
                 </div>
@@ -823,7 +844,7 @@
                                 <li class="has-dropdown" id="bpm_file_options_FILEINDEX" style="display:none">
                                     <a style="text-decoration: none;" class="fi-page-export">&nbsp;File Actions...</a>
                                     <ul class="dropdown">
-                                        <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm_action bpm_admin_only" id="bpm_file_delete" onClick="bpm_file_button(FILEINDEX,14);">Admin Delete</a></li>
+                                        <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm_action bpm_admin_only bpm-hide" id="bpm_file_delete" onClick="bpm_file_button(FILEINDEX,14);">Admin Delete</a></li>
                                         <li class="has-dropdown"><a style="text-decoration: none;" class="bpm_action" id="bpm_file_move_FILEINDEX">Move files...</a>FILEFOLDERS</li>
                                     </ul>
                                 </li>
@@ -884,6 +905,7 @@
                             <ul class="left">
                                 <li class="bpm_ul_li"><a style="text-decoration: none;" onClick="bpm_edit_text(TEXTINDEX);" >Edit</a></li>
                                 <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_history_button_TEXTINDEX" onClick="bpm_view_text_history(TEXTINDEX);" >History</a></li>
+                                <li class="bpm_ul_li"><a style="text-decoration: none;" class="bpm-hide" id="bpm_promote_button_TEXTINDEX" onClick="bpm_hp_promote(TEXTINDEX);">Promote</a></li>
                             </ul>
                         </section>
                     </nav>
@@ -905,7 +927,7 @@
                                 </li>
                             </ul>
                             <ul class="left">
-                                <li class="active"><a style="text-decoration: none;" onClick="bpm_open_add_page('TAGGEDINDEX', 1, 'TAGGEDNAME');" class="fi-plus"></a></li>
+                                <li class="active TAGGEDBUTTONCLASS"><a id="bpm_add_button_TAGGEDINDEX" style="text-decoration: none;" onClick="bpm_open_add_page('TAGGEDINDEX', 1, 'TAGGEDNAME');" class="fi-plus"></a></li>
                                 <li class="divider"></li>
                                 <li class="has-form">
                                     <div class="bpm-row">
@@ -931,7 +953,7 @@
                                 </li>
                             </ul>
                             <ul class="left">
-                                <li class="active" id="bpm_add_page_child_links"><a style="text-decoration: none;" onClick="bpm_open_add_page(bpm_child_link_create_id, 1, bpm_child_link_create_name);" class="fi-plus"></a></li>
+                                <li class="active bpm-hide" id="bpm_add_page_child_links"><a style="text-decoration: none;" onClick="bpm_open_add_page(bpm_child_link_create_id, 1, bpm_child_link_create_name);" class="fi-plus"></a></li>
                                 <li class="divider"></li>
                                 <li class="has-form">
                                     <div class="bpm-row">
@@ -963,6 +985,21 @@
                 </div>
                 <div class="bpm-row">
                     <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a onclick="bpm_confirm_yes();" class="button bpm-small" style="text-decoration: none;">Yes</a>&nbsp;&nbsp;<a onclick="bpm_confirm_no('bpm_confirm_terminate')" class="button bpm-small" style="text-decoration: none;">No</a></div>
+                </div>
+            </div>
+
+            <div id="bpm_promote_page" class="reveal-modal bpm-small" data-reveal aria-labelledby="modalTitleP" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                <h2 id="modalTitleP" class="bpm-header-2">Promote Page to Home Page</h2>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left">This feature will add this page to the Recent updates box at the top of the home page.<br><br></div>
+                </div>
+                <div class="bpm-row">
+                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-left" id="bpm_promote_page_content">&nbsp;</div>
+                </div>
+                <div class="bpm-row">
+
+                    <div class="bpm-large-8 bpm-small-8 bpm-columns text-left"><br>This is a summary of this article on the home page.  Editing this text will NOT change the main content.  Delete text that you do not want as part of the home page summary.</div>
+                    <div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><a onclick="bpm_promote_to_home_page_action();" class="button bpm-small" style="text-decoration: none;margin-top:1em;">Promote</a>&nbsp;&nbsp;<a onclick="bpm_hp_cancel_promote()" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                 </div>
             </div>
 
@@ -1023,7 +1060,10 @@
                     <div class="bpm-large-12 bpm-small-12 bpm-columns text-left" id="bpm_infobox_content" style="margin-top:3px;margin-bottom:10px;max-height: 350px;overflow-x:hidden;"></div>
                 </div>
                 <div class="bpm-row full-width">
-                    <div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a id="bpm_infobox_reveal_save" onclick="bpm_save_infobox();" class="button bpm-small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_confirm_no('bpm_edit_infobox')" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
+                    <div class="bpm-large-6 bpm-small-6 bpm-columns text-left">
+                        <div data-alert class="alert-box success radius text-left" id="bpm_user_infobox_save_message" style="display:none;">Saving infobox information.</div>&nbsp;
+                    </div>
+                    <div class="bpm-large-6 bpm-small-6 bpm-columns text-right"><a id="bpm_infobox_reveal_save" onclick="bpm_save_infobox();" class="button bpm-small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_confirm_no('bpm_edit_infobox')" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                 </div>
             </div>
 
@@ -1034,11 +1074,12 @@
                 </div>
                 <div class="bpm-row full-width">
                     <div class="bpm-large-6 bpm-small-6 bpm-columns text-left">
-                        <div data-alert class="alert-box success radius text-left" id="bpm_user_profile_save_message" style="display:none;">Saving profile settings.</div>
+                        <div data-alert class="alert-box success radius text-left" id="bpm_user_profile_save_message" style="display:none;">Saving profile settings.</div>&nbsp;
                     </div>
                     <div class="bpm-large-6 bpm-small-6 bpm-columns text-right"><a id="bpm_save_user_prefs_button" onclick="bpm_save_user_pref();" class="button bpm-small" style="text-decoration: none;">Save</a>&nbsp;<a onclick="bpm_confirm_no('bpm_edit_user_profile')" class="button bpm-small" style="text-decoration: none;">Cancel</a></div>
                 </div>
             </div>
+
 
             <ol id="bpm_tutorial" class="joyride-list" data-joyride></ol>
 
@@ -1072,6 +1113,7 @@
 
             <div id="bpm_tutorial_name_17" data-pagetype="25_25" data-shownow="1" data-tutorialid="17" data-adminonly="2" class="bpm_tutorials bpm_page_0 bpm-hide">Welcome Tour</div>
             <ol id="bpm_tutorial_17" class="bpm-hide">
+                <li data-id="" data-button="Organize your Intranet" data-prev-text="" data-options="tip_location:top;prev_button: false">
                 <h3>Welcome!</h3>
                 <p>With Intranet Lite you can share, collaborate and find the information you want right in your own website.</p>
                 </li>
@@ -1093,7 +1135,7 @@
                 </li>
             </ol>
 
-            <div id="bpm_tutorial_name_12" data-pagetype="25_25" data-shownow="0" data-tutorialid="12" data-adminonly="0" class="bpm_tutorials bpm-hide">Creating Help Tickets</div>
+            <div id="bpm_tutorial_name_12" data-pagetype="25_25" data-shownow="0" data-tutorialid="12" data-adminonly="0" class="bpm_tutorials bpm-hide">Help Tickets</div>
             <ol id="bpm_tutorial_12" class="bpm-hide">
                 <li data-id="" data-button="Create a Help Ticket" data-prev-text="" data-options="tip_location:bottom;prev_button: false">
                     <h3>Help Tickets</h3>
@@ -1149,13 +1191,21 @@
                 </li>
                 <li data-id="left_acctmgr" data-button="User Status" data-prev-text="" data-options="tip_location:right;prev_button: false">
                     <h3>Send Invitations</h3>
-                    <p>You can invite members of your team by email. Send invitations from the account manager. </p>
-                </li>
-                <li data-id="left_acctmgr" data-button="Close" data-prev-text="" data-options="tip_location:right;prev_button: false">
-                    <h3>User Status</h3>
-                    <p>You can also see who accepted their invitation and is active.</p>
+                    <p>You can invite members of your team by email. Send invitations from the account manager.  You can also see who accepted their invitation and is active.</p>
                 </li>
             </ol>
+
+            <div id="bpm_thank_you_message" class="bpm-hide">
+                <p>Thank you for your purchase.  You will receive an email in a few moments with your invoice.</p>
+
+                <p>Upgrades and extensions are visible on the Context Map and ready to use.</p>
+
+                <br><br>
+                <span class="fa  fa-smile-o" style="color:green;font-size:3em;"></span>
+
+            </div>
+
+            <div id="bpm_extension_info" class="bpm-hide"></div>
 
             <div id="bpm_lng_message_up_to_date" class="bpm-hide bpm_lang">You are completely up-to-date.</div>
             <div id="bpm_lng_pub_now" class="bpm-hide bpm_lang">Publish Immediately?</div>
@@ -1215,6 +1265,7 @@
             <div id="bpm_lng_page" class="bpm-hide bpm_lang">page</div>
             <div id="bpm_lng_subscriptions" class="bpm-hide bpm_lang">Subscriptions</div>
             <div id="bpm_lng_click_files" class="bpm-hide bpm_lang">Click here or drop files to upload</div>
+            <div id="bpm_lng_click_files_for_hp" class="bpm-hide bpm_lang">Click here or drop image to upload</div>
             <div id="bpm_lng_Administrator" class="bpm-hide bpm_lang">Administrator</div>
             <div id="bpm_lng_Business_User" class="bpm-hide bpm_lang">Business User</div>
             <div id="bpm_lng_Intranet_User" class="bpm-hide bpm_lang">Intranet User</div>
@@ -1227,6 +1278,7 @@
             <div id="bpm_lng_supp_loc_message_title" class="bpm-hide bpm_lang">Supplier Location Info</div>
             <div id="bpm_lng_last_updated_on" class="bpm-hide bpm_lang">Updated on</div>
             <div id="bpm_lng_updated_by" class="bpm-hide bpm_lang">Updated by</div>
+            <div id="bpm_lng_update" class="bpm-hide bpm_lang">Update</div>
             <div id="bpm_lng_uploaded_by" class="bpm-hide bpm_lang">Uploaded by</div>
             <div id="bpm_lng_by" class="bpm-hide bpm_lang">by</div>
             <div id="bpm_lng_cap_by" class="bpm-hide bpm_lang">By</div>
@@ -1242,10 +1294,77 @@
             <div id="bpm_lng_last_updated" class="bpm-hide bpm_lang">Last updated on</div>
             <div id="bpm_lng_edited" class="bpm-hide bpm_lang">Edited</div>
             <div id="bpm_lng_Wrong_User_Email_or_Password" class="bpm-hide bpm_lang">You have entered an incorrect password for this email.</div>
+            <div id="bpm_lng_account_storage" class="bpm-hide bpm_lang">Account Storage</div>
+            <div id="bpm_lng_storage_utilized" class="bpm-hide bpm_lang">Storage Utilized</div>
+            <div id="bpm_lng_storage_available" class="bpm-hide bpm_lang">Storage Available</div>
+            <div id="bpm_lng_add_to_cart" class="bpm-hide bpm_lang">Add to Cart</div>
+            <div id="bpm_lng_add_storage" class="bpm-hide bpm_lang">Add Storage</div>
+            <div id="bpm_lng_added_to_cart" class="bpm-hide bpm_lang">Added to your cart</div>
+            <div id="bpm_lng_invoice_date" class="bpm-hide bpm_lang">Invoice Date</div>
+            <div id="bpm_lng_invoice_number" class="bpm-hide bpm_lang">Invoice Number</div>
+            <div id="bpm_lng_invoice_amount" class="bpm-hide bpm_lang">Invoice Amount</div>
+            <div id="bpm_lng_feature_name" class="bpm-hide bpm_lang">Extension</div>
+            <div id="bpm_lng_next_bill_date" class="bpm-hide bpm_lang">Next Bill Date</div>
+            <div id="bpm_lng_next_bill_amount" class="bpm-hide bpm_lang">Next Bill Amount</div>
+            <div id="bpm_lng_back_to_extensions" class="bpm-hide bpm_lang">Back to Extensions</div>
+            <div id="bpm_lng_back_to_storage" class="bpm-hide bpm_lang">Back to Storage</div>
+            <div id="bpm_lng_back_to_statement" class="bpm-hide bpm_lang">Back to Statement</div>
+            <div id="bpm_lng_back_to_cart" class="bpm-hide bpm_lang">Back to Cart</div>
+            <div id="bpm_lng_remove_from_cart" class="bpm-hide bpm_lang">Remove</div>
+            <div id="bpm_lng_price" class="bpm-hide bpm_lang">Price</div>
+            <div id="bpm_lng_total" class="bpm-hide bpm_lang">Total</div>
+            <div id="bpm_lng_buy" class="bpm-hide bpm_lang">Buy</div>
+            <div id="bpm_lng_uninstall" class="bpm-hide bpm_lang">Uninstall</div>
+            <div id="bpm_lng_reinstall_until" class="bpm-hide bpm_lang">Reinstall until</div>
+            <div id="bpm_lng_reinstall" class="bpm-hide bpm_lang">Reinstall</div>
+            <div id="bpm_lng_company_name" class="bpm-hide bpm_lang">Company Name</div>
+            <div id="bpm_lng_company_street" class="bpm-hide bpm_lang">Street</div>
+            <div id="bpm_lng_company_state" class="bpm-hide bpm_lang">State</div>
+            <div id="bpm_lng_company_postal" class="bpm-hide bpm_lang">Postal Code</div>
+            <div id="bpm_lng_company_city" class="bpm-hide bpm_lang">City</div>
+            <div id="bpm_lng_company_address" class="bpm-hide bpm_lang">Address</div>
+            <div id="bpm_lng_save_address" class="bpm-hide bpm_lang">Save Address</div>
+            <div id="bpm_lng_saving" class="bpm-hide bpm_lang">Saving...</div>
+            <div id="bpm_lng_loading_payment_form" class="bpm-hide bpm_lang">Loading payment form...</div>
+            <div id="bpm_lng_account_storage_message" class="bpm-hide bpm_lang">Make changes to your storage plan</div>
+            <div id="bpm_lng_checkout" class="bpm-hide bpm_lang">Checkout</div>
+            <div id="bpm_lng_account_storage_add_plan_message" class="bpm-hide bpm_lang">Add a plan to your cart then go to the checkout.</div>
+            <div id="bpm_lng_shared" class="bpm-hide bpm_lang">Shared with External Users</div>
+            <div id="bpm_lng_total_to_pay" class="bpm-hide bpm_lang">Pay to BPMContext LLC</div>
+            <div id="bpm_lng_review_purchase" class="bpm-hide bpm_lang">Review your purchase details</div>
+            <div id="bpm_lng_processing_payment_form" class="bpm-hide bpm_lang">Processing payment...relax, this will only take a couple of seconds.</div>
+            <div id="bpm_lng_your_card_will_be_charged" class="bpm-hide bpm_lang">Your card will be charged</div>
+            <div id="bpm_lng_purchase_terms" class="bpm-hide bpm_lang">Subscriptions will be automatically charged in 12 months at the renewal date.  You may cancel your subscriptions at any time by clicking the 'Uninstall' button on the extensions page.  Partial refunds are available where required by law.  By placing your order you agree to our Terms of Use and Privacy Policy availble at http://bpmcontext.com.</div>
+            <div id="bpm_lng_account_manager" class="bpm-hide bpm_lang">Account Manager</div>
+            <div id="bpm_lng_login_url_message" class="bpm-hide bpm_lang">The current url in the database for this account is different from the url you are currently viewing.  We use this url to direct users to your site from email notifications and from users that might login at bpmcontext.com.</div>
+            <div id="bpm_lng_login_url_current" class="bpm-hide bpm_lang">The current url is:</div>
+            <div id="bpm_lng_login_url_site" class="bpm-hide bpm_lang">This site's dashboard url is:</div>
+            <div id="bpm_lng_login_url_update" class="bpm-hide bpm_lang">Click the update button to change the login url to the url currently being viewed.</div>
+            <div id="bpm_lng_proceed_to_checkout" class="bpm-hide bpm_lang">Proceed to Checkout</div>
+            <div id="bpm_lng_Me" class="bpm-hide bpm_lang">Me</div>
+            <div id="bpm_lng_news" class="bpm-hide bpm_lang">Recent Updates</div>
+            <div id="bpm_lng_in" class="bpm-hide bpm_lang">in</div>
+            <div id="bpm_lng_ago" class="bpm-hide bpm_lang">ago</div>
+            <div id="bpm_lng_discussions" class="bpm-hide bpm_lang">Discussions</div>
+            <div id="bpm_lng_discussion" class="bpm-hide bpm_lang">Discussion</div>
+            <div id="bpm_lng_subscriber" class="bpm-hide bpm_lang">Subscriber</div>
+            <div id="bpm_lng_subscribers" class="bpm-hide bpm_lang">Subscribers</div>
+            <div id="bpm_lng_attachment" class="bpm-hide bpm_lang">Attachment</div>
+            <div id="bpm_lng_attachments" class="bpm-hide bpm_lang">Attachments</div>
+            <div id="bpm_lng_enter_headline" class="bpm-hide bpm_lang">Enter headline here</div>
+            <div id="bpm_lng_change_image" class="bpm-hide bpm_lang">Change Image</div>
+            <div id="bpm_lng_view_image" class="bpm-hide bpm_lang">View Image</div>
+            <div id="bpm_lng_headline" class="bpm-hide bpm_lang">Headline</div>
+            <div id="bpm_lng_article_image" class="bpm-hide bpm_lang">Article Image</div>
+            <div id="bpm_lng_card_declined" class="bpm-hide bpm_lang">This payment has been declined by your card issuer or by our payment system.  Please enter another card or try again.</div>
+            <div id="bpm_lng_card_not_valid" class="bpm-hide bpm_lang">Credit card information is not complete.</div>
+            <div id="bpm_lng_cart_empty" class="bpm-hide bpm_lang">Your cart is empty.</div>
 
 
 
             <div id="bpm_lng_" class="bpm-hide bpm_lang"></div>
+
+
 
             <div id='bpm_lng_tz_GMT1100PacificMidwayIsland' class='bpm-hide bpm_lang'>Pacific/Midway Island </div>
             <div id='bpm_lng_tz_GMT1100USSamoa' class='bpm-hide bpm_lang'>US/Samoa </div>
@@ -1605,4 +1724,3 @@
     </div>
         <div id="bpm_medium_objects"></div>
 </div>
-

@@ -4,7 +4,7 @@ Tags: intranet, workflow, file sharing, bpmcontext, task management, file sharin
 Donate link: 
 Requires at least: 3.0.1
 Tested up to: 4.3
-Stable tag: 2.0.1
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -166,14 +166,18 @@ Please contact us at customer.service@bpmcontext.com. Please feel free to send a
 * Redesigned settings page
 * Add user options for bookmark, subscribe and tag page
 = 2.0.1 =
-* Current version
 * Improved theme compatibility
+= 2.1 =
+* Current version
+* Added the ability to promote text sections from pages to the home page
+* Extensions and storage added to the Account Manager
+* Update URL for login and email notifications when you move your site from sandbox to production
+* Intranet Pro released with 20 additional workspace templates (Premium version)
 
 == Upgrade Notice ==
 
-= 1.0 =
-First version of the plugin. Signup for a BPMContext account to activate shared storage. 1 Admin signup per month minimum.
-= 2.0 =
-Full feature application. Create a BPMContext account to activate Intranet Lite plugin.
-= 2.0.1 =
-Updated to improve theme compatibility
+= 2.1 =
+Adds the ability to promote text sections from pages to the home page
+Extensions and storage added to the Account Manager
+Update URL for login and email notifications when you move your site from sandbox to production
+Intranet Pro released with 20 additional workspace templates (Premium version)

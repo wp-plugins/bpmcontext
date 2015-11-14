@@ -24,6 +24,7 @@ function bpm_open_add_page(selected_object, type, page_name){
         jQuery('#bpm_add_page_title').text(bpm_trans_array['bpm_lng_add'] + ' ' + page_name + ' ' + bpm_trans_array['bpm_lng_page']);
 
         jQuery('#bpm_add_page_content').html(bpm_create_add_page_name(bpm_page_naming[bpm_current_create_page]));
+
         setTimeout(function() {
             jQuery('#' + bpm_first_field).focus();
         },500);
@@ -69,9 +70,10 @@ function bpm_create_add_page_name(this_content, is_quick_doc){
         if(value['pub_immediate']== 1 ) pub_now = 1;
     });
 
+
     if(pub_now == 1){
         this_html = this_html.concat('<div class="bpm-row" style="margin-bottom:5px;">');
-        this_html = this_html.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns">' + bpm_trans_array['bpm_lng_pub_now'] + '</div>');
+        this_html = this_html.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left">' + bpm_trans_array['bpm_lng_pub_now'] + '</div>');
         if(is_quick_doc==1) {
             this_html = this_html.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-right"> <input class="bpm_add_page_field error" id="quick_doc_publish_on_create" type="checkbox" value="0"/></div>');
         }else {
@@ -104,8 +106,6 @@ function bpm_create_new_page(name_type, is_quick_doc){
 
     var error_status = 0;
 
-
-
     if(name_type==1){
         //add fields
         jQuery('.bpm_add_page_field').each(function(i, obj) {
@@ -137,7 +137,6 @@ function bpm_create_new_page(name_type, is_quick_doc){
         }else{
             //show error message
             //jQuery('#bpm_main_error_alert').html(result.response['ERROR']).show().fadeOut(5000);
-
         }
     });
 
@@ -321,6 +320,10 @@ function bpm_set_toolbar_options(this_content){
     //if(this_content.ADMINCANDELETE == 0) jQuery('#bpm_toolbar_admin_move').hide();
     jQuery('#bpm_toolbar_admin_move').hide();
 
+    if(bpm_user_role != 'admin'){
+        jQuery('#bpm_toolbar_admin_delete').hide();
+    }
+
 }
 
 function bpm_confirm_yes(){
@@ -502,8 +505,8 @@ function bpm_load_page(this_address){
         bpm_start = Date.now();
 
         jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', this_address, function (result) {
-            if(result) {
 
+            if(result) {
                 bpm_login_status = Number(result.LOGGEDIN);
                 if(bpm_current_screen ==2){
                     jQuery('#bpm_content_area').html(bpm_mobile_template);
@@ -797,7 +800,7 @@ function bpm_action(selected_object){
 
     if(option_string.length > 0) {
         jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', bpm_get_string + option_string, function (result) {
-console.log(result);
+
             if (result.TRANSTATUS == 1) {
                 jQuery('#bpm_main_success_alert').html(message).show().fadeOut(1500, function () {
                     jQuery('.bpm_toolbar_options_dd').show();
@@ -827,8 +830,61 @@ console.log(result);
 
 }
 
+
+function bpm_subscribe_or_unsubscribe_page(page_id, action){
+
+    var message = '';
+
+    if(jQuery('#bpm_hp_subscribed_'+page_id).hasClass('fa-heart')){
+        action = 'unsubscribe';
+        message = 'Subscription Removed';
+    }else{
+        action = 'subscribe';
+        message = 'Subscription Added';
+    }
+
+
+    option_string = 'pageid='+page_id+'&domain=' + bpm_current_domain + '&action='+action;
+
+    jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', option_string, function (result) {
+
+        if (result.TRANSTATUS == 1) {
+
+            var ttl_subs = [];
+            var sub_text = bpm_trans_array['bpm_lng_subscribers'];
+            ttl_subs = jQuery('#bpm_hp_subscribed_count_'+page_id).text().split(' ');
+            var sub_count = Number(ttl_subs[0]);
+
+            if(action == 'subscribe'){
+                jQuery('#bpm_hp_subscribed_'+page_id).addClass('fa-heart').removeClass('fa-heart-o');
+                sub_count++;
+                if(sub_count==1) sub_text = bpm_trans_array['bpm_lng_subscriber'];
+
+            }else{
+                sub_count--;
+                if(sub_count==1) sub_text = bpm_trans_array['bpm_lng_subscriber'];
+
+                jQuery('#bpm_hp_subscribed_'+page_id).removeClass('fa-heart').addClass('fa-heart-o');
+            }
+
+            jQuery('#bpm_hp_subscribed_count_'+page_id).text(sub_count + ' ' + sub_text);
+
+//            jQuery('#bpm_main_success_alert').html(message).show().fadeOut(1500, function () {
+                bpm_dashboard[6] = null;
+                bpm_dashboard[0] = null;
+                bpm_dashboard[7] = null;
+
+                if (result.BOOKMARKS) bpm_dashboard[0] = result.BOOKMARKS;
+                if (result.PTLTAGGED) bpm_dashboard[6] = result.PTLTAGGED;
+                if (result.PTLALL) bpm_dashboard[7] = result.PTLALL;
+                if (result.SUBSCRIBERS)  bpm_create_subscribers(result);
+ //           });
+
+        }
+    });
+}
 function bpm_save_talat(){
-console.log(bpm_reply_talat_page_id);
+
     if(bpm_reply_talat_page_id == 0){
         bpm_reply_talat_page_id = bpm_pageid;
     }

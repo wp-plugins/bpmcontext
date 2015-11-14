@@ -16,6 +16,353 @@ function bpm_create_discussion(this_id, this_content){
 
 }
 
+function bpm_create_home_page_items(result){
+
+    var html_line = '';
+    var side = 'odd';
+
+    jQuery.each(result.HOMEPAGEITEMS,function(index, value) {
+
+        if(value) {
+            html_line = html_line.concat('<div class="bpm-row">');
+//            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left"><img src="http://www.wijser.com/ShapesIM/1circle.jpg"/></div>');
+            var page_title = '<a href="?action=bpmcontext&pageid='+value['page_id']+'&domain='+bpm_current_domain+'" class="url_links">'+value['page_title']+'</a>';
+            var posted_by = bpm_trans_array['bpm_lng_cap_by'] + ' <a href="?action=bpmcontext&pageid='+value['uad_user_page_id']+'&domain='+bpm_current_domain+'" class="url_links">'+value['real_name']+'</a>';
+            var when = bpm_get_date_display(value['ps_change_date']);
+            if(when.length < 8) when = when.concat(' ' + bpm_trans_array['bpm_lng_ago']);
+
+            html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left bpm-home-page-name">'+posted_by +' '+ bpm_trans_array['bpm_lng_in'] +' '+ page_title + '<br><span class="bpm_hp_time_line">'+when+'</span></div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left bpm-home-page-headline">' + decodeURIComponent(value['headline']) + '</div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+
+            if(side=='odd') {
+
+                html_line = html_line.concat('<div class="bpm-row">');
+                if (value['image']) {
+                    html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-left"><img src="' + value['image'] + '"/></div>');
+                    html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-left">' + decodeURIComponent(value['home_page_teaser']) + '</div>');
+                    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+                } else {
+                    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left">' + decodeURIComponent(value['home_page_teaser']) + '</div>');
+                    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+                }
+                html_line = html_line.concat('</div>');
+
+                side = 'even';
+            }else{
+                html_line = html_line.concat('<div class="bpm-row" >');
+                if (value['image']) {
+                    html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-left">' + decodeURIComponent(value['home_page_teaser']) + '</div>');
+                    html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-left"><img src="' + value['image'] + '"/></div>');
+                    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+                } else {
+                    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left">' + decodeURIComponent(value['home_page_teaser']) + '</div>');
+                    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+                }
+                html_line = html_line.concat('</div>');
+
+                side = 'odd';
+            }
+
+            var page_subscribed = '';
+            var sub_count = 0;
+            var disc_count = 0;
+            var file_count = 0;
+            var file_text = bpm_trans_array['bpm_lng_attachments'];
+            var sub_text = bpm_trans_array['bpm_lng_subscribers'];
+            var disc_text = bpm_trans_array['bpm_lng_discussions'];
+            if(value['disccount']){
+                disc_count = value['disccount'];
+                if(disc_count==1) disc_text = bpm_trans_array['bpm_lng_discussion'];
+            }
+
+            disc_text = '<span id="bpm_hp_disc_count_'+value['page_id']+'">' + disc_count + ' ' + disc_text + '</span>';
+
+            if(value['subcount']){
+                sub_count = value['subcount'];
+                if(sub_count==1) sub_text = bpm_trans_array['bpm_lng_subscriber'];
+            }
+            sub_text = '<span id="bpm_hp_subscribed_count_'+value['page_id']+'">' + sub_count + ' ' + sub_text + '</span>';
+
+            if(value['sub_index']) {
+                page_subscribed = '<a onclick="bpm_subscribe_or_unsubscribe_page(' + value['page_id'] + ', 0)"><span id="bpm_hp_subscribed_'+value['page_id']+'" class="fa fa-heart" ></span>&nbsp;'+ sub_text + '</a>';
+            }else{
+                page_subscribed = '<a onclick="bpm_subscribe_or_unsubscribe_page(' + value['page_id'] + ', 1)"><span id="bpm_hp_subscribed_'+value['page_id']+'" class="fa fa-heart-o" ></span>&nbsp;'+ sub_text + '</a>';
+            }
+
+            if(value['files']){
+                file_count = value['files'];
+                if(file_count==1) file_text = bpm_trans_array['bpm_lng_attachment'];
+            }
+            file_text = '<span id="bpm_hp_file_count_'+value['page_id']+'">' + file_count + ' ' + file_text + '</span>';
+
+            html_line = html_line.concat('<div class="bpm-row" style="margin-top:.5em;">');
+            html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-left">' + page_subscribed + '</div>');
+            html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-right fi-comment">&nbsp;'+disc_text+ '</div>');
+//            html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><span class="fa fa-remove"></span>&nbsp;Dismiss</div>');
+            html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><span class="fa fa-paperclip"></span>&nbsp;'+file_text+'</div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+
+            html_line = html_line.concat('<hr class="bpm_hr_gray"><br>');
+        }
+    });
+
+    return html_line;
+}
+
+function bpm_promote_to_home_page_action(){
+
+    //send details to the server
+    var selected_object = bpm_settings['promote_hompage_id'];
+    var post_text = encodeURIComponent(tinymce.activeEditor.getContent());
+    var this_header = encodeURIComponent(jQuery('#bpm_home_page_headline').val());
+
+    if(bpm_is_loading==1) return;
+    bpm_is_loading = 1;
+
+    var post_chunk = [];
+    if(post_text.length > 0) {
+        if (post_text.length > 2000) {
+            //split into an array of strings
+            post_chunk = bpm_splitString(post_text, 2000);
+        } else {
+            post_chunk[0] = post_text;
+        }
+    }else{
+        post_chunk[0] = ' ';
+    }
+
+//    jQuery('#bpm_saving_text_alert').show();
+
+    //post message
+    var querystring = 'total=' + post_chunk.length + '&domain=' + bpm_current_domain + "&action=update_hp_text&pageid=" + bpm_pageid + "&sectionid=" + selected_object + "&reset=1";
+    jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', querystring, function (result) {
+        if (result) {
+            jQuery.each(post_chunk, function (index, value) {
+                var item_id = index + 1;
+                querystring = 'this_item=' + item_id + '&total=' + post_chunk.length + '&header='+ this_header + '&domain=' + bpm_current_domain + "&action=update_hp_text&pageid=" + bpm_pageid + "&sectionid=" + selected_object + "&pageinfo=" + value;
+
+                jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', querystring, function (result) {
+
+                    if (result.SENDNEXT) {
+
+                        bpm_is_loading = 0;
+                        bpm_hp_cancel_promote();
+                    }
+                });
+            });
+        }else{
+            //error
+            //jQuery('#bpm_saving_text_alert').hide();
+        }
+    });
+
+
+}
+
+function bpm_change_hp_image(action_code){
+
+    if(action_code == 1) {
+        //hide dropzone
+        jQuery('#bpm_hp_promote_dropzone').hide();
+        //show image
+        jQuery('#bpm_hp_promote_image').show();
+    }else{
+        //hide dropzone
+        jQuery('#bpm_hp_promote_dropzone').show();
+        //show image
+        jQuery('#bpm_hp_promote_image').hide();
+    }
+}
+
+function bpm_hp_cancel_promote() {
+
+    tinymce.remove();
+    bpm_is_loading = 0;
+    jQuery('#bpm_promote_page').foundation('reveal', 'close');
+
+}
+
+function bpm_hp_promote(section_id){
+
+
+    var html_line = '';
+    var file_list = [];
+    var this_folder = 0;
+    var this_guid = bpm_guid();
+
+    bpm_settings['promote_hompage_id'] = section_id;
+
+    jQuery('#bpm_promote_page').foundation('reveal', 'open');
+
+    var querystring = 'domain=' + bpm_current_domain + "&action=get_file_auth_hp&pageid=" + bpm_pageid + '&sectionid='+section_id;
+    jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', querystring, function (result) {
+        if (result) {
+
+            var this_text = '';
+            if(result.PROMOTEDETAILS['teaser']) {
+                this_text = result.PROMOTEDETAILS['teaser'];
+            }else{
+                this_text = jQuery('#bpm_text_'+section_id).html();
+            }
+            var this_image = '';
+            var hide_form = '';
+            var hide_image = '';
+            var headline = '';
+            if(result.PROMOTEDETAILS['header']) {
+                headline = result.PROMOTEDETAILS['header'];
+            }
+            if(result.PROMOTEDETAILS['image']){
+                this_image = '<img src="'+result.PROMOTEDETAILS['image']+'">';
+                hide_form = 'bpm-hide';
+            }else{
+                hide_image = 'bpm-hide';
+            }
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-2 bpm-small-2 bpm-columns text-left" style="font-size:1.5em; ">'+bpm_trans_array['bpm_lng_headline']+': </div>');
+            html_line = html_line.concat('<div class="bpm-large-10 bpm-small-10 bpm-columns text-left"><input id="bpm_home_page_headline" style="font-size:1.5em" type="text" value="'+headline+'" placeholder=""'+bpm_trans_array['bpm_lng_enter_headline']+'">');
+            html_line = html_line.concat('</div>')
+            html_line = html_line.concat('</div>')
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-left '+hide_image+'" id="bpm_hp_promote_image">');
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-center">' + bpm_trans_array['bpm_lng_article_image'] + '<br><br></div>');
+            html_line = html_line.concat('</div>')
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-center" id="bpm_hp_promote_image_src">' + this_image + '</div>');
+            html_line = html_line.concat('</div>')
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-center"><br><br><a onclick="bpm_change_hp_image(2)">'+bpm_trans_array['bpm_lng_change_image']+'</a></div>');
+            html_line = html_line.concat('</div>')
+
+            html_line = html_line.concat('</div>')
+            html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-left '+hide_form+'" id="bpm_hp_promote_dropzone">');
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-center">');
+            html_line = html_line.concat('<form action="https://s3.amazonaws.com/bpm-inbound/" method="POST" enctype="multipart/form-data" class="dropzone bpm_dropzone" id="bpm_dropzone" style="max-height:300px;overflow: auto;">');
+            html_line = html_line.concat('<input type="hidden" name="key" value="${filename}-' + this_guid + '">');
+            jQuery.each(result.FILEAUTH['inputs'], function (index, value) {
+                html_line = html_line.concat('<input type="hidden" name="' + index + '" value="' + value + '">');
+            });
+            html_line = html_line.concat('</form>')
+            html_line = html_line.concat('</div>')
+            html_line = html_line.concat('</div>')
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-center '+hide_image +'" id="bpm_can_view_image_hp"><a onclick="bpm_change_hp_image(1)">'+bpm_trans_array['bpm_lng_view_image']+'</a></div>');
+            html_line = html_line.concat('</div>')
+
+            html_line = html_line.concat('</div>')
+            html_line = html_line.concat('<div class="bpm-large-9 bpm-small-9 bpm-columns text-left">');
+
+            html_line = html_line.concat('<textarea id="bpm_promote_hp_preview" rows="10">'+this_text+'</textarea>');
+
+            html_line = html_line.concat('</div>')
+            html_line = html_line.concat('</div>')
+
+
+            jQuery('#bpm_promote_page_content').html(html_line);
+
+            if(result.PROMOTEDETAILS['image']){
+                jQuery('#bpm_can_view_image_hp').show();
+            }else {
+                jQuery('#bpm_can_view_image_hp').hide();
+            }
+
+
+
+           tinymce.init({
+                selector: "#bpm_promote_hp_preview",
+                menubar: false,
+                height: 220,
+                maxLength: 1000,
+                statusbar: false,
+                content_css : bpm_params.css_dir + "tinymce.content.css",
+                plugins: [
+                    "insertdatetime media table contextmenu paste link"
+                ],
+                imagetools_toolbar: 'rotateleft rotateright | flipv fliph | editimage imageoptions',
+                toolbar: "bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | image link | removeformat ",
+                removeformat : [
+                    {selector : 'b,strong,em,i,font,u,strike', remove : 'all', split : true, expand : false, block_expand : true, deep : true},
+                    {selector : 'span', attributes : ['style', 'class'], remove : 'empty', split : true, expand : false, deep : true},
+                    {selector : '*', attributes : ['style', 'class'], split : false, expand : false, deep : true}
+                ]
+            });
+
+            var myDropzone = new Dropzone("#bpm_dropzone", {
+                autoProcessQueue: true,
+                maxFiles: 1,
+                acceptedFiles:'image/*',
+                dictDefaultMessage: '<div class="text-center" style="width:100%">'+bpm_trans_array['bpm_lng_click_files_for_hp']+'</div>'
+            });
+
+            myDropzone.on("complete", function (file) {
+                file_list.push(file['name']);
+                //myDropzone.removeFile(file);
+            });
+
+            myDropzone.on("removedfile", function (file) {
+                var index = file_list.indexOf(file['name']);
+                if (index >= 0) {
+                    file_list.splice( index, 1 );
+                }
+            });
+
+            myDropzone.on("queuecomplete", function () {
+                this_folder = '-1';
+
+                var send_files = '';
+                if (file_list.length > 0) {
+                    jQuery(file_list).each(function (index, value) {
+                        send_files = send_files.concat('&files[]=' + encodeURIComponent(value));
+                    });
+                }
+                var query_string = 'sectionid=' + section_id + '&domain=' + bpm_current_domain + "&action=uploaded_hp_image&pageid=" + bpm_pageid  + '&folder=' + this_folder + send_files + '&fileid=' + this_guid;
+
+                jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', query_string, function (result) {
+                    if (result) {
+
+                        if(result.FILELINK){
+                            jQuery('#bpm_hp_promote_image_src').html('<img src="'+result.FILELINK+'">');
+                        }
+
+                    //hide dropzone
+                        jQuery('#bpm_hp_promote_dropzone').hide();
+                        jQuery('#bpm_can_view_image_hp').show();
+                    //show image
+                        jQuery('#bpm_hp_promote_image').show();
+                    }
+
+                });
+
+            });
+        }
+    });
+
+
+
+}
+
+function get_home_page_discussions(page_id){
+
+
+
+    //bpm_get_discussion_list(this_content, 'none')
+
+}
+
 function bpm_get_discussion_list(this_content, this_id){
     var discussion_list = '';
     jQuery.each(this_content,function(index, value) {
@@ -358,9 +705,10 @@ function bpm_edit_text(selected_index) {
         statusbar: false,
         content_css : bpm_params.css_dir + "tinymce.content.css",
         plugins: [
-            "insertdatetime media table contextmenu paste"
+            "insertdatetime media table contextmenu paste link"
         ],
-        toolbar: "bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | removeformat ",
+        imagetools_toolbar: 'rotateleft rotateright | flipv fliph | editimage imageoptions',
+        toolbar: "bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | image link | removeformat ",
         removeformat : [
             {selector : 'b,strong,em,i,font,u,strike', remove : 'all', split : true, expand : false, block_expand : true, deep : true},
             {selector : 'span', attributes : ['style', 'class'], remove : 'empty', split : true, expand : false, deep : true},
@@ -376,6 +724,50 @@ function bpm_edit_text(selected_index) {
 
 }
 
+/**
+ *
+ *
+ *  plugins: [
+ "insertdatetime media table contextmenu paste link image imagetools"
+ ],
+
+ file_picker_callback: function(callback, value, meta) {
+            // Provide image and alt text for the image dialog
+            if (meta.filetype == 'image') {
+                imageFilePicker(callback, value, meta);
+//                callback('myimage.jpg', {alt: 'My alt text'});
+            }
+
+            // Provide alternative source and posted for the media dialog
+            if (meta.filetype == 'media') {
+//                callback('movie.mp4', {source2: 'alt.ogg', poster: 'image.jpg'});
+            }
+        }
+
+var imageFilePicker = function (callback, value, meta) {
+    tinymce.activeEditor.windowManager.open({
+        title: 'Image Picker',
+        url: '/',
+        width: 650,
+        height: 550,
+        buttons: [{
+            text: 'Insert',
+            onclick: function () {
+                //.. do some work
+                tinymce.activeEditor.windowManager.close();
+            }
+        }, {
+            text: 'Close',
+            onclick: 'close'
+        }],
+    }, {
+        oninsert: function (url) {
+            callback(url);
+            console.log("derp");
+        },
+    });
+};
+ **/
 function bpm_view_text_history(selected_index) {
 
     bpm_current_section = selected_index;
@@ -778,7 +1170,7 @@ function bpm_search_grid(this_id){
                     switch (value['wfm_status']) {
                         case '0':
                             bpm_wfm_status = 'Draft';
-                            if(value['wfm_current_id'] != bpm_current_user_id) display = 0;
+                            if(value['wfm_current_id'] != bpm_settings['userid']) display = 0;
                             break;
                         case '1':
                             bpm_wfm_status = 'Open - ' + value['real_name'];
@@ -905,7 +1297,7 @@ function bpm_file_button(selected_object, choice, file_info){
             break;
 
         case 6:
-            if(bpm_storage_avail <= 0){
+            if(bpm_settings['storagedetails']['avail'] <= 0){
                 jQuery('#bpm_attachment_no_storage_window').foundation('reveal', 'open');
             }else {
                 var html_line = '';
@@ -1170,6 +1562,9 @@ function bpm_file_button(selected_object, choice, file_info){
             }else{
                 jQuery('#bpm_file_options_'+selected_object).show();
             }
+            if(bpm_user_role != 'admin'){
+                jQuery('#bpm_file_delete').hide();
+            }
 
 
             break;
@@ -1189,6 +1584,10 @@ function bpm_file_button(selected_object, choice, file_info){
                 jQuery("input[name='bpm_file_select_"+selected_object+"']").prop('checked', true);
                 jQuery('#bpm_file_options_'+selected_object).show();
             }
+            if(bpm_user_role != 'admin'){
+                jQuery('#bpm_file_delete').hide();
+            }
+
             break;
         case 13:
             //move all checked files to the selected folder
@@ -1289,13 +1688,20 @@ function bpm_guid() {
     return _p8() + _p8(true) + _p8(true) + _p8();
 }
 
-function bpm_create_tagged_page_links(this_id, this_content, page_name, page_count){
+function bpm_create_tagged_page_links(this_id, this_content, page_name, page_count, add_button){
 
     var links_list = '';
     var display;
     var links_object = jQuery('#bpm_tagged_page_section').html();
     links_object = links_object.replace(/TAGGEDINDEX/g,this_id);
     links_object = links_object.replace(/TAGGEDNAME/g,page_name);
+
+    if(add_button=='no'){
+        links_object = links_object.replace(/TAGGEDBUTTONCLASS/g,'bpm-hide');
+    }else{
+        links_object = links_object.replace(/TAGGEDBUTTONCLASS/g,'');
+    }
+
 
     if(this_content) {
 
@@ -1309,7 +1715,7 @@ function bpm_create_tagged_page_links(this_id, this_content, page_name, page_cou
                     switch (value['wfm_status']) {
                         case '0':
                             bpm_wfm_status = bpm_trans_array['bpm_lng_draft'];
-                            if(value['wfm_current_id'] != bpm_current_user_id) display = 0;
+                            if(value['wfm_current_id'] != bpm_settings['userid']) display = 0;
                             break;
                         case '1':
                             bpm_wfm_status = bpm_trans_array['bpm_lng_open'];
@@ -1378,7 +1784,7 @@ function bpm_create_child_links(this_id, this_content, this_sections, link_count
                         switch (value['wfm_status']) {
                             case '0':
                                 bpm_wfm_status = bpm_trans_array['bpm_lng_draft'];
-                                if(value['wfm_current_id'] != bpm_current_user_id) display = 0;
+                                if(value['wfm_current_id'] != bpm_settings['userid']) display = 0;
                                 break;
                             case '1':
                                 bpm_wfm_status = bpm_trans_array['bpm_lng_open'];
@@ -1445,7 +1851,7 @@ function bpm_create_child_links(this_id, this_content, this_sections, link_count
     html_info = html_info.concat('</div>'); //end of bpm-row
     html_info = html_info.concat('</div>'); //end of section
 
-    html_info = html_info.concat('<ul id="bpm_page_type_list" data-options="align:right" class="f-dropdown" data-dropdown-content ">');
+    html_info = html_info.concat('<ul id="bpm_page_type_list" data-options="align:right" class="f-dropdown" data-dropdown-content>');
     html_info = html_info.concat(tab_list);
     html_info = html_info.concat('</ul>');
 
@@ -1465,8 +1871,10 @@ function bpm_load_child_links(selected_object){
     if(bpm_child_link_create_name==jQuery('#bpm_template_name_Employee').text()){
         jQuery('#bpm_add_page_child_links').hide();
     }else{
-        jQuery('#bpm_add_page_child_links').show();
+//        jQuery('#bpm_add_page_child_links').show();
+        jQuery('#bpm_add_page_child_links').hide();
     }
+
 
     jQuery('#bpm_top_bar_999999').html('&nbsp;'+bpm_trans_array['bpm_lng_page_links']+ ' - ' + jQuery('#bpm_load_child_links_menu_item_' + selected_object).text() + '<div style="float:right;display: inline;" class="fi-pencil"></div>');
 
@@ -1589,7 +1997,7 @@ function bpm_create_page(section_tag, section_id, page_number, links_array, retu
                         switch (value['wfm_status']) {
                             case '0':
                                 bpm_wfm_status = bpm_trans_array['bpm_lng_draft'];
-                                if(value['wfm_current_id'] != bpm_current_user_id) display = 0;
+                                if(value['wfm_current_id'] != bpm_settings['userid']) display = 0;
                                 break;
                             case '1':
                                 bpm_wfm_status = bpm_trans_array['bpm_lng_open'];

@@ -55,6 +55,11 @@ function bpm_open_modal(selected_object) {
             jQuery('#bpm_left_widget_content').html(bpm_make_talat_window());
             jQuery('#bpm_left_widget_window').foundation('reveal', 'open');
             break;
+        case 'left_bpmmgr':
+            jQuery('#bpm_widget_title').html('<span class="fa fa-tachometer"></span>&nbsp;BPM Admin');
+
+            jQuery('#bpm_left_widget_window').foundation('reveal', 'open');
+            break;
         case 'left_notifications':
 
             jQuery('#bpm_widget_title').html('<span class="fa fa-bell-o"></span>&nbsp;&nbsp;Notifications');
@@ -258,10 +263,12 @@ function bpm_open_modal(selected_object) {
             jQuery('#bpm_left_widget_window').foundation('reveal', 'open');
             break;
         case 'left_acctmgr':
+            bpm_set_admin_buttons();
+
             jQuery('#bpm_widget_title').html('<span class="fi-widget"></span>&nbsp;&nbsp;Account Manager');
             jQuery('#bpm_left_widget_content').hide();
             jQuery('#bpm_left_widget_window').foundation('reveal', 'open');
-            bpm_acct_mgr({id:'bpm_acct_manager_users'});
+            jQuery('#bpm_acct_manager_users').click();
             jQuery('#bpm_account_manager').show();
 
             break;
@@ -278,6 +285,15 @@ function bpm_open_modal(selected_object) {
 
     bpm_set_url_links();
 
+}
+
+function bpm_set_admin_buttons(){
+    jQuery('#bpm_acct_manager_cart_item').hide();
+    jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+        if (value['cart_qty']) {
+            jQuery('#bpm_acct_manager_cart_item').show();
+        }
+    });
 }
 
 function bpm_add_talat_users(selected_process){
@@ -641,7 +657,7 @@ function bpm_create_quick_doc_target(selected_object){
             this_html = this_html.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left">');
             this_html = this_html.concat(bpm_create_add_page_name(bpm_page_naming[this_id], 1));
             this_html = this_html.concat('</div>');
-            this_html = this_html.concat('</div><br><br>');
+            this_html = this_html.concat('</div>');
 
             //setup send button
             var bpm_quick_doc_buttons = '<br><br><div class="bpm-row full-width">';
@@ -718,7 +734,7 @@ function bpm_make_cust_supplier_list(this_list, list_type, c_or_s){
         //make location list
         jQuery.each(this_list,function(index, value) {
             tag_content = tag_content.concat('<div class="bpm-row full-width">');
-            tag_content = tag_content.concat('  <div class="bpm-small-12 bpm-large-12 bpm-columns"><a class="grid_links url_links bpm_links" href="?pageid=' + value['companyid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['company'] + '">' + value['company'] + '</a></div>');
+            tag_content = tag_content.concat('  <div class="bpm-small-12 bpm-large-12 bpm-columns text-left"><a class="grid_links url_links bpm_links" href="?pageid=' + value['companyid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['company'] + '">' + value['company'] + '</a></div>');
             tag_content = tag_content.concat('</div>');
         });
     }else{
@@ -727,11 +743,11 @@ function bpm_make_cust_supplier_list(this_list, list_type, c_or_s){
         //make contact list
 
         tag_content = tag_content.concat('<div class="bpm-row">');
-        tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns bpm_bold">' + bpm_trans_array['bpm_lng_name'] + '</div>');
-        tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns">' + bpm_trans_array['bpm_lng_company'] + '</div>');
-        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + bpm_trans_array['bpm_lng_title'] + '</div>');
-        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + bpm_trans_array['bpm_lng_phone'] + '</div>');
-        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + bpm_trans_array['bpm_lng_email'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns bpm_bold text-left">' + bpm_trans_array['bpm_lng_name'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns text-left">' + bpm_trans_array['bpm_lng_company'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns text-left" >' + bpm_trans_array['bpm_lng_title'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns text-left" >' + bpm_trans_array['bpm_lng_phone'] + '</div>');
+        tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns text-left" >' + bpm_trans_array['bpm_lng_email'] + '</div>');
         tag_content = tag_content.concat('</div>');
 
         jQuery.each(this_list,function(index, value) {
@@ -744,11 +760,11 @@ function bpm_make_cust_supplier_list(this_list, list_type, c_or_s){
 
             if(value['contactName']) {
                 tag_content = tag_content.concat('<div class="bpm-row">');
-                tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns"><a class="url_links grid_links bpm_links" href="?pageid=' + value['contactid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['contactName'] + '">' + value['contactName'] + '</a></div>');
-                tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns"><a class="url_links grid_links bpm_links" href="?pageid=' + value['parentid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['company'] + '">' + value['company'] + '</a></div>');
-                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + title + '</div>');
-                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + phone + '</div>');
-                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns" >' + email + '</div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns text-left"><a class="url_links grid_links bpm_links" href="?pageid=' + value['contactid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['contactName'] + '">' + value['contactName'] + '</a></div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-3 bpm-large-3 bpm-columns text-left"><a class="url_links grid_links bpm_links" href="?pageid=' + value['parentid'] + '&domain=' + bpm_current_domain + '&action=bpmcontext" title="' + value['company'] + '">' + value['company'] + '</a></div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns text-left" >' + title + '</div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns text-left" >' + phone + '</div>');
+                tag_content = tag_content.concat('  <div class="bpm-small-2 bpm-large-2 bpm-columns text-left" >' + email + '</div>');
                 tag_content = tag_content.concat('</div>');
             }
         });
@@ -976,7 +992,7 @@ function bpm_make_left_report(this_content, report_type){
                 switch (value['wfm_status']) {
                     case '0':
                         bpm_wfm_status = bpm_trans_array['bpm_lng_draft'];
-                        if(value['wfm_current_id'] != bpm_current_user_id) display = 0;
+                        if(value['wfm_current_id'] != bpm_settings['userid']) display = 0;
                         break;
                     case '1':
                         bpm_wfm_status = bpm_trans_array['bpm_lng_open'];
@@ -1039,40 +1055,38 @@ function bpm_hours_am_pm(page_touched) {
 **/
 function bpm_acct_mgr(selected_object){
 
-    var this_html = '';
+    jQuery('#bpm_admin_users_topbar').hide();
+    bpm_settings['acctmgrpage'] = jQuery(selected_object).prop('id');
 
-    switch(jQuery(selected_object).prop('id')){
+    switch(bpm_settings['acctmgrpage']){
         case 'bpm_acct_manager_users':
             bpm_create_user_list();
             return;
             break;
         case 'bpm_acct_manager_features':
-            jQuery('#bpm_admin_users_topbar').hide();
-            this_html = 'features';
+            bpm_display_extension_list(1);
             break;
-        case 'bpm_acct_manager_billing':
-            jQuery('#bpm_admin_users_topbar').hide();
-            this_html = '<form id="checkout" method="post" action=""><div id="dropin"></div><br><button type="submit"  id="bpm_save_pmt">Buy</button></form>';
-            jQuery('#bpm_account_manager_content').html(this_html);
-
-            var new_page_string = '&action=get_payment_info';
-
-            jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', bpm_get_string + new_page_string, function (result) {
-                braintree.setup(result.PAYMENT, 'dropin', {
-                    container: 'dropin',
-                    onPaymentMethodReceived: function (obj) {
-                    }
-                });
-            });
+        case 'bpm_acct_manager_cart':
+            bpm_create_cart();
             return;
             break;
+        case 'bpm_acct_manager_payment':
+            bpm_create_payment();
+            break;
+        case 'bpm_acct_manager_statement':
+            bpm_create_statement_list(1);
+            break;
+        case 'bpm_acct_manager_storage':
+            bpm_create_storage();
+            break;
         case 'bpm_acct_manager_invoices':
-            jQuery('#bpm_admin_users_topbar').hide();
-            this_html = 'invoices';
+            bpm_create_inv_list();
+            break;
+        case 'bpm_acct_manager_login_url':
+            bpm_create_login_url();
             break;
     }
 
-    jQuery('#bpm_account_manager_content').html(this_html);
 
 }
 
@@ -1173,4 +1187,659 @@ function bpm_create_user_list(){
             bpm_set_url_links();
         });
     }
+}
+
+function bpm_add_to_cart(selected_object, add_type){
+
+    var cart_action;
+
+    if(jQuery(selected_object).text()==bpm_trans_array['bpm_lng_remove_from_cart']){
+        cart_action = 'remove_cart';
+    }else{
+        cart_action = 'add_cart';
+    }
+
+    var querystring = bpm_get_string + "&action="+cart_action+"&item_id=" + add_type;
+    jQuery.getJSON('https://'+server+'/api/bpmcontext_wordpress.php?callback=?', querystring, function(result){
+        bpm_settings['acctmgr'] = result['ACCTMGR'];
+        bpm_create_products();
+
+        if(result.TRANSTATUS == 1) {
+            if (jQuery(selected_object).text() == bpm_trans_array['bpm_lng_remove_from_cart']) {
+                jQuery(selected_object).text(bpm_trans_array['bpm_lng_add_to_cart']);
+                jQuery('#bpm_checkout_'+add_type).hide();
+            } else {
+                jQuery(selected_object).text(bpm_trans_array['bpm_lng_remove_from_cart']);
+                jQuery('#bpm_checkout_'+add_type).show();
+            }
+            if(bpm_settings['acctmgrpage'] == 'bpm_acct_manager_cart') bpm_load_admin_page(3);
+            bpm_set_admin_buttons();
+        }
+    });
+
+
+
+
+    //bpm_settings['acctmgr'] =
+
+
+}
+
+function bpm_load_admin_page(page_id){
+    switch(page_id){
+        case 1:
+            jQuery('#bpm_acct_manager_features').click();
+            break;
+        case 2:
+            jQuery('#bpm_acct_manager_statement').click();
+            break;
+        case 3:
+            jQuery('#bpm_acct_manager_cart').click();
+            break;
+        case 4:
+            jQuery('#bpm_acct_manager_storage').click();
+            break;
+    }
+
+}
+
+function bpm_create_storage(){
+
+    var html_line = '';
+//    html_line = html_line.concat('<div class="bpm-row">');
+//    html_line = html_line.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns text-left"><strong>'+bpm_trans_array['bpm_lng_account_storage_message']+'</strong><br><br></div>');
+//    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left">&nbsp;</div>');
+//    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left">'+bpm_trans_array['bpm_lng_account_storage']+':</div>');
+    html_line = html_line.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns text-left">'+ bpm_settings['storagedetails']['avail'] + 'GB of ' + bpm_settings['storagedetails']['storage_limit']+' GB '+bpm_trans_array['bpm_lng_storage_available']+'</div>');
+    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns text-left"><br><strong>'+bpm_trans_array['bpm_lng_account_storage_add_plan_message']+'</strong></div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+
+    html_line = html_line.concat('<br><hr class="bpm_hr_gray"><br>');
+
+    html_line = html_line.concat(bpm_display_extension_list(null, 'Storage'));
+
+    jQuery('#bpm_account_manager_content').html(html_line);
+}
+
+
+function bpm_create_statement_list(){
+
+    var html_line = '';
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left bpm_bold">' + bpm_trans_array['bpm_lng_feature_name'] + '</div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left bpm_bold">' + bpm_trans_array['bpm_lng_next_bill_date'] + '</div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right bpm_bold">' + bpm_trans_array['bpm_lng_next_bill_amount'] + '</div>');
+    html_line = html_line.concat('</div>');
+
+    jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+        if((value['is_installed']=='yes' || value['prod_type']=='Storage') && value['prod_qty'] > 0){
+            var next_bill_amount = value['prod_price'] * value['prod_qty'];
+            var prod_desc = value['prod_desc'];
+            if(bpm_trans_array['bpm_lng_'+value['prod_desc'].replace(/ /g,'_')]) prod_desc = bpm_trans_array['bpm_lng_'+value['prod_desc'].replace(/ /g,'_')];
+            prod_desc = '<a onclick="bpm_display_extension('+value['product_id']+', 2)">'+prod_desc+'</a>';
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left ">' + prod_desc + '</div>');
+            html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left ">' + value['next_bill_date'] + '</div>');
+            html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right ">' + bpm_format_number(next_bill_amount) + '.00</div>');
+            html_line = html_line.concat('</div>');
+        }
+    });
+
+    jQuery('#bpm_account_manager_content').html(html_line);
+//    return html_line;
+}
+
+function bpm_create_cart_list(){
+
+    var html_line = '';
+    var total_amount = 0;
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left bpm_bold">' + bpm_trans_array['bpm_lng_feature_name'] + '</div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right bpm_bold">' + bpm_trans_array['bpm_lng_price'] + '</div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right bpm_bold">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+        if(value['cart_qty']){
+            var next_bill_amount = value['prod_price'] * value['cart_qty'];
+            total_amount = total_amount + next_bill_amount;
+            var prod_desc = value['prod_desc'];
+            if(bpm_trans_array['bpm_lng_'+value['prod_desc'].replace(/ /g,'_')]) prod_desc = bpm_trans_array['bpm_lng_'+value['prod_desc'].replace(/ /g,'_')];
+            prod_desc = '<a onclick="bpm_display_extension('+value['product_id']+',3)">'+prod_desc+'</a>';
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-left ">' + prod_desc + '</div>');
+            html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right ">$' + bpm_format_number(next_bill_amount) + '.00</div>');
+            html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left "><a class="button bpm-small-button" onclick="bpm_add_to_cart(this,' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_remove_from_cart'] + '</a></div>');
+            html_line = html_line.concat('</div>');
+        }
+    });
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-6 bpm-large-6 bpm-columns text-right ">' + bpm_trans_array['bpm_lng_total_to_pay'] + ':</div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right ">$' + bpm_format_number(total_amount) + '.00</div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-left "> US Dollars</div>');
+    html_line = html_line.concat('</div>');
+
+    return html_line;
+}
+
+function bpm_format_number (num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}
+
+
+
+function bpm_create_inv_list(){
+
+    var html_line = '';
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns text-left bpm_bold">' + bpm_trans_array['bpm_lng_invoice_number'] + '</div>');
+    html_line = html_line.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns text-left bpm_bold bpm_no_wrap">' + bpm_trans_array['bpm_lng_invoice_date'] + '</div>');
+    html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right bpm_bold">' + bpm_trans_array['bpm_lng_invoice_amount'] + '</div>');
+    html_line = html_line.concat('</div>');
+
+    jQuery.each(bpm_settings['invoices'], function (index, value) {
+
+        var invoice_link = '<a target="_blank" href="https://bpmtest.bpmcontext.com/openfile_s3.php?d='+bpm_current_domain+'&invoice=' + value['invnumber']+'"><span class="fa fa-file-pdf-o"></span></a>';
+
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns text-left bpm_no_wrap">'+invoice_link+'&nbsp; ' + value['invnumber'] + '</div>');
+        html_line = html_line.concat('<div class="bpm-small-2 bpm-large-2 bpm-columns text-left">' + value['invdate'] + '</div>');
+        html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right">' + value['invamount'] + '</div>');
+        html_line = html_line.concat('</div>');
+    });
+
+    jQuery('#bpm_account_manager_content').html(html_line);
+
+}
+
+function bpm_create_products(){
+
+    var html_line = '';
+
+    jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+
+        var ext_type = 1;
+        if(value['prod_type']=='Storage') ext_type = 4;
+        html_line = html_line.concat('<div id="bpm_extension_'+value['product_id']+'" class="bpm-hide">');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-left"><a onclick="bpm_display_extension('+value['product_id']+','+ext_type+')">'+value['product_name']+'</a></div>');
+        html_line = html_line.concat('</div>');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left"><span class="fa '+value['product_image']+' bpm_product_icon"></span></div>');
+        html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-left">'+value['short_desc']+'</div>');
+        html_line = html_line.concat('</div>');
+        html_line = html_line.concat('</div>');
+
+        html_line = html_line.concat('<div id="bpm_extension_details_'+value['product_id']+'" class="bpm-hide">');
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-left">'+value['long_desc']+'</div>');
+        html_line = html_line.concat('</div>');
+        html_line = html_line.concat('</div>');
+
+    });
+
+    jQuery('#bpm_extension_info').html(html_line);
+
+}
+
+function bpm_reinstall(this_id){
+
+    var querystring = bpm_get_string + "&action=reinstall_templates&product_id=" + this_id;
+
+    jQuery.getJSON('https://'+server+'/api/bpmcontext_wordpress.php?callback=?', querystring, function(result) {
+
+        bpm_create_context_map(result);
+        bpm_settings['acctmgr'] = result['ACCTMGR'];
+        bpm_create_products();
+        bpm_update_dashboard();
+        bpm_load_admin_page(1);
+    });
+}
+
+function bpm_uninstall(this_id){
+
+    var querystring = bpm_get_string + "&action=uninstall_templates&product_id=" + this_id;
+
+    jQuery.getJSON('https://'+server+'/api/bpmcontext_wordpress.php?callback=?', querystring, function(result) {
+
+        bpm_create_context_map(result);
+        bpm_settings['acctmgr'] = result['ACCTMGR'];
+        bpm_create_products();
+        bpm_update_dashboard();
+        bpm_load_admin_page(1);
+    });
+}
+
+function bpm_display_extension_list(this_action, this_type){
+
+    var html_line = '';
+    if(!this_type){
+        this_type = 'Templates';
+    }
+
+    jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+        var extension_content = '';
+        if(jQuery('#bpm_extension_'+value['product_id']).length) {
+            if (value['prod_type'] == this_type) {
+                extension_content = jQuery('#bpm_extension_' + value['product_id']).html();
+
+                html_line = html_line.concat('<div class="bpm-row ">');
+                html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left" >' + extension_content + '</div>');
+                html_line = html_line.concat('</div><br>');
+                if(value['is_installed']=='yes'){
+                    html_line = html_line.concat('<div class="bpm-row">');
+                    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_uninstall('+value['product_id']+')">'+bpm_trans_array['bpm_lng_uninstall']+'</a></div>');
+                    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                    html_line = html_line.concat('</div>');
+                }else{
+                    if(value['reinstall'] == 1 && this_type == 'Templates') {
+                        html_line = html_line.concat('<div class="bpm-row">');
+                        html_line = html_line.concat('<div class="bpm-large-7 bpm-small-7 bpm-columns text-left">'+bpm_trans_array['bpm_lng_reinstall_until']+ ' ' + value['next_bill_date']+'</div>');
+                        html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_reinstall(' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_reinstall'] + '</a></div>');
+                        html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                        html_line = html_line.concat('</div>');
+                    }else if(value['prod_price'] > 0 && value['cart_qty']) {
+                        html_line = html_line.concat('<div class="bpm-row">');
+                        html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left">$' + value['prod_price'] + ' US Dollars billed ' + value['bill_period'] + '</div>');
+                        html_line = html_line.concat('<div class="bpm-large-5 bpm-small-5 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_add_to_cart(this,' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_remove_from_cart'] + '</a>&nbsp;</div>');
+                        html_line = html_line.concat('<div class="bpm-large-2 bpm-small-2 bpm-columns text-right"><div id="bpm_checkout_'+value['product_id']+'" ><a class="button bpm-small-button" onclick="bpm_load_admin_page(3)">' + bpm_trans_array['bpm_lng_checkout'] + '</a></div></div>');
+                        html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                        html_line = html_line.concat('</div>');
+                    }else if(value['prod_price'] > 0) {
+                        html_line = html_line.concat('<div class="bpm-row">');
+                        html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left">$' + value['prod_price'] + ' US Dollars billed ' + value['bill_period'] + '</div>');
+                        html_line = html_line.concat('<div class="bpm-large-5 bpm-small-5 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_add_to_cart(this,' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_add_to_cart'] + '</a></div>');
+                        html_line = html_line.concat('<div class="bpm-large-2 bpm-small-2 bpm-columns text-right"><div id="bpm_checkout_'+value['product_id']+'" class="bpm-hide"><a class="button bpm-small-button" onclick="bpm_load_admin_page(3)">' + bpm_trans_array['bpm_lng_checkout'] + '</a></div></div>');
+                        html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                        html_line = html_line.concat('</div>');
+                    }else{
+                        html_line = html_line.concat('<div class="bpm-row">');
+                        html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_install(' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_install'] + '</a></div>');
+                        html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                        html_line = html_line.concat('</div>');
+                    }
+                }
+                html_line = html_line.concat('<hr class="bpm_hr_gray">');
+            }
+        }
+    });
+
+    if(this_action==1) {
+        jQuery('#bpm_account_manager_content').html(html_line);
+    }else{
+        return html_line;
+    }
+
+}
+
+function bpm_display_extension(extension_id, return_to){
+
+    var html_line = '';
+    html_line = html_line.concat('<div class="bpm-row ">');
+    switch(return_to){
+        case 1:
+            html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left" ><a onclick="bpm_load_admin_page(1)">'+bpm_trans_array['bpm_lng_back_to_extensions']+'</a></div>');
+            break;
+        case 2:
+            html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left" ><a onclick="bpm_load_admin_page(2)">'+bpm_trans_array['bpm_lng_back_to_statement']+'</a></div>');
+            break;
+        case 3:
+            html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left" ><a onclick="bpm_load_admin_page(3)">'+bpm_trans_array['bpm_lng_back_to_cart']+'</a></div>');
+            break;
+        case 4:
+            html_line = html_line.concat('<div class="bpm-small-12 bpm-large-12 bpm-columns text-left" ><a onclick="bpm_load_admin_page(4)">'+bpm_trans_array['bpm_lng_back_to_storage']+'</a></div>');
+            break;
+    }
+
+    html_line = html_line.concat('</div>');
+
+    if(jQuery('#bpm_extension_details_'+extension_id).length)  html_line = html_line.concat(jQuery('#bpm_extension_details_'+extension_id).html());
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-right">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+        if(value['product_id'] == extension_id){
+            if(value['reinstall'] == 1 && return_to == 1) {
+                html_line = html_line.concat('<div class="bpm-row">');
+                html_line = html_line.concat('<div class="bpm-large-7 bpm-small-7 bpm-columns text-left">'+bpm_trans_array['bpm_lng_reinstall_until']+ ' ' + value['next_bill_date']+'</div>');
+                html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_reinstall(' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_reinstall'] + '</a></div>');
+                html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                html_line = html_line.concat('</div>');
+            }else if(value['is_installed']=='yes'){
+                html_line = html_line.concat('<div class="bpm-row">');
+                html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_uninstall('+value['product_id']+')">'+bpm_trans_array['bpm_lng_uninstall']+'</a></div>');
+                html_line = html_line.concat('</div>');
+            }else{
+                if(value['prod_price'] > 0 && value['cart_qty']) {
+                    html_line = html_line.concat('<div class="bpm-row">');
+                    html_line = html_line.concat('<div class="bpm-large-5 bpm-small-5 bpm-columns text-left">$' + value['prod_price'] + ' US Dollars billed ' + value['bill_period'] + '</div>');
+                    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_add_to_cart(this,' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_remove_from_cart'] + '</a></div>');
+                    html_line = html_line.concat('<div class="bpm-large-2 bpm-small-2 bpm-columns text-right"><div id="bpm_checkout_'+value['product_id']+'" ><a class="button bpm-small-button" onclick="bpm_load_admin_page(3)">' + bpm_trans_array['bpm_lng_checkout'] + '</a></div></div>');
+                    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                    html_line = html_line.concat('</div>');
+                }else if(value['prod_price'] > 0) {
+                    html_line = html_line.concat('<div class="bpm-row">');
+                    html_line = html_line.concat('<div class="bpm-large-5 bpm-small-5 bpm-columns text-left">$' + value['prod_price'] + ' US Dollars billed ' + value['bill_period'] + '</div>');
+                    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_add_to_cart(this,' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_add_to_cart'] + '</a></div>');
+                    html_line = html_line.concat('<div class="bpm-large-2 bpm-small-2 bpm-columns text-right"><div id="bpm_checkout_'+value['product_id']+'" class="bpm-hide"><a class="button bpm-small-button" onclick="bpm_load_admin_page(3)">' + bpm_trans_array['bpm_lng_checkout'] + '</a></div></div>');
+                    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                    html_line = html_line.concat('</div>');
+                }else{
+                    html_line = html_line.concat('<div class="bpm-row">');
+                    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-right"><a class="button bpm-small-button" onclick="bpm_install(' + value['product_id'] + ')">' + bpm_trans_array['bpm_lng_add_to_cart'] + '</a></div>');
+                    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+                    html_line = html_line.concat('</div>');
+                }
+            }
+        }
+    });
+
+
+    jQuery('#bpm_account_manager_content').html(html_line);
+}
+
+function bpm_create_cart(display_type){
+    var html_line = '';
+
+    var total_amount = 0;
+    jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+        if(value['cart_qty']){
+            var next_bill_amount = value['prod_price'] * value['cart_qty'];
+            total_amount = total_amount + next_bill_amount;
+        }
+    });
+
+    var total_amount = 0;
+    jQuery.each(bpm_settings['acctmgr'], function (index, value) {
+        if (value['cart_qty']) {
+            var next_bill_amount = value['prod_price'] * value['cart_qty'];
+            total_amount = total_amount + next_bill_amount;
+        }
+    });
+    if(total_amount>0) {
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-left"><strong>' + bpm_trans_array['bpm_lng_review_purchase'] + '</strong><br></div>');
+        html_line = html_line.concat('</div>');
+
+        html_line = html_line.concat('<hr class="bpm_hr_gray">');
+
+        html_line = html_line.concat(bpm_create_cart_list());
+
+        if (display_type == 1) {
+
+            var buy_message = bpm_trans_array['bpm_lng_your_card_will_be_charged'] + ' $' + bpm_format_number(total_amount) + '.00 US Dollars&nbsp;&nbsp;&nbsp;&nbsp;';
+
+            var braintree_message = '<div id="bpm_braintree_message"><a href="https://www.braintreegateway.com/merchants/y63q3b26k33cztnf/verified" target="_blank">';
+            braintree_message = braintree_message.concat('<img src="https://s3.amazonaws.com/braintree-badges/braintree-badge-dark.png" width="164px" height ="44px" border="0"/></a>');
+            braintree_message = braintree_message.concat('</a></div>');
+
+
+            var we_accept = '<span class="fa fa-cc-visa bpm_file_icon"></span>&nbsp;<span class="fa fa-cc-mastercard bpm_file_icon"></span>&nbsp;<span class="fa fa-cc-paypal bpm_file_icon"></span>&nbsp;<span class="fa fa-cc-amex bpm_file_icon"></span>&nbsp;<span class="fa fa-cc-discover bpm_file_icon"></span>&nbsp;<span class="fa fa-cc-jcb bpm_file_icon"></span>';
+
+            html_line = html_line.concat('<br>');
+            html_line = html_line.concat(bpm_create_address_html());
+
+            //credit card failed notice
+            html_line = html_line.concat('<div class="bpm-row bpm-hide" id="bpm_card_failed">');
+            html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left"><div data-alert class="alert-box alert radius">' + bpm_trans_array['bpm_lng_card_declined'] + '</div></div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+
+            html_line = html_line.concat('<div class="bpm-row bpm-hide" id="bpm_card_not_valid">');
+            html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left"><div data-alert class="alert-box alert radius">' + bpm_trans_array['bpm_lng_card_not_valid'] + '</div></div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+
+            html_line = html_line.concat('<br>' + we_accept + '<br><form id="checkout" method="post" action="">');
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left">');
+            html_line = html_line.concat('<div id="bpm_alert_load_cart_form" data-alert class="alert-box success radius bpm-hide">' + bpm_trans_array['bpm_lng_loading_payment_form'] + '</div><div id="dropin"></div>');
+            html_line = html_line.concat('</div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-left">' + braintree_message + '&nbsp;</div>');
+            html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-right">');
+            html_line = html_line.concat('<div id="bpm_alert_processing_form" data-alert class="alert-box success radius bpm-hide">' + bpm_trans_array['bpm_lng_processing_payment_form'] + '</div>' + buy_message + "<button type='submit' style='margin-top:.5em;' class='bpm-small-button' id='bpm_save'>Buy</button>");
+            html_line = html_line.concat('</div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+            html_line = html_line.concat('</form>');
+
+            html_line = html_line.concat('<div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left">');
+            html_line = html_line.concat(bpm_trans_array['bpm_lng_purchase_terms']);
+            html_line = html_line.concat('</div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+        } else {
+            html_line = html_line.concat('<br><br><div class="bpm-row">');
+            html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-right">');
+            html_line = html_line.concat('<a class="button bpm-small-button" onclick="bpm_create_cart(1)">' + bpm_trans_array['bpm_lng_proceed_to_checkout'] + '</a>');
+            html_line = html_line.concat('</div>');
+            html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-right">&nbsp;</div>');
+            html_line = html_line.concat('</div>');
+        }
+    }else{
+        html_line = html_line.concat('<div class="bpm-row">');
+        html_line = html_line.concat('<div class="bpm-large-12 bpm-small-12 bpm-columns text-left"><strong>' + bpm_trans_array['bpm_lng_cart_empty'] + '</strong><br></div>');
+        html_line = html_line.concat('</div>');
+    }
+
+    jQuery('#bpm_account_manager_content').html(html_line);
+
+    jQuery('#bpm_save').click(function() {
+        jQuery('#bpm_card_failed').hide();
+        jQuery('#bpm_braintree_message').hide();
+        jQuery('#bpm_alert_processing_form').show();
+        jQuery('#bpm_save').hide();
+        jQuery('#bpm_card_not_valid').hide();
+    });
+
+    jQuery('#bpm_save').hide();
+
+    if(display_type==1) {
+        jQuery('#bpm_alert_load_cart_form').show();
+        braintree.setup(bpm_payment, 'dropin', {
+            container: 'dropin',
+            onError: function (payload) {
+                jQuery('#bpm_card_not_valid').show();
+                jQuery('#bpm_braintree_message').show();
+                jQuery('#bpm_alert_processing_form').hide();
+                jQuery('#bpm_save').show();
+
+            },
+            onReady: function(){
+                jQuery('#bpm_alert_load_cart_form').hide();
+                jQuery('#bpm_save').show();
+                //jQuery('#bpm_acct_manager_payment_item').show();
+            },
+            onPaymentMethodReceived: function (obj) {
+                bpm_save_address();
+                setTimeout(function() {
+                    bpm_cart_purchased(obj);
+                },500);
+            }
+        });
+    }
+}
+
+function bpm_purchase_confirm(){
+
+    jQuery('#bpm_account_manager_content').html(jQuery('#bpm_thank_you_message').html());
+    jQuery('#bpm_acct_manager_cart_item').hide();
+}
+
+function bpm_cart_purchased(bt_obj){
+
+    var querystring = bpm_get_string + "&action=cart_purchased&braintree_token="+ bt_obj.nonce;
+    jQuery.getJSON('https://'+server+'/api/bpmcontext_wordpress.php?callback=?', querystring, function(result){
+
+        if(result.TRANSTATUS['code']){
+            if(result.TRANSTATUS['code']==1){
+                jQuery('#bpm_card_failed').show();
+                jQuery('#bpm_braintree_message').show();
+                jQuery('#bpm_alert_processing_form').hide();
+                jQuery('#bpm_save').show();
+            }else{
+                bpm_settings['acctmgr'] = result['ACCTMGR'];
+                bpm_create_products();
+                bpm_create_context_map(result);
+                bpm_purchase_confirm();
+                bpm_update_dashboard();
+            }
+        }
+    });
+}
+
+function bpm_save_address(){
+
+    var company = jQuery('#bpm_company_name').val();
+    var address = jQuery('#bpm_company_address').val();
+    var city = jQuery('#bpm_company_city').val();
+    var state = jQuery('#bpm_company_state').val();
+    var postal = jQuery('#bpm_company_postal').val();
+
+    var querystring = bpm_get_string + "&action=update_billing_address&addr_action=update&company_name="+ company +'&street='+address+'&city='+city+'&state='+state+'&postal='+postal;
+    jQuery('#bpm_alert_save_address').show();
+    jQuery.getJSON('https://'+server+'/api/bpmcontext_wordpress.php?callback=?', querystring, function(result) {
+        if(result.BILLINGADDRESS) bpm_settings['BILLINGADDRESS'] = result.BILLINGADDRESS;
+
+        setTimeout(function() {
+            jQuery('#bpm_alert_save_address').hide();
+        },1000);
+    });
+
+}
+
+function bpm_create_address_html(){
+    var html_line = '';
+    var company = '';
+    var address = '';
+    var city = '';
+    var state = '';
+    var postal = '';
+
+    if(bpm_settings['BILLINGADDRESS']['company']) company = bpm_settings['BILLINGADDRESS']['company'];
+    if(bpm_settings['BILLINGADDRESS']['address']) address = bpm_settings['BILLINGADDRESS']['address'];
+    if(bpm_settings['BILLINGADDRESS']['city']) city = bpm_settings['BILLINGADDRESS']['city'];
+    if(bpm_settings['BILLINGADDRESS']['state']) state = bpm_settings['BILLINGADDRESS']['state'];
+    if(bpm_settings['BILLINGADDRESS']['postal']) postal = bpm_settings['BILLINGADDRESS']['postal'];
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left">'+bpm_trans_array['bpm_lng_company_name']+'</div>');
+    html_line = html_line.concat('<div class="bpm-large-7 bpm-small-7 bpm-columns text-left"><input type="text" id="bpm_company_name" value="'+company+'" /></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left">'+bpm_trans_array['bpm_lng_company_street']+'</div>');
+    html_line = html_line.concat('<div class="bpm-large-7 bpm-small-7 bpm-columns text-left"><input type="text" id="bpm_company_address" value="'+address+'" /></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-4 bpm-small-4 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-left"><input type="text" id="bpm_company_city" placeholder="'+bpm_trans_array['bpm_lng_company_city']+'" value="'+city+'" /></div>');
+    html_line = html_line.concat('<div class="bpm-large-2 bpm-small-2 bpm-columns text-left"><input type="text" id="bpm_company_state" placeholder="'+bpm_trans_array['bpm_lng_company_state']+'" value="'+state+'" /></div>');
+    html_line = html_line.concat('<div class="bpm-large-2 bpm-small-2 bpm-columns text-left"><input type="text" id="bpm_company_postal" placeholder="'+bpm_trans_array['bpm_lng_company_postal']+'" value="'+postal+'" /></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    return html_line;
+}
+
+function bpm_create_payment(){
+
+    var html_line = bpm_create_address_html();
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-left"><div id="bpm_alert_save_address" data-alert class="alert-box success radius bpm-hide">'+bpm_trans_array['bpm_lng_saving']+'</div>&nbsp;</div>');
+    html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-right"><a onclick="bpm_save_address();" class="button bpm-small-button" style="text-decoration: none;">'+bpm_trans_array['bpm_lng_save_address']+'</a></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<br><br><form id="checkout" method="post" action="">');
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left">');
+    html_line = html_line.concat('<div id="bpm_alert_load_payment_form" data-alert class="alert-box success radius">'+bpm_trans_array['bpm_lng_loading_payment_form']+'</div><div id="update_dropin"></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+    html_line = html_line.concat('</div>');
+
+    jQuery('#bpm_account_manager_content').html(html_line);
+
+    braintree.setup(bpm_payment, 'dropin', {
+        container: 'update_dropin',
+        onReady: function(){
+            jQuery('#bpm_alert_load_payment_form').hide();
+        },
+        onPaymentMethodReceived: function (obj) {
+            //do nothing
+        }
+    });
+}
+
+function bpm_create_login_url(){
+    var html_line = '';
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left">'+bpm_trans_array['bpm_lng_login_url_message']+'<br><br></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left"><strong>'+bpm_trans_array['bpm_lng_login_url_current']+'</strong></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left">'+bpm_settings['current_login_url']+'<br></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div><br>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left"><strong>'+bpm_trans_array['bpm_lng_login_url_site']+'</strong></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-11 bpm-small-11 bpm-columns text-left">'+bpm_settings['site_login_url']+'<br><br></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+    html_line = html_line.concat('<div class="bpm-row">');
+    html_line = html_line.concat('<div class="bpm-large-8 bpm-small-8 bpm-columns text-left">'+bpm_trans_array['bpm_lng_login_url_update']+'<br></div>');
+    html_line = html_line.concat('<div class="bpm-large-3 bpm-small-3 bpm-columns text-right"><a onclick="bpm_update_url();" class="button bpm-small-button" style="text-decoration: none;">'+bpm_trans_array['bpm_lng_update']+'</a></div>');
+    html_line = html_line.concat('<div class="bpm-large-1 bpm-small-1 bpm-columns text-left">&nbsp;</div>');
+    html_line = html_line.concat('</div>');
+
+
+    jQuery('#bpm_account_manager_content').html(html_line);
+}
+
+function bpm_update_url(){
+
+    var querystring = bpm_get_string + "&action=update_login_url&url=" + bpm_settings['site_login_url'];
+
+    jQuery.getJSON('https://'+server+'/api/bpmcontext_wordpress.php?callback=?', querystring, function(result) {
+        bpm_update_dashboard();
+        jQuery('#bpm_acct_manager_users').click();
+    });
+
 }

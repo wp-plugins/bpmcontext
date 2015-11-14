@@ -1,18 +1,61 @@
 @charset "UTF-8";
 /* CSS Document */
 
+.bpm-home-page-headline{
+    font-size: 2em;
+    margin-bottom:1em;
+}
+
+
+.bpm_image_reveal {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    background-color: rgba(22,22,22,0.5); /* complimenting your modal colors */
+}
+
+.bpm-reveal-modal {
+    position: relative;
+    margin: 0 auto;
+    top: 25%;
+}
+
+.bpm_product_icon{
+    font-size:4em;
+    margin-top:.2em;
+    margin-left:.2em;
+    color:#008cba;
+}
+
+.bpm-small-button{
+    height:1.5em;
+    font-size: 1em;
+    padding-top:0.1em;
+    padding-bottom:0.2em;
+    padding-left:1em;
+    padding-right:1em;
+}
+
 .ui-menu-item{
     text-align: left !important;
     margin-left:.5em !important;
 }
 
+.bpm_hp_time_line{
+    color:gray;
+    font-size:.8em;
+}
+
 .bpm_hr_gray{
-    color:red;
+    color:gray;
     margin-top: 0.1em;
     margin-bottom: 0.1em;
 }
 
-. bpm-wide{
+.bpm-wide{
     border: solid 1px red !important;
 }
 

@@ -20,12 +20,12 @@ function bpm_create_right_side(result) {
 function bpm_create_cust_supp(result) {
     jQuery('#bpm_show_cust_loc').hide();
 
-    if(result.SHOWCUSTMENU==1 && bpm_page_status > 0){
+    if(result.SHOWCUSTBOX==1 && bpm_page_status > 0){
         jQuery('#right_acc_2_title').text(bpm_trans_array['bpm_lng_cust_loc_message_title']);
         jQuery('#right_acc_2').text(bpm_trans_array['bpm_lng_cust_loc_message']);
         jQuery('#bpm_show_cust_loc').show();
     }
-    if(result.SHOWSUPPMENU==1 && bpm_page_status > 0){
+    if(result.SHOWSUPPBOX==1 && bpm_page_status > 0){
         jQuery('#right_acc_2_title').text(bpm_trans_array['bpm_lng_supp_loc_message_title']);
         jQuery('#right_acc_2').text(bpm_trans_array['bpm_lng_supp_loc_message']);
         jQuery('#bpm_show_cust_loc').show();
@@ -90,7 +90,7 @@ function bpm_create_user_page_reveal(){
         var intranet_selected = '';
         if (result.USERDETAILS['user_type'] == 'Administrator') admin_selected = 'selected';
         if (result.USERDETAILS['user_type'] == 'Business User') user_selected = 'selected';
-        if (result.USERDETAILS['user_type'] == 'Intranet User') intranet_selected = 'selected';
+//        if (result.USERDETAILS['user_type'] == 'Intranet User') intranet_selected = 'selected';
 
         if (result.USERDETAILS['user_type']) {
             if ((!admin_selected && !user_selected && !intranet_selected) || bpm_my_page == bpm_pageid ){
@@ -101,7 +101,7 @@ function bpm_create_user_page_reveal(){
                 dd_html = dd_html.concat('<select style="margin-bottom:.3em" class="bpm_profile_dropdown bpm_type_dropdown bpm_profile_editing" type="text" id="bpm_user_pref_edit_3">');
                 dd_html = dd_html.concat('<option value="admin" ' + admin_selected + '>'+bpm_trans_array['bpm_lng_Administrator']+'</option>');
                 dd_html = dd_html.concat('<option value="user" ' + user_selected + '>'+bpm_trans_array['bpm_lng_Business_User']+'</option>');
-                dd_html = dd_html.concat('<option value="intranet" ' + intranet_selected + '>'+bpm_trans_array['bpm_lng_Intranet_User']+'</option>');
+//                dd_html = dd_html.concat('<option value="intranet" ' + intranet_selected + '>'+bpm_trans_array['bpm_lng_Intranet_User']+'</option>');
                 dd_html = dd_html.concat('</select>');
 
                 html_line = html_line.concat('<div class="bpm-row">');
@@ -194,9 +194,9 @@ function bpm_save_user_pref(){
     val_2 = jQuery('#bpm_user_pref_edit_2').val();
     querystring = querystring.concat('&c1[]=' + val_2+ '&gr_id[]=' +val_1);
 
-    if(jQuery('#bpm_user_pref_edit_3'),length) {
+    if(jQuery('#bpm_user_pref_edit_3').length) {
         val_1 = 'user_type';
-        val_2 = jQuery('#bpm_user_pref_edit_3 option:selected').text();
+        val_2 = jQuery('#bpm_user_pref_edit_3 option:selected').val();
         querystring = querystring.concat('&c1[]=' + val_2 + '&gr_id[]=' + val_1);
     }
 
@@ -269,8 +269,8 @@ function bpm_create_tutorial(result){
     var show_now = 0;
     var has_tutorials = 0;
 
-    if(bpm_template_lib){
-        var lookup_array = [0, bpm_template_lib];
+    if(bpm_settings['templatelibid']){
+        var lookup_array = [0, bpm_settings['templatelibid']];
     }else{
         var lookup_array = [0];
     }
@@ -397,7 +397,7 @@ function bpm_create_context_map(result){
                 var root_node = index;
                 i++;
                 html_line = html_line.concat('<tr id="bpm_context_map_branch_' + index + '" data-tt-id="'+index+'">');
-                html_line = html_line.concat('<td style="background-color:white;border-color:white;"  class="bpm_tree_row"><a class="bpm_nodecoration bpm_links" onclick="bpm_open_context_map(' + index + ', 1);">' + value['template_name'] + '</a></td>');
+                html_line = html_line.concat('<td style="background-color:white;border-color:white;" class="bpm_tree_row bpm_no_wrap"><a class="bpm_nodecoration bpm_links bpm_no_wrap" onclick="bpm_open_context_map(' + index + ', 1);">' + value['template_name'] + '</a></td>');
                 html_line = html_line.concat('</tr>');
             }
                 html_line = bpm_add_context_map_child(index, result.CONTEXTMAP, html_line);
@@ -420,7 +420,7 @@ function bpm_add_context_map_child(this_index, this_data, html_line){
         jQuery.each(this_data[this_index]['childs'], function (index, value) {
             bpm_context_map_count++;
             html_line = html_line.concat('<tr id="bpm_context_map_branch_' + index + '" data-tt-id="' + index + '" data-tt-parent-id="' + this_index + '">');
-            html_line = html_line.concat('<td style="background-color:white;border-color:white;" class="bpm_tree_row"><a class="bpm_nodecoration bpm_links" onclick="bpm_open_context_map(' + index + ', 0);">' + value['template_name'] + '</a></td>');
+            html_line = html_line.concat('<td style="background-color:white;border-color:white;" class="bpm_tree_row bpm_no_wrap"><a class="bpm_nodecoration bpm_links bpm_no_wrap" onclick="bpm_open_context_map(' + index + ', 0);">' + value['template_name'] + '</a></td>');
             html_line = html_line.concat('</tr>');
             html_line = bpm_add_context_map_child(index, this_data[this_index]['childs'], html_line);
         });
@@ -451,14 +451,17 @@ function bpm_open_context_map(selected_template, is_root){
 //        this_html = this_html.concat('<a class="bpm_nodecoration side-nav-item" id="bpm_context_map_page_2" onclick="bpm_create_context_map_target(2, ' + selected_template + ');">Create Page</a>');
 //        this_html = this_html.concat('</li>');
     }
+    if(bpm_user_role == 'admin') {
 
-//    this_html = this_html.concat(' <li class="bpm_ul_li">');
-//    this_html = this_html.concat('<a class="bpm_nodecoration side-nav-item" id="bpm_context_map_page_4" onclick="bpm_create_context_map_target(4, ' + selected_template + ');">Routing</a>');
-//    this_html = this_html.concat('</li>');
 
-//    this_html = this_html.concat(' <li class="bpm_ul_li">');
-//    this_html = this_html.concat('<a class="bpm_nodecoration side-nav-item" id="bpm_context_map_page_5" onclick="bpm_create_context_map_target(5, ' + selected_template + ');">Sharing</a>');
-//    this_html = this_html.concat('</li>');
+//        this_html = this_html.concat(' <li class="bpm_ul_li">');
+//        this_html = this_html.concat('<a class="bpm_nodecoration side-nav-item" id="bpm_context_map_page_4" onclick="bpm_create_context_map_target(4, ' + selected_template + ');">Admin - Routing</a>');
+//        this_html = this_html.concat('</li>');
+
+//        this_html = this_html.concat(' <li class="bpm_ul_li">');
+//        this_html = this_html.concat('<a class="bpm_nodecoration side-nav-item" id="bpm_context_map_page_5" onclick="bpm_create_context_map_target(5, ' + selected_template + ');">Admin - Sharing</a>');
+//        this_html = this_html.concat('</li>');
+    }
 
     this_html = this_html.concat('</ul>');
 
@@ -507,7 +510,7 @@ function bpm_create_context_map_target(this_action, this_template){
         case 3:
             //template information
             var querystring = 'domain=' + bpm_current_domain + "&action=get_context_info_page&pageid=" + bpm_pageid + "&templateid=" + this_template;
-
+            console.log(querystring);
             jQuery.getJSON('https://'+server+'/api/bpmcontext_wordpress.php?callback=?', querystring, function(result){
 
                 if(result.PAGEINFO) {
@@ -520,11 +523,12 @@ function bpm_create_context_map_target(this_action, this_template){
             break;
         case 4:
             //routing info
+            jQuery('#bpm_context_map_target').html('routing info');
 
             break;
         case 5:
             //sharing info
-
+            jQuery('#bpm_context_map_target').html('sharing info');
             break;
     }
 
@@ -559,8 +563,8 @@ function bpm_create_change_log(result){
                 }
             }
 
-            var date_parts = value['changed_time'].split(' ');
-            date_parts = date_parts[0].split('-');
+            var date_part = value['changed_time'].split(' ');
+            var date_parts = date_part[0].split('-');
             var updated_on = date_parts[1] + '/' + date_parts[2] + '/' + date_parts[0];
 
             html_line = html_line.concat('<div class="bpm-row">');
@@ -621,8 +625,8 @@ function bpm_create_sharing(result){
             }
 
             html_line = html_line.concat('<div class="bpm-row">');
-            html_line = html_line.concat('<div class="bpm-small-8 bpm-large-8 bpm-columns bpm_text_medium"><a href="?pageid=' + value['uad_user_page_id'] + '&action=bpmcontext" class="url_links bpm_links">' + value['real_name'] + '</a></div>');
-            html_line = html_line.concat('<div class="bpm-small-4 bpm-large-4 bpm-columns text-center bpm_text_medium">'+ this_status +'</div>');
+            html_line = html_line.concat('<div class="bpm-small-7 bpm-large-7 bpm-columns bpm_text_medium"><a href="?pageid=' + value['uad_user_page_id'] + '&action=bpmcontext" class="url_links bpm_links">' + value['real_name'] + '</a></div>');
+            html_line = html_line.concat('<div class="bpm-small-5 bpm-large-5 bpm-columns text-left bpm_text_medium">'+ this_status +'</div>');
             html_line = html_line.concat('</div>');
         });
 
@@ -686,7 +690,7 @@ function bpm_create_subscribers(result) {
         jQuery.each(result.SUBSCRIBERS,function(index, value) {
             var read_in = 'fi-minus';
             if(value['viewed']==0 && bpm_page_status > 0) read_in = 'fi-check bpm-green';
-            if(value['user_index']==bpm_current_user_id) read_in = 'fi-check bpm-green';
+            if(value['user_index']==bpm_settings['userid']) read_in = 'fi-check bpm-green';
             html_line = html_line.concat('<div class="bpm-row">');
             html_line = html_line.concat('<div class="bpm-small-9 bpm-large-9 bpm-columns bpm_text_medium">' + value['real_name'] + '</div>');
             html_line = html_line.concat('<div class="bpm-small-3 bpm-large-3 bpm-columns text-right bpm_text_medium '+read_in+'"></div>');
@@ -968,6 +972,7 @@ function bpm_create_infobox_reveal(){
 
 function bpm_save_infobox(){
 
+    jQuery('#bpm_user_infobox_save_message').show();
     var trans_string = '&action=save_infobox';
 
     jQuery.each(bpm_infobox_data, function(index, value) {
@@ -996,6 +1001,7 @@ function bpm_save_infobox(){
 
     jQuery.getJSON('https://' + server + '/api/bpmcontext_wordpress.php?callback=?', bpm_get_string + trans_string, function (result) {
         if(result){
+
             bpm_dashboard[5] = [];
             if(result.TRANSTATUS) {
                 if(result.TRANSTATUS['reloadpage']) {
@@ -1007,6 +1013,7 @@ function bpm_save_infobox(){
                 bpm_update_dashboard();
             }
         }
+        jQuery('#bpm_user_infobox_save_message').hide();
         jQuery('#bpm_edit_infobox').foundation('reveal', 'close');
     });
 }

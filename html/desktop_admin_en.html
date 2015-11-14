@@ -34,32 +34,13 @@
                             <div class="large-12 small-12 columns ">The BPMContext Intranet plugin works in coordination with the BPMContext Intranet, Extranet and Workflow service.  To use this plugin you need to have an account on BPMContext.  The Intranet Lite version is free and includes 1GB of data storage.<br><br></div>
                         </div>
                         <div class="row">
-                            <div class="large-12 small-12 columns ">Your Name:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_real_name"  placeholder="e.g: Bob Smith"></div>
-                        </div>
-                        <div class="row">
-                            <div class="large-12 small-12 columns ">Your Company Name:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_company_name"  placeholder="e.g: My Really Cool Company"></div>
-                        </div>
-                        <div class="row">
                             <div class="large-12 small-12 columns ">Your Email Address:&nbsp;<br><input type="text" class="bpm_new_account_field" id="bpm_new_account_email"  placeholder="e.g: Bob.Smith@mycoolcompany.com"></div>
-                        </div>
-                        <div class="row">
-                            <div class="large-12 small-12 columns ">Password:&nbsp;<br><div id="bpm_new_acct_password_html"><input id="bpm_password_field" class="bpm_new_account_field" type="password" /></div></div>
                         </div>
                         <div class="row">
                             <div class="large-12 small-12 columns "><br></div>
                         </div>
                         <div class="row" id="bpm_page_loading_new_acct_button" >
-                            <div class="large-12 small-12 columns text-right"><input id="submit" class="button button-primary" value="Create Free Account" name="submit" onclick="bpm_create_account_process('admin');"></div>
-                        </div>
-                        <div class="row">
-                            <div class="large-12 small-12 columns">
-                                <div data-alert class="alert-box alert radius" id="bpm_new_acct_error_alert" style="display:none;">Your Name cannot match the Company Name.  Please re-enter.</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="large-12 small-12 columns">
-                                <div data-alert class="alert-box success radius" id="bpm_page_loading_new_acct_alert" style="display:none;">Creating account...</div>
-                            </div>
+                            <div class="large-12 small-12 columns text-right"><input id="submit" class="button button-primary" value="Create Free Account" name="submit" onclick="bpm_create_account();"></div>
                         </div>
                     </form>
                 </div>
@@ -67,7 +48,6 @@
         </ul>
     </div>
     <div class="large-4 columns">
-
         <ul class="accordion" data-accordion>
             <li class="accordion-navigation">
                 <a >Support</a>
